@@ -1,0 +1,9 @@
+Heap sort transforms an array into a heap structure.
+
+It repeatedly extracts the maximum element from the heap.
+
+The extracted elements are placed at the end of the array.
+
+This process continues until the heap is empty.
+
+The result is a sorted array in ascending order.
