@@ -1,19 +1,19 @@
 #include<stdio.h>
 
-int printArray(int arr[], int n,int i)
-{
-	if(n == i)
-	{
-		return 0;
-	}
-	printf("%d\n",arr[i]);
-	 printArray(arr, n , i+1);
-}
 int main()
 {
-   int arr[] = { 2, 14,88,34,20,45};
-   int size = sizeof(arr)/sizeof(arr[0]);
+	int n[10];
+	int i,j;
 
-   printf("Array Elements:");
-   printArray(arr, size,0);
+	for( i = 0; i < 10; i++)
+	{
+		n[ i ] = i+ 100;
+	}
+
+	for( j = 0; j < 10; j++)
+	{
+		printf("Element[%d] = %d\n", j, n[j] );
+	}
+
+	return 0;
 }
