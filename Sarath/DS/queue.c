@@ -8,15 +8,20 @@ struct node
 struct node *head=NULL;
 void enqueue(int data)
 {
-    struct node*ptr=malloc(sizeof(struct node));
-    ptr->data=data;
+	struct node*temp=malloc(sizeof(struct node));
+    struct node *ptr=head;
+    temp->data=data;
     if(head==NULL)
     {
-        head=ptr;
+        head=temp;
         return;
     }
-    ptr->next=head;
-    head=ptr;
+    while(ptr->next!=NULL)
+    {
+        ptr=ptr->next;
+    }
+    ptr->next=temp;
+    temp->next=NULL;
 }
 int dequeue()
 {
