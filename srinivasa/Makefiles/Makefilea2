@@ -1,0 +1,11 @@
+CC=gcc
+FLAGS=-I.
+DEVP=1.h
+OBJ=1make.o 1.o
+%.o: %.c $(DEVP)
+	$(CC) -c -o $@ $< $(FLAGS)
+
+run3:$(OBJ)
+	$(CC) -o $@ $^ $(FLAGS)
+
+

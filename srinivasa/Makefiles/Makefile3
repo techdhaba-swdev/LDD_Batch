@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGES=-I.
+hellomake: test.o print.o
+	$(CC) -o hellomake.o hellofunc.o $(CFLAGES)
+
