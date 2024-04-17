@@ -1,0 +1,21 @@
+//STATIC LIBRARY
+
+$ vim linklist.c
+$ vim linklist.h
+$ vim main.c
+$ gcc -c main.c -o main.o
+$ gcc -c linklist.c -o linklist.o
+$ ar rcs mylibrary2.a linklist.o
+
+$ gcc -o main main.o -L. -l:mylibrary2.a -I.
+$ ./main
+
+//DYNAMIC LIBRARY
+
+$ gcc -c -FPIC linklist.c main.c
+$ gcc -shared -o mylibrary2.so linklist.c main.c
+$  gcc main.c -o exe1 -L. -l:my_library2.a
+
+$  gcc main.c -o exe1 -L. -l:mylibrary2.a
+$ ./exe1
+
