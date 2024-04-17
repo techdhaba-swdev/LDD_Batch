@@ -1,0 +1,2 @@
+add: add.c addout.c
+	gcc -o add add.c addout.c -I.
