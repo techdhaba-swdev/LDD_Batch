@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS = test.h
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+testmain: testmain.o test.o
+	$(CC) -o testmain testmain.c test.c

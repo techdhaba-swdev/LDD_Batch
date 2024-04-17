@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+
+print: print.c printmain.c
+	$(CC) -o print print.c printmain.c $(CFLAGS)

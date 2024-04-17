@@ -1,0 +1,2 @@
+print: print.c printmain.c
+	gcc -o print print.c printmain.c -I.

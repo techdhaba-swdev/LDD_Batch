@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+
+testmain: testmain.o test.o
+	$(CC) -o testmain testmain.o test.o 

@@ -1,0 +1,10 @@
+CC=gcc
+CFLAGS=-I.
+DEPS = print.h
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+print: printmain.o print.o
+	$(CC) -o print printmain.o print.o
+
