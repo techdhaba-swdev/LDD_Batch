@@ -1,0 +1,10 @@
+CC=gcc
+CFLAGS=-I.
+DEPS = test.h
+OBJ = testmain.o test.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+testmain: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
