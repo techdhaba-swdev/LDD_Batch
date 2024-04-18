@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS = sum.h
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+sum: sum.o main.o
+	$(CC) -o sum sum.o main.o

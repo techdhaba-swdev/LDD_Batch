@@ -1,0 +1,73 @@
+COMMANDS FOR SINGLY LINKED LIST
+--------------------------------
+
+STATIC LINKING:
+---------------
+  
+	  vim main.c
+	  vim linklist.c
+	  vim linklist.h
+	  
+	  gcc -c main.c -o main.o
+	  gcc -c linklist.c -o linklist.o
+	  
+	  ar rcs libmy_library.a linklist.o
+	  gcc main.o -o my_exe -L. -lmy_library
+	  
+	  ./my_exe
+	  
+  ------------------------------------------
+  
+DYNAMIC LINKING:
+------------------
+
+	gcc -c -fPIC linklist.c main.c
+	gcc -shared -o my_library.so linklist.o main.o
+	gcc main.o -o my_program -L. -lmy_library
+	./my_program
+  
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+
+COMMANDS FOR DOUBLY LINKED LIST
+--------------------------------
+
+STATIC LINKING:
+--------------
+	vim main.c
+	vim dllist.c
+	vim dllist.h
+	
+	gcc -c dllist.c -o dllist.o
+	gcc -c main.c -o main.o
+	
+	
+	ar rcs libmy_library.a dllist.o
+	gcc main.o -o my_exe -L. -lmy_library
+	./my_exe
+	
+----------------------------------------------------------
+
+DYNAMIC LINKING"
+-----------------
+
+	gcc -c -fPIC dllist.c main.c
+	gcc -shared -o my_library.so dllist.o main.o
+	gcc main.o -o my_program -L. -lmy_library
+	./my_program
+	
+-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
