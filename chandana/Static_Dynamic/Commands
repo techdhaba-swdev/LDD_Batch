@@ -1,0 +1,37 @@
+Commands used to make the static and dynamic link library for Single linked list:
+files : linklist.c
+        linklist.h
+        main.c
+complie using:
+gcc -c linklist.c -o linklist.o
+gcc -c main.c -o main.o
+
+Static command:
+ar rcs libMY_library.a linklist.o
+gcc main.o -o execute -L. -lMY_library
+./execute
+
+Dynamic command:
+gcc -c -fPIC linklist.c main.c
+gcc -shared -o MY_library.so linklist.o main.o
+gcc main.o -o program -L. -lMY_library
+./program
+
+Commands used to Double linked list :
+files: doublelink.c
+       doublelink.h
+       doublemain.c
+complie using:
+gcc -c doublelink.c -o doublelink.o
+gcc -c doublemain.c -o doublelink.o
+
+static command:
+ar rcs libMy_library.a doublelink.o
+gcc doublemain.o -o exe -L. -lMy_library
+./exe
+
+Dynamic command:
+gcc -c -fPIC doublelink.c doublemain.c
+gcc -shared -o My_library.so doublelink.o doublemain.o
+gcc doublemain.o -o prog -L. -lMy_library
+./prog

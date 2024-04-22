@@ -1,0 +1,2 @@
+print: main.c pract.c
+	gcc -o print main.c pract.c -I.

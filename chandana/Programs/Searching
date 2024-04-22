@@ -1,0 +1,17 @@
+*linear Search:
+-> Simple search algorithm that sequentialy checks each element in a list a match is found or the whole list has been searched.
+
+Time complexity: o(n).
+
+*Binary Search:
+->Requires a sorted array.
+->Divides the array in half repeatedly to narrow down the search range.
+
+Time Complexity: o(log n) 
+
+*Jump Search
+->Works on sorted arrays.
+->Jumps ahead by fixed steps and then performs a linear search within a "block" to find the target element
+Time Complexity : O(sqrt n)
+
+

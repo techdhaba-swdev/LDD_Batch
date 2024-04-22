@@ -1,0 +1,26 @@
+convert array into max heap. This invovles rearranging th elements of the array so that the largest element is at root. and each subtree is a max heap.
+
+* compares the node with its left and right children and swaps it with the largest hild if necessary,recursively.
+
+first function is to swap the values.
+
+arr{3,2,5,6,1,4}
+
+build max heap ;
+heapify from right to left:
+{6,3,5,2,1,4}
+swap with index0 with index5
+{4,3,5,2,1,6} ->{5,3,4,2,1,6}
+swap index0 with index 4
+{5,3,4,2,1,6} ->{1,3,4,2,5,6}
+swap index0 with index3 reheapify the root
+{1,3,4,2,5,6}->{4,3,1,2,5,6}
+swap index0 with index 3
+{4,3,1,2,5,6}->{3,1,2,4,5,6}
+swap index 0 with index 2
+{3,1,2,4,5,6}->{2,1,3,4,5,6}
+swap index 0 with index1
+{2,1,3,4,5,6}->{1,2,3,4,5,6}
+
+we need to re heapify the arr after each swap in Heap Sort.
+when we swap the root of the heap with the last element of the heap,we violate the heap property because the new root may not be greater then its childern.

@@ -1,0 +1,7 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=pract.h
+%.o:%.c $(DEPS) 
+	$(CC) -c -o $@ $< $(CFLAGS)
+print1:main.o  pract.o
+	$(CC) -o print1 main.o pract.o
