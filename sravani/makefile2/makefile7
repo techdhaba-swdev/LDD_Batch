@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=add.h
+OBJ = add.o addmain.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+testadd:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

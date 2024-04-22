@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+
+hellomake: print.o print.o
+	$(CC) -o hellomake print.o print.o $(CFLAGS)
