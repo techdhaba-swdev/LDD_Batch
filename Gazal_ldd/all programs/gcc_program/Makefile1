@@ -1,0 +1,8 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=add.h
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+addMake: add.o add_main.o 
+	$(CC) -o addMake add.o add_main.o
