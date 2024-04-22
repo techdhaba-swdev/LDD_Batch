@@ -1,0 +1,28 @@
+There are two types of libraries we can create 
+1)Static libraries
+2)Dynamic libraries
+
+Static libraries are ".a" files in Linux and Dynamic libraries are ".so" files nothing but 'shared object' files.
+There are some commands to create static and dynamic libraries.They are as follows:
+
+**Static Library commands:
+
+  		gcc -c filename.c -o filename.o  //Compiling file and creating object file
+		ar rcs filename.a filename.o    //created a static library
+
+Now the static library is ready to use so we have to use it.we have to create another .c file and create an object file for it too.
+now you have to link all by 
+
+	  gcc -o Executable_filename anotherfile.o -L. filename.a  //It links the library 
+
+Now for output you have to give " ./Executable_filename "
+
+**Dynamic Library commands: 
+
+This also created by some commands as static library.As follows
+
+       	  gcc -c -fPIC source_file1.c source_file2.c
+	  gcc -shared -o my_library.so source_file1.o source_file2.o  //creates dynamic library(shared object file)
+	  gcc main_program.c -o my_executable -L. my_library.so
+
+For output type command " ./my_executable "
