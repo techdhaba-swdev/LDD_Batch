@@ -1,0 +1,2 @@
+void myprintHelloMake(void);
+
