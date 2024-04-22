@@ -1,0 +1,3 @@
+Linux is a open source operating system developed by Linus Torvaldsin 1991. It was inspired by the UNIX operating system. And linux got famous because of its stability, security and flexibility.
+
+The philosophy of Linux is all around the principles of open source, collaboration, community driven development and freedom. And with this reason Linux is most successful and influential open source projects in history.

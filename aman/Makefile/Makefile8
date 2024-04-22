@@ -1,0 +1,8 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=helloaman.h
+OBJ=helloaman.o hellomain.o
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+helloaman:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

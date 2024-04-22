@@ -1,0 +1,2 @@
+helloaman: helloaman.c hellomain.c
+	gcc -o helloaman helloaman.c hellomain.c -I.
