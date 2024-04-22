@@ -1,3 +1,4 @@
+// -- coding: utf-8 --
 #ifndef LIST_H
 #define LIST_H
 
