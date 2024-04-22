@@ -1,0 +1,11 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=add.h
+OBJ=add.o addition.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+testaddition: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+

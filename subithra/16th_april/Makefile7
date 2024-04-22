@@ -1,0 +1,2 @@
+test_add: add.c addition.c
+	gcc -o test_add add.c addition.c -I.
