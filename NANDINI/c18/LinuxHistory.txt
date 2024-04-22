@@ -1,0 +1,1 @@
+linux is introduced in 1991 by a torvalds linux under gnu.
