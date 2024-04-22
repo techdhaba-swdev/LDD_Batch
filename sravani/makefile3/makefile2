@@ -1,0 +1,10 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=1.h
+OBJ=1.o 1main.o
+
+%.o: %.c $(DEPS)
+    	 $(CC) -c -o $@ $< $(CFLAGS)
+greet:$(OBJ)
+         $(CC) -o $@ $^ $(CFLAGS)
+
