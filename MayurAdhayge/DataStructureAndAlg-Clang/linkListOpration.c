@@ -2,6 +2,10 @@
 #include<stdlib.h>
 void printLinkList();
 void insert(int data);
+<<<<<<< HEAD
+=======
+void deleteNode(int data);
+>>>>>>> main
 struct node* addNode(int data);
 
 struct node *root;
@@ -46,6 +50,37 @@ tmpRoot->next=addNode(data);
 
 }
 
+<<<<<<< HEAD
+=======
+void deleteNode(int data)
+{
+
+struct node *tmpRoot=root;
+struct node *tmpDelete;
+
+while(1)
+{
+ tmpDelete=tmpRoot;
+ tmpRoot=tmpRoot->next;
+if (tmpRoot->data == data){
+tmpDelete->next=tmpRoot->next;
+
+free(tmpRoot);
+break;
+}
+ 
+}
+if (tmpRoot->data == data){
+printf("deletion done");
+}
+else
+{
+printf("data not found");
+
+}
+}
+
+>>>>>>> main
 int main()
 {
 
@@ -54,6 +89,11 @@ root=addNode(1);
 root->next= addNode(2);
 root->next->next= addNode(3);
 appendNode(9);
+<<<<<<< HEAD
+=======
+printLinkList();
+deleteNode(2);
+>>>>>>> main
 
 printLinkList();
 return 0;
