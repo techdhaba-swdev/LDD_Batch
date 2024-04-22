@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+#include <dlfcn.h>
+ 
+int main() {
+
+    // Load the shared library
+
+    void *lib_handle = dlopen("./libcalculator.so", RTLD_LAZY);
+
+    if (!lib_handle) {
+
+        fprintf(stderr, "Error: %s\n", dlerror());
+
+        return 1;
+
+    }
+ 
+    // Get a pointer to the function
+
+    int (*calcul_dynamic)(int ,int) = dlsym(lib_handle, "calcul_dynamic");
+
+    if (!calcul_dynamic) {
+
+        fprintf(stderr, "Error: %s\n", dlerror());
+
+        dlclose(lib_handle);
+
+        return 1;
+
+    }
+ 
+    // Call the function
+
+    calcul_dynamic(22,5);
+ 
+    // Close the library
+
+    dlclose(lib_handle);
+ 
+    return 0;
+
+}
+
