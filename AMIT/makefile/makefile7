@@ -1,0 +1,2 @@
+evenodd: 1.c f1.c 
+	gcc -o evenodd 1.c f1.c -I.

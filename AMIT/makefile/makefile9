@@ -1,0 +1,10 @@
+CC=gcc
+CFLAGS=-I.
+DEPS= evenodd.h
+OBJ= 1.o f1.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+evenodd3: $(OBJ)
+	  $(CC) -o $@ $^ $(CFLAGS)
