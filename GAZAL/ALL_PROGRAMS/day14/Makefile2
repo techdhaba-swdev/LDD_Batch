@@ -1,0 +1,10 @@
+CC=gcc
+CFLAGS=-I
+DEPS = add.h
+OBJ = add_main.o add.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@
+	$< $(CFAGS)
+addMake2: $(OBJ)
+	$(CC) -o addMake2 $(OBJ) 
