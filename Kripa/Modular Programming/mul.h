@@ -1,0 +1,2 @@
+int mul(int, int);
+

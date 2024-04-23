@@ -1,0 +1,2 @@
+int div(int, int);
+
