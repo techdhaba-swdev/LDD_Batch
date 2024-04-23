@@ -1,44 +1,26 @@
-#include<stdio.h>
+#include <stdlib.h>
 #include <pthread.h>
-#define MAX_SIZE 5
-pthread_mutex_t lock;
-pthread_cond_t notFull, notEmpty;
-int count;
-
-void producer(char* buf){
-	for(;;){
-		pthread_mutex_lock(&lock);
-		while(count == MAX_SIZE)
-			pthread_cond_wait(&notFull,&lock);
-		buf[count] = getchar();
-		count++;
-		pthread_cond_signal(&notEmpty);
-		pthread_mutex_unlock(&lock);
+#include<stdio.h>
+void *functionC();
+pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
+int counter = 0;
+int main()
+{
+	int re1, re2;
+	pthread_t thread1, thread2;
+	 
+	if( (re1=pthread_create( &thread1, NULL, &functionC, NULL)) ){
+		printf("Thread creation failed: %d\n", re1);
 	}
-}
-void consumer(char* buf){
-        for(;;){
-                pthread_mutex_lock(&lock);
-                while(count == 0)
-                        pthread_cond_wait(&notEmpty,&lock);
-                putchar(buf[count-1]);
-                count--;
-                pthread_cond_signal(&notFull);
-                pthread_mutex_unlock(&lock);
+	if( (re2=pthread_create(&thread2, NULL, &functionC, NULL)) ){
+                printf("Thread creation failed: %d\n", re2);
         }
+
+	pthread_join(thread1, NULL);
+	pthread_join(thread2, NULL);
+	exit(0);
 }
-int main(){
-	char buffer[MAX_SIZE];
-	pthread_t p;
-	count = 0;
-	pthread_mutex_init(&lock, NULL);
-	pthread_cond_init(&notFull, NULL);
-        pthread_cond_init(&notEmpty,NULL);
-	pthread_create(&p,NULL,(void*)producer, &buffer);
-	consumer(buffer);
-	return 0;
+void *functionC(){
+	counter++;
+	printf("counter value :%d\n",counter);
 }
-
-
-
-

@@ -1,36 +1,16 @@
 #include <stdio.h>
 #include <pthread.h>
 
-#define MAX_SIZE 5
-pthread_mutex_t bufLock;
-int count;
-
-void producer(char* buf){
-	for(;;){
-		while(count == MAX_SIZE);
-		pthread_mutex_lock(&bufLock);
-		buf[count] = getchar();
-		count++;
-		pthread_mutex_unlock(&bufLock);
-	}
+void printMsg(char* msg){
+	printf("%s\n",msg);
 }
-void consumer(char* buf){
-        for(;;){
-                while(count == 0);
-                pthread_mutex_lock(&bufLock);
-                putchar(buf[count-1]);
-
-                count--;
-                pthread_mutex_unlock(&bufLock);
-        }
-}
-int main(){
-char buffer[MAX_SIZE];
-pthread_t p;
-count =0;
-pthread_mutex_init(&bufLock,NULL);
-pthread_create(&p, NULL, (void*)producer,&buffer);
-consumer(buffer);
-return 0;
-}
-
+int main(int argc, char** argv)
+{
+	pthread_t thrdID;
+	printf("creating a new thread\n");
+	pthread_create(&thrdID, NULL, (void*)printMsg, "hellllo");
+        printf("created thread %ld\n",thrdID);
+        pthread_join(thrdID, NULL);
+        return 0;
+} 
+		
