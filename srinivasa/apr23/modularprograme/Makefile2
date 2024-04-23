@@ -1,0 +1,4 @@
+CC=gcc
+CFLAGS=-I.
+make2:main.o add.o sub.o
+	$(CC) -o make2 main.o add.o sub.o $(CFLAGS)

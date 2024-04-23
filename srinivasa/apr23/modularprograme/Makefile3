@@ -1,0 +1,4 @@
+CC=gcc
+CFLAGS=-I.
+make3:main1.o add1.o sub1.o mul1.o div1.o
+	$(CC) -o make3 main1.o add1.o sub1.o mul1.o div1.o $(CFLAGS)

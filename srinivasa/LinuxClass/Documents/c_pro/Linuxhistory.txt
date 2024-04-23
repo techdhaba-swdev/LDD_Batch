@@ -1,0 +1,1 @@
+linux began in 1991 as a personal project by finnish student linus to create a new free operating system kernal
