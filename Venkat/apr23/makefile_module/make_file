@@ -1,0 +1,2 @@
+exe:add.c sub.c main.c
+        gcc -o exe add.c sub.c main.c -I.
