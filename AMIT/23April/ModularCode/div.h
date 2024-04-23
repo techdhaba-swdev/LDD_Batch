@@ -1,0 +1,2 @@
+ int divide(int ,int );
+
