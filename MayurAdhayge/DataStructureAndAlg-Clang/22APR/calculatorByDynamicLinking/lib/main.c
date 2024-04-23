@@ -2,7 +2,7 @@
 #include<dlfcn.h>
 void main(){
 
-
+//gcc -shared -fPIC -o exmaple.so div.c add.c 
 void* lib= dlopen("./example.so",RTLD_LAZY);
 if (!lib){
 fprintf(stderr,"%s",dlerror());

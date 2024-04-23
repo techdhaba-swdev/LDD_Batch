@@ -12,7 +12,8 @@ int main()
        status=status | 1<<i;   
       }
     }
-    
+    printf("%d",status);
+
     for(int j=0;j<8;j++)
     {
         if( status & 1<<j)
