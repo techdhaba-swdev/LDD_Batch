@@ -1,0 +1,27 @@
+
+#include "test.c"
+int main(){
+        void *handle;
+        Module module;
+        RegisterFunc register_func;
+
+        handle = dlopen("./test.so", RTLD_NOW | RTLD_GLOBAL);
+	if(!handle){
+		fprintf(stderr, "Error: %s\n", dlerror());
+		return 1;
+	}
+	register_func=(RegisterFunc)dlsym(handle, "register_module");
+	if(!register_func){
+		fprintf(stderr, "Error: %s\n", dlerror());
+		dlclose(handle);
+		return 1;
+	}
+	register_func();
+	module.callback_func = callback_function;
+	module.callback_func(42);
+	if(dlclose(handle) != 0){
+		fprintf(stderr, "Error: %s\n", dlerror());
+		return 1;
+	}
+	return 0;
+}
