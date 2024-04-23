@@ -5,7 +5,7 @@
 int main() {
 
     // Open the shared object file
-    void* libHandle = dlopen("./example.so", RTLD_LAZY);
+    void* libHandle = dlopen("./example.so", RTLD_NOW);
     if (!libHandle) {
         fprintf(stderr, "Error: %s\n", dlerror());
         return 1;
