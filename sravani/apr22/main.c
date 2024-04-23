@@ -2,7 +2,7 @@
 #include <dlfcn.h>
 int main() {
     // Load the shared library
-    void *lib_handle = dlopen("./libexample.so", RTLD_LAZY);
+    void *lib_handle = dlopen("./example.so", RTLD_NOW);
     if (!lib_handle) {
         fprintf(stderr, "Error: %s\n", dlerror());
         return 1;

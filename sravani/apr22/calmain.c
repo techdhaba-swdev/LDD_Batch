@@ -12,7 +12,6 @@ int main(){
 	double (*div)(double,double)=dlsym(lib_handle,"div");
 	
 	double n1=10, n2=5;
-
 	printf("add:%.2f\n",add(n1,n2));
 	printf("sub:%.2f\n",sub(n1,n2));
 	printf("mul:%.2f\n",mul(n1,n2));
