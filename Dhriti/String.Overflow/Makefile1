@@ -1,0 +1,15 @@
+CC = gcc
+CFLAGS = -I.
+
+DEPS = stack1.h
+
+OBJ = stack1.o main1.o
+
+
+%.o : %.c $(DEPS)
+        $(CC) -c -o $@ $< $(CFLAGS)
+
+my_print : $(OBJ)
+        $(CC) -o $@ $^ $(CFLAGS)
+~                                                                                                                                            
+~                          

@@ -1,0 +1,14 @@
+CC = gcc
+CFLAGS = -I.
+
+DEPS = stringmain.h
+
+OBJ = sting.o stringmain.o
+
+
+%.o : %.c $(DEPS)
+        $(CC) -c -o $@ $< $(CFLAGS)
+
+my_print : $(OBJ)
+        $(CC) -o $@ $^ $(CFLAGS)
+~                               
