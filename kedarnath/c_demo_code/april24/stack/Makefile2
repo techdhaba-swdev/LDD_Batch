@@ -1,0 +1,2 @@
+main2: main2.c sort_strings.c
+	gcc -o main2 main2.c sort_strings.c
