@@ -1,0 +1,7 @@
+CC = gcc
+
+CFLAGS = -I.
+
+DEPS = push.h pop.h empty.h full.h stack1.h
+
+OBJ = push.o pop.o 
