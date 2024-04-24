@@ -1,0 +1,2 @@
+stringexe: string.c stringmain.c 
+	gcc -o stringexe string.c stringmain.c -I.

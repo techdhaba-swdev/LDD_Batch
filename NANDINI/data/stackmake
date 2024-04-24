@@ -1,0 +1,5 @@
+stackexe: stack.c stkmain.c
+        gcc -o stackexe stack.c stkmain.c -I.
+
+
+
