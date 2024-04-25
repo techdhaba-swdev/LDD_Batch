@@ -1,0 +1,2 @@
+hellostack3: stack3.c stack3main.c
+	gcc -o hellostack3 stack3.o stack3main.o

@@ -1,0 +1,2 @@
+hellostring4:  string4.c string4main.c
+	gcc -o hellostring4 string4.o string4main.o
