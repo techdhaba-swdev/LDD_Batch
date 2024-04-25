@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=string2.h
+OBJ= strings.o readstring.o writestring.o comparestring.o sortstring.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+string_exe2:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)  
