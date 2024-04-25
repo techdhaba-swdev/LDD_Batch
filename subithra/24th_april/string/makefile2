@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+stringmake: main.o strings.o
+	$(CC) -o stringmake main.o strings.o $(CFLAGS)
+
