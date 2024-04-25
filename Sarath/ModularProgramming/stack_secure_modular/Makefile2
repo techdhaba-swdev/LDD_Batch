@@ -1,0 +1,8 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=stack.h
+OBJ=stack_main.o stack.o
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+stack:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
