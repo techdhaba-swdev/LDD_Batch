@@ -1,7 +1,7 @@
 #include<stdio.h>
  int add(int a, int b){
 	 printf("add:%d + %d=\n",a,b);
-	 return a + b;
+	 return a * b;
  }
 int subtract(int a, int b){
 	printf("subtract:%d - %d=\n",a,b);
