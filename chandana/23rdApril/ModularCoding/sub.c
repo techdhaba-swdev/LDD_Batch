@@ -1,3 +1,7 @@
+#include "sub.h"
+static void print_data() {
+	printf("in subtraction\n");
+}
 int sub(int x,int y){
 	return x-y;
 }

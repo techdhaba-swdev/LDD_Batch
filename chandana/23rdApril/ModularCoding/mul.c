@@ -1,3 +1,7 @@
+#include "mul.h"
+static void print_data(){
+	printf("In multiplication\n");
+}
 int mul(int x,int y){
      return x*y;
 }

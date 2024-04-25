@@ -1,3 +1,9 @@
+#include "add.h"
+
+static void print_data() {
+	printf("in addition function\n");
+}
+
 int add(int x,int y){
 	return x+y;
 }

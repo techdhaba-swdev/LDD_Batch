@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "main.h"
 
+static void print_data(){
+	printf("In main function");
+}
 int main() {
 	printf("add is %d\n",add(4,5));
 	printf("add_three no. %d\n",add_three(3,5,6));
