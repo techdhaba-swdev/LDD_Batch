@@ -1,0 +1,9 @@
+CC=gcc
+GFLAGS=-I.
+OBJ=main2.o stack2.o
+DEPS=main2.h stack2.h
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(GFLAGS)
+
+exec:$(OBJ)
+	$(CC) -o $@ $^ $(GFLAGS)

@@ -1,0 +1,2 @@
+int stack_pop();
+
