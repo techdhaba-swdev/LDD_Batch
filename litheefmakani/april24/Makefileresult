@@ -4,4 +4,11 @@ CFLAGS = -I.
 
 DEPS = push.h pop.h empty.h full.h stack1.h
 
-OBJ = push.o pop.o 
+OBJ = push.o pop.o empty.o full.o stack1.o
+
+%.o : %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+result: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+
