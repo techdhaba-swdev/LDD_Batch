@@ -1,0 +1,2 @@
+stack1 : stack1.c push.c pop.c main1.c
+	gcc -o stack1 stack1.c push.c pop.c main1.c -I.

@@ -1,0 +1,9 @@
+CC = gcc
+CFLAGS = -I.
+DEPS = stack.h
+%.o : %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+stack : stack.c stackmain.c
+	$(CC) -o stack stack.c stackmain.c
+

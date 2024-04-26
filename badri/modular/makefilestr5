@@ -1,0 +1,2 @@
+str : string1.c stringmain.c
+	gcc -o str string.c stringmain.c -I.

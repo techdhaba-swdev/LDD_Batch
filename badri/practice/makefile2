@@ -1,0 +1,4 @@
+CC = gcc
+CFLAGS = -I.
+sub : sub.c
+	gcc -o sub sub.c -I.

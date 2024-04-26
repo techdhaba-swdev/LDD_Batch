@@ -1,0 +1,2 @@
+out : stackinit.c stackpush.c stackpop.c stackfull.c stackempty.c stackmain1.c
+	gcc -o out stackinit.c stackpush.c stackpop.c stackfull.c stackempty.c stackmain1.c  -I.

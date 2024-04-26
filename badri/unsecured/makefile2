@@ -1,0 +1,2 @@
+link : linklist.c linklistmain.c
+	gcc -o link linklist.c linklistmain.c -I.
