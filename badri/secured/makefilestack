@@ -1,2 +1,0 @@
-stack : stack.c stackmain.c
-	gcc -o stack stack.c stackmain.c -I.

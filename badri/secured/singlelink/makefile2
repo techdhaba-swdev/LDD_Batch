@@ -1,0 +1,7 @@
+CC = gcc
+CFLAGS = -I.
+DEPS = linklist.h
+%.o : %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+link : linklist.c linklistmain.c
+	gcc -o link linklist.c linklistmain.c -I.
