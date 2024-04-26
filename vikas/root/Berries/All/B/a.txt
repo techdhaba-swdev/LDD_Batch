@@ -1,0 +1,2 @@
+welcome to linux
+adding new line to a.txt file
