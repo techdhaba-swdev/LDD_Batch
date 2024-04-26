@@ -1,0 +1,3 @@
+stack: stack.c mainstk.c
+	gcc -o stack stack.c mainstk.c -I.
+

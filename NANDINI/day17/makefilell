@@ -1,0 +1,3 @@
+list: ll.c mainll.c
+	gcc -o list mainll.c ll.c -I.
+

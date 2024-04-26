@@ -1,0 +1,3 @@
+bubble: bubblesort.c mainbubble.c
+	gcc -o bubble bubblesort.c mainbubble.c -I.
+

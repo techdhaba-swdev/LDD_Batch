@@ -1,0 +1,2 @@
+exe: cllist.c clmain.c
+	gcc -o exe clmain.c cllist.c -I.

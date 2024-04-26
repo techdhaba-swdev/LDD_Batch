@@ -1,0 +1,3 @@
+insertion: insertion.c maininsertion.c
+	gcc -o insertion insertion.c maininsertion.c -I.
+

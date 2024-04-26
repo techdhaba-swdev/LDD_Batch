@@ -1,0 +1,3 @@
+hpexe: heapsort.c mainhp.c
+	gcc -o hpexe heapsort.c mainhp.c -I.
+

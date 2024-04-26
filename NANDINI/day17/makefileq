@@ -1,0 +1,2 @@
+qexe: queue.c mainq.c
+	gcc -o qexe queue.c mainq.c -I.
