@@ -3,7 +3,7 @@ int main(){
 	int secretNumber, guess;
 	secretNumber = 50;
 	printf("guess the secret number: ");
-	scanf("%d\n", &guess);
+	scanf("%d", &guess);
 	if(guess == secretNumber){
 		printf("you have guessed the secret number.\n");
 	}
