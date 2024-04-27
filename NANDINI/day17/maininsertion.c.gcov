@@ -1,0 +1,15 @@
+        -:    0:Source:maininsertion.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "insertion.h"
+        -:    3:
+        1:    4:int main() {
+        1:    5:    int arr[] = {12, 11, 13, 5, 6};
+        1:    6:    int n = sizeof(arr) / sizeof(arr[0]);
+        1:    7:    insertionSort(arr, n);
+        1:    8:    printf("Sorted array: \n");
+        6:    9:    for (int i = 0; i < n; i++) {
+        5:   10:        printf("%d ", arr[i]);
+        -:   11:    }
+        1:   12:    printf("\n");
+        1:   13:    return 0;
+        -:   14:}

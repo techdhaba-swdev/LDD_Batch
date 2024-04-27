@@ -1,0 +1,19 @@
+        -:    0:Source:insertion.c
+        -:    1:#include "insertion.h"
+        -:    2:
+        1:    3:void insertionSort(int arr[], int n) {
+        -:    4:    int i, key, j;
+        5:    5:    for (i = 1; i < n; i++) {
+        4:    6:        key = arr[i];
+        4:    7:        j = i - 1;
+        -:    8:
+        -:    9:        /* Move elements of arr[0..i-1], that are
+        -:   10:           greater than key, to one position ahead
+        -:   11:           of their current position */
+       11:   12:        while (j >= 0 && arr[j] > key) {
+        7:   13:            arr[j + 1] = arr[j];
+        7:   14:            j = j - 1;
+        -:   15:        }
+        4:   16:        arr[j + 1] = key;
+        -:   17:    }
+        1:   18:}

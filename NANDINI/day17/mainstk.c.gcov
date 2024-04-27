@@ -1,0 +1,20 @@
+        -:    0:Source:mainstk.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "stack.h"
+        -:    3:
+        1:    4:int main() 
+        -:    5:{
+        -:    6:    Stack stack;
+        1:    7:    initialize(&stack); // Initialize the stack
+        -:    8:
+        -:    9:    // Pushing elements onto the stack
+        1:   10:    push(&stack, 10);
+        1:   11:    push(&stack, 20);
+        -:   12:
+        -:   13:    // Popping an element from the stack
+        1:   14:    int poppedValue = pop(&stack);
+        1:   15:    printf("Popped value: %d\n", poppedValue);
+        -:   16:   
+        1:   17:    return 0;
+        -:   18:}
+        -:   19:

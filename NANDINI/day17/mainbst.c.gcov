@@ -1,0 +1,47 @@
+        -:    0:Source:mainbst.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "bst.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 94%
+        1:    4:int main() {
+        1:    5:    struct node* root = NULL;
+        -:    6:    // Insert some nodes into the BST
+        1:    7:    root = insert(root, 50);
+call    0 returned 100%
+        1:    8:    insert(root, 30);
+call    0 returned 100%
+        1:    9:    insert(root, 20);
+call    0 returned 100%
+        1:   10:    insert(root, 40);
+call    0 returned 100%
+        1:   11:    insert(root, 70);
+call    0 returned 100%
+        1:   12:    insert(root, 60);
+call    0 returned 100%
+        1:   13:    insert(root, 80);
+call    0 returned 100%
+        -:   14:
+        -:   15:    // Print the in-order traversal of the BST
+        1:   16:    printf("Inorder traversal of the BST: ");
+call    0 returned 100%
+        1:   17:    inorderTraversal(root);
+call    0 returned 100%
+        1:   18:    printf("\n");
+call    0 returned 100%
+        -:   19:
+        -:   20:    // Search for a value in the BST
+        1:   21:    int searchKey = 70;
+        1:   22:    if (search(root, searchKey)) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        1:   23:        printf("%d is present in the BST.\n", searchKey);
+call    0 returned 100%
+        -:   24:    } else {
+    #####:   25:        printf("%d is not present in the BST.\n", searchKey);
+call    0 never executed
+        -:   26:    }
+        -:   27:
+        1:   28:    return 0;
+        -:   29:}
+        -:   30:

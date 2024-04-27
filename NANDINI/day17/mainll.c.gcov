@@ -1,0 +1,53 @@
+        -:    0:Source:mainll.c
+        -:    1:#include"ll.h"
+        -:    2:#include<stdio.h>
+        -:    3:
+    #####:    4:int main()
+        -:    5:{
+    #####:    6:	struct node** head = NULL;
+    #####:    7:	int k = 0;
+        -:    8:
+        -:    9:        //insert element into linkedlist
+        -:   10:
+    #####:   11:	insertAtBegin(7);
+    #####:   12:	insertAtBegin(29);
+    #####:   13:	insertAtBegin(22);
+    #####:   14:	insertAtEnd(5);
+    #####:   15:	insertAtEnd(10);
+    #####:   16:	insertAtBegin(55);
+    #####:   17:	insertAfterNode(&head,33);
+        -:   18:
+        -:   19:        //printing linkedlist
+        -:   20:
+    #####:   21:	printf("Linked List:");
+    #####:   22:        printList();
+        -:   23:
+        -:   24:        //deleting at begining and end and specified element
+        -:   25:
+    #####:   26:	deleteAtBegin();
+    #####:   27:	deleteAtEnd();
+    #####:   28:	deleteNode(11);
+        -:   29:
+        -:   30:       //printing list after deletion
+        -:   31:
+    #####:   32:	printf("\nLinked List after deletion:");
+    #####:   33:	printList();
+        -:   34:
+        -:   35:
+        -:   36:        //insert additional elements and print the updated list
+        -:   37:
+    #####:   38:	insertAtBegin(3);
+    #####:   39:	insertAtBegin(18);
+    #####:   40:	printf("\nUpdated Linked List:");
+    #####:   41:	printList();
+        -:   42:
+        -:   43:       //search for an element in the linked list
+        -:   44:
+    #####:   45:        k = searchList(55);
+    #####:   46:	if(k == 1)
+    #####:   47:		printf("\nElement is found");
+        -:   48:	else
+    #####:   49:		printf("\nElement is not present in the list");
+    #####:   50:	return 0;
+        -:   51:}
+        -:   52:

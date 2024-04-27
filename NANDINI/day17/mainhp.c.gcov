@@ -1,0 +1,18 @@
+        -:    0:Source:mainhp.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "heapsort.h"
+        -:    3:
+        1:    4:int main() {
+        1:    5:    int arr[] = {12, 11, 13, 5, 6, 7};
+        1:    6:    int n = sizeof(arr)/sizeof(arr[0]);
+        -:    7:
+        1:    8:    printf("Original array:\n");
+        1:    9:    printArray(arr, n);
+        -:   10:
+        1:   11:    heapSort(arr, n);
+        -:   12:
+        1:   13:    printf("\nSorted array:\n");
+        1:   14:    printArray(arr, n);
+        -:   15:
+        1:   16:    return 0;
+        -:   17:}

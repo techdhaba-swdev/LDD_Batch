@@ -1,0 +1,25 @@
+        -:    0:Source:mainq.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "queue.h"
+        -:    3:
+        1:    4:int main() {
+        1:    5:    Queue* queue = createQueue();
+        -:    6:
+        1:    7:    enqueue(queue, 10);
+        1:    8:    enqueue(queue, 20);
+        1:    9:    enqueue(queue, 30);
+        1:   10:    enqueue(queue, 40);
+        -:   11:
+        1:   12:    printf("Queue elements: ");
+        1:   13:    displayQueue(queue);
+        -:   14:
+        1:   15:    printf("Dequeued element: %d\n", dequeue(queue));
+        1:   16:    printf("Dequeued element: %d\n", dequeue(queue));
+        -:   17:
+        1:   18:    printf("Queue elements after dequeue: ");
+        1:   19:    displayQueue(queue);
+        -:   20:
+        1:   21:    deleteQueue(queue);
+        -:   22:
+        1:   23:    return 0;
+        -:   24:}

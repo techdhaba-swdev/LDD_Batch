@@ -1,0 +1,20 @@
+        -:    0:Source:bubblesort.c
+        -:    1:#include "Bubblesort.h"
+        -:    2:
+        1:    3:void bubbleSort(int arr[], int n) 
+        -:    4:{
+        7:    5:    for (int i = 0; i < n-1; i++) 
+        -:    6:    {
+       27:    7:        for (int j = 0; j < n-i-1; j++) 
+        -:    8:	{
+       21:    9:            if (arr[j] > arr[j+1]) 
+        -:   10:	    {
+        -:   11:                                             // Swap arr[j] and arr[j+1]
+       14:   12:	        int temp = arr[j];
+       14:   13:                arr[j] = arr[j+1];
+       14:   14:                arr[j+1] = temp;
+        -:   15:            }
+        -:   16:        }
+        -:   17:    }
+        1:   18:}
+        -:   19:

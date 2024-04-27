@@ -1,0 +1,83 @@
+        -:    0:Source:bst.c
+        -:    1:#include<stdio.h>
+        -:    2:#include "bst.h"
+        -:    3:#include <stdlib.h>
+        -:    4:
+        -:    5:// Function to create a new node
+function createNode called 7 returned 100% blocks executed 100%
+        7:    6:struct node* createNode(int data) 
+        -:    7:{
+        7:    8:    struct node* newNode = (struct node*)malloc(sizeof(struct node));
+        7:    9:    if (newNode != NULL) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        7:   10:        newNode->data = data;
+        7:   11:        newNode->left = NULL;
+        7:   12:        newNode->right = NULL;
+        -:   13:    }
+        7:   14:    return newNode;
+        -:   15:}
+        -:   16:
+        -:   17:// Function to insert a new node into the BST
+function insert called 17 returned 100% blocks executed 100%
+       17:   18:struct node* insert(struct node* root, int data) {
+       17:   19:    if (root == NULL) {
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:   20:        return createNode(data);
+call    0 returned 100%
+        -:   21:    }
+        -:   22:
+       10:   23:    if (data < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:   24:        root->left = insert(root->left, data);
+call    0 returned 100%
+        5:   25:    } else if (data > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   26:        root->right = insert(root->right, data);
+call    0 returned 100%
+        -:   27:    }
+        -:   28:
+       10:   29:    return root;
+        -:   30:}
+        -:   31:// Function to search for a node with the given data in the BST
+function search called 2 returned 100% blocks executed 70%
+        2:   32:int search(struct node* root, int data) {
+        2:   33:    if (root == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   34:        return 0;
+        -:   35:    }
+        -:   36:
+        2:   37:    if (root->data == data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   38:        return 1;
+        1:   39:    } else if (data < root->data) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   40:        return search(root->left, data);
+call    0 never executed
+        -:   41:    } else {
+        1:   42:        return search(root->right, data);
+call    0 returned 100%
+        -:   43:    }
+        -:   44:}
+        -:   45:
+        -:   46:// Function to perform an in-order traversal of the BST
+function inorderTraversal called 15 returned 100% blocks executed 100%
+       15:   47:void inorderTraversal(struct node* root) {
+       15:   48:    if (root != NULL) {
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        7:   49:        inorderTraversal(root->left);
+call    0 returned 100%
+        7:   50:        printf("%d ", root->data);
+call    0 returned 100%
+        7:   51:        inorderTraversal(root->right);
+call    0 returned 100%
+        -:   52:    }
+       15:   53:}
+        -:   54:

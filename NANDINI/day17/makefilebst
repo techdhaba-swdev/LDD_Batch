@@ -1,0 +1,3 @@
+bst: bst.c mainbst.c
+	gcc -o bst bst.c mainbst.c -I.
+

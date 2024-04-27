@@ -1,0 +1,131 @@
+        -:    0:Source:ll.c
+        -:    1:#include "ll.h"
+        -:    2:#include<stdio.h>
+        -:    3:#include<stdlib.h>
+        -:    4:
+        -:    5://global variable to store the head of linkedlist
+        -:    6:
+        -:    7:struct node *head = NULL;
+        -:    8:
+        -:    9://function to print the element of linkedlist
+        -:   10:
+    #####:   11:void printList()
+        -:   12:{
+    #####:   13:	struct node *p = head;
+    #####:   14:	printf("\n[");
+    #####:   15:	while (p != NULL)
+        -:   16:	{
+    #####:   17:		printf("%d->", p->data); //print the data of current node
+    #####:   18:		p = p->next;    //move to next node
+        -:   19:	}
+    #####:   20:	printf("]");
+    #####:   21:}
+        -:   22:
+        -:   23://function to insert a node at beginning of linkedlist
+        -:   24:
+    #####:   25:void insertAtBegin(int data)
+        -:   26:{
+    #####:   27:	struct node *lk = (struct node*)malloc(sizeof(struct node));  //allocating memory
+    #####:   28:	lk->data = data;  //set data of new node
+    #####:   29:	lk->next = head;  //pointing to next node of new node to current node
+    #####:   30:	head = lk;  //updated head
+    #####:   31:}	
+        -:   32:
+        -:   33:
+        -:   34://function to insert a node to end of linked list
+        -:   35:
+    #####:   36:void insertAtEnd(int data)
+        -:   37:{
+    #####:   38:	struct node *lk = (struct node*)malloc(sizeof(struct node));
+    #####:   39:	lk->data = data; //set data of new node
+    #####:   40:	lk->next = NULL; //next of new node null
+    #####:   41:	if(head == NULL)
+        -:   42:	{
+    #####:   43:		head = lk; //if the list is empty new node has head
+    #####:   44:		return;
+        -:   45:	}
+    #####:   46:	struct node *linkedlist = head;
+    #####:   47:	while(linkedlist->next != NULL)
+    #####:   48:		linkedlist = linkedlist->next;
+    #####:   49:	linkedlist->next = lk;  //insert new node at end
+        -:   50:}	
+        -:   51:
+        -:   52:
+        -:   53:
+        -:   54://function to create a node after a given node in list
+        -:   55:
+        -:   56:
+    #####:   57:void insertAfterNode(struct node *list, int data)
+        -:   58:{
+    #####:   59:	struct node *lk = (struct node*)malloc(sizeof(struct node));
+    #####:   60:	lk->data = data;
+    #####:   61:	lk->next = list->next; //pointing to next new node to next of given node
+    #####:   62:	list->next = lk;
+    #####:   63:}
+        -:   64:
+        -:   65:
+        -:   66://function to delete the first node from linked list
+        -:   67:
+        -:   68:
+    #####:   69:void deleteAtBegin()
+        -:   70:{
+    #####:   71:	head = head->next; //move head to next node
+    #####:   72:}
+        -:   73:
+        -:   74:
+        -:   75://function to delete last node from linked list
+        -:   76:
+        -:   77:
+    #####:   78:void deleteAtEnd()
+        -:   79:{
+    #####:   80:	struct node *linkedlist = head;
+    #####:   81:	while(linkedlist->next->next != NULL)
+    #####:   82:		linkedlist = linkedlist->next;
+    #####:   83:	linkedlist->next = NULL; //set next to second last node to null
+    #####:   84:}
+        -:   85:
+        -:   86:
+        -:   87://function to delete the node with a given key
+        -:   88:
+        -:   89:
+    #####:   90:void deleteNode(int key)
+        -:   91:{
+    #####:   92:	struct node *temp = head, *prev; 
+    #####:   93:	if(temp != NULL && temp->data == key) //check if the key is first node
+        -:   94:	{
+        -:   95:		
+    #####:   96:		head = temp->next; // move head to next node
+    #####:   97:		free(temp);
+    #####:   98:		return;
+        -:   99:	}
+    #####:  100:	while(temp != NULL && temp->data != key) //finding node with key
+        -:  101:	{
+    #####:  102:		prev = temp;
+    #####:  103:		temp = temp->next;
+        -:  104:	}
+        -:  105:
+    #####:  106:	if(temp == NULL)return; //if key is not found
+    #####:  107:	prev->next = temp->next; //skip the node with key
+    #####:  108:	free(temp);
+        -:  109:}
+        -:  110:
+        -:  111:
+        -:  112:
+        -:  113://function to search a key in list
+        -:  114:
+        -:  115:
+        -:  116:
+    #####:  117:int searchList(int key)
+        -:  118:{
+    #####:  119:	struct node *temp = head;
+    #####:  120:	while(temp != NULL)
+        -:  121:	{
+    #####:  122:		if(temp->data == key)
+        -:  123:		{
+    #####:  124:			return 1;  //element found
+        -:  125:		}
+    #####:  126:		temp = temp->next;
+        -:  127:	}
+    #####:  128:	return 0;  //element not found
+        -:  129:}
+        -:  130:

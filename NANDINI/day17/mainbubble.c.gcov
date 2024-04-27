@@ -1,0 +1,24 @@
+        -:    0:Source:mainbubble.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "Bubblesort.h"
+        -:    3:
+        1:    4:int main() 
+        -:    5:{
+        1:    6:    int arr[] = {64, 34, 25, 12, 22, 11, 90};
+        1:    7:    int n = sizeof(arr)/sizeof(arr[0]);
+        1:    8:    printf("Array before sorting: ");
+        8:    9:    for (int i = 0; i < n; i++) 
+        -:   10:    {
+        7:   11:        printf("%d ", arr[i]);
+        -:   12:    }
+        1:   13:    printf("\n");
+        1:   14:    bubbleSort(arr, n);
+        1:   15:    printf("Array after sorting: ");
+        8:   16:    for (int i = 0; i < n; i++) 
+        -:   17:    {
+        7:   18:        printf("%d ", arr[i]);
+        -:   19:    }
+        1:   20:    printf("\n");
+        1:   21:    return 0;
+        -:   22:}
+        -:   23:

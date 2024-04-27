@@ -1,0 +1,27 @@
+        -:    0:Source:mainls.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "linear_search.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 83%
+        1:    4:int main() {
+        1:    5:    int arr[] = {5, 3, 8, 4, 2};
+        1:    6:    int size = sizeof(arr) / sizeof(arr[0]);
+        1:    7:    int target = 8;
+        -:    8:
+        -:    9:    // Perform linear search
+        1:   10:    int index = linearSearch(arr, size, target);
+call    0 returned 100%
+        -:   11:
+        1:   12:    if (index != -1) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   13:        printf("Element %d found at index %d\n", target, index);
+call    0 returned 100%
+        -:   14:    } else {
+    #####:   15:        printf("Element %d not found in the array\n", target);
+call    0 never executed
+        -:   16:    }
+        -:   17:
+        1:   18:    return 0;
+        -:   19:}
+        -:   20:

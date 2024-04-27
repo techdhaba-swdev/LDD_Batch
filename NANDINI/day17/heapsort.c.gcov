@@ -1,0 +1,43 @@
+        -:    0:Source:heapsort.c
+        -:    1:#include<stdio.h>
+        -:    2:#include "heapsort.h"
+        -:    3:
+       10:    4:void swap(int* a, int* b) {
+       10:    5:    int temp = *a;
+       10:    6:    *a = *b;
+       10:    7:    *b = temp;
+       10:    8:}
+        -:    9:
+       13:   10:void heapify(int arr[], int n, int i) {
+       13:   11:    int largest = i;
+       13:   12:    int l = 2*i + 1;
+       13:   13:    int r = 2*i + 2;
+        -:   14:
+       13:   15:    if (l < n && arr[l] > arr[largest])
+        4:   16:        largest = l;
+        -:   17:
+       13:   18:    if (r < n && arr[r] > arr[largest])
+        3:   19:        largest = r;
+        -:   20:
+       13:   21:    if (largest != i) {
+        5:   22:        swap(&arr[i], &arr[largest]);
+        5:   23:        heapify(arr, n, largest);
+        -:   24:    }
+       13:   25:}
+        -:   26:
+        1:   27:void heapSort(int arr[], int n) {
+        4:   28:    for (int i = n / 2 - 1; i >= 0; i--)
+        3:   29:        heapify(arr, n, i);
+        -:   30:
+        6:   31:    for (int i = n-1; i > 0; i--) {
+        5:   32:        swap(&arr[0], &arr[i]);
+        5:   33:        heapify(arr, i, 0);
+        -:   34:    }
+        1:   35:}
+        -:   36:
+        2:   37:void printArray(int arr[], int n) {
+       14:   38:    for (int i=0; i<n; ++i)
+       12:   39:        printf("%d ", arr[i]);
+        2:   40:    printf("\n");
+        2:   41:}
+        -:   42:
