@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+linklist: main.o bubble_sort.o
+	$(CC) -o bubblesort main.o bubble_sort.o $(CFLAGS)
+

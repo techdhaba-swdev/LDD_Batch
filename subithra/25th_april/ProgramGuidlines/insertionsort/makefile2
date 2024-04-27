@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+linklist: main.o insertion_sort.o
+	$(CC) -o insertionsort main.o insertion_sort.o $(CFLAGS)
+

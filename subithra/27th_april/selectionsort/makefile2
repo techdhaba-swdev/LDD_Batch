@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+linklist: main.o selection_sort.o
+	$(CC) -o selectionsort main.o selection_sort.o $(CFLAGS)
+
