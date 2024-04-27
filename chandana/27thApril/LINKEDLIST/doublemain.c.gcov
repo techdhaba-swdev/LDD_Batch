@@ -1,0 +1,36 @@
+        -:    0:Source:doublemain.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "doublelink.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        -:    5:    // Create a new doubly linked list
+        1:    6:    DoublyLinkedList* list = createDoublyLinkedList();
+call    0 returned 100%
+        -:    7:
+        -:    8:    // Add nodes to the end of the list
+        1:    9:    addNodeAtEnd(list, 1);
+call    0 returned 100%
+        1:   10:    addNodeAtEnd(list, 2);
+call    0 returned 100%
+        1:   11:    addNodeAtEnd(list, 3);
+call    0 returned 100%
+        1:   12:    addNodeAtEnd(list, 4);
+call    0 returned 100%
+        1:   13:    addNodeAtEnd(list, 5);
+call    0 returned 100%
+        -:   14:
+        -:   15:    // Print the elements of the list
+        1:   16:    printf("List: ");
+call    0 returned 100%
+        1:   17:    printList(list);
+call    0 returned 100%
+        -:   18:
+        -:   19:    // Calculate the sum of all elements in the list
+        1:   20:    int sum = sumList(list);
+call    0 returned 100%
+        1:   21:    printf("Sum of all elements: %d\n", sum);
+call    0 returned 100%
+        -:   22:
+        1:   23:    return 0;
+        -:   24:}

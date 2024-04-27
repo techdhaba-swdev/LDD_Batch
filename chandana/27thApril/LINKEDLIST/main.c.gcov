@@ -1,0 +1,35 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "linklist.h"
+        -:    3://Standard Input/Output library and header files
+        -:    4:
+function main called 1 returned 100% blocks executed 100%
+        1:    5:int main() {
+        -:    6:	//Function call with meaningful variable names
+        1:    7:    LinkedList* list = createLinkedList();
+call    0 returned 100%
+        -:    8:
+        1:    9:    addNode(list, 1);
+call    0 returned 100%
+        1:   10:    addNode(list, 2);
+call    0 returned 100%
+        1:   11:    addNode(list, 3);
+call    0 returned 100%
+        1:   12:    addNode(list, 4);
+call    0 returned 100%
+        1:   13:    addNode(list, 5);
+call    0 returned 100%
+        -:   14://call the print function
+        1:   15:    printf("List: ");
+call    0 returned 100%
+        1:   16:    printList(list);
+call    0 returned 100%
+        -:   17://call the sun function
+        1:   18:    int sum = sumList(list);
+call    0 returned 100%
+        1:   19:    printf("Sum of all elements: %d\n", sum);
+call    0 returned 100%
+        -:   20:
+        1:   21:    return 0;
+        -:   22:    //Successfull indication of program termination.
+        -:   23:}

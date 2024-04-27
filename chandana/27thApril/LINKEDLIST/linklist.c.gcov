@@ -1,0 +1,68 @@
+        -:    0:Source:linklist.c
+        -:    1:#include "linklist.h"
+        -:    2:
+        -:    3:// Create an empty linked list
+function createLinkedList called 1 returned 100% blocks executed 100%
+        1:    4:LinkedList* createLinkedList() {
+        1:    5:    LinkedList* list = (LinkedList*)malloc(sizeof(LinkedList));//Allocate memeory
+        1:    6:    list->head = NULL;//set the head of the linked list to NULL
+        1:    7:    return list;//Return the linked list
+        -:    8:}
+        -:    9:
+        -:   10:// Create a new node with given data
+function createNode called 5 returned 100% blocks executed 100%
+        5:   11:Node* createNode(int data) {
+        5:   12:    Node* newNode = (Node*)malloc(sizeof(Node));//Allocate memeory for the new node
+        5:   13:    newNode->data = data;//assign data to the new node
+        5:   14:    newNode->next = NULL;//set the next pointer to NULL
+        5:   15:    return newNode;//Return the new node
+        -:   16:}
+        -:   17:
+        -:   18:// Add a node to the end of the list
+function addNode called 5 returned 100% blocks executed 100%
+        5:   19:void addNode(LinkedList* list, int data) {
+        5:   20:    Node* newNode = createNode(data);//Create a new node with the given data
+call    0 returned 100%
+        5:   21:    if (list->head == NULL) {//check if the list is empty
+branch  0 taken 20% (fallthrough)
+branch  1 taken 80%
+        1:   22:        list->head = newNode;//if the list is empty ,set the new node as the head
+        -:   23:    } else {
+        4:   24:        Node* current = list->head;//Start at the head of the list
+       10:   25:        while (current->next != NULL) {//Traverse the list to find th elast node 
+branch  0 taken 60%
+branch  1 taken 40% (fallthrough)
+        6:   26:            current = current->next;
+        -:   27:        }
+        4:   28:        current->next = newNode;//Set the next pointer of the last node to the new node
+        -:   29:    }
+        5:   30:}
+        -:   31:
+        -:   32:// Print the elements of the list
+function printList called 1 returned 100% blocks executed 100%
+        1:   33:void printList(LinkedList* list) {
+        1:   34:    Node* current = list->head;//Start at the head of the list
+        6:   35:    while (current != NULL) {//Traverse the last
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:   36:        printf("%d ", current->data);//Print the data of the current node
+call    0 returned 100%
+        5:   37:        current = current->next;//Move the next node
+        -:   38:    }
+        1:   39:    printf("\n");//print a new line at the end
+call    0 returned 100%
+        1:   40:}
+        -:   41:
+        -:   42:// Calculate the sum of all elements in the list
+function sumList called 1 returned 100% blocks executed 100%
+        1:   43:int sumList(LinkedList* list) {
+        1:   44:    int sum = 0;//Initialize to zero
+        1:   45:    Node* current = list->head;//Start at the head of the list
+        6:   46:    while (current != NULL) {//traverse the list
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:   47:        sum += current->data;//Add the data of the current node to the sum 
+        5:   48:        current = current->next;//Move the next node 
+        -:   49:    }
+        1:   50:    return sum;//Return the sum.
+        -:   51:}

@@ -1,0 +1,83 @@
+        -:    0:Source:doublelink.c
+        -:    1:#include "doublelink.h"
+        -:    2:
+        -:    3:// Create an empty doubly linked list
+function createDoublyLinkedList called 1 returned 100% blocks executed 60%
+        1:    4:DoublyLinkedList* createDoublyLinkedList() {
+        1:    5:    DoublyLinkedList* list = (DoublyLinkedList*)malloc(sizeof(DoublyLinkedList));  // Allocate memory for the list
+        1:    6:    if (list == NULL) {  // Check if memory allocation was successful
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    7:        perror("Error allocating memory for linked list");
+call    0 never executed
+    #####:    8:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:    9:    }
+        1:   10:    list->head = NULL;  // Initialize head to NULL
+        1:   11:    list->tail = NULL;  // Initialize tail to NULL
+        1:   12:    return list;        // Return the list
+        -:   13:}
+        -:   14:
+        -:   15:// Create a new node with given data
+function createNode called 5 returned 100% blocks executed 60%
+        5:   16:Node* createNode(int data) {
+        5:   17:    Node* newNode = (Node*)malloc(sizeof(Node));  // Allocate memory for the new node
+        5:   18:    if (newNode == NULL) {  // Check if memory allocation was successful
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   19:        perror("Error allocating memory for new node");
+call    0 never executed
+    #####:   20:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   21:    }
+        5:   22:    newNode->data = data;  // Set the data of the new node
+        5:   23:    newNode->prev = NULL;   // Initialize prev pointer to NULL
+        5:   24:    newNode->next = NULL;   // Initialize next pointer to NULL
+        5:   25:    return newNode;         // Return the new node
+        -:   26:}
+        -:   27:
+        -:   28:// Add a node to the end of the list
+function addNodeAtEnd called 5 returned 100% blocks executed 100%
+        5:   29:void addNodeAtEnd(DoublyLinkedList* list, int data) {
+        5:   30:    Node* newNode = createNode(data);  // Create a new node with the given data
+call    0 returned 100%
+        5:   31:    if (list->head == NULL) {          // Check if the list is empty
+branch  0 taken 20% (fallthrough)
+branch  1 taken 80%
+        1:   32:        list->head = newNode;          // If empty, set the new node as the head
+        1:   33:        list->tail = newNode;          // Also set the new node as the tail
+        -:   34:    } else {
+        4:   35:        newNode->prev = list->tail;    // Set the prev pointer of the new node to the current tail
+        4:   36:        list->tail->next = newNode;    // Set the next pointer of the current tail to the new node
+        4:   37:        list->tail = newNode;          // Update the tail to the new node
+        -:   38:    }
+        5:   39:}
+        -:   40:
+        -:   41:// Print the elements of the list
+function printList called 1 returned 100% blocks executed 100%
+        1:   42:void printList(DoublyLinkedList* list) {
+        1:   43:    Node* current = list->head;  // Start at the head of the list
+        6:   44:    while (current != NULL) {    // Traverse the list
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:   45:        printf("%d ", current->data);  // Print the data of the current node
+call    0 returned 100%
+        5:   46:        current = current->next;      // Move to the next node
+        -:   47:    }
+        1:   48:    printf("\n");  // Print a newline at the end
+call    0 returned 100%
+        1:   49:}
+        -:   50:
+        -:   51:// Calculate the sum of all elements in the list
+function sumList called 1 returned 100% blocks executed 100%
+        1:   52:int sumList(DoublyLinkedList* list) {
+        1:   53:    int sum = 0;                // Initialize sum to zero
+        1:   54:    Node* current = list->head; // Start at the head of the list
+        6:   55:    while (current != NULL) {   // Traverse the list
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:   56:        sum += current->data;    // Add the data of the current node to the sum
+        5:   57:        current = current->next; // Move to the next node
+        -:   58:    }
+        1:   59:    return sum;                 // Return the sum
+        -:   60:}
