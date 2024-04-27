@@ -1,0 +1,34 @@
+        -:    0:Source:selectionsortasc.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"selection.h"
+function selectionsortasc called 1 returned 100% blocks executed 100%
+        1:    3:void selectionsortasc(int a[],int length)
+        -:    4:{
+        1:    5:	printf("\nASCENDING ORDER:");
+call    0 returned 100%
+       10:    6:	for(int i=0;i<length-1;i++)
+branch  0 taken 90%
+branch  1 taken 10% (fallthrough)
+        -:    7:	{
+        9:    8:		int min_pos=i;
+       54:    9:		for(int j=i+1;j<length;j++)
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        -:   10:		{
+       45:   11:			if(a[j]<a[min_pos])
+branch  0 taken 29% (fallthrough)
+branch  1 taken 71%
+        -:   12:			{
+       13:   13:				min_pos=j;
+        -:   14:			}
+        -:   15:		}
+        9:   16:		if(min_pos!=i)
+branch  0 taken 56% (fallthrough)
+branch  1 taken 44%
+        -:   17:		{
+        5:   18:			int temp=a[i];
+        5:   19:			a[i]=a[min_pos];
+        5:   20:			a[min_pos]=temp;
+        -:   21:		}
+        -:   22:	}
+        1:   23:}
