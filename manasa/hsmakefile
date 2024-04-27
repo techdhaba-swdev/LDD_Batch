@@ -1,0 +1,3 @@
+heapsort: heapsort.c hsmain.c
+	gcc -o heapsort heapsort.c hsmain.c -I.
+

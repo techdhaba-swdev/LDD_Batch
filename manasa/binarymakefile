@@ -1,0 +1,3 @@
+binarysearch: binarymain.c binary.c
+	gcc -o binarysearch binarymain.c binary.c -I.
+

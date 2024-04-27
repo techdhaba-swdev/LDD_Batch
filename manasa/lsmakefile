@@ -1,0 +1,3 @@
+linearsearch: lsmain.c ls.c
+	gcc -o linearsearch lsmain.c ls.c -I.
+

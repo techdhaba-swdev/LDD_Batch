@@ -1,0 +1,3 @@
+stk: stkmain.c stk.c
+	gcc -o stk stkmain.c stk.c -I.
+

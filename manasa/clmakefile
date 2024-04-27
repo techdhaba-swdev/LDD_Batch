@@ -1,0 +1,2 @@
+cllist: clist.c clmain.c
+	gcc -o cllist clmain.c clist.c -I.

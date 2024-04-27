@@ -1,0 +1,3 @@
+queue: queue.c qmain.c
+	gcc -o queue queue.c qmain.c -I.
+

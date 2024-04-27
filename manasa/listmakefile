@@ -1,0 +1,7 @@
+list: linklist.c llmain.c
+	gcc -o list llmain.c linklist.c -I.
+
+
+
+
+

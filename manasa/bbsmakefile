@@ -1,0 +1,3 @@
+bbsort: bbsort.c bbsmain.c
+	gcc -o bbsort bbsort.c bbsmain.c
+

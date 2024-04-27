@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-I.
-OBJ=add.h sub.h mul.h div.h
-OBJ=main.o add.o sub.o mul.o div.o
+OBJ=print_message.h
+OBJ=main.o add.o message.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)

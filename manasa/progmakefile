@@ -1,0 +1,3 @@
+exampleexe: progmain.c progadd.c
+	gcc -o exampleexe progmain.c progadd.c -I.
+

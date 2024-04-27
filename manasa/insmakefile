@@ -1,0 +1,3 @@
+insertionsort: imain.c insertion.c
+	gcc -o insertionsort imain.c insertion.c -I.
+

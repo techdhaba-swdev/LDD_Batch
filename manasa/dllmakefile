@@ -1,0 +1,3 @@
+dllist: dllmain.c dllist.c
+	gcc -o dllist dllmain.c dllist.c -I.
+
