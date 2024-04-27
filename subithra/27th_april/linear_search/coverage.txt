@@ -1,0 +1,15 @@
+File 'linear.c'
+Lines executed:0.00% of 7
+Branches executed:0.00% of 6
+Taken at least once:0.00% of 6
+No calls
+Creating 'linear.c.gcov'
+
+File 'main.c'
+Lines executed:0.00% of 16
+Branches executed:0.00% of 4
+Taken at least once:0.00% of 4
+Calls executed:0.00% of 10
+Creating 'main.c.gcov'
+
+Lines executed:0.00% of 23

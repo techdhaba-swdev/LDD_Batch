@@ -1,0 +1,58 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h> // for malloc
+        -:    3:#include "main.h"
+        -:    4:
+function main called 0 returned 0% blocks executed 0%
+    #####:    5:int main() {
+        -:    6:    int *arr; // Pointer to store dynamically allocated array
+        -:    7:    int n;     // Variable to store the number of elements
+        -:    8:
+        -:    9:    // Ask user for the number of elements
+    #####:   10:    printf("Enter the number of elements: ");
+call    0 never executed
+    #####:   11:    scanf("%d", &n); // Read the number of elements from the user
+call    0 never executed
+        -:   12:
+        -:   13:    // Allocate memory for the array
+    #####:   14:    arr = (int *)malloc(n * sizeof(int)); // Secure: Allocate memory for the array based on user input
+        -:   15:
+        -:   16:    // Ask user to input elements of the array
+    #####:   17:    printf("Enter %d elements:\n", n);
+call    0 never executed
+    #####:   18:    for (int i = 0; i < n; i++) {
+branch  0 never executed
+branch  1 never executed
+    #####:   19:        printf("Element %d: ", i + 1);
+call    0 never executed
+    #####:   20:        scanf("%d", &arr[i]); // Read each element from the user and store in the array
+call    0 never executed
+        -:   21:    }
+        -:   22:
+        -:   23:    int key; // Variable to store the element to search
+        -:   24:    // Ask user for the element to search
+    #####:   25:    printf("Enter the element to search: ");
+call    0 never executed
+    #####:   26:    scanf("%d", &key); // Read the element to search from the user
+call    0 never executed
+        -:   27:
+        -:   28:    // Perform linear search
+    #####:   29:    int result = linear_search(arr, n, key); // Secure: Perform linear search on the array
+call    0 never executed
+        -:   30:
+        -:   31:    // Print result
+    #####:   32:    if (result != -1) {
+branch  0 never executed
+branch  1 never executed
+    #####:   33:        printf("Element %d found at index %d\n", key, result); // Print if element is found
+call    0 never executed
+        -:   34:    } else {
+    #####:   35:        printf("Element %d not found\n", key); // Print if element is not found
+call    0 never executed
+        -:   36:    }
+        -:   37:
+        -:   38:    // Free dynamically allocated memory
+    #####:   39:    free(arr); // Secure: Free dynamically allocated memory for the array
+        -:   40:
+    #####:   41:    return 0;
+        -:   42:}

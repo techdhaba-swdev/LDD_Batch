@@ -1,0 +1,33 @@
+        -:    0:Source:linear.c
+        -:    1:#include "linear.h"
+        -:    2:
+        -:    3:// Function to perform linear search
+        -:    4:// Parameters:
+        -:    5:// - arr: Pointer to the integer array to search
+        -:    6:// - n: Size of the array
+        -:    7:// - key: Integer value to search for in the array
+        -:    8:// Returns:
+        -:    9:// - Index of the first occurrence of the key if found, or -1 if not found
+function linear_search called 0 returned 0% blocks executed 0%
+    #####:   10:int linear_search(const int arr[], size_t n, int key) {
+        -:   11:    // Check if the array pointer is NULL
+    #####:   12:    if (arr == NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   13:        return -1; // Return -1 if the array pointer is NULL
+        -:   14:    }
+        -:   15:
+        -:   16:    // Iterate through the array to search for the key
+    #####:   17:    for (size_t i = 0; i < n; i++) {
+branch  0 never executed
+branch  1 never executed
+    #####:   18:        if (arr[i] == key) {
+branch  0 never executed
+branch  1 never executed
+    #####:   19:            return i; // Return the index if the key is found
+        -:   20:        }
+        -:   21:    }
+        -:   22:
+        -:   23:    // If the key is not found in the array, return -1
+    #####:   24:    return -1;
+        -:   25:}

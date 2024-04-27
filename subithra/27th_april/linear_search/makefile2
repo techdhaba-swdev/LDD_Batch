@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+linearmake: main.o linear.o
+	$(CC) -o linearmake main.o linear.o $(CFLAGS)
+
