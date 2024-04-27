@@ -1,0 +1,61 @@
+        -:    0:Source:main.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    1:#include"treenode.h"
+        -:    2:
+    #####:    3:int main() {
+    #####:    4:    struct node* root = NULL;
+        -:    5:
+        -:    6:    // Insert some elements into the BST
+    #####:    7:    root = insert(root, 50);
+    #####:    8:    root = insert(root, 30);
+    #####:    9:    root = insert(root, 20);
+    #####:   10:    root = insert(root, 40);
+    #####:   11:    root = insert(root, 70);
+    #####:   12:    root = insert(root, 60);
+    #####:   13:    root = insert(root, 80);
+        -:   14:
+        -:   15:    // Print in-order traversal of the BST
+    #####:   16:    printf("In-order Traversal: ");
+    #####:   17:    inorderTraversal(root);
+    #####:   18:    printf("\n");
+        -:   19:
+        -:   20:    // Search for elements in the BST
+    #####:   21:    int key = 50;
+    #####:   22:    if (search(root, key)) {
+    #####:   23:        printf("%d is found in the BST.\n", key);
+        -:   24:    } else {
+    #####:   25:        printf("%d is not found in the BST.\n", key);
+        -:   26:    }
+        -:   27:
+    #####:   28:    key = 90;
+    #####:   29:    if (search(root, key)) {
+    #####:   30:        printf("%d is found in the BST.\n", key);
+        -:   31:    } else {
+    #####:   32:        printf("%d is not found in the BST.\n", key);
+        -:   33:    }
+        -:   34:
+        -:   35:    // Find minimum and maximum values in the BST
+    #####:   36:    printf("Minimum value in the BST: %d\n", findMinValue(root));
+    #####:   37:    printf("Maximum value in the BST: %d\n", findMaxValue(root));
+        -:   38:
+        -:   39:    // Find height of the BST
+    #####:   40:    printf("Height of the BST: %d\n", findHeight(root));
+        -:   41:
+        -:   42:    // Delete some elements from the BST
+    #####:   43:    root = deleteNode(root, 20);
+    #####:   44:    root = deleteNode(root, 30);
+    #####:   45:    root = deleteNode(root, 50);
+        -:   46:
+        -:   47:    // Print in-order traversal of the modified BST
+    #####:   48:    printf("In-order Traversal after deletion: ");
+    #####:   49:    inorderTraversal(root);
+    #####:   50:    printf("\n");
+        -:   51:
+    #####:   52:    return 0;
+        -:   53:}
+        -:   54:
+        -:   55:
+        -:   56:
+        -:   57:

@@ -1,0 +1,5 @@
+File 'main.c'
+Lines executed:0.00% of 30
+Creating 'main.c.gcov'
+
+Lines executed:0.00% of 30
