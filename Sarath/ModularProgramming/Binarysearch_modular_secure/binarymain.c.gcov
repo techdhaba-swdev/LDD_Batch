@@ -1,0 +1,39 @@
+        -:    0:Source:binarymain.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"binarysearch.h"
+function main called 1 returned 100% blocks executed 92%
+        1:    3:int main()
+        -:    4:{
+        1:    5:	int arr[]={1,2,3,4,5,6,7,8,9,10}; //Declaration of Sorted array as Binarysearch works with sorted arrays
+        1:    6:	printf("Array elements: ");
+call    0 returned 100%
+       11:    7:	for(int i=0;i<10;i++)
+branch  0 taken 91%
+branch  1 taken 9% (fallthrough)
+        -:    8:	{
+       10:    9:		printf(" %d",arr[i]); //printing all elements of array 
+call    0 returned 100%
+        -:   10:	}
+        -:   11:	int key; //INITIALIZING KEY 
+        1:   12:	printf("\nEnter required element to search: "); //Taking input from user for the element to find
+call    0 returned 100%
+        1:   13:	scanf("%d",&key); //Reading the element into key
+call    0 returned 100%
+        1:   14:	int low=0; //INITIALIZING low with 0
+        1:   15:	int high=sizeof(arr)-1; //INITIALIZING high with array size -1
+        1:   16:	int index=binarysearch(arr,key,low,high); //while binarysearch returns some value it stores in index
+call    0 returned 100%
+        1:   17:	if(index==-1)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:   18:	{
+    #####:   19:		printf("%d is not found in array\n",key); //printing not found if element not found in array
+call    0 never executed
+        -:   20:	}
+        -:   21:	else
+        -:   22:	{
+        1:   23:		printf("Index of %d is %d\n",key,index); //printing the index of found element
+call    0 returned 100%
+        -:   24:	}
+        1:   25:	return 0;
+        -:   26:}
