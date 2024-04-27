@@ -1,0 +1,9 @@
+File 'queue.c'
+Lines executed:80.00% of 25
+Creating 'queue.c.gcov'
+
+File 'mainqe.c'
+Lines executed:100.00% of 7
+Creating 'mainqe.c.gcov'
+
+Lines executed:84.38% of 32

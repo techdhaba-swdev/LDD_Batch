@@ -1,0 +1,23 @@
+        -:    0:Source:maincl.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "circularlist.h"
+        -:    3:
+        1:    4:int main() {
+        1:    5:    Node* head = NULL;
+        -:    6:
+        -:    7:    // Insert nodes
+        1:    8:    insertNode(&head, 1);
+        1:    9:    insertNode(&head, 2);
+        1:   10:    insertNode(&head, 3);
+        -:   11:
+        -:   12:    // Display the list
+        1:   13:    displayList(head);
+        -:   14:
+        -:   15:    // Delete a node
+        1:   16:    deleteNode(&head, 2);
+        -:   17:
+        -:   18:    // Display the updated list
+        1:   19:    displayList(head);
+        -:   20:
+        1:   21:    return 0;
+        -:   22:}

@@ -1,0 +1,9 @@
+File 'linearsearch.c'
+Lines executed:66.67% of 9
+Creating 'linearsearch.c.gcov'
+
+File 'mainls.c'
+Lines executed:88.89% of 9
+Creating 'mainls.c.gcov'
+
+Lines executed:77.78% of 18

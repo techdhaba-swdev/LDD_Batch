@@ -1,0 +1,9 @@
+File 'circularlist.c'
+Lines executed:67.86% of 56
+Creating 'circularlist.c.gcov'
+
+File 'maincl.c'
+Lines executed:100.00% of 9
+Creating 'maincl.c.gcov'
+
+Lines executed:72.31% of 65

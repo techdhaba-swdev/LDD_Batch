@@ -1,0 +1,9 @@
+File 'stack.c'
+Lines executed:80.00% of 20
+Creating 'stack.c.gcov'
+
+File 'mainsk.c'
+Lines executed:100.00% of 7
+Creating 'mainsk.c.gcov'
+
+Lines executed:85.19% of 27

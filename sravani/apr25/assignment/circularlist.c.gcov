@@ -1,0 +1,82 @@
+        -:    0:Source:circularlist.c
+        -:    1:#include "circularlist.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+        -:    5:// Function to create a new node
+        3:    6:Node* createNode(int data) {
+        3:    7:    Node* newNode = (Node*)malloc(sizeof(Node));
+        3:    8:    if (newNode == NULL) {
+    #####:    9:        printf("Memory allocation failed!\n");
+    #####:   10:        exit(1);
+        -:   11:    }
+        3:   12:    newNode->data = data;
+        3:   13:    newNode->next = NULL;
+        3:   14:    return newNode;
+        -:   15:}
+        -:   16:
+        -:   17:// Function to insert a node at the end of the circular linked list
+        3:   18:void insertNode(Node** head, int data) {
+        3:   19:    Node* newNode = createNode(data);
+        3:   20:    if (*head == NULL) {
+        1:   21:        *head = newNode;
+        1:   22:        newNode->next = *head;
+        -:   23:    } else {
+        2:   24:        Node* temp = *head;
+        3:   25:        while (temp->next != *head) {
+        1:   26:            temp = temp->next;
+        -:   27:        }
+        2:   28:        temp->next = newNode;
+        2:   29:        newNode->next = *head;
+        -:   30:    }
+        3:   31:}
+        -:   32:
+        -:   33:// Function to delete a node with given data from the circular linked list
+        1:   34:void deleteNode(Node** head, int data) {
+        1:   35:    if (*head == NULL) {
+    #####:   36:        printf("List is empty!\n");
+    #####:   37:        return;
+        -:   38:    }
+        1:   39:    Node* current = *head;
+        1:   40:    Node* prev = NULL;
+        2:   41:    while (current->data != data) {
+        1:   42:        if (current->next == *head) {
+    #####:   43:            printf("Node with data %d not found!\n", data);
+    #####:   44:            return;
+        -:   45:        }
+        1:   46:        prev = current;
+        1:   47:        current = current->next;
+        -:   48:    }
+       1*:   49:    if (current == *head && current->next == *head) {
+    #####:   50:        free(current);
+    #####:   51:        *head = NULL;
+        1:   52:    } else if (current == *head) {
+    #####:   53:        prev = *head;
+    #####:   54:        while (prev->next != *head)
+    #####:   55:            prev = prev->next;
+    #####:   56:        *head = (*head)->next;
+    #####:   57:        prev->next = *head;
+    #####:   58:        free(current);
+        1:   59:    } else if (current->next == *head) {
+    #####:   60:        prev->next = *head;
+    #####:   61:        free(current);
+        -:   62:    } else {
+        1:   63:        prev->next = current->next;
+        1:   64:        free(current);
+        -:   65:    }
+        -:   66:}
+        -:   67:
+        -:   68:// Function to display the circular linked list
+        2:   69:void displayList(Node* head) {
+        2:   70:    if (head == NULL) {
+    #####:   71:        printf("List is empty!\n");
+    #####:   72:        return;
+        -:   73:    }
+        2:   74:    Node* temp = head;
+        2:   75:    printf("Circular Linked List: ");
+        -:   76:    do {
+        5:   77:        printf("%d ", temp->data);
+        5:   78:        temp = temp->next;
+        5:   79:    } while (temp != head);
+        2:   80:    printf("\n");
+        -:   81:}

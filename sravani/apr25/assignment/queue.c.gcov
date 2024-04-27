@@ -1,0 +1,47 @@
+        -:    0:Source:queue.c
+        -:    1:#include "queue.h"
+        -:    2:#include<stdio.h>
+        -:    3:
+        -:    4:// Function to initialize the queue
+        1:    5:void initialize(Queue *queue) {
+        1:    6:    queue->front = -1; // Initialize front to -1 to indicate an empty queue
+        1:    7:    queue->rear = -1;  // Initialize rear to -1 to indicate an empty queue
+        1:    8:}
+        -:    9:
+        -:   10:// Function to check if the queue is empty
+        3:   11:int isEmpty(Queue *queue) {
+        3:   12:    return (queue->front == -1);
+        -:   13:}
+        -:   14:
+        -:   15:// Function to check if the queue is full
+        2:   16:int isFull(Queue *queue) {
+        2:   17:    return ((queue->rear + 1) % MAX_SIZE == queue->front);
+        -:   18:}
+        -:   19:
+        -:   20:// Function to enqueue an element into the queue
+        2:   21:void enqueue(Queue *queue, int value) {
+        2:   22:    if (isFull(queue)) {
+    #####:   23:        printf("Queue Overflow\n");
+    #####:   24:        return;
+        -:   25:    }
+        2:   26:    if (isEmpty(queue)) {
+        1:   27:        queue->front = 0;
+        -:   28:    }
+        2:   29:    queue->rear = (queue->rear + 1) % MAX_SIZE;
+        2:   30:    queue->items[queue->rear] = value;
+        -:   31:}
+        -:   32:
+        -:   33:// Function to dequeue an element from the queue
+        1:   34:int dequeue(Queue *queue) {
+        1:   35:    if (isEmpty(queue)) {
+    #####:   36:        printf("Queue Underflow\n");
+    #####:   37:        return -1;
+        -:   38:    }
+        1:   39:    int dequeuedItem = queue->items[queue->front];
+        1:   40:    if (queue->front == queue->rear) { // If there's only one element in the queue
+    #####:   41:        initialize(queue); // Reset the queue
+        -:   42:    } else {
+        1:   43:        queue->front = (queue->front + 1) % MAX_SIZE;
+        -:   44:    }
+        1:   45:    return dequeuedItem;
+        -:   46:}

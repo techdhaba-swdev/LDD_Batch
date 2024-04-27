@@ -1,0 +1,22 @@
+        -:    0:Source:linearsearch.c
+        -:    1:#include "linearsearc.h"
+        -:    2:#include<stdio.h>
+        -:    3:#include<stddef.h>//for null
+        -:    4:		  //
+        -:    5:// Function to perform linear search
+        1:    6:int linearSearch(int arr[], int size, int target) {
+        -:    7:	//input validation 
+        1:    8:	if(arr ==  NULL || size <=0) {
+    #####:    9:		return -1;//invalid inpput
+        -:   10:			}
+        3:   11:    for (int i = 0; i < size; i++) {
+        -:   12:	    //bonds checking
+        3:   13:	    if(i >= size){
+    #####:   14:		    return -1;//out of bounds
+        -:   15:	    }
+        3:   16:        if (arr[i] == target) {
+        1:   17:            return i; // Return the index where the target is found
+        -:   18:        }
+        -:   19:    }
+    #####:   20:    return -1; // Return -1 if the target is not found
+        -:   21:}

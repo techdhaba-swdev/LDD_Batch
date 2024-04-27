@@ -1,0 +1,39 @@
+        -:    0:Source:stack.c
+        -:    1:#include "stack.h"
+        -:    2:#include<stdio.h>
+        -:    3:
+        -:    4:// Function to initialize the stack
+        1:    5:void initialize(Stack *stack) {
+        1:    6:    stack->top = -1; // Initialize top to -1 to indicate an empty stack
+        1:    7:}
+        -:    8:
+        -:    9:// Function to check if the stack is empty
+        1:   10:int isEmpty(Stack *stack) {
+        1:   11:    return (stack->top == -1);
+        -:   12:}
+        -:   13:
+        -:   14:// Function to check if the stack is full
+        2:   15:int isFull(Stack *stack) {
+        2:   16:    return (stack->top == MAX_SIZE - 1);
+        -:   17:}
+        -:   18:
+        -:   19:// Function to push an element onto the stack
+        2:   20:void push(Stack *stack, int value) {
+        2:   21:    if (isFull(stack)) {
+    #####:   22:        printf("Stack Overflow\n");
+    #####:   23:        return;
+        -:   24:    }
+        2:   25:    stack->top++;
+        2:   26:    stack->items[stack->top] = value;
+        -:   27:}
+        -:   28:
+        -:   29:// Function to pop an element from the stack
+        1:   30:int pop(Stack *stack) {
+        1:   31:    if (isEmpty(stack)) {
+    #####:   32:        printf("Stack Underflow\n");
+    #####:   33:        return -1;
+        -:   34:    }
+        1:   35:    int poppedItem = stack->items[stack->top];
+        1:   36:    stack->top--;
+        1:   37:    return poppedItem;
+        -:   38:}

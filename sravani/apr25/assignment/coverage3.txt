@@ -1,0 +1,9 @@
+File 'bubblesort.c'
+Lines executed:100.00% of 8
+Creating 'bubblesort.c.gcov'
+
+File 'mainbs.c'
+Lines executed:100.00% of 13
+Creating 'mainbs.c.gcov'
+
+Lines executed:100.00% of 21

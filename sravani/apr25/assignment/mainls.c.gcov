@@ -1,0 +1,20 @@
+        -:    0:Source:mainls.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "linearsearc.h"
+        -:    3:
+        1:    4:int main() {
+        1:    5:    int arr[] = {5, 3, 8, 4, 2};
+        1:    6:    int size = sizeof(arr) / sizeof(arr[0]);
+        1:    7:    int target = 8;
+        -:    8:
+        -:    9:    // Perform linear search
+        1:   10:    int index = linearSearch(arr, size, target);
+        -:   11:
+        1:   12:    if (index != -1) {
+        1:   13:        printf("Element %d found at index %d\n", target, index);
+        -:   14:    } else {
+    #####:   15:        printf("Element %d not found in the array\n", target);
+        -:   16:    }
+        -:   17:
+        1:   18:    return 0;
+        -:   19:}
