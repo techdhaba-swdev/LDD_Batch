@@ -1,0 +1,33 @@
+        -:    0:Source:queuemain.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include"queue.h"
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main()
+        -:    5:{
+        -:    6:	//Enqueuing element to the queue from first
+        1:    7:	enqueue(40); 
+call    0 returned 100%
+        1:    8:   	enqueue(30); 
+call    0 returned 100%
+        1:    9:   	enqueue(20);
+call    0 returned 100%
+        1:   10:   	enqueue(10);
+call    0 returned 100%
+        1:   11:        print(); //printing enqueued elements using print() API
+call    0 returned 100%
+        1:   12:        int d1=dequeue(); //returned dequeued value from dequeue API and taken to another variable
+call    0 returned 100%
+        1:   13:        printf("Dequeuing element is %d\n",d1); //Printing the dequeued element 
+call    0 returned 100%
+        1:   14:        print();
+call    0 returned 100%
+        1:   15:        int d2=dequeue();
+call    0 returned 100%
+        1:   16:        printf("Dequeuing element is %d\n",d2);
+call    0 returned 100%
+        1:   17:        print();
+call    0 returned 100%
+        -:   18:
+        1:   19:        return 0;
+        -:   20:}

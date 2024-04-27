@@ -1,0 +1,46 @@
+        -:    0:Source:queue.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:struct node //created a structure node 
+        -:    4:{
+        -:    5:    int data; //declaerd a variable which stores an integer
+        -:    6:    struct node *next; //created a pointer which points to same structure
+        -:    7:};
+        -:    8:struct node *head=NULL; //initilized head with NULL
+function enqueue called 4 returned 100% blocks executed 100%
+        4:    9:void enqueue(int data) //API of enqueue 
+        -:   10:{
+        4:   11:    struct node*ptr=malloc(sizeof(struct node)); //allocated space to data using dynamicmemory allocation using malloc and named ptr
+        4:   12:    ptr->data=data; //assigned data to ptr
+        4:   13:    if(head==NULL) //condition works only once i.e for first node
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        -:   14:    {
+        1:   15:        head=ptr; //making ptr head for first node
+        1:   16:        return;
+        -:   17:    }
+        3:   18:    ptr->next=head; //from second enqueue the conditon fails and ptr is updated
+        3:   19:    head=ptr; //ptr is updated with head for every enqueue
+        -:   20:}
+function dequeue called 2 returned 100% blocks executed 100%
+        2:   21:int dequeue() //API of dequeue
+        -:   22:{
+        2:   23:    printf("\n");
+call    0 returned 100%
+        2:   24:    int p=head->data;
+        2:   25:    head=head->next;
+        2:   26:    return p; //returning the front elemnet as queue is FIFO(first in first out)
+        -:   27:}
+function print called 3 returned 100% blocks executed 100%
+        3:   28:void print() //API of print
+        -:   29:{
+        3:   30:    struct node *ptr=head; //reinitializing head as ptr for traversing
+       12:   31:    while(ptr!=NULL)
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        -:   32:    {
+        9:   33:        printf("%d ",ptr->data); //loop runs untill last node as last node stores NULL as address in next and prints each element
+call    0 returned 100%
+        9:   34:        ptr=ptr->next; //updating ptr with next node address everytime
+        -:   35:    }
+        3:   36:}
