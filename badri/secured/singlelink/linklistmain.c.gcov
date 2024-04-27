@@ -1,0 +1,30 @@
+        -:    0:Source:linklistmain.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "linklist.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        1:    5:    Node* head = NULL;
+        -:    6:
+        -:    7:    // Add elements to the list
+        1:    8:    insertAtEnd(&head, 10);
+call    0 returned 100%
+        1:    9:    insertAtEnd(&head, 20);
+call    0 returned 100%
+        1:   10:    insertAtEnd(&head, 30);
+call    0 returned 100%
+        1:   11:    insertAtEnd(&head, 40);
+call    0 returned 100%
+        -:   12:
+        -:   13:    // Calculate the sum of all elements
+        1:   14:    int sum = sumOfElements(head);
+call    0 returned 100%
+        1:   15:    printf("Sum of all elements in the list: %d\n", sum);// prints the sum all data in node
+call    0 returned 100%
+        -:   16:
+        -:   17:    // Free the memory allocated for the list
+        1:   18:    freeList(head);
+call    0 returned 100%
+        -:   19:
+        1:   20:    return 0; // successfull indication of program complition
+        -:   21:}

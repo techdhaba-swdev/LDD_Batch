@@ -1,0 +1,142 @@
+        -:    0:Source:linkpalin.c
+        -:    0:Graph:test_cov-linkpalin.gcno
+        -:    0:Data:test_cov-linkpalin.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h> 
+        -:    2:#include<stdlib.h> 
+        -:    3:
+        -:    4:struct Node
+        -:    5:{
+        -:    6:  int data;
+        -:    7:  struct Node *next;
+        -:    8:};
+        -:    9:
+        -:   10:
+function insertFirst called 5 returned 100% blocks executed 100%
+        5:   11:void insertFirst (struct Node **head, int data)
+        -:   12:{
+        -:   13:
+        -:   14:
+        5:   15:  struct Node *newNode = (struct Node *) malloc (sizeof (struct Node));
+        -:   16:
+        -:   17: 
+        5:   18:  newNode->data = data;
+        -:   19:  
+        5:   20:  newNode->next = *head;
+        -:   21:
+        -:   22:  
+        5:   23:  *head = newNode;
+        5:   24:}
+        -:   25:
+function display called 1 returned 100% blocks executed 100%
+        1:   26:void display (struct Node *node)
+        -:   27:{
+        1:   28:  printf ("Linked List : \n");
+call    0 returned 100%
+        -:   29:
+        -:   30:  
+        6:   31:  while (node != NULL)
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        -:   32:    {
+        5:   33:      printf ("%d ", node->data);
+call    0 returned 100%
+        5:   34:      node = node->next;
+        -:   35:    }
+        1:   36:  printf ("\n");
+call    0 returned 100%
+        1:   37:}
+        -:   38:
+function size called 1 returned 100% blocks executed 100%
+        1:   39:int size (struct Node *node)
+        -:   40:{
+        1:   41:  int counter=0;
+        -:   42:
+        -:   43:  
+        6:   44:  while (node != NULL)
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        -:   45:    {
+        5:   46:      node = node->next;
+        5:   47:      counter++;
+        -:   48:    }
+        1:   49: return counter;
+        -:   50:    
+        -:   51:}
+function checkPalindrome called 1 returned 100% blocks executed 92%
+        1:   52:int checkPalindrome (struct Node *head, int counter)
+        -:   53:
+        -:   54:{
+        1:   55:    int i = 0, j;
+        -:   56:    struct Node *front, *rear;
+        3:   57:     while (i != counter / 2)
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        -:   58:    {
+        2:   59:        front = rear = head;
+        3:   60:        for (j = 0; j < i; j++)
+branch  0 taken 33%
+branch  1 taken 67% (fallthrough)
+        -:   61:        {
+        1:   62:            front = front->next;
+        -:   63:        }
+        9:   64:        for (j = 0; j < counter - (i + 1); j++)
+branch  0 taken 78%
+branch  1 taken 22% (fallthrough)
+        -:   65:        {
+        7:   66:            rear = rear->next;
+        -:   67:        }
+        2:   68:        if (front->data != rear->data)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:   69:        {
+    #####:   70:            return 0;
+        -:   71:        }
+        -:   72:        else
+        -:   73:        {
+        2:   74:            i++;
+        -:   75:        }
+        -:   76:    }
+        -:   77:
+        1:   78:    return 1;
+        -:   79:}
+        -:   80:
+function main called 1 returned 100% blocks executed 92%
+        1:   81:int main ()
+        -:   82:{
+        1:   83:  struct Node *head = NULL;
+        -:   84:  int counter,result;
+        -:   85:  
+        1:   86:  insertFirst (&head, 2);
+call    0 returned 100%
+        1:   87:  insertFirst (&head, 3);
+call    0 returned 100%
+        1:   88:  insertFirst (&head, 4);
+call    0 returned 100%
+        1:   89:  insertFirst (&head, 3);
+call    0 returned 100%
+        1:   90:  insertFirst (&head, 2);
+call    0 returned 100%
+        -:   91:
+        -:   92:  
+        1:   93:  display (head);
+call    0 returned 100%
+        1:   94:  counter = size(head);
+call    0 returned 100%
+        1:   95:      result = checkPalindrome (head, counter);
+call    0 returned 100%
+        -:   96:
+        1:   97:    if (result == 1)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        -:   98:    {
+        1:   99:        printf("The linked list is a palindrome.\n");
+call    0 returned 100%
+        -:  100:    }
+        -:  101:    else
+        -:  102:    {
+    #####:  103:        printf("The linked list is not a palindrome.\n");
+call    0 never executed
+        -:  104:    }
+        1:  105:  return 0;
+        -:  106:}

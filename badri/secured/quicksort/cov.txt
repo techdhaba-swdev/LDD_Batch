@@ -1,0 +1,15 @@
+File 'quickmain.c'
+Lines executed:100.00% of 9
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 4
+Creating 'quickmain.c.gcov'
+
+File 'quicksort.c'
+Lines executed:100.00% of 19
+Branches executed:100.00% of 6
+Taken at least once:100.00% of 6
+Calls executed:100.00% of 3
+Creating 'quicksort.c.gcov'
+
+Lines executed:100.00% of 28

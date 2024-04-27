@@ -1,0 +1,22 @@
+        -:    0:Source:linearmain.c
+        -:    1:#include <stdio.h>  // Including standard input/output header file.
+        -:    2:#include "linearsearch.h" //Including the header file for linear search.
+        -:    3:
+function main called 1 returned 100% blocks executed 83%
+        1:    4:int main() {
+        1:    5:    int arr[] = {5, 10, 15, 20, 25};  //Initializing an array.
+        1:    6:    int n = sizeof(arr) / sizeof(arr[0]); //Calculating the size of the array
+        1:    7:    int target = 15; //Defining the target element to search.
+        1:    8:    int result = linearSearch(arr, n, target); //Calling the linear search function.
+call    0 returned 100%
+        1:    9:    if (result != -1) //Checking if the element is found.
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   10:        printf("Element found at index: %d\n", result);//Printing the index of the found element.
+call    0 returned 100%
+        -:   11:    else //Executing if the element is not found.
+    #####:   12:        printf("Element not found\n");//Printing that the element is not found.
+call    0 never executed
+        1:   13: 	return 0; // indicate successful termination.
+        -:   14:    
+        -:   15:}

@@ -1,0 +1,21 @@
+File 'doublelink.c'
+Lines executed:100.00% of 14
+Branches executed:100.00% of 4
+Taken at least once:100.00% of 4
+Calls executed:100.00% of 3
+Creating 'doublelink.c.gcov'
+
+File 'node.c'
+Lines executed:77.78% of 9
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:0.00% of 2
+Creating 'node.c.gcov'
+
+File 'doublemain.c'
+Lines executed:100.00% of 7
+No branches
+Calls executed:100.00% of 4
+Creating 'doublemain.c.gcov'
+
+Lines executed:93.33% of 30

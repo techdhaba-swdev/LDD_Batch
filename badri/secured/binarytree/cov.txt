@@ -1,0 +1,22 @@
+File 'node.c'
+Lines executed:75.00% of 8
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:0.00% of 2
+Creating 'node.c.gcov'
+
+File 'bst.c'
+Lines executed:95.45% of 22
+Branches executed:100.00% of 14
+Taken at least once:85.71% of 14
+Calls executed:100.00% of 8
+Creating 'bst.c.gcov'
+
+File 'main.c'
+Lines executed:94.12% of 17
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:92.31% of 13
+Creating 'main.c.gcov'
+
+Lines executed:91.49% of 47

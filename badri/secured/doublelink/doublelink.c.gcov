@@ -1,0 +1,33 @@
+        -:    0:Source:doublelink.c
+        -:    1:#include "doublelink.h"
+        -:    2:#include <stdio.h> // Include standard input/output library
+        -:    3:
+        -:    4:// Function to insert a node at the beginning of the list
+function insertAtBeginning called 3 returned 100% blocks executed 100%
+        3:    5:void insertAtBeginning(Node** head, int data) {
+        3:    6:    Node* newNode = createNode(data); // Create a new node
+call    0 returned 100%
+        3:    7:    if (*head == NULL) { // Check if the list is empty
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:    8:        *head = newNode; // Set the new node as the head
+        -:    9:    } else {
+        2:   10:        newNode->next = *head; // Link new node to the current head
+        2:   11:        (*head)->prev = newNode; // Link current head to the new node
+        2:   12:        *head = newNode; // Update the head to the new node
+        -:   13:    }
+        3:   14:}
+        -:   15:
+        -:   16:// Function to display the doubly linked list
+function displayList called 1 returned 100% blocks executed 100%
+        1:   17:void displayList(Node* head) {
+        4:   18:    while (head != NULL) { // Traverse the list until NULL is reached
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        3:   19:        printf("%d ", head->data); // Print data of the current node
+call    0 returned 100%
+        3:   20:        head = head->next; // Move to the next node
+        -:   21:    }
+        1:   22:    printf("\n");
+call    0 returned 100%
+        1:   23:}

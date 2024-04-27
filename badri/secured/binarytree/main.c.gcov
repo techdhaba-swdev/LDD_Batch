@@ -1,0 +1,50 @@
+        -:    0:Source:main.c
+        -:    1:#include "bst.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h> // Added for error handling
+        -:    4:
+function main called 1 returned 100% blocks executed 94%
+        1:    5:int main() {
+        1:    6:    struct node* root = NULL; // Initialize an empty tree
+        -:    7:
+        -:    8:    // Insert some nodes into the tree
+        1:    9:    root = insert(root, 50);
+call    0 returned 100%
+        1:   10:    insert(root, 30);
+call    0 returned 100%
+        1:   11:    insert(root, 20);
+call    0 returned 100%
+        1:   12:    insert(root, 40);
+call    0 returned 100%
+        1:   13:    insert(root, 70);
+call    0 returned 100%
+        1:   14:    insert(root, 60);
+call    0 returned 100%
+        1:   15:    insert(root, 80);
+call    0 returned 100%
+        -:   16:
+        -:   17:    // Perform in-order traversal to verify tree structure
+        1:   18:    printf("In-order traversal: ");
+call    0 returned 100%
+        1:   19:    inorderTraversal(root);
+call    0 returned 100%
+        1:   20:    printf("\n");
+call    0 returned 100%
+        -:   21:
+        -:   22:    // Search for a value in the tree
+        1:   23:    int searchValue = 40;
+        1:   24:    if (search(root, searchValue)) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        1:   25:        printf("%d found in the tree.\n", searchValue);
+call    0 returned 100%
+        -:   26:    } else {
+    #####:   27:        printf("%d not found in the tree.\n", searchValue);
+call    0 never executed
+        -:   28:    }
+        -:   29:
+        -:   30:    
+        -:   31:
+        1:   32:    return 0;
+        -:   33:}

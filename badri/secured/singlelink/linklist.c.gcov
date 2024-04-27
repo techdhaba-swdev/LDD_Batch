@@ -1,0 +1,70 @@
+        -:    0:Source:linklist.c
+        -:    1:#include <stdio.h> //including header stdio for input and output function calling
+        -:    2:#include <stdlib.h>// including library header for memory function
+        -:    3:#include "linklist.h"
+        -:    4:
+        -:    5:// Function to create a new node
+function createNode called 4 returned 100% blocks executed 60%
+        4:    6:Node* createNode(int data) {
+        4:    7:    Node* newNode = (Node*)malloc(sizeof(Node));// here we are dynamically allocating memory using malloc
+        4:    8:    if (newNode == NULL) { // checking the node is null or not
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    9:        printf("Memory allocation failed.\n");
+call    0 never executed
+    #####:   10:        exit(1);//tells there is error to os
+call    0 never executed
+        -:   11:    }
+        4:   12:    newNode->data = data;// aggigning data to new node
+        4:   13:    newNode->next = NULL;
+        4:   14:    return newNode;
+        -:   15:}
+        -:   16:
+        -:   17:// Function to insert a node at the end of the linked list
+function insertAtEnd called 4 returned 100% blocks executed 100%
+        4:   18:void insertAtEnd(Node** headRef, int data) {
+        4:   19:    Node* newNode = createNode(data);
+call    0 returned 100%
+        4:   20:    if (*headRef == NULL) {
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        1:   21:        *headRef = newNode;
+        1:   22:        return;
+        -:   23:    }
+        3:   24:    Node* current = *headRef;
+        6:   25:    while (current->next != NULL) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        3:   26:        current = current->next;
+        -:   27:    }
+        3:   28:    current->next = newNode;
+        -:   29:}
+        -:   30:
+        -:   31:// Function to calculate the sum of all elements in the linked list
+function sumOfElements called 1 returned 100% blocks executed 100%
+        1:   32:int sumOfElements(Node* head) {
+        1:   33:    int sum = 0;
+        1:   34:    Node* current = head;
+        5:   35:    while (current != NULL) {
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        4:   36:        sum += current->data;//calculating the sum of inserted data
+        4:   37:        current = current->next;
+        -:   38:    }
+        1:   39:    return sum;
+        -:   40:}
+        -:   41:// Function to free the memory allocated for the linklist
+function freeList called 1 returned 100% blocks executed 100%
+        1:   42:void freeList(Node* head)
+        -:   43:{
+        1:   44:	Node* current = head;
+        5:   45:	while (current != NULL)
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        -:   46:	{
+        4:   47:		Node* temp = current;
+        4:   48:		current = current->next;
+        4:   49:		free(temp);
+        -:   50:	}
+        1:   51:}
+        -:   52:

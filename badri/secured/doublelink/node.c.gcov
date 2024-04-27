@@ -1,0 +1,22 @@
+        -:    0:Source:node.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "node.h"
+        -:    3:#include <stdlib.h> // Include standard library for memory allocation
+        -:    4:
+        -:    5:// Function to create a new node
+function createNode called 3 returned 100% blocks executed 60%
+        3:    6:Node* createNode(int data) {
+        3:    7:    Node* newNode = (Node*)malloc(sizeof(Node)); // Allocate memory for the new node
+        3:    8:    if (newNode == NULL) { // Check if memory allocation failed
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    9:        printf("Memory allocation failed!\n");
+call    0 never executed
+    #####:   10:        exit(EXIT_FAILURE); // Terminate the program
+call    0 never executed
+        -:   11:    }
+        3:   12:    newNode->data = data; // Assign data to the new node
+        3:   13:    newNode->prev = NULL; // Set previous pointer to NULL
+        3:   14:    newNode->next = NULL; // Set next pointer to NULL
+        3:   15:    return newNode; // Return the new node
+        -:   16:}

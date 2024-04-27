@@ -1,0 +1,17 @@
+        -:    0:Source:doublemain.c
+        -:    1:#include "doublelink.h"
+        -:    2:#include <stddef.h>// represents a null pointer constant, typically used to initialize pointers that are not pointing to any valid object or function.
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        1:    5:    Node* head = NULL; // Initialize head pointer to NULL
+        1:    6:    insertAtBeginning(&head, 10); // Insert node with data 10 at the beginning
+call    0 returned 100%
+        1:    7:    insertAtBeginning(&head, 20); // Insert node with data 20 at the beginning
+call    0 returned 100%
+        1:    8:    insertAtBeginning(&head, 30); // Insert node with data 30 at the beginning
+call    0 returned 100%
+        1:    9:    displayList(head); // Display the doubly linked list
+call    0 returned 100%
+        1:   10:    return 0; // Return 0 to indicate successful execution
+        -:   11:}
