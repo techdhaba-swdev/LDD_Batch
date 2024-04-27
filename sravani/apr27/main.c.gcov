@@ -1,0 +1,31 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "bst.h"
+        -:    3:
+        1:    4:int main() {
+        1:    5:    struct node* root = NULL;
+        -:    6:    // Insert some nodes into the BST
+        1:    7:    root = insert(root, 50);
+        1:    8:    insert(root, 30);
+        1:    9:    insert(root, 20);
+        1:   10:    insert(root, 40);
+        1:   11:    insert(root, 70);
+        1:   12:    insert(root, 60);
+        1:   13:    insert(root, 80);
+        -:   14:
+        -:   15:    // Print the in-order traversal of the BST
+        1:   16:    printf("Inorder traversal of the bst: ");
+        1:   17:    inorderTraversal(root);
+        1:   18:    printf("\n");
+        -:   19:
+        -:   20:    // Search for a value in the BST
+        1:   21:    int searchKey = 60;
+        1:   22:    if (search(root, searchKey)) {
+        1:   23:        printf("%d is present in the bst.\n", searchKey);
+        -:   24:    } else {
+    #####:   25:        printf("%d is not present in the bst.\n", searchKey);
+        -:   26:    }
+        -:   27:
+        1:   28:    return 0;
+        -:   29:}
+        -:   30:
