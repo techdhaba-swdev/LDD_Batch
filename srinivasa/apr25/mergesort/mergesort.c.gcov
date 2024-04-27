@@ -1,0 +1,79 @@
+        -:    0:Source:mergesort.c
+        -:    1:#include "merge_sort.h"   //including the merge_sort headerfile
+        -:    2:
+        -:    3:// Merge sort function
+function merge_sort called 11 returned 100% blocks executed 100%
+       11:    4:void merge_sort(int arr[], int left, int right) {
+       11:    5:    if (left < right) {
+branch  0 taken 45% (fallthrough)
+branch  1 taken 55%
+        5:    6:        int mid = left + (right - left) / 2;  // calculating the middle element
+        -:    7:
+        -:    8:       
+        5:    9:        merge_sort(arr, left, mid);  // sorting the left half
+call    0 returned 100%
+        5:   10:        merge_sort(arr, mid + 1, right);  // sorting the right half
+call    0 returned 100%
+        -:   11:
+        -:   12:        // Merge the sorted left and right half
+        5:   13:        merge(arr, left, mid, right);
+call    0 returned 100%
+        -:   14:    }
+       11:   15:}
+        -:   16:
+        -:   17:// Merge function
+function merge called 5 returned 100% blocks executed 100%
+        5:   18:void merge(int arr[], int left, int mid, int right) {
+        5:   19:    int n1 = mid - left + 1;
+        5:   20:    int n2 = right - mid;
+        -:   21:
+        -:   22:    // Temporary arrays
+        5:   23:    int L[n1], R[n2];
+        -:   24:
+        -:   25:    // Copy data to temporary arrays L[] and R[]
+       14:   26:    for (int i = 0; i < n1; i++)
+branch  0 taken 64%
+branch  1 taken 36% (fallthrough)
+        9:   27:        L[i] = arr[left + i];
+       12:   28:    for (int j = 0; j < n2; j++)
+branch  0 taken 58%
+branch  1 taken 42% (fallthrough)
+        7:   29:        R[j] = arr[mid + 1 + j];
+        -:   30:
+        -:   31:    // Merge the temporary arrays back into arr[]
+        5:   32:    int i = 0, j = 0, k = left;
+       16:   33:    while (i < n1 && j < n2) {
+branch  0 taken 75% (fallthrough)
+branch  1 taken 25%
+branch  2 taken 92%
+branch  3 taken 8% (fallthrough)
+       11:   34:        if (L[i] <= R[j]) {
+branch  0 taken 73% (fallthrough)
+branch  1 taken 27%
+        8:   35:            arr[k] = L[i];
+        8:   36:            i++;
+        -:   37:        } else {
+        3:   38:            arr[k] = R[j];
+        3:   39:            j++;
+        -:   40:        }
+       11:   41:        k++;
+        -:   42:    }
+        -:   43:
+        -:   44:    // Copy the remaining elements of L[], if any
+        6:   45:    while (i < n1) {
+branch  0 taken 17%
+branch  1 taken 83% (fallthrough)
+        1:   46:        arr[k] = L[i];
+        1:   47:        i++;
+        1:   48:        k++;
+        -:   49:    }
+        -:   50:
+        -:   51:    // Copy the remaining elements of R[], if any
+        9:   52:    while (j < n2) {
+branch  0 taken 44%
+branch  1 taken 56% (fallthrough)
+        4:   53:        arr[k] = R[j];
+        4:   54:        j++;
+        4:   55:        k++;
+        -:   56:    }
+        5:   57:}

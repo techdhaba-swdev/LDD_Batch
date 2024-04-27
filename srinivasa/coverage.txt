@@ -1,0 +1,13 @@
+File 'add.c'
+Lines executed:100.00% of 2
+No branches
+No calls
+Creating 'add.c.gcov'
+
+File 'main.c'
+Lines executed:100.00% of 3
+No branches
+Calls executed:100.00% of 2
+Creating 'main.c.gcov'
+
+Lines executed:100.00% of 5

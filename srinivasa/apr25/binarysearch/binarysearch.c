@@ -17,5 +17,5 @@ int binary_search(int arr[], int size, int target) {
     }
 
     // If target is not found
-    return -1; // Return -1 if the element is not foundi
+    return -1; // Return -1 if the element is not found
 }
