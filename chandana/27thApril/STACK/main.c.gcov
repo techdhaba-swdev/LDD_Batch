@@ -1,0 +1,27 @@
+        -:    0:Source:main.c
+        -:    1:#include "stack.h"    // Include the header file that contains the structure definition and function prototypes
+        -:    2:#include <stdio.h>    // Include standard I/O functions
+        -:    3:
+        1:    4:int main() {
+        -:    5:    Stack stack;        // Declare a stack
+        1:    6:    initializeStack(&stack);  // Initialize the stack
+        -:    7:
+        -:    8:    // Push elements onto the stack
+        1:    9:    push(&stack, 10);
+        1:   10:    push(&stack, 20);
+        1:   11:    push(&stack, 30);
+        -:   12:
+        -:   13:    // Display the stack
+        1:   14:    display(&stack);
+        -:   15:
+        -:   16:    // Peek at the top element
+        1:   17:    printf("Top element: %d\n", peek(&stack));
+        -:   18:
+        -:   19:    // Pop an element from the stack
+        1:   20:    printf("Popped element: %d\n", pop(&stack));
+        -:   21:
+        -:   22:    // Display the stack after popping
+        1:   23:    display(&stack);
+        -:   24:
+        1:   25:    return 0;
+        -:   26:}

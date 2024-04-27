@@ -1,0 +1,74 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>    // Include the standard input/output header file for printf
+        -:    2:#include "bst.h"      // Include the custom header file for the BST implementation
+        -:    3:
+function main called 1 returned 100% blocks executed 96%
+        1:    4:int main() {
+        1:    5:    struct node* root = NULL;  // Initialize an empty root node for the BST
+        -:    6:
+        -:    7:    // Insert nodes into the BST
+        1:    8:    root = insert(root, 50);
+call    0 returned 100%
+        1:    9:    insert(root, 30);
+call    0 returned 100%
+        1:   10:    insert(root, 20);
+call    0 returned 100%
+        1:   11:    insert(root, 40);
+call    0 returned 100%
+        1:   12:    insert(root, 70);
+call    0 returned 100%
+        1:   13:    insert(root, 60);
+call    0 returned 100%
+        1:   14:    insert(root, 80);
+call    0 returned 100%
+        -:   15:
+        -:   16:    // Perform an in-order traversal
+        1:   17:    printf("Inorder traversal: ");
+call    0 returned 100%
+        1:   18:    inorderTraversal(root);
+call    0 returned 100%
+        1:   19:    printf("\n");
+call    0 returned 100%
+        -:   20:
+        -:   21:    // Search for a node
+        1:   22:    int searchKey = 40;
+        1:   23:    if (search(root, searchKey)) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        1:   24:        printf("%d found in the BST\n", searchKey);
+call    0 returned 100%
+        -:   25:    } else {
+    #####:   26:        printf("%d not found in the BST\n", searchKey);
+call    0 never executed
+        -:   27:    }
+        -:   28:
+        -:   29:    // Delete a node
+        1:   30:    int deleteKey = 30;
+        1:   31:    root = deleteNode(root, deleteKey);
+call    0 returned 100%
+        1:   32:    printf("After deleting %d, inorder traversal: ", deleteKey);
+call    0 returned 100%
+        1:   33:    inorderTraversal(root);
+call    0 returned 100%
+        1:   34:    printf("\n");
+call    0 returned 100%
+        -:   35:
+        -:   36:    // Find the minimum and maximum values
+        1:   37:    struct node* minNode = minValueNode(root);
+call    0 returned 100%
+        1:   38:    struct node* maxNode = maxValueNode(root);
+call    0 returned 100%
+        1:   39:    printf("Minimum value in the BST: %d\n", minNode->data);
+call    0 returned 100%
+        1:   40:    printf("Maximum value in the BST: %d\n", maxNode->data);
+call    0 returned 100%
+        -:   41:
+        -:   42:    // Calculate the height of the tree
+        1:   43:    int treeHeight = height(root);
+call    0 returned 100%
+        1:   44:    printf("Height of the BST: %d\n", treeHeight);
+call    0 returned 100%
+        -:   45:
+        1:   46:    return 0;  // Return 0 to indicate successful execution
+        -:   47:}

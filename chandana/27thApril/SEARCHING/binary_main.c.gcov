@@ -1,0 +1,27 @@
+        -:    0:Source:binary_main.c
+        -:    1:#include <stdio.h>           // Include standard I/O functions
+        -:    2:#include "binary_search.h"   // Include the header file that contains the function prototype
+        -:    3:
+function main called 1 returned 100% blocks executed 83%
+        1:    4:int main() {
+        1:    5:    int arr[] = {10, 20, 30, 40, 50};  // Initialize a sorted array
+        1:    6:    int size = sizeof(arr) / sizeof(arr[0]);  // Calculate the size of the array
+        1:    7:    int target = 30;  // Element to search for
+        -:    8:
+        -:    9:    // Perform binary search
+        1:   10:    int index = binarySearch(arr, size, target);
+call    0 returned 100%
+        -:   11:
+        -:   12:    // Print the result
+        1:   13:    if (index != -1) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   14:        printf("Element found at index: %d\n", index);
+call    0 returned 100%
+        -:   15:    } else {
+    #####:   16:        printf("Element not found\n");
+call    0 never executed
+        -:   17:    }
+        -:   18:
+        1:   19:    return 0;
+        -:   20:}

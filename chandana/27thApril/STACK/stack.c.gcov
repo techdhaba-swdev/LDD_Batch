@@ -1,0 +1,61 @@
+        -:    0:Source:stack.c
+        -:    1:#include "stack.h"    // Include the header file that contains the structure definition and function prototypes
+        -:    2:
+        -:    3:// Initialize the stack
+        1:    4:void initializeStack(Stack *stack) {
+        1:    5:    stack->top = -1;  // Initialize the top index to -1 (empty stack)
+        1:    6:}
+        -:    7:
+        -:    8:// Check if the stack is full
+        3:    9:bool isFull(Stack *stack) {
+        3:   10:    return stack->top == MAX_SIZE - 1;  // If top index is equal to MAX_SIZE - 1, stack is full
+        -:   11:}
+        -:   12:
+        -:   13:// Check if the stack is empty
+        4:   14:bool isEmpty(Stack *stack) {
+        4:   15:    return stack->top == -1;  // If top index is -1, stack is empty
+        -:   16:}
+        -:   17:
+        -:   18:// Push an element onto the stack
+        3:   19:void push(Stack *stack, int value) {
+        3:   20:    if (isFull(stack)) {
+    #####:   21:        printf("Stack Overflow\n");  // Print an error message if stack is full
+    #####:   22:        return;
+        -:   23:    }
+        3:   24:    stack->top++;              // Increment top index
+        3:   25:    stack->items[stack->top] = value;  // Add value to the stack
+        -:   26:}
+        -:   27:
+        -:   28:// Pop an element from the stack
+        1:   29:int pop(Stack *stack) {
+        1:   30:    if (isEmpty(stack)) {
+    #####:   31:        printf("Stack Underflow\n");  // Print an error message if stack is empty
+    #####:   32:        return -1;
+        -:   33:    }
+        1:   34:    int value = stack->items[stack->top];  // Get the top element
+        1:   35:    stack->top--;              // Decrement top index
+        1:   36:    return value;              // Return the popped value
+        -:   37:}
+        -:   38:
+        -:   39:// Peek at the top element of the stack
+        1:   40:int peek(Stack *stack) {
+        1:   41:    if (isEmpty(stack)) {
+    #####:   42:        printf("Stack is empty\n");  // Print an error message if stack is empty
+    #####:   43:        return -1;
+        -:   44:    }
+        1:   45:    return stack->items[stack->top];  // Return the top element without removing it
+        -:   46:}
+        -:   47:
+        -:   48:// Display the stack elements
+        2:   49:void display(Stack *stack) {
+        2:   50:    if (isEmpty(stack)) {
+    #####:   51:        printf("Stack is empty\n");  // Print an error message if stack is empty
+    #####:   52:        return;
+        -:   53:    }
+        2:   54:    printf("Stack: ");
+        7:   55:    for (int i = stack->top; i >= 0; i--) {
+        5:   56:        printf("%d ", stack->items[i]);  // Print each element from top to bottom
+        -:   57:    }
+        2:   58:    printf("\n");
+        -:   59:
+        -:   60:}

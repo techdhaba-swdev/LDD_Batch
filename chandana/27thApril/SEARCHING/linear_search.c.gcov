@@ -1,0 +1,20 @@
+        -:    0:Source:linear_search.c
+        -:    1:#include "linear_search.h"  // Include the header file that contains the function prototype
+        -:    2:
+        -:    3:// Function to perform linear search
+function linearSearch called 1 returned 100% blocks executed 86%
+        1:    4:int linearSearch(int arr[], int size, int target) {
+        -:    5:    // Iterate through each element in the array
+        3:    6:    for (int i = 0; i < size; i++) {
+branch  0 taken 100%
+branch  1 taken 0% (fallthrough)
+        -:    7:        // If the current element is equal to the target, return its index
+        3:    8:        if (arr[i] == target) {
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:    9:            return i;
+        -:   10:        }
+        -:   11:    }
+        -:   12:    // If target is not found, return -1
+    #####:   13:    return -1;
+        -:   14:}
