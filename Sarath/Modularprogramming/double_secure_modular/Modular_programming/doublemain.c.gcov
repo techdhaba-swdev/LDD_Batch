@@ -1,0 +1,23 @@
+        -:    0:Source:doublemain.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include"double_linkedlist.h"
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main()
+        -:    5:{
+        1:    6:	struct node *head=NULL;
+        1:    7:	insert_at_start(1);
+call    0 returned 100%
+        1:    8:	insert_at_start(2);
+call    0 returned 100%
+        1:    9:	insert_at_start(3);
+call    0 returned 100%
+        1:   10:	insert_at_end(4);
+call    0 returned 100%
+        1:   11:	insert_at_end(5);
+call    0 returned 100%
+        1:   12:	print();
+call    0 returned 100%
+        1:   13:	return 0;
+        -:   14:}
+        -:   15:

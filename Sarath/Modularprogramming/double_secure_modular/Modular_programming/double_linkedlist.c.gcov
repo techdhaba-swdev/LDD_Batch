@@ -1,0 +1,62 @@
+        -:    0:Source:double_linkedlist.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include"double_linkedlist.h"
+        -:    4:struct node //declared a structure which stores next and prev nodes address which is double linked list
+        -:    5:{
+        -:    6:	int data; //declared a variable data to store input
+        -:    7:	struct node *prev;
+        -:    8:	struct node *next;
+        -:    9:};
+        -:   10:struct node *head=NULL; //initialized head with NULL as at first there will be no node
+function insert_at_start called 3 returned 100% blocks executed 100%
+        3:   11:void insert_at_start(int data) // API for insert at start which takes integer data as argument
+        -:   12:{
+        3:   13:	struct node *temp=malloc(sizeof(struct node)); //allocated space dynamically for data using malloc and stored in temp
+        3:   14:	temp->data=data; //assigned data to temp
+        3:   15:	if(head==NULL) //checks for the first time if head is NULL
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        -:   16:	{
+        1:   17:		head=temp; //assigns temp to head
+        1:   18:		return; //this will be done only once because for second push the head will not be NULL
+        -:   19:	}
+        2:   20:	temp->next=head; //linking temp and head using linkedlist
+        2:   21:	head->prev=temp; //as this is double linked list the prev also should be updated
+        2:   22:	head=temp; //now head is pointing to temp as we added from start
+        -:   23:}
+function insert_at_end called 2 returned 100% blocks executed 100%
+        2:   24:void insert_at_end(int data) //API for insert at end which takes integer argument
+        -:   25:{
+        2:   26:	struct node *ptr=malloc(sizeof(struct node)); //dynamically allocated space for data and stored in ptr using malloc
+        2:   27:	ptr->data=data; //assigned data to ptr
+        2:   28:	struct node *temp=head; //reinitiaized head as temp for traversing as we shouldn't traverse head directly
+        7:   29:	while(temp->next!=NULL) //loop rotates untill last node 
+branch  0 taken 71%
+branch  1 taken 29% (fallthrough)
+        -:   30:	{
+        5:   31:		temp=temp->next; //temp will be updated with next node address
+        -:   32:	}
+        2:   33:	temp->next=ptr; //after loop break temp and ptr are linked
+        2:   34:	ptr->prev=temp; 
+        2:   35:	ptr->next=NULL; //as ptr is last node we assign ptr next to NULL
+        2:   36:}
+function print called 1 returned 100% blocks executed 100%
+        1:   37:void print() //API for printing required output
+        -:   38:{
+        1:   39:	struct node *temp=head; //reinitialized head as temp for traversing
+        1:   40:	int result=0; //initalized result for printing sum of list
+        1:   41:	printf("list elements:");
+call    0 returned 100%
+        6:   42:	while(temp!=NULL) //loop runs until last node
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        -:   43:	{
+        5:   44:		result+=temp->data; //adds all elements of list and assigns to result
+        5:   45:		printf("%d ",temp->data); //printing all elements
+call    0 returned 100%
+        5:   46:		temp=temp->next; //temp will be updated to next node
+        -:   47:	}
+        1:   48:	printf("\nSum of double linkedlist is %d\n",result); //printing the sum of all elements of list using printf library function
+call    0 returned 100%
+        1:   49:}
