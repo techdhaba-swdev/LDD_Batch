@@ -1,0 +1,25 @@
+        -:    0:Source:listmain.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"linkedlist.h"
+function main called 1 returned 100% blocks executed 100%
+        1:    3:int main()
+        -:    4:{
+        1:    5:	struct node *head=NULL;	//declared a head node with NULL as initially head points to nothing unless we insert an elemnt
+        -:    6:	
+        -:    7:	//inserting elements both start and end
+        1:    8:	insert_at_start(30); 
+call    0 returned 100%
+        1:    9:        insert_at_start(20);
+call    0 returned 100%
+        1:   10:        insert_at_start(10);
+call    0 returned 100%
+        1:   11:        insert_at_end(40);
+call    0 returned 100%
+        1:   12:        insert_at_end(50);
+call    0 returned 100%
+        -:   13:        
+        -:   14:	//printing the required output using print API
+        1:   15:	print();
+call    0 returned 100%
+        1:   16:        return 0;
+        -:   17:}
