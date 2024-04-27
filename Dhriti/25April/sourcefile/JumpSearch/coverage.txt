@@ -1,0 +1,9 @@
+File 'jump_main.c'
+Lines executed:0.00% of 9
+Creating 'jump_main.c.gcov'
+
+File 'jumpsearch.c'
+Lines executed:0.00% of 11
+Creating 'jumpsearch.c.gcov'
+
+Lines executed:0.00% of 20

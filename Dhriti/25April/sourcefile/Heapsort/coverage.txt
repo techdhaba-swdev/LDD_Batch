@@ -1,0 +1,9 @@
+File 'heapsort.c'
+Lines executed:96.67% of 30
+Creating 'heapsort.c.gcov'
+
+File 'main.c'
+Lines executed:100.00% of 9
+Creating 'main.c.gcov'
+
+Lines executed:97.44% of 39

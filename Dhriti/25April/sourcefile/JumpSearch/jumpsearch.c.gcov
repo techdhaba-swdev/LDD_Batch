@@ -1,0 +1,25 @@
+        -:    0:Source:jumpsearch.c
+        -:    1:#include "jumpsearch.h"
+        -:    2:#include <math.h>
+        -:    3:
+        -:    4:// Function to perform jump search
+    #####:    5:int jumpSearch(const int array[], int size, int target) {
+    #####:    6:    int jump = (int)sqrt(size); // Calculate the jump size
+    #####:    7:    int left = 0; // Left index of the current block
+    #####:    8:    int right = jump; // Right index of the current block
+        -:    9:
+        -:   10:    // Jump through the blocks until the target is found or the end of the array is reached
+    #####:   11:    while (right < size && array[right] < target) {
+    #####:   12:        left = right; // Move the left index to the start of the next block
+    #####:   13:        right += jump; // Move the right index to the end of the next block
+        -:   14:    }
+        -:   15:
+        -:   16:    // Perform linear search within the block
+    #####:   17:    for (int i = left; i <= fmin(right, size - 1); i++) {
+    #####:   18:        if (array[i] == target) { // If target found
+    #####:   19:            return i; // Return the index of the target
+        -:   20:        }
+        -:   21:    }
+        -:   22:
+    #####:   23:    return -1; // Return -1 if target not found in the array
+        -:   24:}

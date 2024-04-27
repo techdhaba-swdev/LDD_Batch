@@ -1,0 +1,32 @@
+        -:    0:Source:main.c
+        -:    1:#include "main.h"
+        -:    2:
+        1:    3:int main() {
+        -:    4:
+        1:    5:	int num1 = 10; 
+        1:    6:	int num2 = 20;
+        1:    7:	int num3 = 30;
+        1:    8:	int num4 = 40;
+        -:    9:
+        1:   10:	int sum = add2(num1, num2);	//Function call with meaningful variable names
+        1:   11:        int sum3 = add3(num1, num2, num3);
+        1:   12:	int sum4 = add4(num1, num2, num3, num4);
+        -:   13:
+        1:   14:	print_message("The sum for two numbers is: "); //Clear and concise message
+        -:   15:
+        1:   16:	printf("%d\n",sum);
+        -:   17:
+        1:   18:	print_message("The sum for three numbers is: "); 
+        -:   19:
+        1:   20:        printf("%d\n",sum3);
+        -:   21:
+        -:   22:
+        1:   23:	print_message("The sum for four numbers is: ");
+        -:   24:
+        1:   25:        printf("%d\n",sum4);
+        -:   26:
+        -:   27:
+        -:   28: 
+        1:   29:	return 0; // Indicate successful program termination
+        -:   30:}
+        -:   31:

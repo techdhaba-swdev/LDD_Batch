@@ -1,0 +1,20 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "Clinklist.h"
+        -:    3:
+        1:    4:int main() {
+        -:    5:    // Create a new circular linked list
+        -:    6:    struct CircularLinkedList list;
+        1:    7:    list.head = NULL;
+        -:    8:
+        -:    9:    // Insert elements into the circular linked list
+        1:   10:    append(&list, 1);
+    #####:   11:    append(&list, 2);
+    #####:   12:    append(&list, 3);
+        -:   13:
+        -:   14:    // Display the circular linked list
+    #####:   15:    display(&list);
+        -:   16:
+    #####:   17:    return 0;
+        -:   18:}
+        -:   19:

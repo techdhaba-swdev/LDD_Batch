@@ -1,0 +1,46 @@
+        -:    0:Source:stack.c
+        -:    1:#include "stack.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+        -:    4:// Function to initialize stack
+        1:    5:void initializeStack(struct Stack *stack) {
+        1:    6:    stack->top = -1;  // Initialize top index to -1 (empty stack)
+        1:    7:}
+        -:    8:
+        -:    9:// Function to check if stack is empty
+        3:   10:int isEmpty(struct Stack *stack) {
+        3:   11:    return stack->top == -1;  // Return 1 if stack is empty, 0 otherwise
+        -:   12:}
+        -:   13:
+        -:   14:// Function to check if stack is full
+        3:   15:int isFull(struct Stack *stack) {
+        3:   16:    return stack->top == MAX_SIZE - 1;  // Return 1 if stack is full, 0 otherwise
+        -:   17:}
+        -:   18:
+        -:   19:// Function to push an element onto the stack
+        3:   20:void push(struct Stack *stack, int value) {
+        3:   21:    if (isFull(stack)) {  // Check if stack is full
+    #####:   22:        printf("Stack overflow\n");  // Print error message
+    #####:   23:        return;
+        -:   24:    }
+        3:   25:    stack->items[++stack->top] = value;  // Increment top index and insert element
+        -:   26:}
+        -:   27:
+        -:   28:// Function to pop an element from the stack
+        1:   29:int pop(struct Stack *stack) {
+        1:   30:    if (isEmpty(stack)) {  // Check if stack is empty
+    #####:   31:        printf("Stack underflow\n");  // Print error message
+    #####:   32:        return -1;
+        -:   33:    }
+        1:   34:    return stack->items[stack->top--];  // Return and decrement top element
+        -:   35:}
+        -:   36:
+        -:   37:// Function to get the top element of the stack without removing it
+        2:   38:int peek(struct Stack *stack) {
+        2:   39:    if (isEmpty(stack)) {  // Check if stack is empty
+    #####:   40:        printf("Stack is empty\n");  // Print error message
+    #####:   41:        return -1;
+        -:   42:    }
+        2:   43:    return stack->items[stack->top];  // Return top element of the stack
+        -:   44:}
+        -:   45:
