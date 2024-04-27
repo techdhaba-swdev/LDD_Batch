@@ -1,0 +1,65 @@
+        -:    0:Source:BST.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include "BST.h"
+        -:    4:
+        -:    5:
+        7:    6:struct node* createnode(int data) {
+        -:    7:          
+        7:    8:	struct node* newnode = (struct node*)malloc(sizeof(struct node));	//Allocating memory for the new node
+        7:    9:        if(newnode != NULL) { 
+        7:   10:	newnode->data = data; //Initialize data
+        -:   11:          
+        7:   12:	newnode->left = NULL;
+        7:   13:	newnode->right = NULL;	//setting both the nodes to null
+        -:   14:	}
+        7:   15:	return newnode;
+        -:   16:}
+        -:   17:
+       19:   18:struct node* insert(struct node* root, int data) {
+        -:   19:
+       19:   20:	if (root == NULL) {
+        7:   21:		return createnode(data);
+        -:   22:	}
+       12:   23:	if(data < root->data) {
+        3:   24:		root->left = insert(root->left,data);  //if data is less than currentnode insert into left subtree
+        -:   25:	}
+        -:   26:
+        9:   27:	else if (data > root->data) {
+        9:   28:		root->right = insert(root->right,data);  //if data is greater than currentnode insert into right subtree
+        -:   29:	}
+        -:   30:
+       12:   31:	return root;
+        -:   32:}
+        -:   33:
+        3:   34:int search(struct node* root, int data) {
+        3:   35:        if(root == NULL) {
+    #####:   36:	return 0;
+        -:   37:	//if root is empty return 0
+        -:   38:	}
+        -:   39:
+        3:   40:	if(root->data == data) {
+        1:   41:		return 1;
+        -:   42:	}
+        -:   43:
+        2:   44:	else if (root->data >data) { //if data is less than current node search in left subtree
+    #####:   45:		return (search (root->left,data));
+        -:   46:	}
+        -:   47:
+        2:   48:	else if (root->data < data) {
+        2:   49:		return (search (root->right,data)); //if data is greater than current node search in right search tree
+        -:   50:	}
+        -:   51:
+    #####:   52:}
+        -:   53:
+       15:   54:void inorderTraversal(struct node* root) {
+       15:   55:	if(root != NULL) {
+        -:   56:
+        7:   57:		inorderTraversal(root->left);	//treverse leftsubtree
+        -:   58:                                            
+        7:   59:		printf("Current node: %d", root->data);
+        -:   60:		
+        7:   61:		inorderTraversal(root->right); //traverse rightsubtree
+        -:   62:
+        -:   63:	}
+       15:   64:}
