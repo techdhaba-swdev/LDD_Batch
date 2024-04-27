@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=heap.h
+OBJ=heapSort.o heapfn.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+heap_sort:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

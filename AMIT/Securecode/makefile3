@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=queue.h
+OBJ=queue.o queuefn.o 
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+queue_exe:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

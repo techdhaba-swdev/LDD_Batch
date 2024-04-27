@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=linear.h
+OBJ=linearSearch.o linearfn.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+linear_search:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

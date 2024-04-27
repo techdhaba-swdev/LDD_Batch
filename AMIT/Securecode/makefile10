@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=merge.h
+OBJ=mergeSort.o mergefn.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+merge_sort:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

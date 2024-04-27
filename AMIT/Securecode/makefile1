@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=doublylist.h
+OBJ=doublylist.o createDlist.o deteteDlist.o displayDlist.o insertDlist.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+doubly_list:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

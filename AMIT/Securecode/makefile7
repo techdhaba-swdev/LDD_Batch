@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=buble.h
+OBJ=bubleSort.o bublefn.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+buble_sort:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

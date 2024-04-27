@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=quick.h
+OBJ=quickSort.o quickfn.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+quick_sort:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=jump.h
+OBJ=jumpSearch.o jumpfn.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+jump_search:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
