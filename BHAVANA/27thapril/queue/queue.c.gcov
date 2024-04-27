@@ -1,0 +1,83 @@
+        -:    0:Source:queue.c
+        -:    1:#include "queue.h"
+        -:    2:
+        -:    3:// Function to create a new node with given data
+function createNode called 3 returned 100% blocks executed 60%
+        3:    4:struct Node* createNode(int data) {
+        3:    5:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        3:    6:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    7:        printf("Memory allocation failed.\n");
+call    0 never executed
+    #####:    8:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:    9:    }
+        3:   10:    newNode->data = data;
+        3:   11:    newNode->next = NULL;
+        3:   12:    return newNode;
+        -:   13:}
+        -:   14:
+        -:   15:// Function to create a new empty queue
+function createQueue called 1 returned 100% blocks executed 60%
+        1:   16:struct Queue* createQueue() {
+        1:   17:    struct Queue* queue = (struct Queue*)malloc(sizeof(struct Queue));
+        1:   18:    if (queue == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   19:        printf("Memory allocation failed.\n");
+call    0 never executed
+    #####:   20:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   21:    }
+        1:   22:    queue->front = queue->rear = NULL;
+        1:   23:    return queue;
+        -:   24:}
+        -:   25:
+        -:   26:// Function to check if the queue is empty
+function isEmpty called 7 returned 100% blocks executed 100%
+        7:   27:bool isEmpty(struct Queue* queue) {
+        7:   28:    return queue->front == NULL;
+        -:   29:}
+        -:   30:
+        -:   31:// Function to add an element to the rear of the queue (enqueue)
+function enqueue called 3 returned 100% blocks executed 100%
+        3:   32:void enqueue(struct Queue* queue, int data) {
+        3:   33:    struct Node* newNode = createNode(data);
+call    0 returned 100%
+        3:   34:    if (isEmpty(queue)) {
+call    0 returned 100%
+branch  1 taken 33% (fallthrough)
+branch  2 taken 67%
+        1:   35:        queue->front = queue->rear = newNode;
+        -:   36:    } else {
+        2:   37:        queue->rear->next = newNode;
+        2:   38:        queue->rear = newNode;
+        -:   39:    }
+        3:   40:    printf("%d enqueued to queue.\n", data);
+call    0 returned 100%
+        3:   41:}
+        -:   42:
+        -:   43:// Function to remove an element from the front of the queue (dequeue)
+function dequeue called 4 returned 75% blocks executed 100%
+        4:   44:int dequeue(struct Queue* queue) {
+        4:   45:    if (isEmpty(queue)) {
+call    0 returned 100%
+branch  1 taken 25% (fallthrough)
+branch  2 taken 75%
+        1:   46:        printf("Queue underflow.\n");
+call    0 returned 100%
+        1:   47:        exit(EXIT_FAILURE);
+call    0 returned 0%
+        -:   48:    }
+        3:   49:    struct Node* temp = queue->front;
+        3:   50:    int dequeued = temp->data;
+        3:   51:    queue->front = queue->front->next;
+        3:   52:    free(temp);
+        -:   53:    // If front becomes NULL, then make rear also NULL
+        3:   54:    if (queue->front == NULL)
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   55:        queue->rear = NULL;
+        3:   56:    return dequeued;
+        -:   57:}

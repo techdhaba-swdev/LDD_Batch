@@ -1,0 +1,29 @@
+        -:    0:Source:binary_search.c
+        -:    1:#include "binary_search.h"
+        -:    2:
+        -:    3:// Function to perform binary search
+function binarySearch called 1 returned 100% blocks executed 56%
+        1:    4:int binarySearch(const int array[], int size, int target) {
+        1:    5:    int left = 0; // Left index of the search range
+        1:    6:    int right = size - 1; // Right index of the search range
+        -:    7:
+        1:    8:    while (left <= right) {
+branch  0 taken 100%
+branch  1 taken 0% (fallthrough)
+        1:    9:        int mid = left + (right - left) / 2; // Calculate the middle index
+        -:   10:
+        1:   11:        if (array[mid] == target) { // If target found at mid
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   12:            return mid; // Return the index of the target
+        -:   13:        }
+    #####:   14:        if (array[mid] < target) { // If target is greater, search in the right half
+branch  0 never executed
+branch  1 never executed
+    #####:   15:            left = mid + 1;
+        -:   16:        } else { // If target is smaller, search in the left half
+    #####:   17:            right = mid - 1;
+        -:   18:        }
+        -:   19:    }
+    #####:   20:    return -1; // Return -1 if target not found in the array
+        -:   21:}

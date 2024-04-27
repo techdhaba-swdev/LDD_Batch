@@ -1,0 +1,29 @@
+        -:    0:Source:add.c
+        -:    1://add.c
+        -:    2:#include "add.h"
+        -:    3:#include<stdio.h>
+        -:    4:
+        -:    5://define a static function named print_data
+function print_data called 0 returned 0% blocks executed 0%
+    #####:    6:static void print_data()
+        -:    7:{
+    #####:    8:	printf("data found\n");
+call    0 never executed
+    #####:    9:}
+        -:   10:
+        -:   11:
+        -:   12://Defines a function named add that takes two integers x and y as parameters. Inside the function, it calculates the sum of x and y using the + operator and returns the result
+function add called 1 returned 100% blocks executed 100%
+        1:   13:int add(int x, int y) {
+        1:   14:    return x + y;
+        -:   15:}
+        -:   16://Defines a function named addThree that takes three integers x , y and z as parameters. Inside the function, it calculates the sum of x,  y and z  using the + operator and returns the result
+function addThree called 1 returned 100% blocks executed 100%
+        1:   17:int addThree(int x, int y, int z) {
+        1:   18:    return x + y + z;
+        -:   19:}
+        -:   20://Defines a function named addFour that takes four integers x, y , z and w as parameters. Inside the function, it calculates the sum of x, y , w and z using the + operator and returns the result
+function addFour called 1 returned 100% blocks executed 100%
+        1:   21:int addFour(int w, int x, int y, int z) {
+        1:   22:    return w + x + y + z;
+        -:   23:}

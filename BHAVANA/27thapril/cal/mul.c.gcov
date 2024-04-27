@@ -1,0 +1,31 @@
+        -:    0:Source:mul.c
+        -:    1://mul.c
+        -:    2:#include "mul.h"
+        -:    3:#include<stdio.h>
+        -:    4:
+        -:    5://define a static function named print_data
+function print_data called 0 returned 0% blocks executed 0%
+    #####:    6:static void print_data()
+        -:    7:{
+    #####:    8:        printf("data\n");
+call    0 never executed
+    #####:    9:}
+        -:   10:
+        -:   11://Defines a function named mul that takes two integers x and y as parameters. Inside the function, it calculates the product of x and y using the * operator and returns the result.
+function mul called 1 returned 100% blocks executed 100%
+        1:   12:int mul(int x, int y) {
+        1:   13:    return x * y;
+        -:   14:}
+        -:   15:
+        -:   16://Defines a function named mulThree that takes three integers x, y, and z as parameters. Inside the function, it calculates the product of x, y and z using the * operator and returns the result.
+function mulThree called 1 returned 100% blocks executed 100%
+        1:   17:int mulThree(int x, int y, int z) {
+        1:   18:    return x * y * z;
+        -:   19:}
+        -:   20:
+        -:   21://Defines a function named mulFour that takes four integers x, y, z and was parameters. Inside the function, it calculates the product of x, y, z and w using the * operator and returns the result.
+function mulFour called 1 returned 100% blocks executed 100%
+        1:   22:int mulFour(int w, int x, int y, int z) {
+        1:   23:    return w * x * y * z;
+        -:   24:}
+        -:   25:

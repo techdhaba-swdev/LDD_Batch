@@ -1,0 +1,60 @@
+        -:    0:Source:main.c
+        -:    1://main.c
+        -:    2:#include "main.h"
+        -:    3:
+        -:    4://Defines a static function named print_data.
+function print_data called 1 returned 100% blocks executed 100%
+        1:    5:static void print_data()
+        -:    6:
+        -:    7:{
+        1:    8:	printf("printing main\n");
+call    0 returned 100%
+        1:    9:}
+        -:   10:
+        -:   11:
+function main called 1 returned 100% blocks executed 100%
+        1:   12:int main(){
+        1:   13:	print_data(); // call the print_data function to print a message.
+call    0 returned 100%
+        -:   14:
+        -:   15:    //print the result of addition functions
+        1:   16:    printf(" add of 2 no: %d\n", add(4, 5));
+call    0 returned 100%
+call    1 returned 100%
+        1:   17:    printf(" add of 3 no: %d\n", addThree(4, 5, 6));
+call    0 returned 100%
+call    1 returned 100%
+        1:   18:    printf(" add of 4 no: %d\n", addFour(4, 5, 6, 7));
+call    0 returned 100%
+call    1 returned 100%
+        -:   19:    
+        -:   20:    //print the result of subtraction functions
+        1:   21:    printf(" sub of 2 no: %d\n", sub(14, 5));
+call    0 returned 100%
+call    1 returned 100%
+        1:   22:    printf(" sub of 3 no: %d\n", subThree(14, 5, 4));
+call    0 returned 100%
+call    1 returned 100%
+        1:   23:    printf(" sub of 4 no: %d\n", subFour(14, 5, 9, 7));
+call    0 returned 100%
+call    1 returned 100%
+        -:   24:
+        -:   25:    //print the result of division function
+        1:   26:    printf(" div of 2 no: %d\n",my_div(20, 4));
+call    0 returned 100%
+call    1 returned 100%
+        -:   27:
+        -:   28:    //print the result of multiplication functions
+        1:   29:    printf(" mul of 2 no: %d\n", mul(4, 5));
+call    0 returned 100%
+call    1 returned 100%
+        1:   30:    printf(" mul of 3 no: %d\n", mulThree(4, 5, 8));
+call    0 returned 100%
+call    1 returned 100%
+        1:   31:    printf(" mul of 4 no: %d\n", mulFour(4, 5, 9, 8));
+call    0 returned 100%
+call    1 returned 100%
+        -:   32:
+        -:   33:
+        1:   34:    return 0;
+        -:   35:}

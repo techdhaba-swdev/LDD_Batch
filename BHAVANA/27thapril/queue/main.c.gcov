@@ -1,0 +1,35 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "queue.h"
+        -:    3:
+function main called 1 returned 0% blocks executed 86%
+        1:    4:int main() {
+        1:    5:    struct Queue* queue = createQueue(); // Create an empty queue
+call    0 returned 100%
+        -:    6:
+        -:    7:    // Enqueue elements onto the queue
+        1:    8:    enqueue(queue, 10);
+call    0 returned 100%
+        1:    9:    enqueue(queue, 20);
+call    0 returned 100%
+        1:   10:    enqueue(queue, 30);
+call    0 returned 100%
+        -:   11:
+        -:   12:    // Dequeue elements from the queue and print them
+        1:   13:    printf("%d dequeued from queue.\n", dequeue(queue));
+call    0 returned 100%
+call    1 returned 100%
+        1:   14:    printf("%d dequeued from queue.\n", dequeue(queue));
+call    0 returned 100%
+call    1 returned 100%
+        1:   15:    printf("%d dequeued from queue.\n", dequeue(queue));
+call    0 returned 100%
+call    1 returned 100%
+        -:   16:
+        -:   17:    // Attempting to dequeue from an empty queue
+       1*:   18:    printf("%d dequeued from queue.\n", dequeue(queue)); // Queue underflow
+call    0 returned 0%
+call    1 never executed
+        -:   19:
+    #####:   20:    return 0;
+        -:   21:}
