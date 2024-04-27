@@ -13,10 +13,10 @@ int main()
     	insert(root, 60);
     	insert(root, 80);
 	printf("TREE :");
-        inordertraversal(root);
+        inordertraversal(root); //traversing into the tree and pritning the elements
         printf("\n");
 
-    	if (search(root, 40) != NULL) //Perfromed search operation for node with data 60
+    	if (search(root, 40) != NULL) //Perfromed search operation for node with data 40
 	{
         	printf("Yes,40 is found\n");
     	}

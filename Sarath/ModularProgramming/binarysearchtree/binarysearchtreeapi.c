@@ -2,9 +2,10 @@
 #include"binarysearchtree.h"
 //create node API
 struct node* createnode(int data) {
-    struct node* temp = (struct node*)malloc(sizeof(struct node));
-    temp->data = data;
-    temp->left = temp->right = NULL;
+    struct node* temp = (struct node*)malloc(sizeof(struct node)); //creating space everytime to store
+    temp->data = data; //storing data into temp
+    temp->left = NULL; //Initializing left child of parent node to NULL
+    temp->right = NULL; //Initializing right child of parent node to NULL
     return temp;
 }
 
@@ -56,7 +57,7 @@ struct node* find_max(struct node* node) {
 
     return find_max(node->right); // Traverse right subtree for maximum
 }
-void inordertraversal(struct node* root)
+void inordertraversal(struct node* root) //Inordertraversal API that takes parent as argument and prints all elements
 {
     if (root != NULL) {
         inordertraversal(root->left);
