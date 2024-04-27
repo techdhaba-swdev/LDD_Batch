@@ -1,0 +1,20 @@
+        -:    0:Source:main.c
+        -:    1:#include "stack.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+        1:    4:int main() {
+        -:    5:    struct Stack stack;  // Declare a stack variable
+        1:    6:    initializeStack(&stack);  // Initialize the stack
+        -:    7:
+        1:    8:    push(&stack, 5);  // Push elements onto the stack
+        1:    9:    push(&stack, 10);
+        1:   10:    push(&stack, 15);
+        -:   11:
+        1:   12:    printf("Top element of stack: %d\n", peek(&stack));  // Peek at the top element
+        -:   13:
+        1:   14:    printf("Popped item: %d\n", pop(&stack));  // Pop an element from the stack
+        1:   15:    printf("Top element of stack: %d\n", peek(&stack));  // Peek at the top element
+        -:   16:
+        1:   17:    return 0;
+        -:   18:}
+        -:   19:

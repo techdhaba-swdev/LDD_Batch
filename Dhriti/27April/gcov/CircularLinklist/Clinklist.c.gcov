@@ -1,0 +1,46 @@
+        -:    0:Source:Clinklist.c
+        -:    1:#include "Clinklist.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+        -:    4:// Function to append a new node with the given data to the end of the list
+        1:    5:void append(struct CircularLinkedList* list, int data) {
+        -:    6:    // Create a new node with the given data
+        1:    7:    struct Node* newNode = createNode(data);
+        -:    8:    // Check if memory allocation was successful
+    #####:    9:    if (newNode != NULL) {
+        -:   10:        // If the list is empty
+    #####:   11:        if (list->head == NULL) {
+    #####:   12:            list->head = newNode;
+    #####:   13:            newNode->next = list->head;
+        -:   14:        } else {
+        -:   15:            // Traverse to the end of the list
+    #####:   16:            struct Node* temp = list->head;
+    #####:   17:            while (temp->next != list->head) {
+    #####:   18:                temp = temp->next;
+        -:   19:            }
+        -:   20:            // Insert the new node at the end of the list
+    #####:   21:            temp->next = newNode;
+    #####:   22:            newNode->next = list->head;
+        -:   23:        }
+        -:   24:    } else {
+    #####:   25:        printf("Memory allocation failed. Node could not be created.\n");
+        -:   26:    }
+    #####:   27:}
+        -:   28:
+        -:   29:// Function to display the elements of the circular linked list
+    #####:   30:void display(struct CircularLinkedList* list) {
+        -:   31:    // If the list is empty
+    #####:   32:    if (list->head == NULL) {
+    #####:   33:        printf("List is empty\n");
+        -:   34:    } else {
+        -:   35:        // Traverse the list and print each element
+    #####:   36:        struct Node* temp = list->head;
+    #####:   37:        printf("Circular Linked List: ");
+        -:   38:        do {
+    #####:   39:            printf("%d ", temp->data);
+    #####:   40:            temp = temp->next;
+    #####:   41:        } while (temp != list->head);
+    #####:   42:        printf("\n");
+        -:   43:    }
+    #####:   44:}
+        -:   45:

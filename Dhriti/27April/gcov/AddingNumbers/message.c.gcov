@@ -1,0 +1,10 @@
+        -:    0:Source:message.c
+        -:    1:#include<stdio.h>
+        -:    2:#include "example.h"
+        -:    3:
+        -:    4://Function to print the message with a constant string
+        -:    5:
+        3:    6:void print_message(const char *message) {
+        -:    7:
+        3:    8:	printf("%s", message);
+        3:    9:}
