@@ -1,0 +1,53 @@
+        -:    0:Source:bst.c
+        -:    1:#include "bst.h"
+        -:    2:#include <stdlib.h>
+        -:    3:
+        -:    4:// Function to create a new node
+        7:    5:struct node* createNode(int data) {
+        7:    6:    struct node* newNode = (struct node*)malloc(sizeof(struct node));
+        7:    7:    if (newNode != NULL) {
+        7:    8:        newNode->data = data;
+        7:    9:        newNode->left = NULL;
+        7:   10:        newNode->right = NULL;
+        -:   11:    }
+        7:   12:    return newNode;
+        -:   13:}
+        -:   14:
+        -:   15:// Function to insert a new node into the BST
+       17:   16:struct node* insert(struct node* root, int data) {
+       17:   17:    if (root == NULL) {
+        7:   18:        return createNode(data);
+        -:   19:    }
+        -:   20:
+       10:   21:    if (data < root->data) {
+        5:   22:        root->left = insert(root->left, data);
+        5:   23:    } else if (data > root->data) {
+        5:   24:        root->right = insert(root->right, data);
+        -:   25:    }
+        -:   26:
+       10:   27:    return root;
+        -:   28:}
+        -:   29:
+        -:   30:// Function to search for a node with the given data in the BST
+        2:   31:int search(struct node* root, int data) {
+        2:   32:    if (root == NULL) {
+    #####:   33:        return 0;
+        -:   34:    }
+        -:   35:
+        2:   36:    if (root->data == data) {
+        1:   37:        return 1;
+        1:   38:    } else if (data < root->data) {
+    #####:   39:        return search(root->left, data);
+        -:   40:    } else {
+        1:   41:        return search(root->right, data);
+        -:   42:    }
+        -:   43:}
+        -:   44:
+        -:   45:// Function to perform an in-order traversal of the BST
+       15:   46:void inorderTraversal(struct node* root) {
+       15:   47:    if (root != NULL) {
+        7:   48:        inorderTraversal(root->left);
+        7:   49:        printf("%d ", root->data);
+        7:   50:        inorderTraversal(root->right);
+        -:   51:    }
+       15:   52:}

@@ -1,0 +1,3 @@
+bstree: bstmain.c bst.c
+	gcc -o bstree bstmain.c bst.c -I.
+

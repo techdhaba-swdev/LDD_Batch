@@ -1,0 +1,31 @@
+        -:    0:Source:binary.c
+        -:    1:#include "binary.h"
+        -:    2:
+        -:    3:/* Function to perform binary search */
+function binarySearch called 1 returned 100% blocks executed 78%
+        1:    4:int binarySearch(int arr[], int left, int right, int target) {
+        2:    5:    while (left <= right) {
+branch  0 taken 100%
+branch  1 taken 0% (fallthrough)
+        2:    6:        int mid = left + (right - left) / 2;
+        -:    7:
+        -:    8:        // Check if target is present at mid
+        2:    9:        if (arr[mid] == target)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   10:            return mid;
+        -:   11:
+        -:   12:        // If target greater, ignore left half
+        1:   13:        if (arr[mid] < target)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   14:            left = mid + 1;
+        -:   15:
+        -:   16:        // If target is smaller, ignore right half
+        -:   17:        else
+    #####:   18:            right = mid - 1;
+        -:   19:    }
+        -:   20:
+        -:   21:    // If we reach here, then the element was not present
+    #####:   22:    return -1;
+        -:   23:}

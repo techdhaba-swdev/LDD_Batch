@@ -1,0 +1,68 @@
+        -:    0:Source:llmain.c
+        -:    1:#include "linked_list.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+function main called 0 returned 0% blocks executed 0%
+    #####:    4:int main() {
+    #####:    5:	struct node** head = NULL;
+    #####:    6:    int k = 0;
+        -:    7:    //insert element into the linkedlist
+    #####:    8:    insertAtBegin(12);
+call    0 never executed
+    #####:    9:    insertAtBegin(22);
+call    0 never executed
+    #####:   10:    insertAtEnd(30);
+call    0 never executed
+    #####:   11:    insertAtEnd(44);
+call    0 never executed
+    #####:   12:    insertAtBegin(50);
+call    0 never executed
+        -:   13:
+        -:   14:    //printing linkkedlist
+    #####:   15:    insertAfterNode(&head, 33);
+call    0 never executed
+        -:   16:
+    #####:   17:    printf("Linked List: ");
+call    0 never executed
+    #####:   18:    printList();
+call    0 never executed
+        -:   19:
+        -:   20:    //deleting at beggining and end and specified element
+    #####:   21:    deleteAtBegin();
+call    0 never executed
+    #####:   22:    deleteAtEnd();
+call    0 never executed
+    #####:   23:    deleteNode(12);
+call    0 never executed
+        -:   24:
+        -:   25:
+        -:   26:    //printing list after deletion
+    #####:   27:    printf("\nLinked List after deletion: ");
+call    0 never executed
+    #####:   28:    printList();
+call    0 never executed
+        -:   29:
+        -:   30:    //insert additional element and print the updated list
+    #####:   31:    insertAtBegin(4);
+call    0 never executed
+    #####:   32:    insertAtBegin(16);
+call    0 never executed
+    #####:   33:    printf("\nUpdated Linked List: ");
+call    0 never executed
+    #####:   34:    printList();
+call    0 never executed
+        -:   35:
+        -:   36:    //search for an element in the linkedlist
+    #####:   37:    k = searchList(16);
+call    0 never executed
+    #####:   38:    if (k == 1)
+branch  0 never executed
+branch  1 never executed
+    #####:   39:        printf("\nElement is found");
+call    0 never executed
+        -:   40:    else
+    #####:   41:        printf("\nElement is not present in the list");
+call    0 never executed
+    #####:   42:    return 0;
+        -:   43:}
+        -:   44:

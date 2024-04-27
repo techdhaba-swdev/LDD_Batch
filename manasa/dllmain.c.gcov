@@ -1,0 +1,36 @@
+        -:    0:Source:dllmain.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "double_linklist.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        1:    5:    Node* head = NULL;
+        -:    6:
+        -:    7:    // Inserting elements
+        1:    8:    insertAtEnd(&head, 10);
+call    0 returned 100%
+        1:    9:    insertAtEnd(&head, 20);
+call    0 returned 100%
+        1:   10:    insertAtEnd(&head, 30);
+call    0 returned 100%
+        1:   11:    insertAtBeginning(&head, 5);
+call    0 returned 100%
+        -:   12:
+        -:   13:    // Displaying the list
+        1:   14:    displayList(head);
+call    0 returned 100%
+        -:   15:
+        -:   16:    // Deleting element
+        1:   17:    deleteNode(&head, head->next->next);
+call    0 returned 100%
+        -:   18:
+        -:   19:    // Displaying the list after deletion
+        1:   20:    displayList(head);
+call    0 returned 100%
+        -:   21:
+        -:   22:    // Freeing memory
+        1:   23:    freeList(&head);
+call    0 returned 100%
+        -:   24:
+        1:   25:    return 0;
+        -:   26:}

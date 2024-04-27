@@ -1,0 +1,129 @@
+        -:    0:Source:linklist.c
+        -:    1:#include "linked_list.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+        -:    5:
+        -:    6://global variable to store the head of the linklist
+        -:    7:
+        -:    8:struct node *head = NULL;
+        -:    9:
+        -:   10://function to print the element of the linkedlist
+        -:   11:
+function printList called 0 returned 0% blocks executed 0%
+    #####:   12:void printList() {
+    #####:   13:    struct node *p = head;
+    #####:   14:    printf("\n[");
+call    0 never executed
+    #####:   15:    while (p != NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   16:        printf(" %d ", p->data);//print the the data of the element node
+call    0 never executed
+    #####:   17:        p = p->next;//move to the next node
+        -:   18:    }
+    #####:   19:    printf("]");
+call    0 never executed
+    #####:   20:}
+        -:   21:
+        -:   22://function to insert a node at the beginning of the ll
+        -:   23:
+function insertAtBegin called 0 returned 0% blocks executed 0%
+    #####:   24:void insertAtBegin(int data) {
+    #####:   25:    struct node *lk = (struct node*)malloc(sizeof(struct node));//allocating memory
+    #####:   26:    lk->data = data;//set the data of the new node
+    #####:   27:    lk->next = head;//pointing to the next of the new node to current head
+    #####:   28:    head = lk;//updated head
+    #####:   29:}
+        -:   30:
+        -:   31://function to insert the node at the end of ll
+function insertAtEnd called 0 returned 0% blocks executed 0%
+    #####:   32:void insertAtEnd(int data) {
+    #####:   33:    struct node *lk = (struct node*)malloc(sizeof(struct node));
+    #####:   34:    lk->data = data;//set the data of the new node
+    #####:   35:    lk->next = NULL;//next ..new node is null
+    #####:   36:    if (head == NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   37:        head = lk;//if the list is empty new node will be head
+    #####:   38:        return;
+        -:   39:    }
+    #####:   40:    struct node *linkedlist = head;
+    #####:   41:    while (linkedlist->next != NULL)
+branch  0 never executed
+branch  1 never executed
+    #####:   42:        linkedlist = linkedlist->next;
+    #####:   43:    linkedlist->next = lk;//insert new node at end
+        -:   44:}
+        -:   45:
+        -:   46://func to create a node after a given node int l
+function insertAfterNode called 0 returned 0% blocks executed 0%
+    #####:   47:void insertAfterNode(struct node *list, int data) {
+    #####:   48:    struct node *lk = (struct node*)malloc(sizeof(struct node));
+    #####:   49:    lk->data = data;
+    #####:   50:    lk->next = list->next;//pointing to the new node to next of the given node
+    #####:   51:    list->next = lk;
+    #####:   52:}
+        -:   53:
+        -:   54://func to delete the first node from l
+function deleteAtBegin called 0 returned 0% blocks executed 0%
+    #####:   55:void deleteAtBegin() {
+    #####:   56:    head = head->next;
+    #####:   57:}
+        -:   58:
+        -:   59://func to del the last node from th ll
+function deleteAtEnd called 0 returned 0% blocks executed 0%
+    #####:   60:void deleteAtEnd() {
+    #####:   61:    struct node *linkedlist = head;
+    #####:   62:    while (linkedlist->next->next != NULL)
+branch  0 never executed
+branch  1 never executed
+    #####:   63:        linkedlist = linkedlist->next;
+    #####:   64:    linkedlist->next = NULL;//set the next node to sec last node to null
+    #####:   65:}
+        -:   66:
+        -:   67://func to del the node with a given key from the l
+function deleteNode called 0 returned 0% blocks executed 0%
+    #####:   68:void deleteNode(int key) {
+    #####:   69:    struct node *temp = head, *prev;
+    #####:   70:    if (temp != NULL && temp->data == key) { //to check the key is in 1st node
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   71:        head = temp->next;//move head to nxt node
+    #####:   72:        free(temp);
+    #####:   73:        return;
+        -:   74:    }
+    #####:   75:    while (temp != NULL && temp->data != key) { //find node with key
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   76:        prev = temp;
+    #####:   77:        temp = temp->next;
+        -:   78:    }
+    #####:   79:    if (temp == NULL) //if key not found
+branch  0 never executed
+branch  1 never executed
+    #####:   80:	    return;
+    #####:   81:    prev->next = temp->next; // skip node with key
+    #####:   82:    free(temp);
+        -:   83:}
+        -:   84:
+        -:   85: //func to search the key in the l
+function searchList called 0 returned 0% blocks executed 0%
+    #####:   86:int searchList(int key) {
+    #####:   87:    struct node *temp = head;
+    #####:   88:    while (temp != NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   89:        if (temp->data == key) {
+branch  0 never executed
+branch  1 never executed
+    #####:   90:            return 1;//element found
+        -:   91:        }
+    #####:   92:        temp = temp->next;
+        -:   93:    }
+    #####:   94:    return 0;//elem not found
+        -:   95:}

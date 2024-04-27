@@ -1,0 +1,34 @@
+        -:    0:Source:strings.c
+        -:    0:Graph:strings.gcno
+        -:    0:Data:strings.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        -:    5:    // Declaring and initializing a string
+        1:    6:    char str[] = "Hello, world!";
+        -:    7:    
+        -:    8:    // Printing the string
+        1:    9:    printf("String: %s\n", str);
+call    0 returned 100%
+        -:   10:    
+        -:   11:    // Getting the length of the string
+        1:   12:    int length = strlen(str);
+        1:   13:    printf("Length of the string: %d\n", length);
+call    0 returned 100%
+        -:   14:    
+        -:   15:    // Accessing individual characters in the string
+        1:   16:    printf("First character: %c\n", str[0]);
+call    0 returned 100%
+        1:   17:    printf("Last character: %c\n", str[length - 1]);
+call    0 returned 100%
+        -:   18:    
+        -:   19:    // Modifying the string
+        1:   20:    str[7] = 'W';
+        1:   21:    printf("Modified string: %s\n", str);
+call    0 returned 100%
+        -:   22:    
+        1:   23:    return 0;
+        -:   24:}

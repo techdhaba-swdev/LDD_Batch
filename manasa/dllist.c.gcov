@@ -1,0 +1,113 @@
+        -:    0:Source:dllist.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "double_linklist.h"
+        -:    4:
+function createNode called 4 returned 100% blocks executed 60%
+        4:    5:Node* createNode(int data) {
+        4:    6:    Node* newNode = (Node*)malloc(sizeof(Node));
+        4:    7:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    8:        printf("Memory allocation failed\n");
+call    0 never executed
+    #####:    9:        exit(1);
+call    0 never executed
+        -:   10:    }
+        4:   11:    newNode->data = data;
+        4:   12:    newNode->prev = NULL;
+        4:   13:    newNode->next = NULL;
+        4:   14:    return newNode;
+        -:   15:}
+        -:   16:
+function insertAtBeginning called 1 returned 100% blocks executed 80%
+        1:   17:void insertAtBeginning(Node** head, int data) {
+        1:   18:    Node* newNode = createNode(data);
+call    0 returned 100%
+        1:   19:    if (*head == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   20:        *head = newNode;
+        -:   21:    } else {
+        1:   22:        newNode->next = *head;
+        1:   23:        (*head)->prev = newNode;
+        1:   24:        *head = newNode;
+        -:   25:    }
+        1:   26:}
+        -:   27:
+function insertAtEnd called 3 returned 100% blocks executed 100%
+        3:   28:void insertAtEnd(Node** head, int data) {
+        3:   29:    Node* newNode = createNode(data);
+call    0 returned 100%
+        3:   30:    if (*head == NULL) {
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   31:        *head = newNode;
+        -:   32:    } else {
+        2:   33:        Node* temp = *head;
+        3:   34:        while (temp->next != NULL) {
+branch  0 taken 33%
+branch  1 taken 67% (fallthrough)
+        1:   35:            temp = temp->next;
+        -:   36:        }
+        2:   37:        temp->next = newNode;
+        2:   38:        newNode->prev = temp;
+        -:   39:    }
+        3:   40:}
+        -:   41:
+function deleteNode called 1 returned 100% blocks executed 82%
+        1:   42:void deleteNode(Node** head, Node* del) {
+        1:   43:    if (*head == NULL || del == NULL) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+    #####:   44:        return;
+        -:   45:    }
+        1:   46:    if (*head == del) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   47:        *head = del->next;
+        -:   48:    }
+        1:   49:    if (del->next != NULL) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   50:        del->next->prev = del->prev;
+        -:   51:    }
+        1:   52:    if (del->prev != NULL) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   53:        del->prev->next = del->next;
+        -:   54:    }
+        1:   55:    free(del);
+        -:   56:}
+        -:   57:
+function displayList called 2 returned 100% blocks executed 100%
+        2:   58:void displayList(Node* head) {
+        2:   59:    Node* temp = head;
+        2:   60:    printf("List: ");
+call    0 returned 100%
+        9:   61:    while (temp != NULL) {
+branch  0 taken 78%
+branch  1 taken 22% (fallthrough)
+        7:   62:        printf("%d ", temp->data);
+call    0 returned 100%
+        7:   63:        temp = temp->next;
+        -:   64:    }
+        2:   65:    printf("\n");
+call    0 returned 100%
+        2:   66:}
+        -:   67:
+function freeList called 1 returned 100% blocks executed 100%
+        1:   68:void freeList(Node** head) {
+        1:   69:    Node* current = *head;
+        -:   70:    Node* next;
+        4:   71:    while (current != NULL) {
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        3:   72:        next = current->next;
+        3:   73:        free(current);
+        3:   74:        current = next;
+        -:   75:    }
+        1:   76:    *head = NULL;
+        1:   77:}
