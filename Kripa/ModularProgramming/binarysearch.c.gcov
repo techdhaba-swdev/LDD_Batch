@@ -1,0 +1,84 @@
+        -:    0:Source:binarysearch.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "binarysearch.h"
+        -:    4:
+        -:    5:// Function to create a new node
+function createNode called 7 returned 100% blocks executed 60%
+        7:    6:struct node* createNode(int data) {
+        7:    7:    struct node* newNode = (struct node*)malloc(sizeof(struct node)); // Allocate memory for a new node
+        7:    8:    if (newNode == NULL) { // Check if memory allocation failed
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    9:        printf("Memory allocation failed\n");
+call    0 never executed
+    #####:   10:        exit(1);
+call    0 never executed
+        -:   11:    }
+        7:   12:    newNode->data = data; // Initialize the data field of the new node
+        7:   13:    newNode->left = NULL; // Initialize the left child pointer of the new node to NULL
+        7:   14:    newNode->right = NULL; // Initialize the right child pointer of the new node to NULL
+        7:   15:    return newNode; // Return the newly created node
+        -:   16:}
+        -:   17:
+        -:   18:// Function to insert a new node into the BST
+function insert called 17 returned 100% blocks executed 100%
+       17:   19:struct node* insert(struct node* root, int data) {
+       17:   20:    if (root == NULL) {
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:   21:        return createNode(data); // If the tree is empty, create a new node as the root
+call    0 returned 100%
+        -:   22:    }
+       10:   23:    if (data < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:   24:        root->left = insert(root->left, data); // If data is less than the root, insert into the left subtree
+call    0 returned 100%
+        5:   25:    } else if (data > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   26:        root->right = insert(root->right, data); // If data is greater than the root, insert into the right subtree
+call    0 returned 100%
+        -:   27:    }
+       10:   28:    return root; // Return the root of the updated tree
+        -:   29:}
+        -:   30:
+        -:   31:// Function to search for a node with the given data in the BST
+function search called 2 returned 100% blocks executed 70%
+        2:   32:int search(struct node* root, int data) {
+        2:   33:    if (root == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   34:        return 0; // If the tree is empty, return 0 (not found)
+        -:   35:    }
+        2:   36:    if (root->data == data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   37:        return 1; // If the root node contains the data, return 1 (found)
+        1:   38:    } else if (data < root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   39:        return search(root->left, data); // Search in the left subtree
+call    0 returned 100%
+        -:   40:    } else {
+    #####:   41:        return search(root->right, data); // Search in the right subtree
+call    0 never executed
+        -:   42:    }
+        -:   43:}
+        -:   44:
+        -:   45:// Function to perform an in-order traversal of the BST
+function inorderTraversal called 15 returned 100% blocks executed 100%
+       15:   46:void inorderTraversal(struct node* root) {
+       15:   47:    if (root != NULL) {
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        7:   48:        inorderTraversal(root->left); // Traverse the left subtree
+call    0 returned 100%
+        7:   49:        printf("%d ", root->data); // Print the data of the root node
+call    0 returned 100%
+        7:   50:        inorderTraversal(root->right); // Traverse the right subtree
+call    0 returned 100%
+        -:   51:    }
+       15:   52:}
+        -:   53:

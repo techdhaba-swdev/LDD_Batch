@@ -1,0 +1,15 @@
+File 'binarysearch.c'
+Lines executed:87.10% of 31
+Branches executed:100.00% of 16
+Taken at least once:75.00% of 16
+Calls executed:70.00% of 10
+Creating 'binarysearch.c.gcov'
+
+File 'maiin.c'
+Lines executed:94.12% of 17
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:92.31% of 13
+Creating 'maiin.c.gcov'
+
+Lines executed:89.58% of 48
