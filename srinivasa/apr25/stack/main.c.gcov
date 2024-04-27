@@ -1,0 +1,33 @@
+        -:    0:Source:main.c
+        -:    1:#include "stack.h"   // including the stack headerfile
+        -:    2:#include <stdio.h>  // including the standred input/output functions
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        -:    5:    Stack stack;    
+        1:    6:    initialize(&stack);  // initiallize the stack
+call    0 returned 100%
+        -:    7:
+        -:    8:    // pushing some elements
+        1:    9:    push(&stack, 10);
+call    0 returned 100%
+        1:   10:    push(&stack, 20);
+call    0 returned 100%
+        1:   11:    push(&stack, 30);
+call    0 returned 100%
+        -:   12:    // printing the top element
+        1:   13:    printf("Top element: %d\n", peek(&stack));
+call    0 returned 100%
+call    1 returned 100%
+        -:   14:    // printing the poping elements
+        1:   15:    printf("Popping elements: %d, %d\n", pop(&stack), pop(&stack));
+call    0 returned 100%
+call    1 returned 100%
+call    2 returned 100%
+        -:   16:    // printing the top element after the poping
+        1:   17:    printf("Top element after popping: %d\n", peek(&stack));
+call    0 returned 100%
+call    1 returned 100%
+        -:   18:
+        1:   19:    return 0;  // executing the programe withot errors
+        -:   20:}

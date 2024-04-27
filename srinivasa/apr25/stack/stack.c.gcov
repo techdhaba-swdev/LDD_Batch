@@ -1,0 +1,66 @@
+        -:    0:Source:stack.c
+        -:    1:#include "stack.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+        -:    5:// Function to initialize the stack
+function initialize called 1 returned 100% blocks executed 100%
+        1:    6:void initialize(Stack *stack) {
+        1:    7:    stack->top = -1;
+        1:    8:}
+        -:    9:
+        -:   10:// Function to check if the stack is empty
+function isEmpty called 4 returned 100% blocks executed 100%
+        4:   11:int isEmpty(Stack *stack) {
+        4:   12:    return (stack->top == -1);
+        -:   13:}
+        -:   14:
+        -:   15:// Function to check if the stack is full
+function isFull called 3 returned 100% blocks executed 100%
+        3:   16:int isFull(Stack *stack) {
+        3:   17:    return (stack->top == MAX_SIZE - 1);
+        -:   18:}
+        -:   19:
+        -:   20:// Function to push an element onto the stack
+function push called 3 returned 100% blocks executed 67%
+        3:   21:void push(Stack *stack, int value) {
+        3:   22:    if (isFull(stack)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   23:        printf("Stack overflow!\n");
+call    0 never executed
+    #####:   24:        return;
+        -:   25:    }
+        3:   26:    stack->data[++stack->top] = value;
+        -:   27:}
+        -:   28:
+        -:   29:// Function to pop an element from the stack
+function pop called 2 returned 100% blocks executed 67%
+        2:   30:int pop(Stack *stack) {
+        2:   31:    if (isEmpty(stack)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   32:        printf("Stack underflow!\n");
+call    0 never executed
+    #####:   33:        exit(1);
+call    0 never executed
+        -:   34:    }
+        2:   35:    return stack->data[stack->top--];
+        -:   36:}
+        -:   37:
+        -:   38:// Function to peek the top element of the stack
+function peek called 2 returned 100% blocks executed 67%
+        2:   39:int peek(Stack *stack) {
+        2:   40:    if (isEmpty(stack)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   41:        printf("Stack is empty!\n");
+call    0 never executed
+    #####:   42:        exit(1);
+call    0 never executed
+        -:   43:    }
+        2:   44:    return stack->data[stack->top];
+        -:   45:}

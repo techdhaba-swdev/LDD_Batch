@@ -1,0 +1,127 @@
+        -:    0:Source:queue.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "queue.h"
+        -:    4:// creating a queue
+function createQueue called 1 returned 100% blocks executed 50%
+        1:    5:Queue* createQueue(int capacity) {
+        1:    6:    Queue* queue = (Queue*)malloc(sizeof(Queue));
+        1:    7:    if (!queue) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    8:        printf("Memory allocation failed!\n");
+call    0 never executed
+    #####:    9:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   10:    }
+        1:   11:    queue->capacity = capacity;
+        1:   12:    queue->size = 0;
+        1:   13:    queue->front = 0;
+        1:   14:    queue->rear = capacity - 1;
+        1:   15:    queue->array = (int*)malloc(queue->capacity * sizeof(int));
+        1:   16:    if (!queue->array) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   17:        printf("Memory allocation failed!\n");
+call    0 never executed
+    #####:   18:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   19:    }
+        1:   20:    return queue;
+        -:   21:}
+        -:   22:// check the queue is full 
+function isFull called 5 returned 100% blocks executed 100%
+        5:   23:int isFull(Queue* queue) {
+        5:   24:    return (queue->size == queue->capacity);
+        -:   25:}
+        -:   26:// checking the queue is empty
+function isEmpty called 5 returned 100% blocks executed 100%
+        5:   27:int isEmpty(Queue* queue) {
+        5:   28:    return (queue->size == 0);
+        -:   29:}
+        -:   30:// function for enqueue
+function enqueue called 5 returned 100% blocks executed 67%
+        5:   31:void enqueue(Queue* queue, int item) {
+        5:   32:    if (isFull(queue)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   33:        printf("Queue is full!\n");
+call    0 never executed
+    #####:   34:        return;
+        -:   35:    }
+        5:   36:    queue->rear = (queue->rear + 1) % queue->capacity;
+        5:   37:    queue->array[queue->rear] = item;
+        5:   38:    queue->size++;
+        -:   39:}
+        -:   40://function for dequeue
+function dequeue called 1 returned 100% blocks executed 67%
+        1:   41:int dequeue(Queue* queue) {
+        1:   42:    if (isEmpty(queue)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   43:        printf("Queue is empty!\n");
+call    0 never executed
+    #####:   44:        return -1;
+        -:   45:    }
+        1:   46:    int item = queue->array[queue->front];
+        1:   47:    queue->front = (queue->front + 1) % queue->capacity;
+        1:   48:    queue->size--;
+        1:   49:    return item;
+        -:   50:}
+        -:   51:// function for front
+function front called 1 returned 100% blocks executed 67%
+        1:   52:int front(Queue* queue) {
+        1:   53:    if (isEmpty(queue)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   54:        printf("Queue is empty!\n");
+call    0 never executed
+    #####:   55:        return -1;
+        -:   56:    }
+        1:   57:    return queue->array[queue->front];
+        -:   58:}
+        -:   59://function for queue
+function rear called 1 returned 100% blocks executed 67%
+        1:   60:int rear(Queue* queue) {
+        1:   61:    if (isEmpty(queue)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   62:        printf("Queue is empty!\n");
+call    0 never executed
+    #####:   63:        return -1;
+        -:   64:    }
+        1:   65:    return queue->array[queue->rear];
+        -:   66:}
+        -:   67://function to display the queue
+function displayQueue called 2 returned 100% blocks executed 82%
+        2:   68:void displayQueue(Queue* queue) {
+        2:   69:    if (isEmpty(queue)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   70:        printf("Queue is empty!\n");
+call    0 never executed
+    #####:   71:        return;
+        -:   72:    }
+        2:   73:    printf("Queue: ");
+call    0 returned 100%
+        -:   74:    int i;
+       11:   75:    for (i = 0; i < queue->size; i++) {
+branch  0 taken 82%
+branch  1 taken 18% (fallthrough)
+        9:   76:        printf("%d ", queue->array[(queue->front + i) % queue->capacity]);
+call    0 returned 100%
+        -:   77:    }
+        2:   78:    printf("\n");
+call    0 returned 100%
+        -:   79:}
+        -:   80:// function to deallocate the memory this is secure coding
+function destroyQueue called 1 returned 100% blocks executed 100%
+        1:   81:void destroyQueue(Queue* queue) {
+        1:   82:    free(queue->array);
+        1:   83:    free(queue);
+        1:   84:}

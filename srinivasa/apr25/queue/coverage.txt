@@ -1,0 +1,14 @@
+File 'main.c'
+Lines executed:100.00% of 14
+No branches
+Calls executed:100.00% of 14
+Creating 'main.c.gcov'
+
+File 'queue.c'
+Lines executed:74.55% of 55
+Branches executed:100.00% of 16
+Taken at least once:56.25% of 16
+Calls executed:47.06% of 17
+Creating 'queue.c.gcov'
+
+Lines executed:79.71% of 69
