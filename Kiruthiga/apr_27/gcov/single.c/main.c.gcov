@@ -1,0 +1,14 @@
+        -:    0:Source:main.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"linkedlist.h"
+        1:    3:int main()
+        -:    4:{
+        1:    5:struct Node* head =NULL; // insert nodes into the linked list
+        1:    6:insertAtBeginning(&head, 12);
+        1:    7:insertAtBeginning(&head, 24);
+        1:    8:insertAtBeginning(&head, 36);
+        1:    9:printf("link list elements:\n"); 
+        1:   10:printList(head);//print the linked list
+        1:   11:freeList(head); // free memory allocated for the linked list
+        1:   12:return 0;
+        -:   13:}

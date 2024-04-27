@@ -1,0 +1,87 @@
+        -:    0:Source:mergesort.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "mergesort.h"
+        -:    4:// Merge two subarrays of arr[]
+        -:    5:// First subarray is arr[l..m]
+        -:    6:// Second subarray is arr[m+1..r]
+function merge called 5 returned 100% blocks executed 100%
+        5:    7:void merge(int arr[], int l, int m, int r) {
+        -:    8:    int i, j, k;
+        5:    9:    int n1 = m - l + 1;
+        5:   10:    int n2 = r - m;
+        -:   11:
+        -:   12:    // Create temporary arrays
+        5:   13:    int L[n1], R[n2];
+        -:   14:
+        -:   15:    // Copy data to temporary arrays L[] and R[]
+       14:   16:    for (i = 0; i < n1; i++)
+branch  0 taken 64%
+branch  1 taken 36% (fallthrough)
+        9:   17:        L[i] = arr[l + i];
+       12:   18:    for (j = 0; j < n2; j++)
+branch  0 taken 58%
+branch  1 taken 42% (fallthrough)
+        7:   19:        R[j] = arr[m + 1 + j];
+        -:   20:
+        -:   21:    // Merge the temporary arrays back into arr[l..r]
+        5:   22:    i = 0;
+        5:   23:    j = 0;
+        5:   24:    k = l;
+       14:   25:    while (i < n1 && j < n2) {
+branch  0 taken 79% (fallthrough)
+branch  1 taken 21%
+branch  2 taken 82%
+branch  3 taken 18% (fallthrough)
+        9:   26:        if (L[i] <= R[j]) {
+branch  0 taken 56% (fallthrough)
+branch  1 taken 44%
+        5:   27:            arr[k] = L[i];
+        5:   28:            i++;
+        -:   29:        } else {
+        4:   30:            arr[k] = R[j];
+        4:   31:            j++;
+        -:   32:        }
+        9:   33:        k++;
+        -:   34:    }
+        -:   35:
+        -:   36:    // Copy the remaining elements of L[], if any
+        9:   37:    while (i < n1) {
+branch  0 taken 44%
+branch  1 taken 56% (fallthrough)
+        4:   38:        arr[k] = L[i];
+        4:   39:        i++;
+        4:   40:        k++;
+        -:   41:    }
+        -:   42:
+        -:   43:    // Copy the remaining elements of R[], if any
+        8:   44:    while (j < n2) {
+branch  0 taken 38%
+branch  1 taken 62% (fallthrough)
+        3:   45:        arr[k] = R[j];
+        3:   46:        j++;
+        3:   47:        k++;
+        -:   48:    }
+        5:   49:}
+        -:   50:
+        -:   51:// l is for left index and r is right index of the sub-array of arr to be sorted
+function mergeSort called 11 returned 100% blocks executed 100%
+       11:   52:void mergeSort(int arr[], int l, int r) {
+       11:   53:    if (l < r) {
+branch  0 taken 45% (fallthrough)
+branch  1 taken 55%
+        -:   54:        // Same as (l+r)/2, but avoids overflow for large l and h
+        5:   55:        int m = l + (r - l) / 2;
+        -:   56:
+        -:   57:        // Sort first and second halves
+        5:   58:        mergeSort(arr, l, m);
+call    0 returned 100%
+        5:   59:        mergeSort(arr, m + 1, r);
+call    0 returned 100%
+        -:   60:
+        -:   61:        // Merge the sorted halves
+        5:   62:        merge(arr, l, m, r);
+call    0 returned 100%
+        -:   63:    }
+       11:   64:}
+        -:   65:

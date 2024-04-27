@@ -1,0 +1,15 @@
+File 'BST.c'
+Lines executed:93.55% of 31
+Branches executed:100.00% of 16
+Taken at least once:87.50% of 16
+Calls executed:80.00% of 10
+Creating 'BST.c.gcov'
+
+File 'main.c'
+Lines executed:90.48% of 21
+Branches executed:100.00% of 4
+Taken at least once:50.00% of 4
+Calls executed:87.50% of 16
+Creating 'main.c.gcov'
+
+Lines executed:92.31% of 52

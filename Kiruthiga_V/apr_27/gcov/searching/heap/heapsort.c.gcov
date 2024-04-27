@@ -1,0 +1,78 @@
+        -:    0:Source:heapsort.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "heapsort.h"
+        -:    4:// Function to heapify a subtree rooted at given index
+function heapify called 13 returned 100% blocks executed 100%
+       13:    5:void heapify(int arr[], int n, int i) {
+       13:    6:    int largest = i; // Initialize largest as root
+       13:    7:    int left = 2 * i + 1; // left child
+       13:    8:    int right = 2 * i + 2; // right child
+        -:    9:
+        -:   10:    // If left child is larger than root
+       13:   11:    if (left < n && arr[left] > arr[largest])
+branch  0 taken 69% (fallthrough)
+branch  1 taken 31%
+branch  2 taken 44% (fallthrough)
+branch  3 taken 56%
+        4:   12:        largest = left;
+        -:   13:
+        -:   14:    // If right child is larger than largest so far
+       13:   15:    if (right < n && arr[right] > arr[largest])
+branch  0 taken 38% (fallthrough)
+branch  1 taken 62%
+branch  2 taken 60% (fallthrough)
+branch  3 taken 40%
+        3:   16:        largest = right;
+        -:   17:
+        -:   18:    // If largest is not root
+       13:   19:    if (largest != i) {
+branch  0 taken 38% (fallthrough)
+branch  1 taken 62%
+        -:   20:        // swap arr[i] and arr[largest]
+        5:   21:        int temp = arr[i];
+        5:   22:        arr[i] = arr[largest];
+        5:   23:        arr[largest] = temp;
+        -:   24:
+        -:   25:        // recursively heapify the affected sub-tree
+        5:   26:        heapify(arr, n, largest);
+call    0 returned 100%
+        -:   27:    }
+       13:   28:}
+        -:   29:
+        -:   30:// main function to do heap sort
+function heapSort called 1 returned 100% blocks executed 100%
+        1:   31:void heapSort(int arr[], int n) {
+        -:   32:    // Build heap (rearrange array)
+        4:   33:    for (int i = n / 2 - 1; i >= 0; i--)
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        3:   34:        heapify(arr, n, i);
+call    0 returned 100%
+        -:   35:
+        -:   36:    // One by one extract an element from heap
+        6:   37:    for (int i = n - 1; i > 0; i--) {
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        -:   38:        // Move current root to end
+        5:   39:        int temp = arr[0];
+        5:   40:        arr[0] = arr[i];
+        5:   41:        arr[i] = temp;
+        -:   42:
+        -:   43:        // call max heapify on the reduced heap
+        5:   44:        heapify(arr, i, 0);
+call    0 returned 100%
+        -:   45:    }
+        1:   46:}
+        -:   47:
+        -:   48:// Function to print an array
+function printArray called 2 returned 100% blocks executed 100%
+        2:   49:void printArray(int arr[], int n) {
+       14:   50:    for (int i = 0; i < n; ++i)
+branch  0 taken 86%
+branch  1 taken 14% (fallthrough)
+       12:   51:        printf("%d ", arr[i]);
+call    0 returned 100%
+        2:   52:    printf("\n");
+call    0 returned 100%
+        2:   53:}

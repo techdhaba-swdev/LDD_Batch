@@ -1,0 +1,27 @@
+        -:    0:Source:insertionsort.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "insertionsort.h"
+function insertionSort called 1 returned 100% blocks executed 100%
+        1:    4:void insertionSort(int arr[], int n) {
+        -:    5:    int i, key, j;
+        5:    6:    for (i = 1; i < n; i++) {
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        4:    7:        key = arr[i];
+        4:    8:        j = i - 1;
+        -:    9:
+        -:   10:        /* Move elements of arr[0..i-1], that are greater than key, to one position ahead of their current position */
+       11:   11:        while (j >= 0 && arr[j] > key) {
+branch  0 taken 82% (fallthrough)
+branch  1 taken 18%
+branch  2 taken 78%
+branch  3 taken 22% (fallthrough)
+        7:   12:            arr[j + 1] = arr[j];
+        7:   13:            j = j - 1;
+        -:   14:        }
+        4:   15:        arr[j + 1] = key;
+        -:   16:    }
+        1:   17:}
+        -:   18:
+        -:   19:

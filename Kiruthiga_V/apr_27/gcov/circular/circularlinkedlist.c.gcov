@@ -1,0 +1,53 @@
+        -:    0:Source:circularlinkedlist.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "circularlinkedlist.h"
+        -:    4:struct Node {
+        -:    5:    int data;
+        -:    6:    struct Node* next;
+        -:    7:};
+        -:    8:
+        -:    9:// Function to insert a new node at the beginning of the circular linked list
+function insertAtBeginning called 3 returned 100% blocks executed 100%
+        3:   10:void insertAtBeginning(struct Node** head_ref, int new_data) {
+        3:   11:    struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
+        3:   12:    struct Node* last = *head_ref;
+        -:   13:
+        3:   14:    new_node->data = new_data;
+        3:   15:    new_node->next = *head_ref;
+        -:   16:
+        -:   17:    // If the linked list is not NULL, then set the next of the last node
+        3:   18:    if (*head_ref != NULL) {
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+        3:   19:        while (last->next != *head_ref)
+branch  0 taken 33%
+branch  1 taken 67% (fallthrough)
+        1:   20:            last = last->next;
+        2:   21:        last->next = new_node;
+        -:   22:    } else {
+        1:   23:        new_node->next = new_node; // For the first node
+        -:   24:    }
+        -:   25:
+        3:   26:    *head_ref = new_node;
+        3:   27:}
+        -:   28:
+        -:   29:// Function to traverse and print the circular linked list
+function printList called 1 returned 100% blocks executed 100%
+        1:   30:void printList(struct Node* head) {
+        1:   31:    struct Node* temp = head;
+        1:   32:    if (head != NULL) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        -:   33:        do {
+        3:   34:            printf("%d ", temp->data);
+call    0 returned 100%
+        3:   35:            temp = temp->next;
+        3:   36:        } while (temp != head);
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        1:   37:        printf("\n");
+call    0 returned 100%
+        -:   38:    }
+        1:   39:}
+        -:   40:

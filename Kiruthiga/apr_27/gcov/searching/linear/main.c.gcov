@@ -1,0 +1,23 @@
+        -:    0:Source:main.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"linearsearch.h"
+function main called 1 returned 100% blocks executed 83%
+        1:    3:int main() {
+        1:    4:    int arr[] = {12, 34, 54, 2, 3, 9, 7};
+        1:    5:    int n = sizeof(arr) / sizeof(arr[0]);
+        1:    6:    int key = 3;
+        1:    7:    int result = linearSearch(arr, n, key);
+call    0 returned 100%
+        1:    8:    if (result != -1) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:    9:        printf("Element %d found at index %d\n", key, result);
+call    0 returned 100%
+        -:   10:    } else {
+    #####:   11:        printf("Element %d not found\n", key);
+call    0 never executed
+        -:   12:    }
+        1:   13:    return 0;
+        -:   14:}
+        -:   15:
+        -:   16:

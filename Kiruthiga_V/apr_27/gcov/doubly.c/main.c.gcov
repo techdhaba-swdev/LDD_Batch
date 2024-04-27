@@ -1,0 +1,16 @@
+        -:    0:Source:main.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"doublylinkedlist.h"
+        1:    3:int main() {
+        1:    4:    struct Node* head = NULL;
+        -:    5:
+        1:    6:    insertAtBeginning(&head, 3);
+        1:    7:    insertAtBeginning(&head, 2);
+        1:    8:    insertAtBeginning(&head, 1);
+        -:    9:
+        1:   10:    printf("Doubly Linked List:\n");
+        1:   11:    printList(head);
+        -:   12:
+        1:   13:    return 0;
+        -:   14:}
+        -:   15:

@@ -1,0 +1,53 @@
+        -:    0:Source:quicksort.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "quicksort.h"
+        -:    4:// Function to swap two elements
+function swap called 5 returned 100% blocks executed 100%
+        5:    5:void swap(int* a, int* b) {
+        5:    6:    int t = *a;
+        5:    7:    *a = *b;
+        5:    8:    *b = t;
+        5:    9:}
+        -:   10:
+        -:   11:// Function to partition the array and return the pivot index
+function partition called 4 returned 100% blocks executed 100%
+        4:   12:int partition(int arr[], int low, int high) {
+        4:   13:    int pivot = arr[high]; // Pivot element
+        4:   14:    int i = (low - 1); // Index of smaller element
+        -:   15:
+       15:   16:    for (int j = low; j <= high - 1; j++) {
+branch  0 taken 73%
+branch  1 taken 27% (fallthrough)
+        -:   17:        // If current element is smaller than or equal to pivot
+       11:   18:        if (arr[j] <= pivot) {
+branch  0 taken 9% (fallthrough)
+branch  1 taken 91%
+        1:   19:            i++; // Increment index of smaller element
+        1:   20:            swap(&arr[i], &arr[j]);
+call    0 returned 100%
+        -:   21:        }
+        -:   22:    }
+        4:   23:    swap(&arr[i + 1], &arr[high]);
+call    0 returned 100%
+        4:   24:    return (i + 1);
+        -:   25:}
+        -:   26:
+        -:   27:// Function to perform Quick Sort
+function quickSort called 9 returned 100% blocks executed 100%
+        9:   28:void quickSort(int arr[], int low, int high) {
+        9:   29:    if (low < high) {
+branch  0 taken 44% (fallthrough)
+branch  1 taken 56%
+        -:   30:        // pi is the partitioning index, arr[p] is now at right place
+        4:   31:        int pi = partition(arr, low, high);
+call    0 returned 100%
+        -:   32:
+        -:   33:        // Separately sort elements before partition and after partition
+        4:   34:        quickSort(arr, low, pi - 1);
+call    0 returned 100%
+        4:   35:        quickSort(arr, pi + 1, high);
+call    0 returned 100%
+        -:   36:    }
+        9:   37:}
+        -:   38:

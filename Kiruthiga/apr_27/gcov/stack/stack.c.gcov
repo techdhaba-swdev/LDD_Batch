@@ -1,0 +1,47 @@
+        -:    0:Source:stack.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "stack.h"
+        -:    4:#define MAX_SIZE 5 //define the maximun elements
+        -:    5:
+        -:    6:static int stack[MAX_SIZE]; //initalize stack array
+        -:    7:static int top = -1;        //initialise top as -1
+        -:    8:
+function stack_push called 4 returned 100% blocks executed 67%
+        4:    9:void stack_push(int data) { //implementing push function
+        4:   10:    if (stack_is_full()) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   11:        printf("Stack overflow\n"); //print if stack is overflow
+call    0 never executed
+    #####:   12:        return;
+        -:   13:    }
+        4:   14:    stack[++top] = data;
+        -:   15:}
+        -:   16:
+function stack_pop called 2 returned 100% blocks executed 67%
+        2:   17:int stack_pop() { //implementing pop function
+        2:   18:    if (stack_is_empty()) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   19:        printf("Stack underflow\n"); //print if stack is underflow
+call    0 never executed
+    #####:   20:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   21:    }
+        2:   22:    return stack[top--];
+        -:   23:}
+        -:   24:
+function stack_is_empty called 2 returned 100% blocks executed 100%
+        2:   25:bool stack_is_empty() {//implementing stack empty function
+        2:   26:    return top == -1;
+        -:   27:}
+        -:   28:
+function stack_is_full called 4 returned 100% blocks executed 100%
+        4:   29:bool stack_is_full() { ////implementing stack full function
+        4:   30:    return top == MAX_SIZE - 1;
+        -:   31:}
+        -:   32:
+        -:   33:

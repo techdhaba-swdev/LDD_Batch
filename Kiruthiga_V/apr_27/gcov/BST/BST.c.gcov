@@ -1,0 +1,98 @@
+        -:    0:Source:BST.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "BST.h"
+function createNode called 7 returned 100% blocks executed 60%
+        7:    4:struct node* createNode(int data) {    // Function to create a new node
+        -:    5:    // Allocate memory for a new node
+        7:    6:    struct node* newNode = (struct node*)malloc(sizeof(struct node));
+        -:    7:    // Check if memory allocation was successful
+        7:    8:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    9:        printf("Memory allocation failed!\n");
+call    0 never executed
+    #####:   10:        exit(1);
+call    0 never executed
+        -:   11:    }
+        -:   12:    // Initialize node data and child pointers
+        7:   13:    newNode->data = data;
+        7:   14:    newNode->left = NULL;
+        7:   15:    newNode->right = NULL;
+        7:   16:    return newNode;
+        -:   17:}
+        -:   18:
+        -:   19:// Function to insert a new node into the BST
+function insert called 17 returned 100% blocks executed 100%
+       17:   20:struct node* insert(struct node* root, int data) {
+        -:   21:    // If tree is empty, create a new node and return it
+       17:   22:    if (root == NULL) {
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:   23:        return createNode(data);
+call    0 returned 100%
+        -:   24:    }
+        -:   25:    // Insert data into left subtree if it's smaller
+       10:   26:    if (data < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:   27:        root->left = insert(root->left, data);
+call    0 returned 100%
+        -:   28:    }
+        -:   29:    // Insert data into right subtree if it's larger
+        5:   30:    else if (data > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   31:        root->right = insert(root->right, data);
+call    0 returned 100%
+        -:   32:    }
+        -:   33:    // If data already exists, do nothing
+       10:   34:    return root;
+        -:   35:}
+        -:   36:
+        -:   37:// Function to search for a node with given data in the BST
+function search called 6 returned 100% blocks executed 100%
+        6:   38:int search(struct node* root, int data) {
+        -:   39:    // If tree is empty or data is not found, return 0
+        6:   40:    if (root == NULL) {
+branch  0 taken 17% (fallthrough)
+branch  1 taken 83%
+        1:   41:        return 0;
+        -:   42:    }
+        -:   43:    // If data is found, return 1
+        5:   44:    if (root->data == data) {
+branch  0 taken 20% (fallthrough)
+branch  1 taken 80%
+        1:   45:        return 1;
+        -:   46:    }
+        -:   47:    // Recursively search in left subtree if data is smaller
+        4:   48:    else if (data < root->data) {
+branch  0 taken 75% (fallthrough)
+branch  1 taken 25%
+        3:   49:        return search(root->left, data);
+call    0 returned 100%
+        -:   50:    }
+        -:   51:    // Recursively search in right subtree if data is larger
+        -:   52:    else {
+        1:   53:        return search(root->right, data);
+call    0 returned 100%
+        -:   54:    }
+        -:   55:}
+        -:   56:
+        -:   57:// Function for in-order traversal of the BST
+function inorderTraversal called 15 returned 100% blocks executed 100%
+       15:   58:void inorderTraversal(struct node* root) {
+       15:   59:    if (root != NULL) {
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        -:   60:        // Traverse left subtree
+        7:   61:        inorderTraversal(root->left);
+call    0 returned 100%
+        -:   62:        // Print root node data
+        7:   63:        printf("%d ", root->data);
+call    0 returned 100%
+        -:   64:        // Traverse right subtree
+        7:   65:        inorderTraversal(root->right);
+call    0 returned 100%
+        -:   66:    }
+       15:   67:}

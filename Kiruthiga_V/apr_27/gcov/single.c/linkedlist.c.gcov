@@ -1,0 +1,42 @@
+        -:    0:Source:linkedlist.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "linkedlist.h"
+        -:    4:// Define a structure for a node in the linked list
+        -:    5:struct Node
+        -:    6:{
+        -:    7:	int data;
+        -:    8:	struct Node* next;
+        -:    9:};
+        3:   10:void insertAtBeginning(struct Node** head_ref, int new_data){
+        3:   11:struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));//Function to create a new node
+        3:   12:if(new_node == NULL)
+        -:   13:{
+    #####:   14:	fprintf(stderr, "error:memory allocation failed for new node.\n");
+    #####:   15:	exit(EXIT_FAILURE);
+        -:   16:}
+        3:   17:new_node->data = new_data;
+        3:   18:new_node->next = (*head_ref);
+        3:   19:(*head_ref) = new_node;
+        3:   20:}
+        -:   21://function to print the linked list
+        1:   22:void printList(const struct Node* node)
+        -:   23:{
+        4:   24:	while(node != NULL)
+        -:   25:	{
+        3:   26:		printf("%d",node->data);
+        3:   27:		node = node->next;
+        -:   28:	}
+        1:   29:	printf("\n");
+        1:   30:}
+        -:   31://Function to free memory allocated for the linked list
+        1:   32:void freeList(struct Node* head)
+        -:   33:{
+        -:   34:	struct Node* temp;
+        4:   35:	while(head != NULL)
+        -:   36:	{
+        3:   37:		temp = head;
+        3:   38:		head = head->next;
+        3:   39:		free(temp);
+        -:   40:	}
+        1:   41:}
