@@ -1,0 +1,36 @@
+        -:    0:Source:main.c
+        -:    1:#include "doubly_linked_list.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+function main called 0 returned 0% blocks executed 0%
+    #####:    4:int main() {
+    #####:    5:    Node *head = NULL;
+        -:    6:
+        -:    7:    // Inserting elements into the list
+    #####:    8:    insertAtEnd(&head, 10);
+call    0 never executed
+    #####:    9:    insertAtEnd(&head, 20);
+call    0 never executed
+    #####:   10:    insertAtEnd(&head, 30);
+call    0 never executed
+    #####:   11:    insertAtBeginning(&head, 5);
+call    0 never executed
+        -:   12:    
+        -:   13:    // Displaying the list
+    #####:   14:    displayList(head);
+call    0 never executed
+        -:   15:    
+        -:   16:    // Deleting a node
+    #####:   17:    deleteNode(&head, 20);
+call    0 never executed
+        -:   18:
+        -:   19:    // Displaying the list after deletion
+    #####:   20:    displayList(head);
+call    0 never executed
+        -:   21:
+        -:   22:    // Freeing the memory allocated to the list
+    #####:   23:    freeList(&head);
+call    0 never executed
+        -:   24:
+    #####:   25:    return 0;
+        -:   26:}

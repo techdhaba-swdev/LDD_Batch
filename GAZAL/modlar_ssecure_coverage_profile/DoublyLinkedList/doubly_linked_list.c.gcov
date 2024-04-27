@@ -1,0 +1,172 @@
+        -:    0:Source:doubly_linked_list.c
+        -:    1:#include "doubly_linked_list.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+        -:    5:// Define the Node structure
+        -:    6:struct Node {
+        -:    7:    int data;
+        -:    8:    struct Node *prev;
+        -:    9:    struct Node *next;
+        -:   10:};
+        -:   11:
+        -:   12:// Function to create a new node
+function createNode called 0 returned 0% blocks executed 0%
+    #####:   13:Node* createNode(int data) {
+    #####:   14:    Node *newNode = malloc(sizeof(Node)); // Allocate memory for the new node
+    #####:   15:    if (newNode == NULL) { // Check if memory allocation failed
+branch  0 never executed
+branch  1 never executed
+    #####:   16:        perror("Memory allocation failed");
+call    0 never executed
+    #####:   17:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   18:    }
+    #####:   19:    newNode->data = data; // Assign data to the new node
+    #####:   20:    newNode->prev = NULL; // Set previous pointer to NULL
+    #####:   21:    newNode->next = NULL; // Set next pointer to NULL
+    #####:   22:    return newNode; // Return the new node
+        -:   23:}
+        -:   24:
+        -:   25:// Function to insert a node at the beginning of the list
+function insertAtBeginning called 0 returned 0% blocks executed 0%
+    #####:   26:void insertAtBeginning(Node **head, int data) {
+    #####:   27:    if (head == NULL) { // Check if head pointer is NULL
+branch  0 never executed
+branch  1 never executed
+    #####:   28:        fprintf(stderr, "Invalid parameter: head is NULL\n");
+call    0 never executed
+    #####:   29:        return;
+        -:   30:    }
+    #####:   31:    Node *newNode = createNode(data); // Create a new node
+call    0 never executed
+    #####:   32:    if (*head == NULL) { // Check if the list is empty
+branch  0 never executed
+branch  1 never executed
+    #####:   33:        *head = newNode; // Set the new node as the head
+        -:   34:    } else {
+    #####:   35:        newNode->next = *head; // Set the next pointer of the new node to the current head
+    #####:   36:        (*head)->prev = newNode; // Set the previous pointer of the current head to the new node
+    #####:   37:        *head = newNode; // Set the new node as the head
+        -:   38:    }
+        -:   39:}
+        -:   40:
+        -:   41:// Function to display the doubly linked list
+function displayList called 0 returned 0% blocks executed 0%
+    #####:   42:void displayList(Node *head) {
+    #####:   43:    printf("Doubly Linked List: ");
+call    0 never executed
+    #####:   44:    while (head != NULL) { // Traverse the list
+branch  0 never executed
+branch  1 never executed
+    #####:   45:        printf("%d ", head->data); // Print the data of the current node
+call    0 never executed
+    #####:   46:        head = head->next; // Move to the next node
+        -:   47:    }
+    #####:   48:    printf("\n");
+call    0 never executed
+    #####:   49:}
+        -:   50:
+        -:   51:// Function to insert a node at the end of the list
+function insertAtEnd called 0 returned 0% blocks executed 0%
+    #####:   52:void insertAtEnd(Node **head, int data) {
+    #####:   53:    if (head == NULL) { // Check if head pointer is NULL
+branch  0 never executed
+branch  1 never executed
+    #####:   54:        fprintf(stderr, "Invalid parameter: head is NULL\n");
+call    0 never executed
+    #####:   55:        return;
+        -:   56:    }
+    #####:   57:    Node *newNode = createNode(data); // Create a new node
+call    0 never executed
+    #####:   58:    if (*head == NULL) { // Check if the list is empty
+branch  0 never executed
+branch  1 never executed
+    #####:   59:        *head = newNode; // Set the new node as the head
+        -:   60:    } else {
+    #####:   61:        Node *temp = *head; // Create a temporary pointer to traverse the list
+    #####:   62:        while (temp->next != NULL) { // Traverse the list until the last node
+branch  0 never executed
+branch  1 never executed
+    #####:   63:            temp = temp->next; // Move to the next node
+        -:   64:        }
+    #####:   65:        temp->next = newNode; // Set the next pointer of the last node to the new node
+    #####:   66:        newNode->prev = temp; // Set the previous pointer of the new node to the last node
+        -:   67:    }
+        -:   68:}
+        -:   69:
+        -:   70:// Function to delete a node from the list
+function deleteNode called 0 returned 0% blocks executed 0%
+    #####:   71:void deleteNode(Node **head, int key) {
+    #####:   72:    if (head == NULL || *head == NULL) { // Check if head pointer is NULL or list is empty
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   73:        fprintf(stderr, "Invalid parameter: head is NULL or list is empty\n");
+call    0 never executed
+    #####:   74:        return;
+        -:   75:    }
+    #####:   76:    Node *temp = *head; // Create a temporary pointer to traverse the list
+    #####:   77:    if (temp->data == key) { // Check if the node to be deleted is the head node
+branch  0 never executed
+branch  1 never executed
+    #####:   78:        *head = temp->next; // Update the head pointer
+    #####:   79:        if (*head != NULL) { // Check if the new head exists
+branch  0 never executed
+branch  1 never executed
+    #####:   80:            (*head)->prev = NULL; // Set the previous pointer of the new head to NULL
+        -:   81:        }
+    #####:   82:        free(temp); // Free memory for the deleted node
+    #####:   83:        return;
+        -:   84:    }
+    #####:   85:    while (temp != NULL && temp->data != key) { // Traverse the list to find the node to be deleted
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   86:        temp = temp->next; // Move to the next node
+        -:   87:    }
+    #####:   88:    if (temp == NULL) { // Check if the node with the given key is not found
+branch  0 never executed
+branch  1 never executed
+    #####:   89:        printf("Node with data %d not found in the list.\n", key);
+call    0 never executed
+    #####:   90:        return;
+        -:   91:    }
+    #####:   92:    if (temp->next != NULL) { // Check if the node to be deleted is not the last node
+branch  0 never executed
+branch  1 never executed
+    #####:   93:        temp->next->prev = temp->prev; // Update the previous pointer of the next node
+        -:   94:    }
+    #####:   95:    if (temp->prev != NULL) { // Check if the node to be deleted is not the first node
+branch  0 never executed
+branch  1 never executed
+    #####:   96:        temp->prev->next = temp->next; // Update the next pointer of the previous node
+        -:   97:    }
+    #####:   98:    free(temp); // Free memory for the deleted node
+        -:   99:}
+        -:  100:
+        -:  101:// Function to free the memory allocated to the list
+function freeList called 0 returned 0% blocks executed 0%
+    #####:  102:void freeList(Node **head) {
+    #####:  103:    if (head == NULL || *head == NULL) { // Check if head pointer is NULL or list is empty
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  104:        fprintf(stderr, "Invalid parameter: head is NULL or list is empty\n");
+call    0 never executed
+    #####:  105:        return;
+        -:  106:    }
+    #####:  107:    Node *temp = *head; // Create a temporary pointer to traverse the list
+        -:  108:    Node *next; // Create a pointer to store the next node
+    #####:  109:    while (temp != NULL) { // Traverse the list
+branch  0 never executed
+branch  1 never executed
+    #####:  110:        next = temp->next; // Store the next node
+    #####:  111:        free(temp); // Free memory for the current node
+    #####:  112:        temp = next; // Move to the next node
+        -:  113:    }
+    #####:  114:    *head = NULL; // Set the head pointer to NULL
+        -:  115:}
