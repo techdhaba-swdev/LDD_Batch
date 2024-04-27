@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=binarytree.h
+OBJ=binary_tree.o createnode.o insertnode.o minvaluenode.o searchnode.o treeheight.o traversenode.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+binary_tree:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

@@ -1,0 +1,78 @@
+        -:    0:Source:mergefn.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"merge.h"
+        -:    3:
+        -:    4:// Function to merge two sorted subarrays
+function merge called 6 returned 100% blocks executed 100%
+        6:    5:void merge(int arr[], int left, int mid, int right) {
+        6:    6:    int n1 = mid - left + 1;
+        6:    7:    int n2 = right - mid;
+        -:    8:
+        -:    9:    // Create temporary arrays
+        6:   10:    int L[n1], R[n2];
+        -:   11:
+        -:   12:    // Copy data to temporary arrays L[] and R[]
+       17:   13:    for (int i = 0; i < n1; i++)
+branch  0 taken 65%
+branch  1 taken 35% (fallthrough)
+       11:   14:        L[i] = arr[left + i];
+       15:   15:    for (int j = 0; j < n2; j++)
+branch  0 taken 60%
+branch  1 taken 40% (fallthrough)
+        9:   16:        R[j] = arr[mid + 1 + j];
+        -:   17:
+        -:   18:    // Merge the two arrays back into arr[]
+        6:   19:    int i = 0, j = 0, k = left;
+       20:   20:    while (i < n1 && j < n2) {
+branch  0 taken 85% (fallthrough)
+branch  1 taken 15%
+branch  2 taken 82%
+branch  3 taken 18% (fallthrough)
+       14:   21:        if (L[i] <= R[j]) {
+branch  0 taken 57% (fallthrough)
+branch  1 taken 43%
+        8:   22:            arr[k] = L[i];
+        8:   23:            i++;
+        -:   24:        } else {
+        6:   25:            arr[k] = R[j];
+        6:   26:            j++;
+        -:   27:        }
+       14:   28:        k++;
+        -:   29:    }
+        -:   30:
+        -:   31:    // Copy the remaining elements of L[], if there are any
+        9:   32:    while (i < n1) {
+branch  0 taken 33%
+branch  1 taken 67% (fallthrough)
+        3:   33:        arr[k] = L[i];
+        3:   34:        i++;
+        3:   35:        k++;
+        -:   36:    }
+        -:   37:
+        -:   38:    // Copy the remaining elements of R[], if there are any
+        9:   39:    while (j < n2) {
+branch  0 taken 33%
+branch  1 taken 67% (fallthrough)
+        3:   40:        arr[k] = R[j];
+        3:   41:        j++;
+        3:   42:        k++;
+        -:   43:    }
+        6:   44:}
+        -:   45:
+        -:   46:// Merge Sort function
+function mergeSort called 13 returned 100% blocks executed 100%
+       13:   47:void mergeSort(int arr[], int left, int right) {
+       13:   48:    if (left < right) {
+branch  0 taken 46% (fallthrough)
+branch  1 taken 54%
+        6:   49:        int mid = left + (right - left) / 2;
+        6:   50:        mergeSort(arr, left, mid);
+call    0 returned 100%
+        6:   51:        mergeSort(arr, mid + 1, right);
+call    0 returned 100%
+        6:   52:        merge(arr, left, mid, right);
+call    0 returned 100%
+        -:   53:    }
+       13:   54:}
+        -:   55:
+        -:   56:

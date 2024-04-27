@@ -1,0 +1,110 @@
+        -:    0:Source:singlylist.c
+        -:    0:Graph:singlylist.gcno
+        -:    0:Data:singlylist.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:
+        -:    4:struct node
+        -:    5:{
+        -:    6:	int data;
+        -:    7:	struct node* next;
+        -:    8:};
+        -:    9:
+        3:   10:struct node* createnode(int value)
+        -:   11:{
+        3:   12:	struct node* newnode=(struct node*)malloc(sizeof(struct node*));
+        3:   13:	newnode->data= value;
+        3:   14:	newnode->next= NULL;
+        3:   15:	return newnode;
+        -:   16:}
+        -:   17:
+        3:   18:void insert(struct node** head, int value)
+        -:   19:{
+        3:   20:	struct node* newnode= createnode(value);
+        3:   21:	newnode->next = *head;
+        3:   22:	*head = newnode;
+        3:   23:}
+        1:   24:void delete(struct node** head, int value)
+        -:   25:{
+        1:   26:	struct node* current= *head;
+        1:   27:	struct node* prev= NULL;
+        -:   28:
+        2:   29:	while(current!=NULL && current->data != value)
+        -:   30:	{
+        1:   31:		prev= current;
+        1:   32:		current= current->next;
+        -:   33:	}
+        1:   34:	if(current==NULL)
+        -:   35:	{
+    #####:   36:		printf("Element %d  not found in the list.\n",value);
+    #####:   37:		return;
+        -:   38:	}
+        1:   39:	if(prev==NULL)
+    #####:   40:	 *head= current->next;
+        -:   41:	else
+        1:   42:		prev->next= current->next;
+        -:   43:
+        1:   44:	free(current);
+        1:   45:		printf("element %d deleted from the list\n",value);
+        -:   46:
+        -:   47:}
+        -:   48:
+        2:   49:void traverse(struct node* head)
+        -:   50:{
+        2:   51:	struct node* current =head;
+        7:   52:	while(current != NULL)
+        -:   53:	{
+        5:   54:		printf("%d-> ",current->data);
+        5:   55:		current= current->next;
+        -:   56:	}
+        -:   57:
+        2:   58:	printf("NULL \n");
+        2:   59:}
+        -:   60:
+        1:   61:int main()
+        -:   62:{
+        1:   63:	struct node* head=NULL;
+        -:   64:
+        1:   65:	insert(&head,30);
+        1:   66:	insert(&head,40);
+        1:   67:	insert(&head,50);
+        -:   68:
+        1:   69:	printf("origiinal linked list:");
+        1:   70:	traverse(head);
+        1:   71:	delete(&head,40);
+        -:   72:	
+        1:   73:	printf("updated linked list:");
+        1:   74:	traverse(head);
+        -:   75:
+        3:   76:	while(head!=NULL)
+        -:   77:	{
+        2:   78:		struct node* temp= head;
+        2:   79:		head= head->next;
+        2:   80:		free(temp);
+        -:   81:	}
+        1:   82:	return 0;
+        -:   83:}
+        -:   84:
+        -:   85:
+        -:   86:
+        -:   87:
+        -:   88:
+        -:   89:
+        -:   90:
+        -:   91:
+        -:   92:
+        -:   93:
+        -:   94:
+        -:   95:
+        -:   96:
+        -:   97:
+        -:   98:
+        -:   99:
+        -:  100:
+        -:  101:
+        -:  102:
+        -:  103:
+        -:  104:
+        -:  105:
+        -:  106:

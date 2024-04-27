@@ -1,0 +1,73 @@
+        -:    0:Source:stack.c
+        -:    0:Graph:stack.gcno
+        -:    0:Data:stack.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+        -:    2:#include<limits.h>
+        -:    3:#include<stdlib.h>
+        -:    4:struct Stack
+        -:    5:{
+        -:    6:	int top;
+        -:    7:	unsigned capacity;
+        -:    8:	int* array;
+        -:    9:};
+        -:   10: 
+        1:   11:struct Stack* creatStack(unsigned capacity)
+        -:   12:{
+        1:   13:	struct Stack* stack=(struct Stack*)malloc(sizeof(struct Stack));
+        1:   14:	stack->capacity=capacity;
+        1:   15:	stack->top=-1;
+        1:   16:	  stack->array = (int*)malloc(stack->capacity * sizeof(int));
+        1:   17:    return stack;
+        -:   18:}
+        -:   19:
+        -:   20:// Stack is full when top is equal to the last index
+        3:   21:int isFull(struct Stack* stack)
+        -:   22:{
+        3:   23:    return stack->top == stack->capacity - 1;
+        -:   24:}
+        -:   25:
+        -:   26:// Stack is empty when top is equal to -1
+        1:   27:int isEmpty(struct Stack* stack)
+        -:   28:{
+        1:   29:    return stack->top == -1;
+        -:   30:}
+        -:   31:
+        -:   32:// Function to add an item to stack.  It increases top by 1
+        3:   33:void push(struct Stack* stack, int item)
+        -:   34:{
+        3:   35:    if (isFull(stack))
+    #####:   36:        return;
+        3:   37:    stack->array[++stack->top] = item;
+        3:   38:    printf("%d pushed to stack\n", item);
+        -:   39:}
+        -:   40:
+        -:   41:// Function to remove an item from stack.  It decreases top by 1
+        1:   42:int pop(struct Stack* stack)
+        -:   43:{
+        1:   44:    if (isEmpty(stack))
+    #####:   45:        return INT_MIN;
+        1:   46:    return stack->array[stack->top--];
+        -:   47:}
+        -:   48:
+        -:   49:// Function to return the top from stack without removing it
+    #####:   50:int peek(struct Stack* stack)
+        -:   51:{
+    #####:   52:    if (isEmpty(stack))
+    #####:   53:        return INT_MIN;
+    #####:   54:    return stack->array[stack->top];
+        -:   55:}
+        -:   56:
+        -:   57:// Driver program to test above functions
+        1:   58:int main()
+        -:   59:{
+        1:   60:    struct Stack* stack = creatStack(100);
+        -:   61:
+        1:   62:    push(stack, 10);
+        1:   63:    push(stack, 20);
+        1:   64:    push(stack, 30);
+        -:   65:
+        1:   66:    printf("%d popped from stack\n", pop(stack));
+        -:   67:
+        1:   68:    return 0;
+        -:   69:}

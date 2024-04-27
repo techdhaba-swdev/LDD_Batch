@@ -1,0 +1,32 @@
+        -:    0:Source:stack.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include"stack.h"
+        -:    4:#include<limits.h>
+        -:    5:
+function main called 1 returned 100% blocks executed 100%
+        1:    6:int main() {
+        -:    7:    struct Stack myStack;
+        1:    8:    initializeStack(&myStack);
+call    0 returned 100%
+        -:    9:
+        1:   10:    push(&myStack, 10);
+call    0 returned 100%
+        1:   11:    push(&myStack, 20);
+call    0 returned 100%
+        1:   12:    push(&myStack, 30);
+call    0 returned 100%
+        -:   13:
+        1:   14:    printf("Top element: %d\n", peek(&myStack));
+call    0 returned 100%
+call    1 returned 100%
+        1:   15:    printf("Popped element: %d\n", pop(&myStack));
+call    0 returned 100%
+call    1 returned 100%
+        1:   16:    printf("Top element after pop: %d\n", peek(&myStack));
+call    0 returned 100%
+call    1 returned 100%
+        -:   17:
+        1:   18:    return 0;
+        -:   19:}
+        -:   20:

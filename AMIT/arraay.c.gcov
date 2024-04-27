@@ -1,0 +1,25 @@
+        -:    0:Source:arraay.c
+        -:    0:Graph:arraay.gcno
+        -:    0:Data:arraay.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+function main called 1 returned 100% blocks executed 100%
+        1:    2:int main()
+        -:    3:{
+        -:    4:	int n[10];
+        -:    5:	int i,j;
+       11:    6:	for(i=0;i<10;i++)
+branch  0 taken 91%
+branch  1 taken 9% (fallthrough)
+        -:    7:	{
+       10:    8:		n[i]=i+100;
+        -:    9:	}
+       11:   10:	for(j=0;j<10;j++)
+branch  0 taken 91%
+branch  1 taken 9% (fallthrough)
+        -:   11:	{
+       10:   12:		printf("Element[%d] =%d\n",j,n[j]);
+call    0 returned 100%
+        -:   13:	}
+        1:   14:	return 0;
+        -:   15:}

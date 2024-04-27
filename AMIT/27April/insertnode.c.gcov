@@ -1,0 +1,28 @@
+        -:    0:Source:insertnode.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include"binarytree.h"
+        -:    4:
+        -:    5:                                                          // Function to insert a new node into the BST
+function insert called 18 returned 100% blocks executed 100%
+       18:    6:struct node* insert(struct node* root, int data) {
+       18:    7:    if (root == NULL)
+branch  0 taken 39% (fallthrough)
+branch  1 taken 61%
+        7:    8:        return createNode(data);
+call    0 returned 100%
+        -:    9:
+       11:   10:    if (data < root->data)
+branch  0 taken 45% (fallthrough)
+branch  1 taken 55%
+        5:   11:        root->left = insert(root->left, data);
+call    0 returned 100%
+        6:   12:    else if (data > root->data)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        6:   13:        root->right = insert(root->right, data);
+call    0 returned 100%
+        -:   14:
+       11:   15:    return root;
+        -:   16:}
+        -:   17:

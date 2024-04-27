@@ -1,0 +1,23 @@
+        -:    0:Source:createnode.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include"binarytree.h"
+        -:    4:
+        -:    5:
+        -:    6:                                                                              // Function to create a new node
+function createNode called 7 returned 100% blocks executed 60%
+        7:    7:struct node* createNode(int data) {                                           //alowcating size to newNode
+        7:    8:    struct node* newNode = (struct node*)malloc(sizeof(struct node));
+        7:    9:    if (newNode == NULL) {                                                  
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   10:        printf("Memory allocation failed.\n");
+call    0 never executed
+    #####:   11:        exit(1);
+call    0 never executed
+        -:   12:    }
+        7:   13:    newNode->data = data;
+        7:   14:    newNode->left = newNode->right = NULL;
+        7:   15:    return newNode;
+        -:   16:}
+        -:   17:

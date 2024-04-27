@@ -1,0 +1,34 @@
+        -:    0:Source:mergeSort.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"merge.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        1:    5:    int arr[] = {38, 27, 43, 3, 9, 82, 10};
+        1:    6:    int n = sizeof(arr) / sizeof(arr[0]);
+        -:    7:
+        1:    8:    printf("Original array: ");
+call    0 returned 100%
+        8:    9:    for (int i = 0; i < n; i++)
+branch  0 taken 88%
+branch  1 taken 12% (fallthrough)
+        7:   10:        printf("%d ", arr[i]);
+call    0 returned 100%
+        1:   11:    printf("\n");
+call    0 returned 100%
+        -:   12:
+        1:   13:    mergeSort(arr, 0, n - 1);
+call    0 returned 100%
+        -:   14:
+        1:   15:    printf("Sorted array: ");
+call    0 returned 100%
+        8:   16:    for (int i = 0; i < n; i++)
+branch  0 taken 88%
+branch  1 taken 12% (fallthrough)
+        7:   17:        printf("%d ", arr[i]);
+call    0 returned 100%
+        1:   18:    printf("\n");
+call    0 returned 100%
+        -:   19:
+        1:   20:    return 0;
+        -:   21:}

@@ -1,0 +1,17 @@
+        -:    0:Source:treeheight.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include"binarytree.h"
+        -:    4:
+function treeHeight called 15 returned 100% blocks executed 100%
+       15:    5:int treeHeight(struct node* root) {
+       15:    6:    if (root == NULL)
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        8:    7:        return 0;
+        7:    8:    int leftHeight = treeHeight(root->left);
+call    0 returned 100%
+        7:    9:    int rightHeight = treeHeight(root->right);
+call    0 returned 100%
+        7:   10:    return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
+        -:   11:}

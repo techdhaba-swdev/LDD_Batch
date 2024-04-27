@@ -1,0 +1,49 @@
+        -:    0:Source:quickfn.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"quick.h"
+        -:    3:
+        -:    4:// Function to swap two elements
+function swap called 0 returned 0% blocks executed 0%
+    #####:    5:void swap(int* a, int* b) {
+    #####:    6:    int temp = *a;
+    #####:    7:    *a = *b;
+    #####:    8:    *b = temp;
+    #####:    9:}
+        -:   10:
+        -:   11:// Partition function to find the correct position of the pivot
+function partition called 0 returned 0% blocks executed 0%
+    #####:   12:int partition(int arr[], int low, int high) {
+    #####:   13:    int pivot = arr[high];
+    #####:   14:    int i = (low - 1);
+        -:   15:
+    #####:   16:    for (int j = low; j < high; j++) {
+branch  0 never executed
+branch  1 never executed
+    #####:   17:        if (arr[j] < pivot) {
+branch  0 never executed
+branch  1 never executed
+    #####:   18:            i++;
+    #####:   19:            swap(&arr[i], &arr[j]);
+call    0 never executed
+        -:   20:        }
+        -:   21:    }
+        -:   22:
+    #####:   23:    swap(&arr[i + 1], &arr[high]);
+call    0 never executed
+    #####:   24:    return i + 1;
+        -:   25:}
+        -:   26:
+        -:   27:// Quick Sort function
+function quickSort called 0 returned 0% blocks executed 0%
+    #####:   28:void quickSort(int arr[], int low, int high) {
+    #####:   29:    if (low < high) {
+branch  0 never executed
+branch  1 never executed
+    #####:   30:        int partitionIndex = partition(arr, low, high);
+call    0 never executed
+    #####:   31:        quickSort(arr, low, partitionIndex - 1);
+call    0 never executed
+    #####:   32:        quickSort(arr, partitionIndex + 1, high);
+call    0 never executed
+        -:   33:    }
+    #####:   34:}

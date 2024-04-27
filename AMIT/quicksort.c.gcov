@@ -1,0 +1,68 @@
+        -:    0:Source:quicksort.c
+        -:    0:Graph:quicksort.gcno
+        -:    0:Data:quicksort.gcda
+        -:    0:Runs:1
+        -:    1:// C program for QuickSort
+        -:    2:#include <stdio.h>
+        -:    3: 
+        -:    4:// Utility function to swap tp integers
+        5:    5:void swap(int* p1, int* p2)
+        -:    6:{
+        -:    7:    int temp;
+        5:    8:    temp = *p1;
+        5:    9:    *p1 = *p2;
+        5:   10:    *p2 = temp;
+        5:   11:}
+        -:   12: 
+        4:   13:int partition(int arr[], int low, int high)
+        -:   14:{
+        -:   15:    // choose the pivot
+        4:   16:    int pivot = arr[high];
+        -:   17: 
+        -:   18:    // Index of smaller element and Indicate
+        -:   19:    // the right position of pivot found so far
+        4:   20:    int i = (low - 1);
+        -:   21: 
+       19:   22:    for (int j = low; j <= high; j++) {
+        -:   23:        // If current element is smaller than the pivot
+       15:   24:        if (arr[j] < pivot) {
+        -:   25:            // Increment index of smaller element
+        1:   26:            i++;
+        1:   27:            swap(&arr[i], &arr[j]);
+        -:   28:        }
+        -:   29:    }
+        4:   30:    swap(&arr[i + 1], &arr[high]);
+        4:   31:    return (i + 1);
+        -:   32:}
+        -:   33: 
+        -:   34:// The Quicksort function Implement
+        -:   35: 
+        9:   36:void quickSort(int arr[], int low, int high)
+        -:   37:{
+        -:   38:    // when low is less than high
+        9:   39:    if (low < high) {
+        -:   40:        // pi is the partition return index of pivot
+        -:   41: 
+        4:   42:        int pi = partition(arr, low, high);
+        -:   43: 
+        -:   44:        // Recursion Call
+        -:   45:        // smaller element than pivot goes left and
+        -:   46:        // higher element goes right
+        4:   47:        quickSort(arr, low, pi - 1);
+        4:   48:        quickSort(arr, pi + 1, high);
+        -:   49:    }
+        9:   50:}
+        -:   51: 
+        1:   52:int main()
+        -:   53:{
+        1:   54:    int arr[] = { 10, 7, 8, 9, 1, 5 };
+        1:   55:    int n = sizeof(arr) / sizeof(arr[0]);
+        -:   56:    // Function call
+        1:   57:    quickSort(arr, 0, n - 1);
+        -:   58:  // Print the sorted array
+        1:   59:    printf("Sorted Array\n");
+        7:   60:    for (int i = 0; i < n; i++) {
+        6:   61:        printf("%d ", arr[i]);
+        -:   62:    }
+        1:   63:    return 0;
+        -:   64:}

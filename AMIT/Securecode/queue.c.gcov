@@ -1,0 +1,19 @@
+        -:    0:Source:queue.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdbool.h>
+        -:    3:#include"queue.h"
+        -:    4:
+        1:    5:int main() {
+        -:    6:    struct Queue myQueue;
+        1:    7:    initializeQueue(&myQueue);
+        -:    8:
+        1:    9:    enqueue(&myQueue, 10);
+        1:   10:    enqueue(&myQueue, 20);
+        1:   11:    enqueue(&myQueue, 30);
+        -:   12:
+        1:   13:    printf("Front element: %d\n", peek(&myQueue));
+        1:   14:    printf("Dequeued element: %d\n", dequeue(&myQueue));
+        1:   15:    printf("Front element after dequeue: %d\n", peek(&myQueue));
+        -:   16:
+        1:   17:    return 0;
+        -:   18:}

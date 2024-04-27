@@ -1,0 +1,109 @@
+        -:    0:Source:mergesort.c
+        -:    0:Graph:mergesort.gcno
+        -:    0:Data:mergesort.gcda
+        -:    0:Runs:1
+        -:    1:// C program for Merge Sort 
+        -:    2:#include <stdio.h> 
+        -:    3:#include <stdlib.h>
+        -:    4: 
+        -:    5:// Merges two subarrays of arr[]. 
+        -:    6:// First subarray is arr[l..m] 
+        -:    7:// Second subarray is arr[m+1..r] 
+        5:    8:void merge(int arr[], int l, int m, int r) 
+        5:    9:{ 
+        -:   10:	int i, j, k; 
+        5:   11:	int n1 = m - l + 1; 
+        5:   12:	int n2 = r - m;
+        -:   13: 
+        -:   14:	// Create temp arrays 
+        5:   15:	int L[n1], R[n2];
+        -:   16: 
+        -:   17:	// Copy data to temp arrays 
+        -:   18:	// L[] and R[] 
+       14:   19:	for (i = 0; i < n1; i++) 
+        9:   20:		L[i] = arr[l + i]; 
+       12:   21:	for (j = 0; j < n2; j++) 
+        7:   22:		R[j] = arr[m + 1 + j];
+        -:   23: 
+        -:   24:	// Merge the temp arrays back 
+        -:   25:	// into arr[l..r] 
+        -:   26:	// Initial index of first subarray 
+        5:   27:	i = 0;
+        -:   28: 
+        -:   29:	// Initial index of second subarray 
+        5:   30:	j = 0;
+        -:   31: 
+        -:   32:	// Initial index of merged subarray 
+        5:   33:	k = l; 
+       14:   34:	while (i < n1 && j < n2) { 
+        9:   35:		if (L[i] <= R[j]) { 
+        5:   36:			arr[k] = L[i]; 
+        5:   37:			i++; 
+        -:   38:		} 
+        -:   39:		else { 
+        4:   40:			arr[k] = R[j]; 
+        4:   41:			j++; 
+        -:   42:		} 
+        9:   43:		k++; 
+        -:   44:	}
+        -:   45: 
+        -:   46:	// Copy the remaining elements 
+        -:   47:	// of L[], if there are any 
+        9:   48:	while (i < n1) { 
+        4:   49:		arr[k] = L[i]; 
+        4:   50:		i++; 
+        4:   51:		k++; 
+        -:   52:	}
+        -:   53: 
+        -:   54:	// Copy the remaining elements of 
+        -:   55:	// R[], if there are any 
+        8:   56:	while (j < n2) { 
+        3:   57:		arr[k] = R[j]; 
+        3:   58:		j++; 
+        3:   59:		k++; 
+        -:   60:	} 
+        5:   61:}
+        -:   62: 
+        -:   63:// l is for left index and r is 
+        -:   64:// right index of the sub-array 
+        -:   65:// of arr to be sorted 
+       11:   66:void mergeSort(int arr[], int l, int r) 
+        -:   67:{ 
+       11:   68:	if (l < r) { 
+        -:   69:		// Same as (l+r)/2, but avoids 
+        -:   70:		// overflow for large l and r 
+        5:   71:		int m = l + (r - l) / 2;
+        -:   72: 
+        -:   73:		// Sort first and second halves 
+        5:   74:		mergeSort(arr, l, m); 
+        5:   75:		mergeSort(arr, m + 1, r);
+        -:   76: 
+        5:   77:		merge(arr, l, m, r); 
+        -:   78:	} 
+       11:   79:}
+        -:   80: 
+        -:   81:// UTILITY FUNCTIONS 
+        -:   82:// Function to print an array 
+        2:   83:void printArray(int A[], int size) 
+        -:   84:{ 
+        -:   85:	int i; 
+       14:   86:	for (i = 0; i < size; i++) 
+       12:   87:		printf("%d ", A[i]); 
+        2:   88:	printf("\n"); 
+        2:   89:}
+        -:   90: 
+        -:   91:// Driver code 
+        1:   92:int main() 
+        -:   93:{ 
+        1:   94:	int arr[] = { 12, 11, 13, 5, 6, 7 }; 
+        1:   95:	int arr_size = sizeof(arr) / sizeof(arr[0]);
+        -:   96: 
+        1:   97:	printf("Given array is \n"); 
+        1:   98:	printArray(arr, arr_size);
+        -:   99: 
+        1:  100:	mergeSort(arr, 0, arr_size - 1);
+        -:  101: 
+        1:  102:	printf("\nSorted array is \n"); 
+        1:  103:	printArray(arr, arr_size); 
+        1:  104:	return 0; 
+        -:  105:}

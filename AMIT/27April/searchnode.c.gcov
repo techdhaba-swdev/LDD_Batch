@@ -1,0 +1,26 @@
+        -:    0:Source:searchnode.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include"binarytree.h"
+        -:    4:
+        -:    5:                                           // Function to search for a node with the given data in the BST
+function search called 3 returned 100% blocks executed 90%
+        3:    6:int search(struct node* root, int data) {
+        3:    7:    if (root == NULL)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    8:        return 0;
+        -:    9:
+        3:   10:    if (root->data == data)
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   11:        return 1;
+        2:   12:    else if (data < root->data)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   13:        return search(root->left, data);
+call    0 returned 100%
+        -:   14:    else
+        1:   15:        return search(root->right, data);
+call    0 returned 100%
+        -:   16:}

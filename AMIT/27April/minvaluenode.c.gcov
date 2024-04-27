@@ -1,0 +1,28 @@
+        -:    0:Source:minvaluenode.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include"binarytree.h"
+        -:    4:
+function minValueNode called 1 returned 100% blocks executed 100%
+        1:    5:struct node* minValueNode(struct node* node) {
+        1:    6:    struct node* current = node;
+        3:    7:    while (current && current->left)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 67%
+branch  3 taken 33% (fallthrough)
+        2:    8:        current = current->left;
+        1:    9:    return current;
+        -:   10:}
+        -:   11:
+function maxValueNode called 1 returned 100% blocks executed 100%
+        1:   12:struct node* maxValueNode(struct node* node) {
+        1:   13:    struct node* current = node;
+        3:   14:    while (current && current->right)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 67%
+branch  3 taken 33% (fallthrough)
+        2:   15:        current = current->right;
+        1:   16:    return current;
+        -:   17:}
