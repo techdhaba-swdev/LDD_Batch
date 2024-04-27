@@ -1,0 +1,50 @@
+File 'binary_tree.c'
+Lines executed:95.00% of 20
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:94.74% of 19
+Creating 'binary_tree.c.gcov'
+
+File 'createnode.c'
+Lines executed:75.00% of 8
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:0.00% of 2
+Creating 'createnode.c.gcov'
+
+File 'insertnode.c'
+Lines executed:100.00% of 8
+Branches executed:100.00% of 6
+Taken at least once:83.33% of 6
+Calls executed:100.00% of 3
+Creating 'insertnode.c.gcov'
+
+File 'minvaluenode.c'
+Lines executed:100.00% of 10
+Branches executed:100.00% of 8
+Taken at least once:75.00% of 8
+No calls
+Creating 'minvaluenode.c.gcov'
+
+File 'searchnode.c'
+Lines executed:87.50% of 8
+Branches executed:100.00% of 6
+Taken at least once:83.33% of 6
+Calls executed:100.00% of 2
+Creating 'searchnode.c.gcov'
+
+File 'traversenode.c'
+Lines executed:100.00% of 6
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 3
+Creating 'traversenode.c.gcov'
+
+File 'treeheight.c'
+Lines executed:100.00% of 6
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 2
+Creating 'treeheight.c.gcov'
+
+Lines executed:93.94% of 66
