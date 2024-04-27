@@ -1,0 +1,11 @@
+        -:    0:Source:mul.c
+        -:    0:Graph:exmp-mul.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    1://implementing  mul function and this is being called from main function for multiplication operation
+        -:    2:
+function mul called 0 returned 0% blocks executed 0%
+    #####:    3:int mul(int num1,int num2) {
+    #####:    4:	int result=num1*num2;
+    #####:    5:	return result; //returning the calculated multiplication
+        -:    6:}

@@ -1,0 +1,11 @@
+        -:    0:Source:div.c
+        -:    0:Graph:exmp-div.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    1://implementing div function to perfrom division operation
+        -:    2:
+function div called 0 returned 0% blocks executed 0%
+    #####:    3:int div(int num1,int num2) {
+    #####:    4:	float result=(float)num2/num1; //typecasting integer values to float values
+    #####:    5:	return result; // returning the calculated division result value
+        -:    6:}
