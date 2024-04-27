@@ -1,0 +1,40 @@
+        -:    0:Source:example.c
+        -:    0:Graph:exmp-example.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    1:#include<stdio.h> //standard input and output library
+        -:    2:#include "example.h" //implementing user own header file
+        -:    3:                                         
+function main called 0 returned 0% blocks executed 0%
+    #####:    4:int main() {
+        -:    5:        
+        -:    6:        //decalring variables with respective data types
+        -:    7:        
+    #####:    8:        int num1=10;
+    #####:    9:        int num2=20;
+        -:   10:        
+    #####:   11:        int sum=add(num1,num2); //add function is calling 
+call    0 never executed
+    #####:   12:        int subst=sub(num1,num2); //sub function is calling
+call    0 never executed
+    #####:   13:        int multi=mul(num1,num2); //mul function is calling
+call    0 never executed
+    #####:   14:        float divi=div(num1,num2); //div function is calling
+call    0 never executed
+        -:   15:                                 
+        -:   16:        //printing the sum sub multi and divi values by using printf
+        -:   17:        
+    #####:   18:        printf("sum of %d+%d:%d\n", num1, num2, sum);
+call    0 never executed
+    #####:   19:        printf("sub of %d-%d:%d\n",num1, num2, subst);
+call    0 never executed
+    #####:   20:        printf("multiply of %d*%d:%d\n", num1, num2, multi);
+call    0 never executed
+    #####:   21:        printf("division od %d/%d:%.2f\n", num2, num1, divi);
+call    0 never executed
+        -:   22:        
+        -:   23:      
+    #####:   24:        return 0; //indicate successfull program termination
+        -:   25:}                 
+        -:   26:  
+        -:   27:

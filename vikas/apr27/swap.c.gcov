@@ -1,0 +1,28 @@
+        -:    0:Source:swap.c
+        -:    0:Graph:sw-swap.gcno
+        -:    0:Data:sw-swap.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h> //standard input and output header
+        -:    2:
+function main called 1 returned 100% blocks executed 100%
+        1:    3:int main() {
+        -:    4:
+        1:    5:	int a=10;
+        1:    6:	int b=20;
+        -:    7:	int swap;
+        -:    8:
+        -:    9:	//printing values before swapping
+        1:   10:	printf("before swapping the values of\n a:%d b:%d\n",a,b);
+call    0 returned 100%
+        -:   11:
+        -:   12:	//perform swap opertion
+        1:   13:	swap=a;
+        1:   14:	a=b;
+        1:   15:	b=swap;
+        -:   16:
+        -:   17:	//printing values after swapping
+        1:   18:	printf("after swapping the values of\n a:%d b:%d\n",a,b);
+call    0 returned 100%
+        -:   19:
+        1:   20:	return 0; //successfull completion of program
+        -:   21:}

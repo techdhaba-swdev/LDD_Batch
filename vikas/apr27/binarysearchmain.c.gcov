@@ -1,0 +1,29 @@
+        -:    0:Source:binarysearchmain.c
+        -:    0:Graph:binsearch-binarysearchmain.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    1:#include <stdio.h>
+        -:    2:#include "binarysearch.h"
+        -:    3:
+function main called 0 returned 0% blocks executed 0%
+    #####:    4:int main() {
+    #####:    5:    int arr[] = {36, 44, 9, 12, 19, 28, 67, 77, 14}; //input array
+    #####:    6:    int size = sizeof(arr) / sizeof(arr[0]); // Calculate the size of the array
+    #####:    7:    int target = 28; // Element to search for
+        -:    8:
+    #####:    9:    int index = binary_search(arr, size, target); // Perform binary search
+call    0 never executed
+        -:   10:
+        -:   11:    // Display result
+    #####:   12:    if (index != -1) // If target found
+branch  0 never executed
+branch  1 never executed
+    #####:   13:        printf("Element %d found at index %d\n", target, index); // Print index
+call    0 never executed
+        -:   14:    else // If target not found
+    #####:   15:        printf("Element %d not found\n", target); // Print message
+call    0 never executed
+        -:   16:
+    #####:   17:    return 0; // Return success
+        -:   18:}
+        -:   19:

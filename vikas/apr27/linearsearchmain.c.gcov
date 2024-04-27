@@ -1,0 +1,25 @@
+        -:    0:Source:linearsearchmain.c
+        -:    0:Graph:lin-linearsearchmain.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    1:#include <stdio.h>
+        -:    2:#include "linearsearch.h" // Include the header file containing function prototype
+        -:    3:
+function main called 0 returned 0% blocks executed 0%
+    #####:    4:int main() {
+    #####:    5:    int arr[] = {10, 20, 30, 44, 58}; // input array
+    #####:    6:    int n = sizeof(arr) / sizeof(arr[0]); // Calculate the number of elements in the array
+    #####:    7:    int key = 58; // Key to search for
+    #####:    8:    int result = linear_search(arr, n, key); // Call the linear search function
+call    0 never executed
+    #####:    9:    if (result != -1) {
+branch  0 never executed
+branch  1 never executed
+    #####:   10:        printf("Element found at index: %d\n", result); // Print the index if found
+call    0 never executed
+        -:   11:    } else {
+    #####:   12:        printf("Element not found\n"); // Print if element not found
+call    0 never executed
+        -:   13:    }
+    #####:   14:    return 0;
+        -:   15:}

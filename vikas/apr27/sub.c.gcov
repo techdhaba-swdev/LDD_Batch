@@ -1,0 +1,11 @@
+        -:    0:Source:sub.c
+        -:    0:Graph:exmp-sub.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    1://implementing  sub function and this is being called from main function to perform substraction operation
+        -:    2:
+function sub called 0 returned 0% blocks executed 0%
+    #####:    3:int sub(int num1,int num2) {
+    #####:    4:	int result=num1-num2; 
+    #####:    5:	return result; //returning substraction of a and b value
+        -:    6:}
