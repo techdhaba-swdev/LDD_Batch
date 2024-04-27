@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+mergemake: main.o merge.o
+	$(CC) -o mergemake main.o merge.o $(CFLAGS)
+
