@@ -1,16 +1,18 @@
-int mul1(int x )
+//in this mul1.c files is used to multiply those numbres and returns the result 
+int mul1(int x)
 {
         return x;
 }
-int mul2(int x ,int y)
+int mul2(int x, int y)
 {
-        return x *y;
+        return x * y;
 }
-int mul3(int x ,int y,int a )
+int mul3(int x, int y, int a)
 {
-        return x *y*a;
+        return x * y * a;
 }
-int mul4(int x ,int y,int a ,int b)
+int mul4(int x, int y, int a, int b)
 {
-        return x*y*a*b;
+        return x * y * a * b;
+
 }
