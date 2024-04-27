@@ -1,0 +1,21 @@
+        -:    0:Source:bubbleSort.c
+        -:    1:// Bubble sort function
+function bubbleSort called 1 returned 100% blocks executed 100%
+        1:    2:void bubbleSort(int arr[], int n) {
+        -:    3:    int temp;
+        5:    4:    for (int i = 0; i < n - 1; i++) {
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+       14:    5:        for (int j = 0; j < n - i - 1; j++) {
+branch  0 taken 71%
+branch  1 taken 29% (fallthrough)
+       10:    6:            if (arr[j] > arr[j + 1]) {
+branch  0 taken 40% (fallthrough)
+branch  1 taken 60%
+        4:    7:                temp = arr[j];
+        4:    8:                arr[j] = arr[j + 1];
+        4:    9:                arr[j + 1] = temp;
+        -:   10:            }
+        -:   11:        }
+        -:   12:    }
+        1:   13:}

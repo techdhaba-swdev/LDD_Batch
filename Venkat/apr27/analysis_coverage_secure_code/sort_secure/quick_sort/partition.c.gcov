@@ -1,0 +1,17 @@
+        -:    0:Source:partition.c
+        -:    1:#include "partition.h"
+        -:    2:#include "swap.h"//includes swap function
+        -:    3:
+        4:    4:int partition(int arr[], int low, int high) {
+        4:    5:    int pivot = arr[high];// choose the pivt element as the last element of the array
+        4:    6:    int i = (low - 1); // intialize the index of the smaller element 
+        -:    7:
+       15:    8:    for (int j = low; j <= high - 1; j++) {
+       11:    9:        if (arr[j] <= pivot) {
+        1:   10:            i++;   // increment the index of smaller element
+        1:   11:            swap(&arr[i], &arr[j]); // swap
+        -:   12:        }
+        -:   13:    }
+        4:   14:    swap(&arr[i + 1], &arr[high]); // placing the pivot element in correct order
+        4:   15:    return (i + 1); // return the index of pivot element
+        -:   16:}

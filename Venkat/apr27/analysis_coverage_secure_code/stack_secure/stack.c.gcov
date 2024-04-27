@@ -1,0 +1,14 @@
+        -:    0:Source:stack.c
+        -:    1:#include "stack.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+        -:    4:
+        1:    5:void initialize(stack *s){
+        1:    6:	s->top =-1;
+        1:    7:}
+        3:    8:int isEmpty(stack *s){
+        3:    9:	return s->top ==-1;
+        -:   10:}
+        3:   11:int isFull(stack *s){
+        3:   12:	return s->top == MAX_SIZE -1;
+        -:   13:}

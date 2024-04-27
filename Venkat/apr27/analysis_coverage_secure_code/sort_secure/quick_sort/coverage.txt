@@ -1,0 +1,21 @@
+File 'main.c'
+Lines executed:100.00% of 7
+Creating 'main.c.gcov'
+
+File 'partition.c'
+Lines executed:100.00% of 9
+Creating 'partition.c.gcov'
+
+File 'printArray.c'
+Lines executed:100.00% of 5
+Creating 'printArray.c.gcov'
+
+File 'quickSort.c'
+Lines executed:100.00% of 6
+Creating 'quickSort.c.gcov'
+
+File 'swap.c'
+Lines executed:100.00% of 5
+Creating 'swap.c.gcov'
+
+Lines executed:100.00% of 32

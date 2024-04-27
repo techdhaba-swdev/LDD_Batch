@@ -1,0 +1,12 @@
+        -:    0:Source:pop.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "stack.h"
+        -:    3:
+        3:    4:int pop(stack *s) {
+        3:    5:        if (isEmpty(s)) {
+    #####:    6:                printf("stack is underflow\n");
+    #####:    7:                return -1;
+        -:    8:        }
+        3:    9:        return s->items[s->top--];
+        -:   10:}
+        -:   11:

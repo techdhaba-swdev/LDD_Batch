@@ -1,0 +1,13 @@
+        -:    0:Source:main.c
+        -:    1:#include "main.h"
+function main called 1 returned 100% blocks executed 100%
+        1:    2:int main() {
+        1:    3:	 struct node *head = createLinkedlist(); // created linked list of nodes
+call    0 returned 100%
+        1:    4:	 show(head);// function that shows the elements of linked list
+call    0 returned 100%
+        1:    5:         freelinkedlist(head);// deallocate the memory from memory leaks
+call    0 returned 100%
+        -:    6:
+        1:    7:	 return 0;
+        -:    8:}

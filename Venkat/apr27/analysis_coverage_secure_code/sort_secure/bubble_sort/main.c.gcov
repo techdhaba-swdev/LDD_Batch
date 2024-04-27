@@ -1,0 +1,27 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:// Function prototype for bubble sort
+        -:    4:void bubbleSort(int arr[], int n);
+        -:    5:
+function main called 1 returned 100% blocks executed 100%
+        1:    6:int main() {
+        1:    7:    int arr[5] = {4, 2, 5, 1, 8};
+        1:    8:    int n = sizeof(arr) / sizeof(arr[0]);
+        -:    9:
+        -:   10:    // Call the bubble sort function
+        1:   11:    bubbleSort(arr, n);
+call    0 returned 100%
+        -:   12:
+        -:   13:    // Print the sorted array
+        6:   14:    for (int i = 0; i < n; i++) {
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:   15:        printf("%d ", arr[i]);
+call    0 returned 100%
+        -:   16:    }
+        1:   17:    printf("\n");
+call    0 returned 100%
+        -:   18:
+        1:   19:    return 0;
+        -:   20:}

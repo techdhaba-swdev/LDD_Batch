@@ -1,0 +1,109 @@
+        -:    0:Source:bst.c
+        -:    1:#include "bst.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+        -:    5:// Function to create a new node with the given data
+function createNode called 7 returned 100% blocks executed 100%
+        7:    6:struct node* createNode(int data) {
+        -:    7:    // Allocate memory for a new node
+        7:    8:    struct node* newNode = (struct node*)malloc(sizeof(struct node));
+        7:    9:    if(newNode != NULL){	    
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        7:   10:    newNode->data = data;
+        7:   11:    newNode->left = NULL;
+        7:   12:    newNode->right = NULL;
+        -:   13:    }
+        7:   14:    return newNode;
+        -:   15:}
+        -:   16:
+function insert called 17 returned 100% blocks executed 100%
+       17:   17:struct node* insert(struct node* root, int data) {
+        -:   18:    // If the tree is empty, create a new node and make it the root
+       17:   19:    if (root == NULL) {
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:   20:        return createNode(data);
+call    0 returned 100%
+        -:   21:    }
+        -:   22:
+        -:   23:    // Traverse the tree to find the appropriate position for the new node
+       10:   24:    if (data < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   25:        // If data is less than the current node's data insert into the left subtree
+        5:   26:        root->left = insert(root->left, data);
+call    0 returned 100%
+        5:   27:    } else if (data > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        -:   28:        // If data is greater than the current node's data, insert into the right subtree
+        5:   29:        root->right = insert(root->right, data);
+call    0 returned 100%
+        -:   30:    }
+        -:   31:
+       10:   32:    return root;
+        -:   33:}
+        -:   34:
+        -:   35:
+        -:   36:// Function to search 
+function search called 3 returned 100% blocks executed 90%
+        3:   37:int search(struct node* root, int data) {
+        -:   38:    // If the tree is empty 
+        3:   39:    if (root == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   40:        return 0;
+        -:   41:    }
+        -:   42:
+        3:   43:    if (root->data == data) {
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   44:        return 1;
+        2:   45:    } else if (data < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   46:        // Search in the left subtree if data is less than the current node's data
+        1:   47:        return search(root->left, data);
+call    0 returned 100%
+        -:   48:    } else {
+        -:   49:        // Search in the right subtree if data is greater than the current node's data
+        1:   50:        return search(root->right, data);
+call    0 returned 100%
+        -:   51:    }
+        -:   52:}
+function inorderTraversal called 15 returned 100% blocks executed 100%
+       15:   53:void inorderTraversal(struct node* root) {
+       15:   54:    if (root == NULL) {
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        8:   55:        return;
+        -:   56:    }
+        -:   57:
+        7:   58:    inorderTraversal(root->left);  // Traverse left subtree
+call    0 returned 100%
+        7:   59:    printf("%d ", root->data);     // Print current node's data
+call    0 returned 100%
+        7:   60:    inorderTraversal(root->right); // Traverse right subtree
+call    0 returned 100%
+        -:   61:}
+        -:   62:// Function to free memory recursively
+function freeTree called 15 returned 100% blocks executed 100%
+       15:   63:void freeTree(struct node* root) {
+       15:   64:    if (root == NULL) {
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        8:   65:        return;
+        -:   66:    }
+        -:   67:
+        -:   68:    // Recursively free memory for left and right subtrees
+        7:   69:    freeTree(root->left);
+call    0 returned 100%
+        7:   70:    freeTree(root->right);
+call    0 returned 100%
+        -:   71:
+        -:   72:    // Free memory for the current node
+        7:   73:    free(root);
+        -:   74:}
+        -:   75:

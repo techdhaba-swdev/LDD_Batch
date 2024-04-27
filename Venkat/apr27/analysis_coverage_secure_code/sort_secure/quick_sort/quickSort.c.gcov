@@ -1,0 +1,11 @@
+        -:    0:Source:quickSort.c
+        -:    1:#include "quickSort.h"
+        -:    2:#include "partition.h" // include the partition function
+        -:    3:
+        9:    4:void quickSort(int arr[], int low, int high) {
+        9:    5:    if (low < high) {
+        4:    6:        int pi = partition(arr, low, high);//partition the array and getting the pivot index
+        4:    7:        quickSort(arr, low, pi - 1);// recursive sort the elements before the pivot
+        4:    8:        quickSort(arr, pi + 1, high);// recusively sort the elements after the pivot
+        -:    9:    }
+        9:   10:}

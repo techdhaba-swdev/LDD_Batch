@@ -1,0 +1,12 @@
+        -:    0:Source:push.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "stack.h"
+        -:    3:
+        3:    4:void push(stack *s, int value){
+        3:    5:	if (isFull(s)) {
+    #####:    6:		printf("stack overflow!\n");
+    #####:    7:		return ;
+        -:    8:	}
+        3:    9:	s->items[++s->top] = value;
+        3:   10:	printf("pushed %d onto the stack\n" ,value);
+        -:   11:}

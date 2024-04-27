@@ -1,0 +1,23 @@
+        -:    0:Source:heapSort.c
+        -:    1:#include "heapSort.h"
+        -:    2:#include "heapify.h"
+        -:    3:#include "swap.h"
+        -:    4:
+function heapSort called 1 returned 100% blocks executed 100%
+        1:    5:void heapSort(int arr[], int N)
+        -:    6:{
+        4:    7:    for (int i = N / 2 - 1; i >= 0; i--)
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        3:    8:        heapify(arr, N, i);
+call    0 returned 100%
+        -:    9:
+        7:   10:    for (int i = N - 1; i >= 0; i--) {
+branch  0 taken 86%
+branch  1 taken 14% (fallthrough)
+        6:   11:        swap(&arr[0], &arr[i]);
+call    0 returned 100%
+        6:   12:        heapify(arr, i, 0);
+call    0 returned 100%
+        -:   13:    }
+        1:   14:}

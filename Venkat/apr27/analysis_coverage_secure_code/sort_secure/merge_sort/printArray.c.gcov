@@ -1,0 +1,12 @@
+        -:    0:Source:printArray.c
+        -:    1:#include "printArray.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+        -:    4:// Function to print the elements of an array
+        2:    5:void printArray(int a[], int n)  
+        -:    6:{  
+        -:    7:    int i;  
+       18:    8:    for (i = 0; i < n; i++)  
+       16:    9:        printf("%d ", a[i]);  
+        2:   10:    printf("\n");  
+        2:   11:}

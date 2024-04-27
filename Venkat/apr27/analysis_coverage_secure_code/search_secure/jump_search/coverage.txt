@@ -1,0 +1,15 @@
+File 'jumpSearch.c'
+Lines executed:80.00% of 15
+Branches executed:100.00% of 12
+Taken at least once:66.67% of 12
+No calls
+Creating 'jumpSearch.c.gcov'
+
+File 'main.c'
+Lines executed:87.50% of 8
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:66.67% of 3
+Creating 'main.c.gcov'
+
+Lines executed:82.61% of 23

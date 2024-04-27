@@ -1,0 +1,10 @@
+        -:    0:Source:swap.c
+        -:    1:#include "swap.h"
+        -:    2:
+function swap called 11 returned 100% blocks executed 100%
+       11:    3:void swap(int* a, int* b)
+        -:    4:{
+       11:    5:    int temp = *a;
+       11:    6:    *a = *b;
+       11:    7:    *b = temp;
+       11:    8:}

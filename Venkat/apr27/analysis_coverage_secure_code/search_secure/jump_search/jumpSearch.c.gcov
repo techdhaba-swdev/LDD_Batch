@@ -1,0 +1,51 @@
+        -:    0:Source:jumpSearch.c
+        -:    1:#include "jumpSearch.h"
+        -:    2:#include <math.h>
+        -:    3:
+        -:    4:// Macro for finding the minimum of two values
+        -:    5:#define min(x, y) ((x) < (y) ? (x) : (y))
+        -:    6:
+        -:    7:// Jump search function implementation
+function jumpSearch called 1 returned 100% blocks executed 73%
+        1:    8:int jumpSearch(int a[], int n, int k) {
+        1:    9:    int t = 0;  // Initialize the variable t to 0
+        1:   10:    int b = (int) sqrt(n);  // Calculate the jump size using square root of n
+        -:   11:
+        -:   12:    // Perform jump until the element at position t is less than k
+       2*:   13:    while (a[min(b, n) - 1] < k) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 50%
+branch  3 taken 50% (fallthrough)
+        1:   14:        t = b;
+        1:   15:        b += b + (int) sqrt(n);  // Update jump size
+        -:   16:
+        -:   17:        // If the jump position exceeds array size, return -1 (element not found)
+        1:   18:        if (t >= n) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   19:            return -1;
+        -:   20:        }
+        -:   21:    }
+        -:   22:
+        -:   23:    // Perform linear search within the block where k is expected to be
+        2:   24:    while (a[t] < k) {
+branch  0 taken 100%
+branch  1 taken 0% (fallthrough)
+        2:   25:        t = t + 1;
+        -:   26:        // If t reaches the minimum of jump size and array size, return -1 (element not found)
+        2:   27:        if (t == min(b, n)) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   28:            return -1;
+        -:   29:        }
+        -:   30:        // If k is found at position t, return the index t
+        2:   31:        if (a[t] == k) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   32:            return t;
+        -:   33:        }
+        -:   34:    }
+        -:   35:
+    #####:   36:    return -1;  // Return -1 if k is not found in the array
+        -:   37:}

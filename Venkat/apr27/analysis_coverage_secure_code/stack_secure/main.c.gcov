@@ -1,0 +1,19 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "stack.h"
+        -:    3:
+        1:    4:int main()
+        -:    5:{
+        -:    6:	stack s ;
+        1:    7:	initialize(&s);
+        -:    8:
+        1:    9:	push(&s, 10);
+        1:   10:	push(&s, 20);
+        1:   11:	push(&s ,30);
+        -:   12:
+        1:   13:	printf("pop element : %d\n",pop(&s));
+        1:   14:	printf("pop element : %d\n",pop(&s));
+        1:   15:	printf("pop elemnet : %d\n" ,pop(&s));
+        -:   16:
+        1:   17:	return 0;
+        -:   18:}
