@@ -1,0 +1,15 @@
+File 'tree.c'
+Lines executed:0.00% of 31
+Branches executed:0.00% of 16
+Taken at least once:0.00% of 16
+Calls executed:0.00% of 10
+Creating 'tree.c.gcov'
+
+File 'main.c'
+Lines executed:0.00% of 17
+Branches executed:0.00% of 2
+Taken at least once:0.00% of 2
+Calls executed:0.00% of 13
+Creating 'main.c.gcov'
+
+Lines executed:0.00% of 48

@@ -1,0 +1,55 @@
+        -:    0:Source:ll.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "ll.h"
+        -:    3:
+        -:    4:
+        -:    5:// Initialize the linked list
+function initLinkedList called 0 returned 0% blocks executed 0%
+    #####:    6:void initLinkedList(struct LinkedList *list) {
+    #####:    7:    list->head = -1;//initialize head to -1, indicating an empty list
+    #####:    8:    list->tail = -1;//initialize tail to -1 , indicating an empty list
+    #####:    9:    list->size = 0;//initialize size to 0, indicate empty list
+    #####:   10:    for (int i = 0; i < MAX_NODES; i++) {
+branch  0 never executed
+branch  1 never executed
+    #####:   11:        list->nodes[i].next = -1; // Mark all nodes as unused by setting their next pointers to -1
+        -:   12:    }
+    #####:   13:}
+        -:   14:
+        -:   15:// Add a new node with the given value to the linked list
+function addNode called 0 returned 0% blocks executed 0%
+    #####:   16:void addNode(struct LinkedList *list, int value) {
+    #####:   17:    if (list->size >= MAX_NODES) {//check if the list has reached its maximum capacity
+branch  0 never executed
+branch  1 never executed
+    #####:   18:        printf("Error: Linked list is full\n");//print the error message if linked list is full
+call    0 never executed
+    #####:   19:        return;//return without adding the code
+        -:   20:    }
+    #####:   21:    int newIndex = list->size;//determine  the index of new node
+    #####:   22:    list->nodes[newIndex].data = value;//set the data of new node to the given value
+    #####:   23:    list->nodes[newIndex].next = -1;//set next pointer of new node to -1,indicates end of the list
+    #####:   24:    if (list->size == 0) {//check  if  list is empty or not
+branch  0 never executed
+branch  1 never executed
+    #####:   25:        list->head = newIndex;//if empty then set head with index of new node
+        -:   26:    } else {
+    #####:   27:        list->nodes[list->tail].next = newIndex;//if not empty .then update next pointer of previous tail nodeto poitnt to new node
+        -:   28:    }
+    #####:   29:    list->tail = newIndex;//update the tail to index of new node
+    #####:   30:    list->size++;//increase size of ll
+        -:   31:    }
+        -:   32:
+        -:   33:// Calculate the sum of values in the linked list
+function sumLinkedList called 0 returned 0% blocks executed 0%
+    #####:   34:int sumLinkedList(struct LinkedList *list) {
+    #####:   35:    int sum = 0;//intialize sum with zerp
+    #####:   36:    int currentIndex = list->head;//startv from head of list
+    #####:   37:    while (currentIndex != -1) {//interatee till reach end
+branch  0 never executed
+branch  1 never executed
+    #####:   38:        sum += list->nodes[currentIndex].data;//add data of current node to sum
+    #####:   39:        currentIndex = list->nodes[currentIndex].next;//move to next node
+        -:   40:    }
+    #####:   41:    return sum;//return sum
+        -:   42:}
