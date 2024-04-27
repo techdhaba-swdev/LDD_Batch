@@ -1,0 +1,89 @@
+        -:    0:Source:queue.c
+        -:    1:#include "queue.h" // Include the header file for the queue
+        -:    2:
+        -:    3:#include <stdio.h> // Include standard input/output functions
+        -:    4:#include <stdlib.h> // Include standard library functions
+        -:    5:
+        -:    6:#define MAX_SIZE 100 // Define the maximum size of the queue
+        -:    7:
+        -:    8:// Define the structure for the queue
+        -:    9:struct Queue {
+        -:   10:    int items[MAX_SIZE]; // Array to store queue elements
+        -:   11:    int front; // Index of the front element
+        -:   12:    int rear; // Index of the rear element
+        -:   13:};
+        -:   14:
+        -:   15:// Function to create a new queue
+function createQueue called 0 returned 0% blocks executed 0%
+    #####:   16:Queue* createQueue() {
+    #####:   17:    Queue* queue = (Queue*)malloc(sizeof(Queue)); // Allocate memory for the queue structure
+    #####:   18:    queue->front = -1; // Initialize front index
+    #####:   19:    queue->rear = -1; // Initialize rear index
+    #####:   20:    return queue; // Return the newly created queue
+        -:   21:}
+        -:   22:
+        -:   23:// Function to check if the queue is empty
+function isEmpty called 0 returned 0% blocks executed 0%
+    #####:   24:int isEmpty(Queue* queue) {
+    #####:   25:    if (queue->rear == -1) // If rear index is -1, the queue is empty
+branch  0 never executed
+branch  1 never executed
+    #####:   26:        return 1;
+        -:   27:    else
+    #####:   28:        return 0;
+        -:   29:}
+        -:   30:
+        -:   31:// Function to check if the queue is full
+function isFull called 0 returned 0% blocks executed 0%
+    #####:   32:int isFull(Queue* queue) {
+    #####:   33:    if (queue->rear == MAX_SIZE - 1) // If rear index is equal to the maximum size minus 1, the queue is full
+branch  0 never executed
+branch  1 never executed
+    #####:   34:        return 1;
+        -:   35:    else
+    #####:   36:        return 0;
+        -:   37:}
+        -:   38:
+        -:   39:// Function to enqueue an element into the queue
+function enqueue called 0 returned 0% blocks executed 0%
+    #####:   40:void enqueue(Queue* queue, int value) {
+    #####:   41:    if (isFull(queue)) { // Check if the queue is full
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   42:        printf("Queue is full!\n"); // Print an error message if the queue is full
+call    0 never executed
+        -:   43:    } else {
+    #####:   44:        if (queue->front == -1) // If the front index is -1, set it to 0
+branch  0 never executed
+branch  1 never executed
+    #####:   45:            queue->front = 0;
+    #####:   46:        queue->rear++; // Increment the rear index
+    #####:   47:        queue->items[queue->rear] = value; // Insert the value at the rear index
+    #####:   48:        printf("%d enqueued to queue.\n", value); // Print a message indicating successful enqueue operation
+call    0 never executed
+        -:   49:    }
+    #####:   50:}
+        -:   51:
+        -:   52:// Function to dequeue an element from the queue
+function dequeue called 0 returned 0% blocks executed 0%
+    #####:   53:int dequeue(Queue* queue) {
+        -:   54:    int item; // Variable to store the dequeued item
+    #####:   55:    if (isEmpty(queue)) { // Check if the queue is empty
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   56:        printf("Queue is empty!\n"); // Print an error message if the queue is empty
+call    0 never executed
+    #####:   57:        return -1; // Return -1 to indicate failure
+        -:   58:    } else {
+    #####:   59:        item = queue->items[queue->front]; // Get the item at the front index
+    #####:   60:        queue->front++; // Increment the front index
+    #####:   61:        if (queue->front > queue->rear) { // If front index surpasses rear index, reset indices
+branch  0 never executed
+branch  1 never executed
+    #####:   62:            queue->front = queue->rear = -1;
+        -:   63:        }
+    #####:   64:        return item; // Return the dequeued item
+        -:   65:    }
+        -:   66:}

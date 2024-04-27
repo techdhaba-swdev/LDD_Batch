@@ -1,0 +1,37 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h> // Include standard input/output library
+        -:    2:#include "bubble_sort.h" // Include the bubble sort header file
+        -:    3:
+        -:    4:#define SIZE 5 // Define the size of the array
+        -:    5:
+function main called 1 returned 100% blocks executed 100%
+        1:    6:int main() {
+        1:    7:    int arr[SIZE] = {12, 45, 23, 7, 19}; // Initialize the array
+        -:    8:
+        1:    9:    printf("Original array: ");
+call    0 returned 100%
+        6:   10:    for (size_t i = 0; i < SIZE; i++) { // Loop to print original array
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:   11:        printf("%d ", arr[i]);
+call    0 returned 100%
+        -:   12:    }
+        1:   13:    printf("\n");
+call    0 returned 100%
+        -:   14:
+        1:   15:    bubble_sort(arr, SIZE); // Call bubble sort function
+call    0 returned 100%
+        -:   16:
+        1:   17:    printf("Sorted array: ");
+call    0 returned 100%
+        6:   18:    for (size_t i = 0; i < SIZE; i++) { // Loop to print sorted array
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:   19:        printf("%d ", arr[i]);
+call    0 returned 100%
+        -:   20:    }
+        1:   21:    printf("\n");
+call    0 returned 100%
+        -:   22:
+        1:   23:    return 0; // Return 0 to indicate successful execution
+        -:   24:}

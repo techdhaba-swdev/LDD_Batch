@@ -1,0 +1,71 @@
+        -:    0:Source:main.c
+        -:    1://include header file
+        -:    2:#include "main.h"
+function main called 1 returned 100% blocks executed 100%
+        1:    3:int main(){
+        -:    4:	      //ADD FUNCTIONALITY
+        -:    5:	//calling add to add 2 numbers
+        1:    6:	printf("add is %d\n", add(4, 5) );
+call    0 returned 100%
+call    1 returned 100%
+        -:    7:
+        -:    8:	//callind add2 to add 3 numbers 
+        1:    9:	printf("add is %d\n", add2(4, 5, 6) );
+call    0 returned 100%
+call    1 returned 100%
+        -:   10:
+        -:   11:	//calling add3 to add four numbers
+        1:   12:	printf("add is %d\n", add3(4, 5, 6, 7) );
+call    0 returned 100%
+call    1 returned 100%
+        -:   13:
+        -:   14:
+        -:   15:	    //SUBTRACT FUNCTIONALITY
+        -:   16:	//CALLING sub  TO SUBTRACT 2 NUMBERS
+        1:   17:	printf("sub is %d\n", sub(14, 5) );
+call    0 returned 100%
+call    1 returned 100%
+        -:   18:
+        -:   19:	//CALLING sub4 TO SUBTRACT 4 NUMBERS
+        1:   20:	printf("sub is %d\n", sub4(14, 5, 4, 3));
+call    0 returned 100%
+call    1 returned 100%
+        -:   21:	//CALLING sub3 TO SUBTRACT 3 NUMBERS
+        1:   22:	printf("sub is %d\n", sub3(14, 5, 3));
+call    0 returned 100%
+call    1 returned 100%
+        -:   23:
+        -:   24:	//MULTIPLICATION FUNCTIONALITY
+        -:   25:	//CALLING mul to multiply 2 numbers
+        1:   26:        printf("multiplyis %d\n", mul(2, 3) );
+call    0 returned 100%
+call    1 returned 100%
+        -:   27:
+        -:   28:	//CALLING mul3 to multiply 3 numbers
+        1:   29:	printf("multiply is %d\n", mul3(2, 3, 2) );
+call    0 returned 100%
+call    1 returned 100%
+        -:   30:
+        -:   31:	//CALLING mul4 to multiply 4 numbers
+        1:   32:	printf("multiply is %d\n", mul4(2, 3, 3, 2) );
+call    0 returned 100%
+call    1 returned 100%
+        -:   33:
+        -:   34:	//DIVIDE FUNCTIONALITY
+        -:   35:	//calling div2 to divide 2 numbers
+        1:   36:	printf("divide is %f\n", div2(15, 3) );
+call    0 returned 100%
+call    1 returned 100%
+        -:   37:
+        -:   38:	//calling div3 to divide 3 numbers
+        1:   39:	printf("divide is %f\n",div3(2, 3, 2) );
+call    0 returned 100%
+call    1 returned 100%
+        -:   40:
+        -:   41:	//calling div4 to divide 4 numbers
+        1:   42:	printf("divide is %f\n", div4(2, 3, 3, 2) );
+call    0 returned 100%
+call    1 returned 100%
+        -:   43:
+        1:   44:	return 0;
+        -:   45:} 

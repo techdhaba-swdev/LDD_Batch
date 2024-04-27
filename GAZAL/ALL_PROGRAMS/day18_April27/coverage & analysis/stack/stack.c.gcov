@@ -1,0 +1,46 @@
+        -:    0:Source:stack.c
+        -:    1:#include<stdio.h> // Include standard input/output header for printf function
+        -:    2:#include<stdlib.h> // Include standard library header for exit function
+        -:    3:#include"stack.h" // Include the header file containing stack function prototypes
+        -:    4:
+        -:    5:#define MAX_SIZE 100 // Define the maximum size of the stack
+        -:    6:
+        -:    7:static int stack[MAX_SIZE]; // Static array to hold stack elements
+        -:    8:static int top = -1; // Variable to keep track of the top of the stack, initialized to -1
+        -:    9:
+function push called 3 returned 100% blocks executed 67%
+        3:   10:void push(int value){ // Function to push (add) an element to the stack
+        3:   11:	if(stack_is_full()){ // Check if the stack is full
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   12:		printf("stack overflow"); // Print error message if the stack is full
+call    0 never executed
+    #####:   13:		return; // Return from the function
+        -:   14:	}
+        3:   15:	stack[++top] = value; // Increment top and add the value to the stack
+        -:   16:}
+        -:   17:
+function pop called 2 returned 100% blocks executed 67%
+        2:   18:int pop(){ // Function to pop (remove) an element from the stack
+        2:   19:	if(stack_is_empty()){ // Check if the stack is empty
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   20:		printf("stack underflow\n"); // Print error message if the stack is empty
+call    0 never executed
+    #####:   21:		exit(EXIT_FAILURE); // Exit the program with failure status
+call    0 never executed
+        -:   22:	}
+        2:   23:	return stack[top--]; // Return the top element and decrement top
+        -:   24:}
+        -:   25:
+function stack_is_empty called 2 returned 100% blocks executed 100%
+        2:   26:bool stack_is_empty(){ // Function to check if the stack is empty
+        2:   27:	return top == -1; // Return true if top is -1, indicating an empty stack
+        -:   28:}
+        -:   29:
+function stack_is_full called 3 returned 100% blocks executed 100%
+        3:   30:bool stack_is_full(){ // Function to check if the stack is full
+        3:   31:	return top == MAX_SIZE -1; // Return true if top is equal to MAX_SIZE - 1, indicating a full stack
+        -:   32:}

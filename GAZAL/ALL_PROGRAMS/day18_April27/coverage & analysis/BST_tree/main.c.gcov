@@ -1,0 +1,47 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "main.h"
+        -:    3:
+function main called 0 returned 0% blocks executed 0%
+    #####:    4:int main() {
+    #####:    5:    Node* root = NULL;                            // Initialize root pointer to NULL
+        -:    6:
+        -:    7:    // Insert some nodes into the BST
+    #####:    8:    root = insert(root, 50);                      // Insert node with data 50
+call    0 never executed
+    #####:    9:    insert(root, 30);                             // Insert node with data 30
+call    0 never executed
+    #####:   10:    insert(root, 20);                             // Insert node with data 20
+call    0 never executed
+    #####:   11:    insert(root, 40);                             // Insert node with data 40
+call    0 never executed
+    #####:   12:    insert(root, 70);                             // Insert node with data 70
+call    0 never executed
+    #####:   13:    insert(root, 60);                             // Insert node with data 60
+call    0 never executed
+    #####:   14:    insert(root, 80);                             // Insert node with data 80
+call    0 never executed
+        -:   15:
+        -:   16:    // Perform in-order traversal of the BST and print node values
+    #####:   17:    printf("In-order traversal of the BST: ");
+call    0 never executed
+    #####:   18:    inorderTraversal(root);                       // Call inorderTraversal function to print BST in-order
+call    0 never executed
+    #####:   19:    printf("\n");
+call    0 never executed
+        -:   20:
+        -:   21:    // Search for a node with data 40 in the BST
+    #####:   22:    int key = 40;                                 // Key to search for
+    #####:   23:    if (search(root, key)) {                      // If node with data 40 is found
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   24:        printf("%d found in the BST\n", key);     // Print message indicating that 40 is found
+call    0 never executed
+        -:   25:    } else {
+    #####:   26:        printf("%d not found in the BST\n", key); // Print message indicating that 40 is not found
+call    0 never executed
+        -:   27:    }
+        -:   28:
+    #####:   29:    return 0;                                     // Return 0 to indicate successful execution
+        -:   30:}
