@@ -1,0 +1,14 @@
+File 'file_operations.c'
+Lines executed:35.71% of 14
+Branches executed:50.00% of 4
+Taken at least once:25.00% of 4
+Calls executed:42.86% of 7
+Creating 'file_operations.c.gcov'
+
+File 'main.c'
+Lines executed:33.33% of 6
+No branches
+Calls executed:25.00% of 4
+Creating 'main.c.gcov'
+
+Lines executed:35.00% of 20

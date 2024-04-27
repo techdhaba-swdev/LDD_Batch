@@ -1,0 +1,41 @@
+        -:    0:Source:file_operations.c
+        -:    1:#include "file_operations.h"
+        -:    2:#include <stdlib.h>
+        -:    3:
+        -:    4:// Function to open a file for reading and writing
+function openFileReadWrite called 1 returned 0% blocks executed 83%
+        1:    5:FILE* openFileReadWrite(const char* filename) {
+        1:    6:    FILE* fp = fopen(filename, "r+");
+call    0 returned 100%
+        1:    7:    if (fp == NULL) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:    8:        printf("Error opening file!\n");
+call    0 returned 100%
+        1:    9:        exit(1);
+call    0 returned 0%
+        -:   10:    }
+    #####:   11:    return fp;
+        -:   12:}
+        -:   13:
+        -:   14:// Function to read and print the contents of a file
+function readAndPrintFile called 0 returned 0% blocks executed 0%
+    #####:   15:void readAndPrintFile(FILE* fp) {
+    #####:   16:    printf("Contents of the file:\n");
+call    0 never executed
+        -:   17:    int c;
+    #####:   18:    while ((c = fgetc(fp)) != EOF) {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   19:        putchar(c);
+call    0 never executed
+        -:   20:    }
+    #####:   21:}
+        -:   22:
+        -:   23:// Function to write additional content to a file
+function writeAdditionalContent called 0 returned 0% blocks executed 0%
+    #####:   24:void writeAdditionalContent(FILE* fp, const char* additionalContent) {
+    #####:   25:    fprintf(fp, "\n%s", additionalContent);
+call    0 never executed
+    #####:   26:}
