@@ -1,0 +1,15 @@
+File 'factorial.c'
+Lines executed:100.00% of 4
+Branches executed:100.00% of 4
+Taken at least once:75.00% of 4
+Calls executed:100.00% of 1
+Creating 'factorial.c.gcov'
+
+File 'factorialmain.c'
+Lines executed:71.43% of 7
+Branches executed:100.00% of 4
+Taken at least once:50.00% of 4
+Calls executed:80.00% of 5
+Creating 'factorialmain.c.gcov'
+
+Lines executed:81.82% of 11

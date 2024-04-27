@@ -1,0 +1,15 @@
+File 'palindrome.c'
+Lines executed:76.92% of 13
+Branches executed:66.67% of 12
+Taken at least once:41.67% of 12
+No calls
+Creating 'palindrome.c.gcov'
+
+File 'palindromemain.c'
+Lines executed:85.71% of 7
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:80.00% of 5
+Creating 'palindromemain.c.gcov'
+
+Lines executed:80.00% of 20

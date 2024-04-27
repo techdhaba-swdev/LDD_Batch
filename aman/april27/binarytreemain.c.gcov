@@ -1,0 +1,57 @@
+        -:    0:Source:binarytreemain.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "binarytree.h"
+        -:    4:
+function main called 1 returned 100% blocks executed 100%
+        1:    5:int main() {
+        1:    6:    struct TreeNode* root = NULL;
+        1:    7:    root = insert(root, 50);
+call    0 returned 100%
+        1:    8:    insert(root, 30);
+call    0 returned 100%
+        1:    9:    insert(root, 20);
+call    0 returned 100%
+        1:   10:    insert(root, 40);
+call    0 returned 100%
+        1:   11:    insert(root, 70);
+call    0 returned 100%
+        1:   12:    insert(root, 60);
+call    0 returned 100%
+        1:   13:    insert(root, 80);
+call    0 returned 100%
+        -:   14:
+        1:   15:    if (search(root, 40)) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        1:   16:        printf("40 found in BST\n");
+call    0 returned 100%
+        -:   17:    }
+        -:   18:
+        1:   19:    root = deleteNode(root, 20);
+call    0 returned 100%
+        -:   20:
+        1:   21:    printf("In-order traversal: ");
+call    0 returned 100%
+        1:   22:    inOrderTraversal(root);
+call    0 returned 100%
+        1:   23:    printf("\n");
+call    0 returned 100%
+        -:   24:
+        1:   25:    printf("Pre-order traversal: ");
+call    0 returned 100%
+        1:   26:    preOrderTraversal(root);
+call    0 returned 100%
+        1:   27:    printf("\n");
+call    0 returned 100%
+        -:   28:
+        1:   29:    printf("Post-order traversal: ");
+call    0 returned 100%
+        1:   30:    postOrderTraversal(root);
+call    0 returned 100%
+        1:   31:    printf("\n");
+call    0 returned 100%
+        -:   32:
+        1:   33:    return 0;
+        -:   34:}

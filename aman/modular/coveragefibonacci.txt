@@ -1,0 +1,14 @@
+File 'fibonacci.c'
+Lines executed:88.89% of 9
+Branches executed:100.00% of 4
+Taken at least once:75.00% of 4
+No calls
+Creating 'fibonacci.c.gcov'
+
+File 'fibonaccimain.c'
+Lines executed:100.00% of 6
+No branches
+Calls executed:100.00% of 4
+Creating 'fibonaccimain.c.gcov'
+
+Lines executed:93.33% of 15

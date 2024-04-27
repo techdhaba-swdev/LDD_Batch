@@ -1,0 +1,15 @@
+        -:    0:Source:factorial.c
+        -:    1:#include "factorial.h"// its a preproccessor which include content of factorial.h
+function factorial called 5 returned 100% blocks executed 100%
+        5:    2:int factorial(int n){//it defines factorial function and int n specifies that function take integer parametre n
+        5:    3:	if(n==0 || n==1){//herechecks input n is equal to 0 or 1.and if n is 0 or 1 it return 1 as the factorial of 0 and 1 is 1
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 20% (fallthrough)
+branch  3 taken 80%
+        1:    4:		return 1;}
+        -:    5:	else{//recursive case of factorial function, and calculate factorial of n by multiply  n with factorial of n-1/ where recursive call contunue until n becomes 0 or 1 at which recursion stop.
+        4:    6:	return n * factorial(n-1);
+call    0 returned 100%
+        -:    7:	}
+        -:    8:}

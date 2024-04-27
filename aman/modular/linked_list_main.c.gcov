@@ -1,0 +1,29 @@
+        -:    0:Source:linked_list_main.c
+        -:    1:#include <stdio.h>//This line includes the standard input-output library, which provides functions like printf() and scanf() for input and output operations.
+        -:    2:#include "linked_list.h"// This line includes the header file linked_list.h, which contains the structure definition and function prototypes related to the linked list.
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {//This line defines the main function, which serves as the entry point of the program. It returns an integer value to the operating system upon completion.
+        1:    5:    struct Node *head = NULL;//This line declares a pointer variable head of type struct Node* and initializes it to NULL. This pointer will serve as the head of the linked list.
+        -:    6:
+        -:    7:    
+        1:    8:    head = insertFront(head, 3);//These lines demonstrate the insertion of elements at the front of the linked list. Each call to insertFront inserts a new node with the specified data value (3, 5, 7) at the front of the list. The updated head pointer is assigned back to head after each insertion.
+call    0 returned 100%
+        1:    9:    head = insertFront(head, 5);
+call    0 returned 100%
+        1:   10:    head = insertFront(head, 7);
+call    0 returned 100%
+        -:   11:
+        -:   12:    
+        1:   13:    printf("Linked list: ");//These lines print the elements of the linked list to the console. First, a message "Linked list: " is printed, indicating the start of the list. Then, the printList function is called with the head pointer as an argument to print the elements of the linked list.
+call    0 returned 100%
+        1:   14:    printList(head);
+call    0 returned 100%
+        -:   15:
+        -:   16:    
+        1:   17:    freeList(head);//This line calls the freeList function with the head pointer as an argument to free the memory allocated for the linked list. This ensures that memory allocated for each node in the list is properly deallocated.
+call    0 returned 100%
+        -:   18:
+        1:   19:    return 0;//This line indicates successful termination of the program by returning 0 to the operating system. This value is conventionally used to indicate successful execution of the program.
+        -:   20:}
+        -:   21:

@@ -1,0 +1,15 @@
+File 'insertion_sort.c'
+Lines executed:33.33% of 9
+Branches executed:33.33% of 6
+Taken at least once:16.67% of 6
+No calls
+Creating 'insertion_sort.c.gcov'
+
+File 'insertion_sort_main.c'
+Lines executed:86.67% of 15
+Branches executed:100.00% of 8
+Taken at least once:75.00% of 8
+Calls executed:88.89% of 9
+Creating 'insertion_sort_main.c.gcov'
+
+Lines executed:66.67% of 24

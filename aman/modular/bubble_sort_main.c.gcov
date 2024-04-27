@@ -1,0 +1,40 @@
+        -:    0:Source:bubble_sort_main.c
+        -:    1:#include <stdio.h>//This line includes the standard input-output header file stdio.h, which provides functions like printf() and scanf() for input and output operations.
+        -:    2:#include "bubble_sort.h"//This line includes the header file "bubble_sort.h" in the source file. It allows us to use the function bubbleSort declared in bubble_sort.h and defined in bubble_sort.c.
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {//This line defines the main function, which is the entry point of the program. Execution of the program begins from here.
+        1:    5:    int arr[] = {64, 34, 25, 12, 22, 11, 90};// This line declares and initializes an integer array arr with some initial values. This array will be sorted using the Bubble Sort algorithm.
+        1:    6:    int size = sizeof(arr) / sizeof(arr[0]);//This line calculates the size of the array arr by dividing the total size of the array (sizeof(arr)) by the size of its first element (sizeof(arr[0])). This expression evaluates to the number of elements in the array.
+        -:    7:
+        1:    8:    printf("Array before sorting: ");//This line prints a message indicating that the array is about to be sorted onto the standard output (typically the console).
+call    0 returned 100%
+        8:    9:    for (int i = 0; i < size; i++) {//This is a for loop that iterates over each element of the array arr. Inside the loop, each element of the array is printed using printf().
+branch  0 taken 88%
+branch  1 taken 12% (fallthrough)
+        7:   10:        printf("%d ", arr[i]);
+call    0 returned 100%
+        -:   11:    }
+        1:   12:    printf("\n"); //This line prints a newline character, causing the output to move to the next line.
+call    0 returned 100%
+        -:   13:
+        1:   14:    bubbleSort(arr, size);//This line calls the bubbleSort function, passing the array arr and its size size as arguments. The function sorts the array using the Bubble Sort algorithm.
+call    0 returned 100%
+        -:   15:
+        1:   16:    printf("Array after sorting: ");//This line prints a message indicating that the array has been sorted onto the standard output.
+call    0 returned 100%
+        8:   17:    for (int i = 0; i < size; i++) {//This is another for loop that iterates over each element of the array arr. Inside the loop, each element of the sorted array is printed using printf().
+branch  0 taken 88%
+branch  1 taken 12% (fallthrough)
+        7:   18:        printf("%d ", arr[i]);
+call    0 returned 100%
+        -:   19:    }
+        1:   20:    printf("\n"); //This line prints a newline character, causing the output to move to the next line.
+call    0 returned 100%
+        -:   21:
+        1:   22:    return 0;//This line signifies the successful termination of the main function and the program as a whole. It returns an exit status of 0 to the operating system, indicating that the program executed successfully.
+        -:   23:}
+        -:   24:
+        -:   25:
+        -:   26://secure code - This implementation is secure because it performs bounds checking and doesn't allow buffer overflows or other memory-related issues.
+        -:   27:

@@ -1,0 +1,45 @@
+        -:    0:Source:palindrome.c
+        -:    1:#include "palindrome.h"//This line includes the header file "palindrome.h" in the source file. This allows the functions and types declared in palindrome.h to be used in this source file.
+        -:    2:#include <string.h>//This line includes the standard C header file string.h, which provides various string manipulation functions.
+        -:    3:#include <ctype.h>// This line includes the standard C header file ctype.h, which provides functions for character classification and conversion.
+        -:    4:
+        -:    5:
+function isPalindrome called 1 returned 100% blocks executed 67%
+        1:    6:bool isPalindrome(char *str) {//This line defines the function isPalindrome. It specifies that the function returns a boolean value (bool) and takes a pointer to a character (char *) as its argument. The function checks whether the input string str is a palindrome or not.
+        1:    7:    int left = 0;//This line initializes an integer variable left to 0. It represents the index of the leftmost character in the string.
+        1:    8:    int right = strlen(str) - 1;//This line initializes an integer variable right to the length of the string str minus 1. It represents the index of the rightmost character in the string.
+        -:    9:
+        2:   10:    while (left < right) {//This line starts a while loop that continues as long as the index left is less than the index right. This loop iterates over the string until the indices meet in the middle.
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        -:   11:        
+       1*:   12:        while (!isalnum(str[left]) && left < right)//This line starts an inner while loop that skips non-alphanumeric characters from the left side of the string. 
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+branch  2 never executed
+branch  3 never executed
+    #####:   13:            left++;//It increments the left index until it encounters an alphanumeric character or until left is equal to right.
+        -:   14:        
+        -:   15:        
+       1*:   16:        while (!isalnum(str[right]) && left < right)//This line starts another inner while loop that skips non-alphanumeric characters from the right side of the string. 
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+branch  2 never executed
+branch  3 never executed
+    #####:   17:            right--;// It decrements the right index until it encounters an alphanumeric character or until left is equal to right.
+        -:   18:        
+        -:   19:        
+        1:   20:        if (tolower(str[left]) != tolower(str[right]))//This line checks if the characters at indices left and right are not equal when converted to lowercase.
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   21:            return false;//If they are not equal, it means the string is not a palindrome, so the function returns false.
+        -:   22:        
+        1:   23:        left++;//These lines increment the left index and decrement the right index to move towards the center of the string in each iteration of the while loop.
+        1:   24:        right--;//decrement the right index to move towards the center of the string in each iteration of the while loop
+        -:   25:    }
+        -:   26:
+        1:   27:    return true;//This line indicates that the string is a palindrome, as all corresponding characters from the left and right sides of the string matched successfully in the loop. So, the function returns true
+        -:   28:}
+        -:   29:
+        -:   30:  
+        -:   31://securecode --Ensuring that the bool type is properly defined for the isPalindrome function. Changed char *str to const char *str to indicate that the function will not modify the input string. This is a good practice for clarity and prevents accidental modification of the input string.Before performing any operations on the input string str, a check is added to ensure it's not NULL. This helps prevent segmentation faults if a NULL pointer is passed to the function.

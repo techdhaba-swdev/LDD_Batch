@@ -1,0 +1,52 @@
+        -:    0:Source:insertion_sort_main.c
+        -:    1:#include <stdio.h> //This line includes the standard input-output library, which provides functions like printf() and scanf() that are used for input and output operations.
+        -:    2:#include "insertion_sort.h" // This line includes the header file insertion_sort.h, which contains the function prototype for the insertion_sort function. This inclusion allows us to use the insertion sort function in this file.
+        -:    3:
+        -:    4:#define MAX_SIZE 100//This line defines a macro MAX_SIZE with the value 100. This macro is used to specify the maximum size of the array to be sorted.
+        -:    5:
+function main called 1 returned 100% blocks executed 90%
+        1:    6:int main() {//This line defines the main function, which serves as the entry point of the program. It returns an integer value to the operating system upon completion.
+        -:    7:    int arr[MAX_SIZE];//This line declares an integer array arr with a maximum size of MAX_SIZE, which is defined as 100.
+        -:    8:    int n;//This line declares an integer variable n to store the number of elements to be sorted in the array.
+        -:    9:
+        1:   10:    printf("Enter the number of elements in the array: ");//This line prints a prompt to the console, asking the user to enter the number of elements in the array.
+call    0 returned 100%
+        1:   11:    scanf("%d", &n);// This line reads an integer value from the console input and stores it in the variable n.
+call    0 returned 100%
+        -:   12:
+        1:   13:    if (n <= 0 || n > MAX_SIZE) {//This line checks if the value of n is less than or equal to 0 or greater than MAX_SIZE.
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+    #####:   14:        printf("Invalid input size.\n");// If the condition is true, this line prints a message indicating that the input size is invalid.
+call    0 never executed
+    #####:   15:        return 1;// This line terminates the program with a non-zero exit status, indicating an error condition.
+        -:   16:    }
+        -:   17:
+        1:   18:    printf("Enter %d elements: ", n);// This line prints a prompt asking the user to enter the elements of the array, specifying the number of elements entered by the user.
+call    0 returned 100%
+        2:   19:    for (int i = 0; i < n; i++) {//This line starts a loop that iterates n times, reading integer values from the console input and storing them in the array arr.
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        1:   20:        scanf("%d", &arr[i]);
+call    0 returned 100%
+        -:   21:    }
+        -:   22:
+        1:   23:    insertion_sort(arr, n);//This line calls the insertion_sort function, passing the array arr and its size n as arguments. This sorts the array in ascending order using the insertion sort algorithm.
+call    0 returned 100%
+        -:   24:
+        1:   25:    printf("Sorted array: ");//This line prints a message indicating that the array is sorted.
+call    0 returned 100%
+        2:   26:    for (int i = 0; i < n; i++) {//This line starts a loop that iterates over each element of the sorted array.
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        1:   27:        printf("%d ", arr[i]);//This line prints each element of the sorted array separated by a space.
+call    0 returned 100%
+        -:   28:    }
+        1:   29:    printf("\n");//This line prints a newline character to move the cursor to the next line after printing all the elements of the sorted array.
+call    0 returned 100%
+        -:   30:
+        1:   31:    return 0;//This line indicates successful termination of the program by returning 0 to the operating system.
+        -:   32:}
+        -:   33:

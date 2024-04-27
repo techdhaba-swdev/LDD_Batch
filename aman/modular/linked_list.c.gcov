@@ -1,0 +1,58 @@
+        -:    0:Source:linked_list.c
+        -:    1:#include "linked_list.h"//This line includes the header file linked_list.h, which contains the structure definition and function prototypes related to the linked list.
+        -:    2:#include <stdlib.h>//this line is standard library for which provide functions like malloc() for memory allocation 
+        -:    3:#include <stdio.h>//this line is standard input output library required for printf,scaf
+        -:    4:
+function createNode called 3 returned 100% blocks executed 100%
+        3:    5:struct Node *createNode(int data) {//This line defines the createNode function. It takes an integer data as a parameter and returns a pointer to a new node (struct Node *). This function is responsible for dynamically allocating memory for a new node, initializing its data field with the given value, and setting its next pointer to NULL.
+        3:    6:    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));// This line dynamically allocates memory for a new node using malloc(). It allocates memory equivalent to the size of the Node structure and assigns the pointer to the allocated memory to the newNode variable.
+        3:    7:    if (newNode != NULL) {//This line checks if the memory allocation was successful by verifying if newNode is not NULL. If memory allocation fails, malloc() returns NULL
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        3:    8:        newNode->data = data;//This line assigns the value of data to the data field of the newly created node.
+        3:    9:        newNode->next = NULL;//This line sets the next pointer of the newly created node to NULL, as it is the last node in the list initially.
+        -:   10:    }
+        3:   11:    return newNode;//These lines close the if block and the createNode function definition, respectively. If memory allocation was successful, the function returns a pointer to the newly created node. If memory allocation failed, it returns NULL.
+        -:   12:}
+        -:   13:
+function insertFront called 3 returned 100% blocks executed 100%
+        3:   14:struct Node *insertFront(struct Node *head, int data) {//This line defines the insertFront function. It takes a pointer to the head of the linked list (head) and an integer data as parameters and returns a pointer to the new head of the list (struct Node *). This function inserts a new node with the given data value at the front of the linked list.
+        3:   15:    struct Node *newNode = createNode(data);// This line creates a new node with the given data value using the createNode function.
+call    0 returned 100%
+        3:   16:    if (newNode != NULL) {// This line checks if the new node was successfully created.
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        3:   17:        newNode->next = head;//This line sets the next pointer of the new node to the current head of the list, effectively making the new node the new head.
+        3:   18:        head = newNode;//This line updates the head pointer to point to the newly inserted node, making it the new head of the list.
+        -:   19:    }
+        3:   20:    return head;//These lines close the if block and the insertFront function definition, respectively. If the new node was successfully created, the function returns a pointer to the new head of the list. If the new node creation failed, it returns the original head of the list.
+        -:   21:}
+        -:   22:
+function printList called 1 returned 100% blocks executed 100%
+        1:   23:void printList(struct Node *head) {//This line defines the printList function. It takes a pointer to the head of the linked list (head) as a parameter and doesn't return any value (void). This function prints the elements of the linked list to the console.
+        1:   24:    struct Node *current = head;//This line declares a pointer variable current and initializes it with the head pointer. This pointer will be used to traverse the list.
+        4:   25:    while (current != NULL) {//This line starts a while loop that iterates until the current pointer reaches the end of the list (i.e., until it becomes NULL).
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        3:   26:        printf("%d ", current->data);//This line prints the value of the data field of the current node to the console.
+call    0 returned 100%
+        3:   27:        current = current->next;//This line moves the current pointer to the next node in the list by following the next pointer.
+        -:   28:    }
+        1:   29:    printf("\n");//     These lines close the while loop and the printList function definition, respectively. After printing all the elements of the list, a newline character is printed to move the cursor to the next line.
+call    0 returned 100%
+        -:   30:
+        -:   31:
+        1:   32:}
+        -:   33:
+function freeList called 1 returned 100% blocks executed 100%
+        1:   34:void freeList(struct Node *head) {//This line defines the freeList function. It takes a pointer to the head of the linked list (head) as a parameter and doesn't return any value (void). This function frees the memory allocated for the linked list.
+        -:   35:    struct Node *temp;//This line declares a pointer variable temp, which will be used to temporarily store the address of nodes to be deleted.
+        4:   36:    while (head != NULL) {//This line starts a while loop that iterates until the head pointer reaches the end of the list (i.e., until it becomes NULL).
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        3:   37:        temp = head;// This line assigns the value of the head pointer to the temp pointer, preserving the address of the current node to be deleted.
+        3:   38:        head = head->next;//This line moves the head pointer to the next node in the list, preparing for the deletion of the current node.
+        3:   39:        free(temp);//This line frees the memory allocated for the current node by using the free() function.
+        -:   40:    }
+        1:   41:}
+        -:   42://secure code It also ensures secure programming practices by handling memory allocation and freeing allocated memory properly.

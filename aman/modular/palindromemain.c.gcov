@@ -1,0 +1,27 @@
+        -:    0:Source:palindromemain.c
+        -:    1:#include <stdio.h>//This line includes the standard input-output header file stdio.h, which provides functions like printf() and scanf() for input and output operations.
+        -:    2:#include "palindrome.h"//This line includes the header file "palindrome.h" in the source file. It allows us to use the function isPalindrome declared in palindrome.h and defined in palindrome.c.
+        -:    3:
+function main called 1 returned 100% blocks executed 88%
+        1:    4:int main() {//This line defines the main function, which is the entry point of the program. Execution of the program begins from here.
+        -:    5:    char str[100];//This line declares an array str of characters with a size of 100. It will be used to store the input string entered by the user.
+        1:    6:    printf("Enter a string: ");//This line prints the prompt asking the user to enter a string onto the standard output (typically the console).
+call    0 returned 100%
+        1:    7:    scanf("%s", str);//This line reads a string input from the user and stores it in the character array str. The %s format specifier tells scanf to read a string until it encounters whitespace.
+call    0 returned 100%
+        -:    8:
+        1:    9:    if (isPalindrome(str))//This line checks if the entered string str is a palindrome by calling the isPalindrome function. If the function returns true (indicating that the string is a palindrome), the condition evaluates to true, and the subsequent block of code is executed.
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        1:   10:        printf("%s is a palindrome.\n", str);//If the entered string is a palindrome, this line prints a message confirming that the string is indeed a palindrome.
+call    0 returned 100%
+        -:   11:    else// If the condition in the if statement above evaluates to false (indicating that the string is not a palindrome), this line executes.
+    #####:   12:        printf("%s is not a palindrome.\n", str);//    This line prints a message indicating that the entered string is not a palindrome.
+call    0 never executed
+        -:   13:
+        -:   14:
+        -:   15:
+        1:   16:    return 0;//This line signifies the successful termination of the main function and the program as a whole. It returns an exit status of 0 to the operating system, indicating that the program executed successfully.
+        -:   17:}
+        -:   18:
