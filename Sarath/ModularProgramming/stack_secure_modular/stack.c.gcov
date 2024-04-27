@@ -1,0 +1,76 @@
+        -:    0:Source:stack.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include"stack.h"
+        -:    4:struct stack
+        -:    5:{
+        -:    6:        int data;
+        -:    7:        struct stack *next;
+        -:    8:};
+        -:    9:struct stack *head=NULL;
+function push called 4 returned 100% blocks executed 100%
+        4:   10:void push(int data)
+        -:   11:{
+        4:   12:        struct stack *ptr=malloc(sizeof(struct stack));
+        4:   13:        struct stack *temp=head;
+        4:   14:        ptr->data=data;
+        4:   15:        if(head==NULL)
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        -:   16:        {
+        1:   17:                head=ptr;
+        1:   18:                return;
+        -:   19:        }
+        6:   20:        while(temp->next!=NULL)
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        -:   21:        {
+        3:   22:                temp=temp->next;
+        -:   23:        }
+        3:   24:        temp->next=ptr;
+        3:   25:        ptr->next=NULL;
+        -:   26:}
+function pop called 2 returned 100% blocks executed 82%
+        2:   27:int pop()
+        -:   28:{
+        2:   29:        struct stack *ptr=head;
+        5:   30:        while(ptr->next!=NULL && ptr->next->next!=NULL)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 60%
+branch  3 taken 40% (fallthrough)
+        -:   31:        {
+        3:   32:                ptr=ptr->next;
+        -:   33:        }
+        2:   34:        printf("\n");
+call    0 returned 100%
+        2:   35:        if(ptr->next==NULL)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:   36:        {
+    #####:   37:                head=NULL;
+    #####:   38:                return ptr->data;
+        -:   39:        }
+        2:   40:        if(ptr->next->next==NULL)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        -:   41:        {
+        2:   42:                int p=ptr->next->data;
+        2:   43:                ptr->next=NULL;
+        2:   44:                return p;
+        -:   45:        }
+    #####:   46:}
+function print called 3 returned 100% blocks executed 100%
+        3:   47:void print()
+        -:   48:{
+        3:   49:        struct stack *ptr=head;
+       12:   50:        while(ptr!=NULL)
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        -:   51:        {
+        9:   52:                printf("%d ",ptr->data);
+call    0 returned 100%
+        9:   53:                ptr=ptr->next;
+        -:   54:        }
+        3:   55:}
+        -:   56:

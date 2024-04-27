@@ -1,0 +1,31 @@
+        -:    0:Source:stack_main.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"stack.h"
+function main called 1 returned 100% blocks executed 100%
+        1:    3:int main()
+        -:    4:{
+        1:    5:	struct stack *head=NULL;
+        1:    6:	push(10);
+call    0 returned 100%
+        1:    7:	push(20);
+call    0 returned 100%
+        1:    8:	push(30);
+call    0 returned 100%
+        1:    9:	push(40);
+call    0 returned 100%
+        1:   10:	print();
+call    0 returned 100%
+        1:   11:	int p1=pop();
+call    0 returned 100%
+        1:   12:	printf("Poped element %d\n",p1);
+call    0 returned 100%
+        1:   13:	print();
+call    0 returned 100%
+        1:   14:	int p2=pop();
+call    0 returned 100%
+        1:   15:	printf("Poped element %d\n",p2);
+call    0 returned 100%
+        1:   16:	print();
+call    0 returned 100%
+        -:   17:}
+        -:   18:
