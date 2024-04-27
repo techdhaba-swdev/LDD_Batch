@@ -1,4 +1,0 @@
-CC=gcc
-CFLAGS=-I.
-modumake: main.o add.o sub.o div.o mul.o
-	$(CC) -o modumake main.o add.o sub.o div.o mul.o $(CFLAGS)

@@ -1,5 +1,0 @@
-CC=gcc
-CFLAGS=-I.
-linklist: main.o circular_linked_list.o
-	$(CC) -o linklist main.o circular_linked_list.o $(CFLAGS)
-
