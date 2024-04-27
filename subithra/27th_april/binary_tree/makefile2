@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+makebst: main.o bst.o
+	$(CC) -o makebst main.o bst.o $(CFLAGS)
+

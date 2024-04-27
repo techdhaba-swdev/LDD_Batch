@@ -1,0 +1,14 @@
+File 'linkedlist.c'
+Lines executed:90.48% of 21
+Branches executed:100.00% of 6
+Taken at least once:83.33% of 6
+Calls executed:50.00% of 4
+Creating 'linkedlist.c.gcov'
+
+File 'main.c'
+Lines executed:100.00% of 9
+No branches
+Calls executed:100.00% of 6
+Creating 'main.c.gcov'
+
+Lines executed:93.33% of 30

@@ -1,0 +1,10 @@
+        -:    0:Source:div.c
+        -:    1:/* div.c */ 
+        -:    2:
+        -:    3:/* Implementation of function related to division */
+        -:    4:
+function divide called 1 returned 100% blocks executed 100%
+        1:    5:float divide(int num1, int num2) //division for 2 numbers
+        -:    6:{
+        1:    7:return num1 / num2; 
+        -:    8:}

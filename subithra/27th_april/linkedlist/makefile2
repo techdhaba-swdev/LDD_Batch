@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+linklist: main.o linkedlist.o
+	$(CC) -o linklist main.o linkedlist.o $(CFLAGS)
+

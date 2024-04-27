@@ -1,0 +1,22 @@
+        -:    0:Source:mul.c
+        -:    1:/* mul.c */ 
+        -:    2:
+        -:    3:/* Implementation of function related to multiplication */
+        -:    4:
+function mul called 1 returned 100% blocks executed 100%
+        1:    5:int mul(int num1, int num2) //multiplication of 2 numbers
+        -:    6:{
+        1:    7:return num1 * num2;
+        -:    8:}
+        -:    9:
+function mul_three called 1 returned 100% blocks executed 100%
+        1:   10:int mul_three(int num1, int num2, int num3) //multiplication of 3 numbers
+        -:   11:{
+        1:   12:return num1 * num2 * num3;
+        -:   13:}
+        -:   14:
+function mul_four called 1 returned 100% blocks executed 100%
+        1:   15:int mul_four(int num1, int num2, int num3, int num4) ////multiplication of 4 numbers
+        -:   16:{
+        1:   17:return num1 * num2 * num3 * num4;
+        -:   18:}

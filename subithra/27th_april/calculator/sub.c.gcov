@@ -1,0 +1,22 @@
+        -:    0:Source:sub.c
+        -:    1:/* sub.c */ 
+        -:    2:
+        -:    3:/* Implementation of function related to subtraction */
+        -:    4:
+function sub called 1 returned 100% blocks executed 100%
+        1:    5:int sub(int num1, int num2) //subtraction of 2 numbers
+        -:    6:{
+        1:    7:return num1 - num2;
+        -:    8:}
+        -:    9:
+function sub_three called 1 returned 100% blocks executed 100%
+        1:   10:int sub_three(int num1, int num2, int num3) //subtraction of 3 numbers
+        -:   11:{
+        1:   12:return num1 - num2 - num3;
+        -:   13:}
+        -:   14:
+function sub_four called 1 returned 100% blocks executed 100%
+        1:   15:int sub_four(int num1, int num2, int num3, int num4) //subtraction of 4 numbers
+        -:   16:{
+        1:   17:return num1 - num2 - num3 - num4;
+        -:   18:}
