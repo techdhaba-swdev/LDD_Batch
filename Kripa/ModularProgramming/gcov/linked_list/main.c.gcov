@@ -1,0 +1,43 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "singly_linklist.h"
+        -:    3:
+function main called 0 returned 0% blocks executed 0%
+    #####:    4:int main() {
+    #####:    5:    Node* head = NULL;
+        -:    6:
+        -:    7:    // Append elements to the linked list
+    #####:    8:    append(&head, 5);
+call    0 never executed
+    #####:    9:    append(&head, 3);
+call    0 never executed
+    #####:   10:    append(&head, 9);
+call    0 never executed
+    #####:   11:    append(&head, 7);
+call    0 never executed
+    #####:   12:    append(&head, 2);
+call    0 never executed
+    #####:   13:    append(&head, 1);
+call    0 never executed
+    #####:   14:    append(&head, 6);
+call    0 never executed
+        -:   15:
+    #####:   16:    int key = 7;
+        -:   17:
+        -:   18:    // Perform linear search
+    #####:   19:    int result = linearSearch(head, key);
+call    0 never executed
+        -:   20:
+    #####:   21:    if (result != -1) {
+branch  0 never executed
+branch  1 never executed
+    #####:   22:        printf("Element %d found at index %d\n", key, result);
+call    0 never executed
+        -:   23:    } else {
+    #####:   24:        printf("Element %d not found in the linked list\n", key);
+call    0 never executed
+        -:   25:    }
+        -:   26:
+    #####:   27:    return 0;
+        -:   28:}
+        -:   29:

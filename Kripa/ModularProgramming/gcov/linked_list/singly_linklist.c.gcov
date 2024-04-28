@@ -1,0 +1,60 @@
+        -:    0:Source:singly_linklist.c
+        -:    1:#include "singly_linklist.h"
+        -:    2:#include <stdlib.h>
+        -:    3:
+        -:    4:// Function to create a new node
+function createNode called 0 returned 0% blocks executed 0%
+    #####:    5:Node* createNode(int data) {
+    #####:    6:    Node* newNode = (Node*)malloc(sizeof(Node));
+    #####:    7:    if (newNode != NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:    8:        newNode->data = data;
+    #####:    9:        newNode->next = NULL;
+        -:   10:    }
+    #####:   11:    return newNode;
+        -:   12:}
+        -:   13:
+        -:   14:// Function to append a new node to the end of the list
+function append called 0 returned 0% blocks executed 0%
+    #####:   15:void append(Node** headRef, int data) {
+    #####:   16:    Node* newNode = createNode(data);
+call    0 never executed
+    #####:   17:    if (newNode != NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   18:        if (*headRef == NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   19:            *headRef = newNode;
+        -:   20:        } else {
+    #####:   21:            Node* current = *headRef;
+    #####:   22:            while (current->next != NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   23:                current = current->next;
+        -:   24:            }
+    #####:   25:            current->next = newNode;
+        -:   26:        }
+        -:   27:    }
+    #####:   28:}
+        -:   29:
+        -:   30:// Function to perform linear search on the linked list
+function linearSearch called 0 returned 0% blocks executed 0%
+    #####:   31:int linearSearch(Node* head, int key) {
+    #####:   32:    int index = 0;
+    #####:   33:    Node* current = head;
+    #####:   34:    while (current != NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   35:        if (current->data == key) {
+branch  0 never executed
+branch  1 never executed
+    #####:   36:            return index;
+        -:   37:        }
+    #####:   38:        current = current->next;
+    #####:   39:        index++;
+        -:   40:    }
+    #####:   41:    return -1;
+        -:   42:}
+        -:   43:
