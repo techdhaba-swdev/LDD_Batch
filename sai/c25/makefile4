@@ -1,0 +1,2 @@
+bubbleexe: bubblesort.c bubblesortmain.c
+	gcc -o bubbleexe bubblesort.c bubblesortmain.c -I.

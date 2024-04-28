@@ -1,0 +1,22 @@
+        -:    0:Source:linkmain.c
+        -:    1:#include "linklist.h"
+        -:    2:
+        -:    3:void printmessage(const char *message);//Function calling const character
+        -:    4:
+    #####:    5:int main()
+        -:    6:{
+    #####:    7:	struct Node* head = NULL;
+        -:    8:
+    #####:    9:	insertatbeg(&head,15);//Insert value head 5
+    #####:   10:	insertatbeg(&head,5);
+    #####:   11:	insertatbeg(&head,10);
+        -:   12:
+    #####:   13:	printmessage("Linkedlist:\n");//Print Linklist
+    #####:   14:        printList(head);//struct Printlist value 
+    #####:   15:	return 0;
+        -:   16:}
+        -:   17:
+    #####:   18:void printmessage(const char* message)
+        -:   19:{
+    #####:   20:	printf("%s",message);// Given print message character
+    #####:   21:}

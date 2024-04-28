@@ -1,0 +1,33 @@
+        -:    0:Source:linkst.c
+        -:    1:#include "linkst.h"
+        -:    2:#include<stdlib.h>
+        -:    3:#include<stdio.h>
+        -:    4:
+    #####:    5:struct Node* createNode(int data)
+        -:    6:{
+    #####:    7:	struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));//Allocaton 
+    #####:    8:	if (newNode == NULL){
+    #####:    9:		printf("Memory allocation failed\n");
+    #####:   10:		exit(1);
+        -:   11:	}
+    #####:   12:	newNode->data = data;//pointing the data with new node
+        -:   13:
+    #####:   14:	newNode->next = NULL;//pointng the next data with new node
+    #####:   15:	return newNode;//value return to new node
+        -:   16:}
+        -:   17:
+    #####:   18:void insertatbeg(struct Node** headRef,int data)
+        -:   19:{
+    #####:   20:	struct Node* newNode = createNode(data);
+    #####:   21:	newNode->next = *headRef;
+    #####:   22:	*headRef = newNode;
+    #####:   23:}
+        -:   24:
+    #####:   25:void printList(struct Node* head)
+        -:   26:{
+    #####:   27:	while(head != NULL){
+    #####:   28:		printf("%d->",head->data);//print the value linked list with link up in create an stop with  NULL
+    #####:   29:		head = head->next;
+        -:   30:	}
+    #####:   31:	printf("NULL\n");
+    #####:   32:}

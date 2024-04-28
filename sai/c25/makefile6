@@ -1,0 +1,2 @@
+bsexe: btmain.c binarytree.c
+	gcc -o bsexe btmain.c binarytree.c -I.

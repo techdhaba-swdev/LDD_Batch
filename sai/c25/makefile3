@@ -1,0 +1,2 @@
+circulexe: circular.c circulmain.c
+	gcc -o circulexe circular.c circulmain.c -I.

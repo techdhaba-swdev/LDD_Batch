@@ -1,0 +1,2 @@
+lsexe: linearsearch.c lsmain.c
+	gcc -o lsexe linearsearch.c lsmain.c -I.

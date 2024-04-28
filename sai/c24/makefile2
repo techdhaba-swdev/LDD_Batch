@@ -1,0 +1,2 @@
+stackexe2: stack1.c stackmain1.c
+	gcc -o stackexe2 stack1.c stackmain1.c -I.

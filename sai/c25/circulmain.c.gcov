@@ -1,0 +1,30 @@
+        -:    0:Source:circulmain.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "circular.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        1:    5:    Node* head = NULL;
+        -:    6:
+        -:    7:    // Insert nodes
+        1:    8:    insertNode(&head, 1);
+call    0 returned 100%
+        1:    9:    insertNode(&head, 2);
+call    0 returned 100%
+        1:   10:    insertNode(&head, 3);
+call    0 returned 100%
+        -:   11:
+        -:   12:    // Display the list
+        1:   13:    displayList(head);
+call    0 returned 100%
+        -:   14:
+        -:   15:    // Delete a node
+        1:   16:    deleteNode(&head, 2);
+call    0 returned 100%
+        -:   17:
+        -:   18:    // Display the updated list
+        1:   19:    displayList(head);
+call    0 returned 100%
+        -:   20:
+        1:   21:    return 0;
+        -:   22:}

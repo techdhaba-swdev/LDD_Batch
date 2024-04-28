@@ -1,0 +1,123 @@
+        -:    0:Source:circular.c
+        -:    1:#include "circular.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+        -:    5:// Function to create a new node
+function createNode called 3 returned 100% blocks executed 60%
+        3:    6:Node* createNode(int data) {
+        3:    7:    Node* newNode = (Node*)malloc(sizeof(Node));
+        3:    8:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    9:        printf("Memory allocation failed!\n");
+call    0 never executed
+    #####:   10:        exit(1);
+call    0 never executed
+        -:   11:    }
+        3:   12:    newNode->data = data;
+        3:   13:    newNode->next = NULL;
+        3:   14:    return newNode;
+        -:   15:}
+        -:   16:
+        -:   17:// Function to insert a node at the end of the circular linked list
+function insertNode called 3 returned 100% blocks executed 100%
+        3:   18:void insertNode(Node** head, int data) {
+        3:   19:    Node* newNode = createNode(data);
+call    0 returned 100%
+        3:   20:    if (*head == NULL) {
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   21:        *head = newNode;
+        1:   22:        newNode->next = *head;
+        -:   23:    } else {
+        2:   24:        Node* temp = *head;
+        3:   25:        while (temp->next != *head) {
+branch  0 taken 33%
+branch  1 taken 67% (fallthrough)
+        1:   26:            temp = temp->next;
+        -:   27:        }
+        2:   28:        temp->next = newNode;
+        2:   29:        newNode->next = *head;
+        -:   30:    }
+        3:   31:}
+        -:   32:
+        -:   33:
+        -:   34:// Function to delete a node with given data from the circular linked list
+function deleteNode called 1 returned 100% blocks executed 48%
+        1:   35:void deleteNode(Node** head, int data) {
+        1:   36:    if (*head == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   37:        printf("List is empty!\n");
+call    0 never executed
+    #####:   38:        return;
+        -:   39:    }
+        1:   40:    Node* current = *head;
+        1:   41:    Node* prev = NULL;
+        2:   42:    while (current->data != data) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        1:   43:        if (current->next == *head) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   44:            printf("Node with data %d not found!\n", data);
+call    0 never executed
+    #####:   45:            return;
+        -:   46:        }
+        1:   47:        prev = current;
+        1:   48:        current = current->next;
+        -:   49:    }
+       1*:   50:    if (current == *head && current->next == *head) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+branch  2 never executed
+branch  3 never executed
+    #####:   51:        free(current);
+    #####:   52:        *head = NULL;
+        1:   53:    } else if (current == *head) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   54:        prev = *head;
+    #####:   55:        while (prev->next != *head)
+branch  0 never executed
+branch  1 never executed
+    #####:   56:            prev = prev->next;
+    #####:   57:        *head = (*head)->next;
+    #####:   58:        prev->next = *head;
+    #####:   59:        free(current);
+        1:   60:    } else if (current->next == *head) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   61:        prev->next = *head;
+    #####:   62:        free(current);
+        -:   63:    } else {
+        1:   64:        prev->next = current->next;
+        1:   65:        free(current);
+        -:   66:    }
+        -:   67:}
+        -:   68:
+        -:   69:// Function to display the circular linked list
+function displayList called 2 returned 100% blocks executed 75%
+        2:   70:void displayList(Node* head) {
+        2:   71:    if (head == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   72:        printf("List is empty!\n");
+call    0 never executed
+    #####:   73:        return;
+        -:   74:    }
+        2:   75:    Node* temp = head;
+        2:   76:    printf("Circular Linked List: ");
+call    0 returned 100%
+        -:   77:    do {
+        5:   78:        printf("%d ", temp->data);
+call    0 returned 100%
+        5:   79:        temp = temp->next;
+        5:   80:    } while (temp != head);
+branch  0 taken 60%
+branch  1 taken 40% (fallthrough)
+        2:   81:    printf("\n");
+call    0 returned 100%
+        -:   82:}
+        -:   83:

@@ -1,0 +1,2 @@
+linkexe: linkmain.c linkst.c 
+	gcc -o linkexe linkmain.c  linkst.c -I.
