@@ -1,0 +1,23 @@
+        -:    0:Source:heapSort.c
+        -:    1:#include "heapSort.h"
+        -:    2:#include "heapify.h"
+        -:    3:#include "swap.h"
+        -:    4:
+function heapSort called 0 returned 0% blocks executed 0%
+    #####:    5:void heapSort(int arr[], int N)
+        -:    6:{
+    #####:    7:    for (int i = N / 2 - 1; i >= 0; i--)
+branch  0 never executed
+branch  1 never executed
+    #####:    8:        heapify(arr, N, i);
+call    0 never executed
+        -:    9:
+    #####:   10:    for (int i = N - 1; i >= 0; i--) {
+branch  0 never executed
+branch  1 never executed
+    #####:   11:        swap(&arr[0], &arr[i]);
+call    0 never executed
+    #####:   12:        heapify(arr, i, 0);
+call    0 never executed
+        -:   13:    }
+    #####:   14:}

@@ -1,0 +1,25 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "binarysearch.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 83%
+        1:    4:int main() {
+        1:    5:    int arr[] = {11, 24, 37, 45, 55, 61, 73, 96, 98};
+        1:    6:    int target = 55;
+        -:    7:
+        1:    8:    int ans = binarysearch(arr, target);
+call    0 returned 100%
+        -:    9:
+        1:   10:    if (ans != -1)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   11:        printf("The target %d is at index %d\n", target, ans);
+call    0 returned 100%
+        -:   12:    else
+    #####:   13:        printf("The target %d is not in the array\n", target);
+call    0 never executed
+        -:   14:
+        1:   15:    return 0;
+        -:   16:}
+        -:   17:	
+        -:   18:

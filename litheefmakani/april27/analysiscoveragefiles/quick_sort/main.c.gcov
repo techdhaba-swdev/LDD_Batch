@@ -1,0 +1,17 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "quickSort.h"//include quicksort function
+        -:    3:#include "printArray.h"//include printarray function
+        -:    4:
+function main called 0 returned 0% blocks executed 0%
+    #####:    5:int main() {
+    #####:    6:    int arr[] = {10, 7, 8, 9, 1, 5};
+    #####:    7:    int n = sizeof(arr) / sizeof(arr[0]);
+    #####:    8:    printArray(arr, n);//print the original array
+call    0 never executed
+    #####:    9:    quickSort(arr, 0, n - 1);//perform the quick sort array on the array
+call    0 never executed
+    #####:   10:    printArray(arr, n); // printf the sorted array
+call    0 never executed
+    #####:   11:    return 0;
+        -:   12:}

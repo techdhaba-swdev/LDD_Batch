@@ -1,0 +1,68 @@
+        -:    0:Source:merge.c
+        -:    1:#include "merge.h"
+        -:    2:
+function merge called 0 returned 0% blocks executed 0%
+    #####:    3:void merge(int a[], int beg, int mid, int end)    
+    #####:    4:{    
+        -:    5:    int i, j, k;  
+    #####:    6:    int n1 = mid - beg + 1;    
+    #####:    7:    int n2 = end - mid;    
+        -:    8:      
+    #####:    9:    int LeftArray[n1], RightArray[n2]; // Temporary arrays to hold subarrays  
+        -:   10:      
+        -:   11:    // Copy data to temp arrays  
+    #####:   12:    for (int i = 0; i < n1; i++)    
+branch  0 never executed
+branch  1 never executed
+    #####:   13:        LeftArray[i] = a[beg + i];    
+    #####:   14:    for (int j = 0; j < n2; j++)    
+branch  0 never executed
+branch  1 never executed
+    #####:   15:        RightArray[j] = a[mid + 1 + j];    
+        -:   16:      
+    #####:   17:    i = 0; // Initial index of first sub-array  
+    #####:   18:    j = 0; // Initial index of second sub-array  
+    #####:   19:    k = beg; // Initial index of merged sub-array  
+        -:   20:      
+        -:   21:    // Merge the two subarrays into a single sorted subarray  
+    #####:   22:    while (i < n1 && j < n2)    
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+        -:   23:    {    
+    #####:   24:        if (LeftArray[i] <= RightArray[j])    
+branch  0 never executed
+branch  1 never executed
+        -:   25:        {    
+    #####:   26:            a[k] = LeftArray[i];    
+    #####:   27:            i++;    
+        -:   28:        }    
+        -:   29:        else    
+        -:   30:        {    
+    #####:   31:            a[k] = RightArray[j];    
+    #####:   32:            j++;    
+        -:   33:        }    
+    #####:   34:        k++;    
+        -:   35:    }    
+        -:   36:      
+        -:   37:    // Copy the remaining elements of LeftArray, if any  
+    #####:   38:    while (i < n1)    
+branch  0 never executed
+branch  1 never executed
+        -:   39:    {    
+    #####:   40:        a[k] = LeftArray[i];    
+    #####:   41:        i++;    
+    #####:   42:        k++;    
+        -:   43:    }    
+        -:   44:      
+        -:   45:    // Copy the remaining elements of RightArray, if any  
+    #####:   46:    while (j < n2)    
+branch  0 never executed
+branch  1 never executed
+        -:   47:    {    
+    #####:   48:        a[k] = RightArray[j];    
+    #####:   49:        j++;    
+    #####:   50:        k++;    
+        -:   51:    }    
+    #####:   52:}

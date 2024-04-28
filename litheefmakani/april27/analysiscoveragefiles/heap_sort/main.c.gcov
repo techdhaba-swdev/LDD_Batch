@@ -1,0 +1,20 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "heapSort.h"
+        -:    3:#include "printArray.h"
+        -:    4:
+function main called 0 returned 0% blocks executed 0%
+    #####:    5:int main()
+        -:    6:{
+    #####:    7:    int arr[] = { 12, 11, 13, 5, 6, 7 };
+    #####:    8:    int N = sizeof(arr) / sizeof(arr[0]);
+        -:    9:
+    #####:   10:    heapSort(arr, N);
+call    0 never executed
+    #####:   11:    printf("Sorted array is\n");
+call    0 never executed
+    #####:   12:    printArray(arr, N);
+call    0 never executed
+        -:   13:
+    #####:   14:    return 0;
+        -:   15:}

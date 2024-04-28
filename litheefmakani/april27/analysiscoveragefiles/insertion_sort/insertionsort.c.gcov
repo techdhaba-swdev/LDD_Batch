@@ -1,0 +1,24 @@
+        -:    0:Source:insertionsort.c
+function insertionSort called 0 returned 0% blocks executed 0%
+    #####:    1:void insertionSort(int arr[], int n) {
+        -:    2:
+        -:    3:int temp;
+    #####:    4:    for(int i=0;i<n-1;i++){
+branch  0 never executed
+branch  1 never executed
+    #####:    5:        for(int j=i+1;j>0;j--){
+branch  0 never executed
+branch  1 never executed
+    #####:    6:            if(arr[j]<arr[j-1]){
+branch  0 never executed
+branch  1 never executed
+    #####:    7:                temp =arr[j];
+    #####:    8:                arr[j]=arr[j-1];
+    #####:    9:                arr[j-1]=temp;
+        -:   10:                }
+        -:   11:                else {
+    #####:   12:                    break; // if j loop going for next it will already sorted to indext no need to sort and check elements its already sorted
+        -:   13:                }
+        -:   14:            }
+        -:   15:        }
+    #####:   16:}

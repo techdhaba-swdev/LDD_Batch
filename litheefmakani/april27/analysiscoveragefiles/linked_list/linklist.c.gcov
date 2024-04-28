@@ -1,0 +1,71 @@
+        -:    0:Source:linklist.c
+        -:    0:Graph:linked_list-linklist.gcno
+        -:    0:Data:linked_list-linklist.gcda
+        -:    0:Runs:1
+        -:    1:#include "linklist.h"
+        -:    2:#include <stdlib.h>
+        -:    3:#include <stdio.h>
+        -:    4:
+        -:    5:struct node {
+        -:    6:        int data;
+        -:    7:        struct node *next;
+        -:    8:};
+function createLinkedlist called 1 returned 100% blocks executed 100%
+        1:    9:struct node *createLinkedlist(){ // function to create and return linked list
+        1:   10:         struct node *head = malloc(sizeof(struct node)); // dynamical allocate memory which includes data and memory address
+        -:   11:							  // of next node
+        -:   12:
+        1:   13:         head->data = 10;  // set head data
+        1:   14:         head->next = NULL; // intialize next pointer 
+        -:   15:
+        1:   16:         struct node *ptr1 = malloc(sizeof(struct node));
+        1:   17:         ptr1->data = 20;
+        1:   18:         ptr1->next = NULL;
+        -:   19:
+        1:   20:         struct node *ptr2 = malloc(sizeof(struct node));
+        1:   21:         ptr2->data = 30;
+        1:   22:         ptr2->next = NULL;
+        -:   23:
+        1:   24:         struct node *ptr3 = malloc(sizeof(struct node));
+        1:   25:         ptr3->data = 40;
+        1:   26:         ptr3->next = NULL;
+        -:   27:
+        1:   28:         struct node *ptr4 = malloc(sizeof(struct node));
+        1:   29:         ptr4->data = 50;
+        1:   30:         ptr4->next = NULL;
+        -:   31:
+        -:   32:	 // link the all nodes together 
+        -:   33:
+        1:   34:         head->next = ptr1; // head hold address of next node(ptr1), head->ptr1
+        1:   35:         ptr1->next = ptr2; // ptr1 hold address of next node(ptr2),head->ptr1->ptr2
+        1:   36:         ptr2->next = ptr3; 
+        1:   37:         ptr3->next = ptr4;
+        -:   38:
+        1:   39:	 return head; // we are return head 
+        -:   40:}
+function show called 1 returned 100% blocks executed 100%
+        1:   41:void show(struct node *head){ // argument head which holds head address
+        -:   42:
+        1:   43:         struct node *ptr = head; // the pointer*ptr  holds the address of head current address
+        -:   44:
+        6:   45:         while(ptr !=NULL){ // it will run untill the addrees of current node is not null which holds value
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:   46:		 printf("%d\n",ptr->data); // print the thedata of each node
+call    0 returned 100%
+        -:   47:                
+        5:   48:		 ptr = ptr->next; // now ptr updated and pointed to next node 
+        -:   49:	 }
+        1:   50:}
+function freelinkedlist called 1 returned 100% blocks executed 100%
+        1:   51:void freelinkedlist(struct node *head) {
+        -:   52:	struct node *temp ;
+        6:   53:	while (head !=NULL){
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:   54:		temp =head;
+        5:   55:		head = head->next;
+        5:   56:		free(temp);
+        -:   57:	}
+        1:   58:}
+        -:   59:

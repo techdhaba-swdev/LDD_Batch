@@ -1,0 +1,15 @@
+File 'insertionsort.c'
+Lines executed:0.00% of 9
+Branches executed:0.00% of 6
+Taken at least once:0.00% of 6
+No calls
+Creating 'insertionsort.c.gcov'
+
+File 'main.c'
+Lines executed:0.00% of 8
+Branches executed:0.00% of 2
+Taken at least once:0.00% of 2
+Calls executed:0.00% of 3
+Creating 'main.c.gcov'
+
+Lines executed:0.00% of 17

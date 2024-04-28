@@ -1,0 +1,29 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:// Function prototype for insertion sort
+        -:    4:void insertionSort(int arr[], int n);
+        -:    5:
+function main called 0 returned 0% blocks executed 0%
+    #####:    6:int main() {
+    #####:    7:    int arr[6] = {4, 3, 6, 1, 5, 4};
+    #####:    8:    int n = sizeof(arr) / sizeof(arr[0]);
+        -:    9:
+        -:   10:    // Call the insertion sort function
+    #####:   11:    insertionSort(arr, n);
+call    0 never executed
+        -:   12:
+        -:   13:    // Print the sorted array
+    #####:   14:    for (int i = 0; i < n; i++) {
+branch  0 never executed
+branch  1 never executed
+    #####:   15:        printf("%d ", arr[i]);
+call    0 never executed
+        -:   16:    }
+    #####:   17:    printf("\n");
+call    0 never executed
+        -:   18:
+    #####:   19:    return 0;
+        -:   20:}
+        -:   21:	
+        -:   22:

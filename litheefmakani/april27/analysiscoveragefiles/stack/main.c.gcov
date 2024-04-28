@@ -1,0 +1,30 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "stack.h"
+        -:    3:
+function main called 0 returned 0% blocks executed 0%
+    #####:    4:int main()
+        -:    5:{
+        -:    6:	stack s ;
+    #####:    7:	initialize(&s);
+call    0 never executed
+        -:    8:
+    #####:    9:	push(&s, 10);
+call    0 never executed
+    #####:   10:	push(&s, 20);
+call    0 never executed
+    #####:   11:	push(&s ,30);
+call    0 never executed
+        -:   12:
+    #####:   13:	printf("pop element : %d\n",pop(&s));
+call    0 never executed
+call    1 never executed
+    #####:   14:	printf("pop element : %d\n",pop(&s));
+call    0 never executed
+call    1 never executed
+    #####:   15:	printf("pop elemnet : %d\n" ,pop(&s));
+call    0 never executed
+call    1 never executed
+        -:   16:
+    #####:   17:	return 0;
+        -:   18:}

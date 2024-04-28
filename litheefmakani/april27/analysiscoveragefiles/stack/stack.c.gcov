@@ -1,0 +1,17 @@
+        -:    0:Source:stack.c
+        -:    1:#include "stack.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+        -:    4:
+function initialize called 0 returned 0% blocks executed 0%
+    #####:    5:void initialize(stack *s){
+    #####:    6:	s->top =-1;
+    #####:    7:}
+function isEmpty called 0 returned 0% blocks executed 0%
+    #####:    8:int isEmpty(stack *s){
+    #####:    9:	return s->top ==-1;
+        -:   10:}
+function isFull called 0 returned 0% blocks executed 0%
+    #####:   11:int isFull(stack *s){
+    #####:   12:	return s->top == MAX_SIZE -1;
+        -:   13:}

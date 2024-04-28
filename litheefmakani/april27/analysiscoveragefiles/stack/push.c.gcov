@@ -1,0 +1,18 @@
+        -:    0:Source:push.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "stack.h"
+        -:    3:
+function push called 0 returned 0% blocks executed 0%
+    #####:    4:void push(stack *s, int value){
+    #####:    5:	if (isFull(s)) {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:    6:		printf("stack overflow!\n");
+call    0 never executed
+    #####:    7:		return ;
+        -:    8:	}
+    #####:    9:	s->items[++s->top] = value;
+    #####:   10:	printf("pushed %d onto the stack\n" ,value);
+call    0 never executed
+        -:   11:}

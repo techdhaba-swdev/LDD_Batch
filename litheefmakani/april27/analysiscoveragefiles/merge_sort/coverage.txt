@@ -1,0 +1,28 @@
+File 'main.c'
+Lines executed:0.00% of 9
+No branches
+Calls executed:0.00% of 5
+Creating 'main.c.gcov'
+
+File 'merge.c'
+Lines executed:0.00% of 28
+Branches executed:0.00% of 14
+Taken at least once:0.00% of 14
+No calls
+Creating 'merge.c.gcov'
+
+File 'mergeSort.c'
+Lines executed:0.00% of 7
+Branches executed:0.00% of 2
+Taken at least once:0.00% of 2
+Calls executed:0.00% of 3
+Creating 'mergeSort.c.gcov'
+
+File 'printArray.c'
+Lines executed:0.00% of 5
+Branches executed:0.00% of 2
+Taken at least once:0.00% of 2
+Calls executed:0.00% of 2
+Creating 'printArray.c.gcov'
+
+Lines executed:0.00% of 49

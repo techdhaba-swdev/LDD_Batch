@@ -1,0 +1,14 @@
+        -:    0:Source:printArray.c
+        -:    1:#include "printArray.h" 
+        -:    2:#include <stdio.h>
+        -:    3:
+function printArray called 0 returned 0% blocks executed 0%
+    #####:    4:void printArray(int arr[], int size) {
+    #####:    5:    for (int i = 0; i < size; i++) // print each element of array
+branch  0 never executed
+branch  1 never executed
+    #####:    6:        printf("%d ", arr[i]);
+call    0 never executed
+    #####:    7:    printf("\n");
+call    0 never executed
+    #####:    8:}

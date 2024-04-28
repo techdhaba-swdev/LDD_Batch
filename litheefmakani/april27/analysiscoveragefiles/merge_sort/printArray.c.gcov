@@ -1,0 +1,17 @@
+        -:    0:Source:printArray.c
+        -:    1:#include "printArray.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+        -:    4:// Function to print the elements of an array
+function printArray called 0 returned 0% blocks executed 0%
+    #####:    5:void printArray(int a[], int n)  
+        -:    6:{  
+        -:    7:    int i;  
+    #####:    8:    for (i = 0; i < n; i++)  
+branch  0 never executed
+branch  1 never executed
+    #####:    9:        printf("%d ", a[i]);  
+call    0 never executed
+    #####:   10:    printf("\n");  
+call    0 never executed
+    #####:   11:}

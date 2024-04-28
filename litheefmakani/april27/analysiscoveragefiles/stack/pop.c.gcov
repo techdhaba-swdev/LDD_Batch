@@ -1,0 +1,17 @@
+        -:    0:Source:pop.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "stack.h"
+        -:    3:
+function pop called 0 returned 0% blocks executed 0%
+    #####:    4:int pop(stack *s) {
+    #####:    5:        if (isEmpty(s)) {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:    6:                printf("stack is underflow\n");
+call    0 never executed
+    #####:    7:                return -1;
+        -:    8:        }
+    #####:    9:        return s->items[s->top--];
+        -:   10:}
+        -:   11:

@@ -1,0 +1,22 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "merge.h"
+        -:    3:#include "printArray.h"
+        -:    4:
+function main called 0 returned 0% blocks executed 0%
+    #####:    5:int main()  
+        -:    6:{  
+    #####:    7:    int a[] = { 12, 31, 25, 8, 32, 17, 40, 42 };  
+    #####:    8:    int n = sizeof(a) / sizeof(a[0]);  
+    #####:    9:    printf("Before sorting array elements are - \n");  
+call    0 never executed
+    #####:   10:    printArray(a, n);  
+call    0 never executed
+    #####:   11:    mergeSort(a, 0, n - 1);  
+call    0 never executed
+    #####:   12:    printf("After sorting array elements are - \n");  
+call    0 never executed
+    #####:   13:    printArray(a, n);  
+call    0 never executed
+    #####:   14:    return 0;  
+        -:   15:}

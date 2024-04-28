@@ -1,0 +1,21 @@
+        -:    0:Source:bubbleSort.c
+        -:    1:// Bubble sort function
+function bubbleSort called 0 returned 0% blocks executed 0%
+    #####:    2:void bubbleSort(int arr[], int n) {
+        -:    3:    int temp;
+    #####:    4:    for (int i = 0; i < n - 1; i++) {
+branch  0 never executed
+branch  1 never executed
+    #####:    5:        for (int j = 0; j < n - i - 1; j++) {
+branch  0 never executed
+branch  1 never executed
+    #####:    6:            if (arr[j] > arr[j + 1]) {
+branch  0 never executed
+branch  1 never executed
+    #####:    7:                temp = arr[j];
+    #####:    8:                arr[j] = arr[j + 1];
+    #####:    9:                arr[j + 1] = temp;
+        -:   10:            }
+        -:   11:        }
+        -:   12:    }
+    #####:   13:}

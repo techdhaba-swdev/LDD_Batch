@@ -1,0 +1,17 @@
+        -:    0:Source:quickSort.c
+        -:    1:#include "quickSort.h"
+        -:    2:#include "partition.h" // include the partition function
+        -:    3:
+function quickSort called 0 returned 0% blocks executed 0%
+    #####:    4:void quickSort(int arr[], int low, int high) {
+    #####:    5:    if (low < high) {
+branch  0 never executed
+branch  1 never executed
+    #####:    6:        int pi = partition(arr, low, high);//partition the array and getting the pivot index
+call    0 never executed
+    #####:    7:        quickSort(arr, low, pi - 1);// recursive sort the elements before the pivot
+call    0 never executed
+    #####:    8:        quickSort(arr, pi + 1, high);// recusively sort the elements after the pivot
+call    0 never executed
+        -:    9:    }
+    #####:   10:}

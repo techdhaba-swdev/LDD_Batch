@@ -1,0 +1,35 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "queue.h"
+        -:    3:
+function main called 0 returned 0% blocks executed 0%
+    #####:    4:int main() {
+    #####:    5:    struct Queue* queue = createQueue(); // Create an empty queue
+call    0 never executed
+        -:    6:
+        -:    7:    // Enqueue elements onto the queue
+    #####:    8:    enqueue(queue, 5);
+call    0 never executed
+    #####:    9:    enqueue(queue, 10);
+call    0 never executed
+    #####:   10:    enqueue(queue, 15);
+call    0 never executed
+        -:   11:
+        -:   12:    // Dequeue elements from the queue and print them
+    #####:   13:    printf("%d dequeued from queue.\n", dequeue(queue));
+call    0 never executed
+call    1 never executed
+    #####:   14:    printf("%d dequeued from queue.\n", dequeue(queue));
+call    0 never executed
+call    1 never executed
+    #####:   15:    printf("%d dequeued from queue.\n", dequeue(queue));
+call    0 never executed
+call    1 never executed
+        -:   16:
+        -:   17:    // Attempting to dequeue from an empty queue
+    #####:   18:    printf("%d dequeued from queue.\n", dequeue(queue)); // Queue underflow
+call    0 never executed
+call    1 never executed
+        -:   19:
+    #####:   20:    return 0;
+        -:   21:}
