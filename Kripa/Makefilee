@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+OBJ= add.h sub.h mul.h div.h 
+OBJ=main.o add.o sub.o mul.o div.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+calci: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
