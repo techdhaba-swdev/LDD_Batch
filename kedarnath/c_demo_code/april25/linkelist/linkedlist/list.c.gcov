@@ -1,0 +1,101 @@
+        -:    0:Source:list.c
+        -:    1:#include "list.h" // including list.h header file
+        -:    2:
+        -:    3:
+        -:    4:struct node {
+        -:    5:    int data;
+        -:    6:    struct node *next;
+        -:    7:};
+        -:    8:
+        -:    9:// Define global variables
+        -:   10:struct node *head = NULL;
+        -:   11:struct node *current = NULL;
+        -:   12:
+        -:   13:// Function definitions
+        3:   14:void printList() {
+        3:   15:    struct node *p = head;
+        3:   16:    printf("\n[");
+        -:   17:
+        -:   18:    //start from the beginning
+       14:   19:    while (p != NULL) {
+       11:   20:        printf(" %d ", p->data);
+       11:   21:        p = p->next;
+        -:   22:    }
+        3:   23:    printf("]");
+        3:   24:}
+        -:   25:
+        5:   26:void insertAtBegin(int data) {
+        -:   27:    //create a link
+        5:   28:    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+        5:   29:    newNode->data = data;
+        -:   30:
+        -:   31:    // point it to old first node
+        5:   32:    newNode->next = head;
+        -:   33:
+        -:   34:    //point first to new first node
+        5:   35:    head = newNode;
+        5:   36:}
+        -:   37:
+        2:   38:void insertAtEnd(int data) {
+        -:   39:    //create a link
+        2:   40:    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+        2:   41:    newNode->data = data;
+        2:   42:    struct node *linkedlist = head;
+        -:   43:
+        -:   44:    // point it to old first node
+        5:   45:    while (linkedlist->next != NULL)
+        3:   46:        linkedlist = linkedlist->next;
+        -:   47:
+        -:   48:    //point first to new first node
+        2:   49:    linkedlist->next = newNode;
+        2:   50:}
+        -:   51:
+        -:   52:/*void insertAfterNode(struct node *list, int data) {
+        -:   53:    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+        -:   54:    newNode->data = data;
+        -:   55:    newNode->next = list->next;
+        -:   56:    list->next = newNode;
+        -:   57:}*/
+        -:   58:
+        1:   59:void deleteAtBegin() {
+        1:   60:    head = head->next;
+        1:   61:}
+        -:   62:
+        1:   63:void deleteAtEnd() {
+        1:   64:    struct node *linkedlist = head;
+        3:   65:    while (linkedlist->next->next != NULL)
+        2:   66:        linkedlist = linkedlist->next;
+        1:   67:    linkedlist->next = NULL;
+        1:   68:}
+        -:   69:
+        1:   70:void deleteNode(int key) {
+        1:   71:    struct node *temp = head, *prev;
+        1:   72:    if (temp != NULL && temp->data == key) {
+    #####:   73:        head = temp->next;
+    #####:   74:        return;
+        -:   75:    }
+        -:   76:
+        -:   77:    // Find the key to be deleted
+        2:   78:    while (temp != NULL && temp->data != key) {
+        1:   79:        prev = temp;
+        1:   80:        temp = temp->next;
+        -:   81:    }
+        -:   82:
+        -:   83:    // If the key is not present
+       1*:   84:    if (temp == NULL) return;
+        -:   85:
+        -:   86:    // Remove the node
+        1:   87:    prev->next = temp->next;
+        -:   88:}
+        -:   89:
+        1:   90:int searchList(int key) {
+        1:   91:    struct node *temp = head;
+        1:   92:    while (temp != NULL) {
+        1:   93:        if (temp->data == key) {
+        1:   94:            return 1;
+        -:   95:        }
+    #####:   96:        temp = temp->next;
+        -:   97:    }
+    #####:   98:    return 0;
+        -:   99:}
+        -:  100:

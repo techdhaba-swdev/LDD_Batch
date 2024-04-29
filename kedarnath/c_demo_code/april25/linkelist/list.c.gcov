@@ -1,0 +1,51 @@
+        -:    0:Source:list.c
+        -:    0:Graph:main-list.gcno
+        -:    0:Data:main-list.gcda
+        -:    0:Runs:1
+        -:    1:#include"list.h"
+        -:    2:
+        -:    3:// Function to create a new node
+        3:    4:Node* createNode(int data) {
+        3:    5:    Node *newNode = (Node*)malloc(sizeof(Node));
+        3:    6:    if (newNode == NULL) {
+    #####:    7:        fprintf(stderr, "Memory allocation failed\n");
+    #####:    8:        exit(EXIT_FAILURE);
+        -:    9:    }
+        3:   10:    newNode->data = data;
+        3:   11:    newNode->next = NULL;
+        3:   12:    return newNode;
+        -:   13:}
+        -:   14:
+        -:   15:// Function to insert a node at the end of the list
+        3:   16:void insert(Node **head, int data) {
+        3:   17:    Node *newNode = createNode(data);
+        3:   18:    if (*head == NULL) {
+        1:   19:        *head = newNode;
+        -:   20:    } else {
+        2:   21:        Node *temp = *head;
+        3:   22:        while (temp->next != NULL) {
+        1:   23:            temp = temp->next;
+        -:   24:        }
+        2:   25:        temp->next = newNode;
+        -:   26:    }
+        3:   27:}
+        -:   28:
+        -:   29:// Function to print the list
+        1:   30:void printList(Node *head) {
+        4:   31:    while (head != NULL) {
+        3:   32:        printf("%d ", head->data);
+        3:   33:        head = head->next;
+        -:   34:    }
+        1:   35:    printf("\n");
+        1:   36:}
+        -:   37:
+        -:   38:// Function to free the memory occupied by the list
+        1:   39:void freeList(Node *head) {
+        -:   40:    Node *temp;
+        4:   41:    while (head != NULL) {
+        3:   42:        temp = head;
+        3:   43:        head = head->next;
+        3:   44:        free(temp);
+        -:   45:    }
+        1:   46:}
+        -:   47:

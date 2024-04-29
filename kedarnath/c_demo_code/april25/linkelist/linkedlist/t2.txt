@@ -1,0 +1,9 @@
+File 'list.c'
+Lines executed:91.67% of 48
+Creating 'list.c.gcov'
+
+File 'main.c'
+Lines executed:96.00% of 25
+Creating 'main.c.gcov'
+
+Lines executed:93.15% of 73

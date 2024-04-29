@@ -1,0 +1,43 @@
+        -:    0:Source:main.c
+        -:    1:#include "list.h" // including the list.h header file
+        -:    2:
+        1:    3:int main() {
+        1:    4:    int k = 0; // declaring and initializing k value 
+        -:    5:
+        -:    6:    // Example usage
+        1:    7:    insertAtBegin(12); // inserting node at begining with value of 12
+        1:    8:    insertAtBegin(22); // inserting node at begining with value of 22
+        1:    9:    insertAtEnd(30); // inserting node at end with value of 30
+        1:   10:    insertAtEnd(44); // inserting node at end with value of 44
+        1:   11:    insertAtBegin(50); // inserting node at begining with value of 50
+        -:   12:    //insertAfterNode(head->next->next, 33);
+        -:   13:
+        1:   14:    printf("Linked List: ");
+        1:   15:    printList(); // print the value present inside the list
+        -:   16:
+        1:   17:    deleteAtBegin(); // deleting first element in the list
+        1:   18:    deleteAtEnd(); // deleting last element in the list
+        1:   19:    deleteNode(12); // deleting element in the listbased on its value
+        -:   20:
+        1:   21:    printf("\nLinked List after deletion: ");
+        1:   22:    printList();
+        -:   23:
+        1:   24:    insertAtBegin(4); // inserting node at begining with value of 4
+        1:   25:    insertAtBegin(16); // inserting node at begining with value of 16
+        -:   26:
+        1:   27:    printf("\nUpdated Linked List: ");
+        1:   28:    printList(); // print the value present inside the list
+        -:   29:
+        -:   30:    int data;
+        1:   31:    printf("\nEnter value to find: ");
+        1:   32:    scanf("%d", &data); // taking user input to find the element present inside the list
+        -:   33:
+        1:   34:    k = searchList(data); // if value of k is 1 then element is present inside list otherwise not present inside the list
+        1:   35:    if (k == 1)
+        1:   36:        printf("Element is found\n");
+        -:   37:    else
+    #####:   38:        printf("Element is not present in the list\n");
+        -:   39:
+        1:   40:    return 0;
+        -:   41:}
+        -:   42:
