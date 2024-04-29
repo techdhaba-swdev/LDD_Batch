@@ -1,37 +1,41 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<pthread.h>
- void*print_message_function(void*ptr);
-int main()
-{
-	pthread_t thread1,thread2,thread3;
-
-	char*message1 = "Thread1";
-	char*message2="Thread2";
-	char*message3="Thread3";
-
-	int iret1,iret2,iret3;
-	iret1=pthread_create(&thread1,NULL,print_message_function,(void*)message1);
-	iret2=pthread_create(&thread2,NULL,print_message_function,(void*)message2);
-	iret3=pthread_create(&thread3,NULL,print_message_function,(void*)message3);
-
-	pthread_join(thread1,NULL);
-	 pthread_join(thread2,NULL);
-	 pthread_join(thread3,NULL);
-
-	 printf("Thread 1 returns:%d\n",iret1);
-	 printf("Thread 2 returns:%d\n",iret2);
-	 printf("Thread 3 returns:%d\n",iret1);
-
-	 exit(0);
+#include <stdio.h>
+#include <stdlib.h>
+ 
+// Function to safely allocate memory
+void* safe_malloc(size_t size) {
+    void* ptr = malloc(size);
+    if (ptr == NULL) {
+        perror("Memory allocation failed");
+        exit(EXIT_FAILURE);
+    }
+    return ptr;
 }
-void *print_message_function(void*ptr)
-{
-	char*message;
-	message=(char*)ptr;
-	printf("%s\n",message);
+ 
+// Function to safely open a file
+FILE* safe_fopen(const char* filename, const char* mode) {
+    FILE* file = fopen(filename, mode);
+    if (file == NULL) {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+    return file;
 }
-
-
-
-
+ 
+int main() {
+    // Error handling example 1: Memory allocation
+    int* arr = safe_malloc(10 * sizeof(int));
+ 
+    // Error handling example 2: File I/O
+    FILE* fp = safe_fopen("test.txt", "r");
+ 
+    // Techniques to avoid segmentation faults
+    int* ptr = NULL;
+    if (ptr != NULL) {
+        *ptr = 10; // This line will not be executed, preventing segmentation fault
+    }
+ 
+    free(arr);
+    fclose(fp);
+ 
+    return 0;
+}

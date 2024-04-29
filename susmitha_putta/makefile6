@@ -1,0 +1,2 @@
+linearsearch:linearsearch.c linearsearchmain.c
+	gcc -o linearsearch linearsearch.c linearsearchmain.c -I.

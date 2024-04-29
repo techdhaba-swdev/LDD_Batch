@@ -1,0 +1,5 @@
+
+hello:hstructmain.c hstruct.c
+	gcc -o hello hstructmain.c hstruct.c
+
+

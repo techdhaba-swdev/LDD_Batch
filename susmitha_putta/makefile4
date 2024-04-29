@@ -1,0 +1,3 @@
+queue:queue.c queuemain.c
+	gcc -o queue queue.c queuemain.c
+

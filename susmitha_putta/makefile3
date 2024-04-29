@@ -1,0 +1,3 @@
+
+hello:linkedlistmain.c linkedlist.c
+	gcc -o hello linkedlistmain.c linkedlist.c -I.
