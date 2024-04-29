@@ -2,16 +2,16 @@
 #include <stdarg.h>
 
 int sub(int num1, ...) {
-    int result; 
+     
     va_list lst;
     va_start(lst, num1);
 
-    result = va_arg(lst, int); 
+    int result = va_arg(lst, int); 
 
     
     for (int i = 1; i < num1; i++) {
         int operand = va_arg(lst, int);
-        result -= operand;
+        result =result- operand;
     }
 
     va_end(lst);

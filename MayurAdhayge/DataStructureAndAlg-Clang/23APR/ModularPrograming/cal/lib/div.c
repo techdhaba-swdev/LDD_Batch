@@ -2,16 +2,14 @@
 #include <stdarg.h>
 
 float div(int num1, ...) {
-    float result = (float)num1; 
     va_list lst;
     va_start(lst, num1);
-
-   
-    for (int i = 0; i < num1 - 1; i++) {
+    float div = (float) va_arg(lst, int);
+    for (int i = 1; i < num1 ; i++) {
         int divisor = va_arg(lst, int);
         
         if (divisor != 0) {
-            result /= divisor;
+            div /= divisor;
         } else {
             
             return 0;
@@ -19,7 +17,7 @@ float div(int num1, ...) {
     }
 
     va_end(lst);
-    return result;
+    return div;
 }
 
 
