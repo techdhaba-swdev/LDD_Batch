@@ -1,0 +1,93 @@
+        -:    0:Source:BST.c
+        -:    1:#include "BST.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:// Function to create a new node
+function createNode called 7 returned 100% blocks executed 60%
+        7:    5:struct Node* createNode(int data) {
+        -:    6:    // Allocate memory for the new node
+        7:    7:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        -:    8:    // Check if memory allocation is successful
+        7:    9:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   10:        perror("Memory allocation failed");
+call    0 never executed
+    #####:   11:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   12:    }
+        -:   13:    // Initialize the new node with given data and NULL left and right pointers
+        7:   14:    newNode->data = data;
+        7:   15:    newNode->left = NULL;
+        7:   16:    newNode->right = NULL;
+        7:   17:    return newNode;
+        -:   18:}
+        -:   19:
+        -:   20:// Function to insert a node into the binary tree
+function insert called 18 returned 100% blocks executed 100%
+       18:   21:struct Node* insert(struct Node* root, int data) {
+        -:   22:    // Base case: If the tree is empty, create a new root node
+       18:   23:    if (root == NULL) {
+branch  0 taken 39% (fallthrough)
+branch  1 taken 61%
+        7:   24:        return createNode(data);
+call    0 returned 100%
+        -:   25:    }
+        -:   26:
+        -:   27:    // If the data to be inserted is smaller than the root, insert into the left subtree
+       11:   28:    if (data < root->data) {
+branch  0 taken 64% (fallthrough)
+branch  1 taken 36%
+        7:   29:        root->left = insert(root->left, data);
+call    0 returned 100%
+        -:   30:    }
+        -:   31:    // If the data to be inserted is larger than the root, insert into the right subtree
+        4:   32:    else if (data > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        4:   33:        root->right = insert(root->right, data);
+call    0 returned 100%
+        -:   34:    }
+        -:   35:    // If the data already exists in the tree, handle duplicates (optional)
+        -:   36:    else {
+        -:   37:        // printf("Duplicate value: %d\n", data);
+        -:   38:    }
+        -:   39:
+       11:   40:    return root; // Return the (potentially modified) root node
+        -:   41:}
+        -:   42:
+        -:   43:// Function to perform in-order traversal of the binary tree
+function inOrder called 15 returned 100% blocks executed 100%
+       15:   44:void inOrder(struct Node* root) {
+        -:   45:    // Base case: If the current node is NULL, return
+       15:   46:    if (root == NULL) {
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        8:   47:        return;
+        -:   48:    }
+        -:   49:    // Visit left subtree
+        7:   50:    inOrder(root->left);
+call    0 returned 100%
+        -:   51:    // Visit current node
+        7:   52:    printf("%d ", root->data);
+call    0 returned 100%
+        -:   53:    // Visit right subtree
+        7:   54:    inOrder(root->right);
+call    0 returned 100%
+        -:   55:}
+        -:   56:
+        -:   57:// Function to calculate the sum of all nodes in the binary tree
+function add called 15 returned 100% blocks executed 100%
+       15:   58:int add(struct Node* root) {
+        -:   59:    // Base case: If the current node is NULL, return 0
+       15:   60:    if (root == NULL) {
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        8:   61:        return 0;
+        -:   62:    }
+        -:   63:    // Recursively sum nodes in the left subtree, current node, and nodes in the right subtree
+        7:   64:    return root->data + add(root->left) + add(root->right);
+call    0 returned 100%
+call    1 returned 100%
+        -:   65:}
+        -:   66:
