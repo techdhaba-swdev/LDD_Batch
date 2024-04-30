@@ -19,7 +19,7 @@ void sigtstp_handler(int signum){
         scanf("%d%d",&num1,&num2);
         sub=num1-num2;
         printf("substraction is %d\n",sub);
-        exit(signum);
+        //exit(signum);
 }
 
 
@@ -34,6 +34,4 @@ int main(){
 	return 0;
 
 }
-
-
 

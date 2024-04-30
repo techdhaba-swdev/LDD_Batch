@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
+#include<time.h>
  
 // Common signal handler function
 void signal_handler(int signum) {
@@ -14,6 +15,8 @@ void signal_handler(int signum) {
 }
  
 int main() {
+
+    clock_t start=clock();
     // Register the signal handler for SIGINT
     if (signal(SIGINT, signal_handler) == SIG_ERR) {
         perror("Unable to set up SIGINT signal handler");
@@ -28,6 +31,9 @@ int main() {
  
     // Main application code...
     printf("Waiting for signals...\n");
+    clock_t end=clock();
+    double time_taken=((double)(end-start));
+    printf("time taken is %f\n",time_taken);
  
     // Infinite loop to keep the program running
     while (1) {

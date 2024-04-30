@@ -1,0 +1,22 @@
+        -:    0:Source:sum3.c
+        -:    0:Graph:sum3.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    1:#include<stdio.h>
+        -:    2:
+    #####:    3:int main(){
+        -:    4:
+    #####:    5:	int sum=0;
+    #####:    6:	int n=1000;
+        -:    7:
+    #####:    8:        for(int i=0;i<n;i+=1){
+        -:    9:
+    #####:   10:                sum+=i;
+        -:   11:        }
+        -:   12:
+    #####:   13:        printf("sum is %d\n",sum);
+        -:   14:
+    #####:   15:	return 0;
+        -:   16:
+        -:   17:}
+        -:   18:
