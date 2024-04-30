@@ -1,0 +1,19 @@
+        -:    0:Source:inorder.c
+        -:    1:#include "inorder.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+        -:    4://perform in-order traversal of the binary tree
+function inOrder called 15 returned 100% blocks executed 100%
+       15:    5:void inOrder(struct Node* root) {
+       15:    6:    if (root != NULL) {
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        7:    7:        inOrder(root->left); // Visit left subtree
+call    0 returned 100%
+        7:    8:        printf("%d ", root->data); // Visit current node
+call    0 returned 100%
+        7:    9:        inOrder(root->right); // Visit right subtree
+call    0 returned 100%
+        -:   10:    }
+       15:   11:}
+        -:   12:

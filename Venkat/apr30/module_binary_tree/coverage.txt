@@ -1,0 +1,41 @@
+File 'node.c'
+Lines executed:100.00% of 6
+No branches
+No calls
+Creating 'node.c.gcov'
+
+File 'insert.c'
+Lines executed:100.00% of 5
+Branches executed:100.00% of 6
+Taken at least once:83.33% of 6
+Calls executed:100.00% of 3
+Creating 'insert.c.gcov'
+
+File 'inorder.c'
+Lines executed:100.00% of 6
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 3
+Creating 'inorder.c.gcov'
+
+File 'sumofnodes.c'
+Lines executed:100.00% of 3
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 2
+Creating 'sumofnodes.c.gcov'
+
+File 'freetree.c'
+Lines executed:100.00% of 5
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 2
+Creating 'freetree.c.gcov'
+
+File 'main.c'
+Lines executed:100.00% of 20
+No branches
+Calls executed:100.00% of 16
+Creating 'main.c.gcov'
+
+Lines executed:100.00% of 45

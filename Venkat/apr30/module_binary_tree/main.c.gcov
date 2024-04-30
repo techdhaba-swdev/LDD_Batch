@@ -1,0 +1,51 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "node.h"
+        -:    3:#include "insert.h"
+        -:    4:#include "inorder.h"
+        -:    5:#include "sumofnodes.h"
+        -:    6:#include "freetree.h" // Include the freetree module
+        -:    7:#include <time.h>
+        -:    8:
+function main called 1 returned 100% blocks executed 100%
+        1:    9:int main() {
+        1:   10:    clock_t start = clock();
+call    0 returned 100%
+        1:   11:    struct Node* root = NULL;
+        1:   12:    root = insert(root, 50);
+call    0 returned 100%
+        1:   13:    insert(root, 30);
+call    0 returned 100%
+        1:   14:    insert(root, 20);
+call    0 returned 100%
+        1:   15:    insert(root, 40);
+call    0 returned 100%
+        1:   16:    insert(root, 70);
+call    0 returned 100%
+        1:   17:    insert(root, 60);
+call    0 returned 100%
+        1:   18:    insert(root, 80);
+call    0 returned 100%
+        -:   19:
+        1:   20:    printf("In-order traversal: ");
+call    0 returned 100%
+        1:   21:    inOrder(root);
+call    0 returned 100%
+        1:   22:    printf("\n");
+call    0 returned 100%
+        -:   23:
+        1:   24:    int totalSum = sumOfNodes(root);
+call    0 returned 100%
+        1:   25:    printf("Sum of all node data elements: %d\n", totalSum);
+call    0 returned 100%
+        1:   26:    clock_t end = clock();
+call    0 returned 100%
+        1:   27:    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+        1:   28:    printf("Time taken: %f seconds\n", time_taken);
+call    0 returned 100%
+        -:   29:
+        1:   30:    freeTree(root); // Free memory used by tree nodes
+call    0 returned 100%
+        -:   31:
+        1:   32:    return 0;
+        -:   33:}

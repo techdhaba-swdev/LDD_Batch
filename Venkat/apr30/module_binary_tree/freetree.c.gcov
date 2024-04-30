@@ -1,0 +1,16 @@
+        -:    0:Source:freetree.c
+        -:    1:#include "freetree.h"
+        -:    2:#include <stdlib.h>
+        -:    3:
+        -:    4:// recursively free memory used by the tree nodes
+function freeTree called 15 returned 100% blocks executed 100%
+       15:    5:void freeTree(struct Node* root) {
+       15:    6:    if (root == NULL) return;
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        7:    7:    freeTree(root->left); // Free left subtree
+call    0 returned 100%
+        7:    8:    freeTree(root->right); // Free right subtree
+call    0 returned 100%
+        7:    9:    free(root); // Free current node
+        -:   10:}
