@@ -31,9 +31,9 @@ int main() {
     printf("Sum of all nodes: %d\n", sum);
 
     //stop clock
-    //end = clock();
+    end = clock();
     
-
+    //Calculate CPU time used
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     printf("CPU time used: %f seconds\n", cpu_time_used);
     // Memory deallocation for the binary tree is not shown here to keep the example simple
