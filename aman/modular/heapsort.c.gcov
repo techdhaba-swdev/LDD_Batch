@@ -1,0 +1,67 @@
+        -:    0:Source:heapsort.c
+        -:    1:#include "heapsort.h"//This line includes the header file heap_sort.h in the current source file. It allows us to use the function declarations and any other declarations present in heapsort.h.
+        -:    2:
+function heapify called 30 returned 100% blocks executed 100%
+       30:    3:void heapify(int arr[], size_t n, size_t i) {//This specifies the return type of the function heapify, which is void indicating that the function does not return any value.This is the name of the function being defined.These are the parameters of the function. arr[] is an array of integers (the array to be heapified), size_t n is the size of the heap, and size_t i is the index of the current node in the heap.
+       30:    4:    size_t largest = i; //This initializes a variable largest to the index i, assuming initially that the current node is the largest.
+       30:    5:    size_t left = 2 * i + 1; //This calculates the index of the left child node of the current node.
+       30:    6:    size_t right = 2 * i + 2; //This calculates the index of the right child node of the current node.
+        -:    7:
+        -:    8: 
+       30:    9:    if (left < n && arr[left] > arr[largest])//This condition checks if the left child of the current node exists (left < n) and if it is greater than the current largest node.
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+branch  2 taken 75% (fallthrough)
+branch  3 taken 25%
+       15:   10:        largest = left;//If the condition is true, largest is updated to the index of the left child.
+        -:   11:
+        -:   12:    
+       30:   13:    if (right < n && arr[right] > arr[largest])//This condition checks if the right child of the current node exists (right < n) and if it is greater than the current largest node.
+branch  0 taken 57% (fallthrough)
+branch  1 taken 43%
+branch  2 taken 24% (fallthrough)
+branch  3 taken 76%
+        4:   14:        largest = right;//If the condition is true, largest is updated to the index of the right child.
+        -:   15:
+        -:   16:    
+       30:   17:    if (largest != i) {//This condition checks if the current node is not the largest among the parent and its children.
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        -:   18:        
+       16:   19:        int temp = arr[i];//This temporarily stores the value of the current node.
+       16:   20:        arr[i] = arr[largest];//The value of the largest child node is assigned to the current node.
+       16:   21:        arr[largest] = temp;//The value stored in temp (originally the current node value) is assigned to the position of the largest child node.
+        -:   22:
+        -:   23:        
+       16:   24:        heapify(arr, n, largest);// This recursively calls heapify on the affected sub-tree to ensure that the heap property is maintained.
+call    0 returned 100%
+        -:   25:    }
+       30:   26:}
+        -:   27:
+        -:   28:
+function heap_sort called 1 returned 100% blocks executed 100%
+        1:   29:void heap_sort(int arr[], size_t n) {//This line defines the heap_sort function, which is responsible for sorting the array using the heap sort algorithm. It takes two parameters: arr[], an array of integers to be sorted, and n, the size of the array.
+        -:   30:    
+        6:   31:    for (int i = n / 2 - 1; i >= 0; i--)//This for loop iterates through the array elements from the last non-leaf node to the root node of the heap. It starts from n / 2 - 1 because it is the index of the last non-leaf node in the heap
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:   32:        heapify(arr, n, i);//Within the loop, the heapify function is called to heapify the subtree rooted at index i.
+call    0 returned 100%
+        -:   33:
+        -:   34:    
+       10:   35:    for (int i = n - 1; i > 0; i--) {//This for loop iterates through the elements of the array in reverse order, starting from the last element (n - 1) and ending at the second element (index 1). The loop skips the first element (index 0) because it represents the root of the heap.
+branch  0 taken 90%
+branch  1 taken 10% (fallthrough)
+        -:   36: 
+        9:   37:        int temp = arr[0];//This line temporarily stores the value of the root element of the heap.
+        9:   38:        arr[0] = arr[i];//The value of the last element of the heap is moved to the root position.
+        9:   39:        arr[i] = temp;//The value stored in temp (originally the root node value) is moved to the position of the last element of the heap.
+        -:   40:
+        -:   41:       
+        9:   42:        heapify(arr, i, 0);//After extracting the maximum element from the heap, this line calls the heapify function to restore the heap property on the reduced heap (excluding the last extracted element). It ensures that the largest remaining element becomes the root of the heap.
+call    0 returned 100%
+        -:   43:    }
+        1:   44:}
+        -:   45:
+        -:   46:
+        -:   47://secure code -- avoiding buffer overflows
