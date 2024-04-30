@@ -1,0 +1,25 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "binary_tree.h"
+        -:    3:
+        -:    4:// Main function: Example usage
+        1:    5:int main() {
+        -:    6:    // Initialize an empty binary search tree (BST) represented by the root node
+        1:    7:    struct Node* root = NULL;
+        -:    8:    // Insert nodes with various values into the BST
+        1:    9:    root = insert(root, 50);
+        1:   10:    insert(root, 30);
+        1:   11:    insert(root, 20);
+        1:   12:    insert(root, 40);
+        1:   13:    insert(root, 70);
+        1:   14:    insert(root, 60);
+        1:   15:    insert(root, 80);
+        -:   16:
+        -:   17:    // Print the elements of the BST in sorted order using in-order traversal
+        1:   18:    printf("In-order traversal: ");
+        1:   19:    inOrder(root);
+        1:   20:    printf("\n");
+        -:   21:
+        1:   22:    return 0;
+        -:   23:}
+        -:   24:

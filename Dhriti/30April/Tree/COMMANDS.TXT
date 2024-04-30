@@ -1,0 +1,59 @@
+
+
+Execution:
+$ gcc -c main.c -o main.o
+$ gcc -c node.c -o node.o
+$ gcc -c binary_tree.c -o binary_tree.o
+$ gcc -o execute1 node.o main.o binary_tree.o
+$./execute1
+
+Makefile:
+$ vim Makefile:
+CC = gcc
+
+CFLAGS = -I.
+
+DEPS = main.h
+
+OBJ = add.o message.o main.o
+
+%.o : %.c $(DEPS)	
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+myprint : $(OBJ)	
+	$(CC) -o $@ $^ $(CFLAGS)
+
+
+$ gcc -o execute_Makefile node.c main.c binary_tree.c
+$ ./execute_Makefile
+
+Static Library:
+$ ar rcs library.a node.o main.o binary_tree.o
+$ gcc main.c execute_staticlib -L. -llibrary.a
+
+Dynamic library:
+$gcc -c -fPIC node.c -o node.o
+$ gcc -c -fPIC binary_tree.c -o binary_tree.o
+$ gcc -shared -o libbinarytree.so node.o binary_tree.o
+$ gcc -o execute_dynamic main.c -L. -ldl
+$ ./execute_dynamic
+
+Gcov:
+$ gcc -Wall -pg main.c node.c binary_tree.c -oexecute_gprof
+$ ./execute_gprof
+
+$ gprof execute_gprof gmon.out>analysis.txt
+$ vim analysis.txt
+
+Fprofiling:
+$gcc -fprofile-arcs -ftest-coverage -o execute_fprofile node.c binary_tree.c main.c
+$ ./execute_fprofile
+
+$ gcov execute_fprofile-binary_tree.c execute_fprofile-main.c execute_fprofile-node.c
+$ gcov execute_fprofile-binary_tree.c execute_fprofile-main.c execute_fprofile-node.c > coverage.txt
+
+Time optimization:
+make timetaken
+./timetaken
+  gcc -O2 main.c -o timetaken
+    gcc -O3 main.c -o timetaken

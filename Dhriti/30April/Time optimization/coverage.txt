@@ -1,0 +1,5 @@
+File 'clock.c'
+Lines executed:0.00% of 13
+Creating 'clock.c.gcov'
+
+Lines executed:0.00% of 13

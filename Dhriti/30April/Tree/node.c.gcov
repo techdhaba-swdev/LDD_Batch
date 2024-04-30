@@ -1,0 +1,20 @@
+        -:    0:Source:node.c
+        -:    1:#include <stdlib.h>
+        -:    2:#include "node.h"
+        -:    3:
+        -:    4:// Function to create a new node
+        7:    5:struct Node* createNode(int data) {
+        -:    6:    // Allocate memory for the new node
+        7:    7:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        -:    8:   // SECURED: MEMORY ALLOCATION FALIURE
+        7:    9:    if (newNode == NULL) {
+        -:   10:        // Handle memory allocation failure
+    #####:   11:        return NULL;
+        -:   12:    }
+        -:   13:    // Initialize the data and pointers of the new node
+        7:   14:    newNode->data = data;
+        7:   15:    newNode->left = NULL;
+        7:   16:    newNode->right = NULL;
+        7:   17:    return newNode;
+        -:   18:}
+        -:   19:

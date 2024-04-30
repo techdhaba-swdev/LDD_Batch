@@ -1,0 +1,41 @@
+        -:    0:Source:binary_tree.c
+        -:    1:#include "binary_tree.h"
+        -:    2:#include<stdio.h>
+        -:    3:
+        -:    4:// Function to insert a node into the binary tree
+       17:    5:struct Node* insert(struct Node* root, int data) {
+        -:    6:    // Base case: Empty tree, create a new root node
+       17:    7:    if (root == NULL) {
+        7:    8:        return createNode(data);
+        -:    9:    }
+        -:   10:
+        -:   11:    // If the data is less than the root node, insert into the left subtree
+       10:   12:    if (data < root->data) {
+        5:   13:        root->left = insert(root->left, data);
+        -:   14:    }
+        -:   15:    // If the data is greater than the root node, insert into the right subtree
+        5:   16:    else if (data > root->data) {
+        5:   17:        root->right = insert(root->right, data);
+        -:   18:    }
+        -:   19:    // Handle duplicates (optional)
+        -:   20:    else {
+        -:   21:        // printf("Duplicate value: %d\n", data);
+        -:   22:    }
+        -:   23:
+        -:   24:    // Return the (potentially modified) root node
+       10:   25:    return root;
+        -:   26:}
+        -:   27:
+        -:   28:// Function to perform in-order traversal of the binary tree
+       15:   29:void inOrder(struct Node* root) {
+        -:   30:    // Base case: If the root is not NULL
+       15:   31:    if (root != NULL) {
+        -:   32:        // Visit left subtree
+        7:   33:        inOrder(root->left);
+        -:   34:        // Visit current node
+        7:   35:        printf("%d ", root->data);
+        -:   36:        // Visit right subtree
+        7:   37:        inOrder(root->right);
+        -:   38:    }
+       15:   39:}
+        -:   40:
