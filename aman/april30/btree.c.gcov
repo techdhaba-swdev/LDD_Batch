@@ -1,0 +1,102 @@
+        -:    0:Source:btree.c
+        -:    1:#include "btree.h"//includes header file btree.h which allow to use structure,function prototype from header file
+        -:    2:#include <stdio.h>//standard libraries for printf scanf
+        -:    3:#include <stdlib.h>//standard libraries for malloc functions
+        -:    4:
+        -:    5:// Function to create a new node
+function createNode called 7 returned 100% blocks executed 60%
+        7:    6:struct Node* createNode(int data) {
+        -:    7:    // Allocate memory for a new node
+        7:    8:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        -:    9:    
+        -:   10:    // Check if memory allocation was successful
+        7:   11:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   12:        printf("Memory allocation failed.\n");
+call    0 never executed
+    #####:   13:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   14:    }
+        -:   15:    
+        -:   16:    // Initialize node's data and child pointers
+        7:   17:    newNode->data = data;
+        7:   18:    newNode->left = NULL;
+        7:   19:    newNode->right = NULL;
+        -:   20:    
+        7:   21:    return newNode;
+        -:   22:}
+        -:   23:
+        -:   24:// Function to insert a node into the binary tree
+function insert called 17 returned 100% blocks executed 92%
+       17:   25:struct Node* insert(struct Node* root, int data) {
+        -:   26:    // If the tree is empty, create a new root node
+       17:   27:    if (root == NULL) {
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:   28:        return createNode(data);
+call    0 returned 100%
+        -:   29:    }
+        -:   30:    
+        -:   31:    // If data is less than current node's data, insert into the left subtree
+       10:   32:    if (data < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:   33:        root->left = insert(root->left, data);
+call    0 returned 100%
+        -:   34:    }
+        -:   35:    // If data is greater than current node's data, insert into the right subtree
+        5:   36:    else if (data > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   37:        root->right = insert(root->right, data);
+call    0 returned 100%
+        -:   38:    }
+        -:   39:    // Handle duplicates (optional: can modify to overwrite or reject)
+        -:   40:    else {
+    #####:   41:        printf("Duplicate value: %d\n", data);
+call    0 never executed
+        -:   42:    }
+        -:   43:    
+       10:   44:    return root;
+        -:   45:}
+        -:   46:
+        -:   47:// Function to perform in-order traversal of the binary tree
+function inOrder called 15 returned 100% blocks executed 100%
+       15:   48:void inOrder(struct Node* root) {
+       15:   49:    if (root != NULL) {
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        -:   50:        // Traverse left subtree
+        7:   51:        inOrder(root->left);
+call    0 returned 100%
+        -:   52:        // Visit current node
+        7:   53:        printf("%d ", root->data);
+call    0 returned 100%
+        -:   54:        // Traverse right subtree
+        7:   55:        inOrder(root->right);
+call    0 returned 100%
+        -:   56:    }
+       15:   57:}
+        -:   58:
+        -:   59:// Function to add all the values in the binary tree
+function sumAll called 15 returned 100% blocks executed 100%
+       15:   60:int sumAll(struct Node* root) {
+        -:   61:    // Base case: if root is NULL (empty tree), return 0
+       15:   62:    if (root == NULL) {
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        8:   63:        return 0;
+        -:   64:    }
+        -:   65:    
+        -:   66:    // Recursive case: add the current node's value
+        -:   67:    // to the sum of values in its left and right subtrees
+        7:   68:    int sum = root->data;
+        7:   69:    sum += sumAll(root->left);
+call    0 returned 100%
+        7:   70:    sum += sumAll(root->right);
+call    0 returned 100%
+        -:   71:    
+        7:   72:    return sum;
+        -:   73:}
+        -:   74:

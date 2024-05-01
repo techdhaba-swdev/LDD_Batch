@@ -1,0 +1,52 @@
+        -:    0:Source:btreemain.c
+        -:    1:#include <stdio.h>//include standard c libraries for printf,scanf
+        -:    2:#include "btree.h"//include header filewhich contains structure definition and function prototype 
+        -:    3:#include <time.h>//include standard libraries for measuring time
+        -:    4:
+function main called 1 returned 100% blocks executed 100%
+        1:    5:int main() {//starting main function
+        1:    6:    clock_t start = clock();//declaring start of typ clock_t ans assignvalue return by clock()
+call    0 returned 100%
+        1:    7:    struct Node* root = NULL;//this declares pointer variable root of type struct node anf initialize it to null
+        -:    8:    
+        -:    9:    // Insert nodes into the binary tree
+        1:   10:    root = insert(root, 50);
+call    0 returned 100%
+        1:   11:    insert(root, 30);
+call    0 returned 100%
+        1:   12:    insert(root, 20);
+call    0 returned 100%
+        1:   13:    insert(root, 40);
+call    0 returned 100%
+        1:   14:    insert(root, 70);
+call    0 returned 100%
+        1:   15:    insert(root, 60);
+call    0 returned 100%
+        1:   16:    insert(root, 80);
+call    0 returned 100%
+        -:   17:    
+        -:   18:    // Print in-order traversal of the binary tree
+        1:   19:    printf("In-order traversal: ");
+call    0 returned 100%
+        1:   20:    inOrder(root);
+call    0 returned 100%
+        1:   21:    printf("\n");
+call    0 returned 100%
+        -:   22:    
+        1:   23:    int totalSum = sumAll(root);
+call    0 returned 100%
+        1:   24:    printf("Total sum of all values in the binary tree: %d\n", totalSum);
+call    0 returned 100%
+        -:   25:    
+        1:   26:    clock_t stop = clock();//declaring stop oftype clock_t and assign it value return by clockk()
+call    0 returned 100%
+        1:   27:    double time_taken = ((double)(stop - start)) / CLOCKS_PER_SEC;//calculating the time taken by subtract value to start from stop and result is double to allow fractionalvalue
+        1:   28:    printf("Time taken: %f seconds\n", time_taken);//prints total time taken
+call    0 returned 100%
+        -:   29:    
+        -:   30:    // Free memory allocated for the binary tree (optional)
+        -:   31:    // FreeTree(root);
+        -:   32:    
+        1:   33:    return 0;
+        -:   34:}
+        -:   35:
