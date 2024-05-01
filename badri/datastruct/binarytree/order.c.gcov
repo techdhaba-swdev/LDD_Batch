@@ -1,0 +1,19 @@
+        -:    0:Source:order.c
+        -:    1:#include "order.h"
+        -:    2:
+function inOrder called 15 returned 100% blocks executed 100%
+       15:    3:void inOrder(struct Node *root)
+        -:    4:{
+       15:    5:	if(root != NULL)
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        -:    6:	{
+        7:    7:		inOrder(root->Left);
+call    0 returned 100%
+        7:    8:		printf("%d\n",root->data);
+call    0 returned 100%
+        7:    9:		inOrder(root->Right);
+call    0 returned 100%
+        -:   10:	}
+       15:   11:}
+        -:   12:

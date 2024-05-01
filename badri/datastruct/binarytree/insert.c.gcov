@@ -1,0 +1,38 @@
+        -:    0:Source:insert.c
+        -:    1:#include"header.h"
+        -:    2:#include "insert.h"
+        -:    3:#include "newnode.h"
+        -:    4:
+function insert called 17 returned 100% blocks executed 92%
+       17:    5:struct Node *insert(struct Node *root , int data)
+        -:    6:{
+       17:    7:	if(root == NULL)
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        -:    8:	{
+        7:    9:		return createnode(data);
+call    0 returned 100%
+        -:   10:	}
+       10:   11:	if(data < root->data)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   12:	{
+        5:   13:		root->Left = insert(root->Left , data);
+call    0 returned 100%
+        -:   14:	}
+        5:   15:	else if (data > root->data)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        -:   16:	{
+        5:   17:		root->Right = insert(root->Right ,data);
+call    0 returned 100%
+        -:   18:	}
+        -:   19:	else
+        -:   20:	{
+    #####:   21:		printf("duplicate data %d\n",data);
+call    0 never executed
+        -:   22:	}
+       10:   23:	return root;
+        -:   24:}
+        -:   25:
+        -:   26:

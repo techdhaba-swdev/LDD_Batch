@@ -1,0 +1,14 @@
+        -:    0:Source:newnode.c
+        -:    1:#include "newnode.h"
+        -:    2:
+function createnode called 7 returned 100% blocks executed 100%
+        7:    3:struct Node *createnode(int data)
+        -:    4:{
+        7:    5:	struct Node *newnode = (struct Node*)malloc(sizeof(struct Node));
+        7:    6:	newnode->data = data;
+        7:    7:	newnode->Left = NULL;
+        7:    8:	newnode->Right = NULL;
+        -:    9:
+        7:   10:	return newnode;
+        -:   11:}
+        -:   12:

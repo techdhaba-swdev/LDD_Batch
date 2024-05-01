@@ -1,0 +1,34 @@
+File 'newnode.c'
+Lines executed:100.00% of 6
+No branches
+No calls
+Creating 'newnode.c.gcov'
+
+File 'insert.c'
+Lines executed:88.89% of 9
+Branches executed:100.00% of 6
+Taken at least once:83.33% of 6
+Calls executed:75.00% of 4
+Creating 'insert.c.gcov'
+
+File 'order.c'
+Lines executed:100.00% of 6
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 3
+Creating 'order.c.gcov'
+
+File 'sum.c'
+Lines executed:100.00% of 4
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 2
+Creating 'sum.c.gcov'
+
+File 'main.c'
+Lines executed:100.00% of 15
+No branches
+Calls executed:100.00% of 12
+Creating 'main.c.gcov'
+
+Lines executed:97.50% of 40
