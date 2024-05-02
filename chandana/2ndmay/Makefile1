@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=bst.h
+OBJ=bstmain.o bst.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+tree1: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
