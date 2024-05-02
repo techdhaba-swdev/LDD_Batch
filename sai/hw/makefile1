@@ -1,0 +1,2 @@
+graph1: sgraph.c sgrpmain.c
+	gcc -o graph1 sgraph.c sgrpmain.c   -I.

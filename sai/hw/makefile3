@@ -1,0 +1,2 @@
+graph2exe: graph2.c maingraph2.c
+	gcc -o graph2exe graph2.c maingraph2.c -I.

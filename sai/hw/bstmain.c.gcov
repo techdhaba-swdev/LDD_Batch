@@ -1,0 +1,40 @@
+        -:    0:Source:bstmain.c
+        -:    0:Source is newer than graph
+        -:    1:#include <stdio.h>
+        -:    2:#include "bst.h"
+        -:    3:#include<time.h>
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        1:    5:    struct Node* root = NULL;
+        1:    6:    clock_t start = clock();
+call    0 returned 100%
+        1:    7:    root = insert(root, 50);
+call    0 returned 100%
+        1:    8:    insert(root, 30);
+call    0 returned 100%
+        1:    9:    insert(root, 20);
+call    0 returned 100%
+        1:   10:    insert(root, 40);
+call    0 returned 100%
+        1:   11:    insert(root, 70);
+call    0 returned 100%
+        1:   12:    insert(root, 60);
+call    0 returned 100%
+        -:   13:    insert(root, 80);
+        1:   14:
+call    0 returned 100%
+        1:   15:    printf("In-order traversal: ");
+call    0 returned 100%
+        1:   16:    inOrder(root);
+call    0 returned 100%
+        -:   17:    printf("\n");
+        1:   18:
+call    0 returned 100%
+        1:   19:    int sum = calculateSum(root);
+call    0 returned 100%
+        -:   20:    printf("Sum of all node values: %d\n", sum);
+        1:   21:    clock_t stop = clock();
+        -:   22:    double time =  ((double)stop -start);
+        -:   23:    printf("Time = %f\n",time);
+        -:   24:    return 0;
+        -:   25:}
