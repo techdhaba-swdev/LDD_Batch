@@ -1,0 +1,14 @@
+File 'main.c'
+Lines executed:100.00% of 12
+No branches
+Calls executed:100.00% of 8
+Creating 'main.c.gcov'
+
+File 'graph2.c'
+Lines executed:100.00% of 26
+Branches executed:100.00% of 6
+Taken at least once:100.00% of 6
+Calls executed:100.00% of 4
+Creating 'graph2.c.gcov'
+
+Lines executed:100.00% of 38
