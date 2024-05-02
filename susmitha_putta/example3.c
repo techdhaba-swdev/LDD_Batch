@@ -1,18 +1,13 @@
 #include <stdio.h>
-#include<pthread.h>
-void printMsg(char*msg)
-{
-	int status=0;
-	printf("%s\n",msg);
-	pthread_exit(&status);
+ 
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);  
+ 
+    for (int i = 0; i <= size; i++) {  
+        printf("%d ", arr[i]);
+    }
+ 
+    printf("\n");
+    return 0;
 }
-int main(int argc,char** argv){
-	pthread_t thrdID;
-	int*status=(int*)malloc(sizeof(int));
-	printf("creating a new thread\n");
-	pthread_create(&thrdID,NULL,(void*)printMsg,"HELLO");
-			printf("created thread %d\n",thrdID);
-			pthread_join(thrdID,&status);
-			printf("Thread %d exited with status %d\n",thrdID,*status);
-			return 0;
-			}

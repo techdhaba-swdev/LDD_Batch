@@ -1,53 +1,22 @@
+
 #include <stdio.h>
-#include <string.h>
-#define MAX_STRINGS 128
-#define MAX_STRING_LENGTH 256
-void ReadStrings(char **strings, int *nstrings, int maxstrings, FILE *fp)
+#include <stdlib.h>
+void allocate_and_modify(int **ptr)
 {
-char string[MAX_STRING_LENGTH];
-*nstrings = 0;
-while (fgets(string, MAX_STRING_LENGTH, fp)) {
-strings[(*nstrings)++] = strdup(string);
-if (*nstrings >= maxstrings) break;
-}
-}
-void WriteStrings(char **strings, int nstrings, FILE *fp)
-{
-int i;
-for (i = 0; i < nstrings; i++)
-fprintf(fp, "%s", strings[i]);
-}
-int CompareStrings(char *string1, char *string2)
-{
-char *p1 = string1;
-char *p2 = string2;
-while (*p1 && *p2) {
-if (*p1 < *p2) return -1;
-else if (*p1 > *p2) return 1;
-p1++;
-p2++;
-}
-return 0;
-}
- 
-void SortStrings(char **strings, int nstrings)
-{
-int i, j;
-for (i = 0; i < nstrings; i++) {
-for (j = i+1; j < nstrings; j++) {
-if (CompareStrings(strings[i], strings[j]) > 0) {
-char *swap = strings[i];
-strings[i] = strings[j];
-strings[j] = swap;
-}
-}
-}
-}
+   	int *temp = (int *)malloc(sizeof(int));
+      	// Dynamically allocate memory
+	    *temp = 10;
+	    // Modify the allocated value
+	       *ptr = temp;  
+	       // Assign the address to the pointer passed by reference
+	       }
 int main()
 {
-char *strings[MAX_STRINGS];
-int nstrings;
-ReadStrings(strings, &nstrings, MAX_STRINGS, stdin);
-SortStrings(strings, nstrings);
-WriteStrings(strings, nstrings, stdout);
-ret
+   	int *x = NULL;
+   	allocate_and_modify(&x);   
+      	printf("Modified value: %d\n", *x);
+       	// Access dangling pointer after function
+	 free(x); 
+	 // Free memory (may cause issues if not executed due to early termination)
+	 return 0;
+}
