@@ -1,0 +1,3 @@
+graphs: graphs.c graphmain.c
+	gcc -o graphs graphs.c graphmain.c -I.
+

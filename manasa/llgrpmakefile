@@ -1,0 +1,3 @@
+llgraph: llgraph.c llgraphmain.c
+	gcc -o llgraph llgraph.c llgraphmain.c -I.
+

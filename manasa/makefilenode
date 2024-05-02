@@ -1,0 +1,3 @@
+btnode: btnode.c nodemain.c
+	gcc -o btnode btnode.c nodemain.c -I.
+

@@ -1,0 +1,4 @@
+bstree: treemain.c bstree.c
+	gcc -o bstree treemain.c bstree.c -I.
+
+

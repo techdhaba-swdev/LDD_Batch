@@ -1,0 +1,14 @@
+File 'btree.c'
+Lines executed:100.00% of 24
+Branches executed:100.00% of 10
+Taken at least once:90.00% of 10
+Calls executed:100.00% of 8
+Creating 'btree.c.gcov'
+
+File 'maintree.c'
+Lines executed:100.00% of 15
+No branches
+Calls executed:100.00% of 12
+Creating 'maintree.c.gcov'
+
+Lines executed:100.00% of 39

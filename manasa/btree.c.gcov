@@ -1,0 +1,67 @@
+        -:    0:Source:btree.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "tree.h"
+        -:    4:
+        -:    5:// Function to create a new node
+function createNode called 7 returned 100% blocks executed 100%
+        7:    6:struct Node* createNode(int data) {
+        7:    7:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        7:    8:    newNode->data = data;
+        7:    9:    newNode->left = NULL;
+        7:   10:    newNode->right = NULL;
+        7:   11:    return newNode;
+        -:   12:}
+        -:   13:
+        -:   14:// Function to insert a node into the binary tree
+function insert called 17 returned 100% blocks executed 100%
+       17:   15:struct Node* insert(struct Node* root, int data) {
+       17:   16:    if (root == NULL) {
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:   17:        return createNode(data);
+call    0 returned 100%
+        -:   18:    }
+       10:   19:    if (data < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:   20:        root->left = insert(root->left, data);
+call    0 returned 100%
+        5:   21:    } else if (data > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   22:        root->right = insert(root->right, data);
+call    0 returned 100%
+        -:   23:    } else {
+        -:   24:        // Handle duplicates
+        -:   25:    }
+       10:   26:    return root;
+        -:   27:}
+        -:   28:
+        -:   29:// Function to perform in-order traversal of the binary tree
+function inOrder called 15 returned 100% blocks executed 100%
+       15:   30:void inOrder(struct Node* root) {
+       15:   31:    if (root != NULL) {
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        7:   32:        inOrder(root->left);
+call    0 returned 100%
+        7:   33:        printf("%d ", root->data);
+call    0 returned 100%
+        7:   34:        inOrder(root->right);
+call    0 returned 100%
+        -:   35:    }
+       15:   36:}
+        -:   37:
+        -:   38:// Function to calculate the sum of all node values in the binary tree
+function calculateSum called 15 returned 100% blocks executed 100%
+       15:   39:int calculateSum(struct Node* root) {
+       15:   40:    if (root == NULL) {
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        8:   41:        return 0;
+        -:   42:    }
+        7:   43:    return root->data + calculateSum(root->left) + calculateSum(root->right);
+call    0 returned 100%
+call    1 returned 100%
+        -:   44:}
