@@ -1,0 +1,51 @@
+        -:    0:Source:llgraph.c
+        -:    1:#include "graph.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+        9:    5:struct Node* createNode(int vertex) {
+        9:    6:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        9:    7:    if (newNode == NULL) {
+    #####:    8:        printf("Memory allocation failed\n");
+    #####:    9:        exit(EXIT_FAILURE);
+        -:   10:    }
+        9:   11:    newNode->vertex = vertex;
+        9:   12:    newNode->next = NULL;
+        9:   13:    return newNode;
+        -:   14:}
+        -:   15:
+        3:   16:struct Graph* createGraph(int numVertices) {
+        3:   17:    struct Graph* graph = (struct Graph*)malloc(sizeof(struct Graph));
+        3:   18:    if (graph == NULL) {
+    #####:   19:        printf("Memory allocation failed\n");
+    #####:   20:        exit(EXIT_FAILURE);
+        -:   21:    }
+        3:   22:    graph->numVertices = numVertices;
+        3:   23:    graph->adjLists = (struct Node*)malloc(numVertices * sizeof(struct Node));
+        3:   24:    if (graph->adjLists == NULL) {
+    #####:   25:        printf("Memory allocation failed\n");
+    #####:   26:        exit(EXIT_FAILURE);
+        -:   27:    }
+       15:   28:    for (int i = 0; i < numVertices; ++i) {
+       12:   29:        graph->adjLists[i] = NULL;
+        -:   30:    }
+        3:   31:    return graph;
+        -:   32:}
+        -:   33:
+        9:   34:void addEdge(struct Graph* graph, int src, int dest) {
+        9:   35:    struct Node* newNode = createNode(dest);
+        9:   36:    newNode->next = graph->adjLists[src];
+        9:   37:    graph->adjLists[src] = newNode;
+        9:   38:}
+        -:   39:
+        3:   40:void printGraph(struct Graph* graph) {
+       15:   41:    for (int v = 0; v < graph->numVertices; ++v) {
+       12:   42:        printf("\nAdjacency list of vertex %d\n head ", v);
+       12:   43:        struct Node* temp = graph->adjLists[v];
+       21:   44:        while (temp) {
+        9:   45:            printf("-> %d ", temp->vertex);
+        9:   46:            temp = temp->next;
+        -:   47:        }
+       12:   48:        printf("\n");
+        -:   49:    }
+        3:   50:}

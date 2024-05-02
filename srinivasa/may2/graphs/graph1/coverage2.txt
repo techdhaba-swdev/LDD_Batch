@@ -1,0 +1,9 @@
+File 'llgraph.c'
+Lines executed:82.86% of 35
+Creating 'llgraph.c.gcov'
+
+File 'llmain.c'
+Lines executed:100.00% of 8
+Creating 'llmain.c.gcov'
+
+Lines executed:86.05% of 43

@@ -1,0 +1,9 @@
+File 'arraymain.c'
+Lines executed:100.00% of 12
+Creating 'arraymain.c.gcov'
+
+File 'array.c'
+Lines executed:100.00% of 14
+Creating 'array.c.gcov'
+
+Lines executed:100.00% of 26

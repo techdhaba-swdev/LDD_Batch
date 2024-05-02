@@ -1,0 +1,11 @@
+CC=gcc
+FLAGS=-I.
+OBJ=arraymain.o array.o
+DEPS=array.h
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(FLAGS)
+
+exe: $(OBJ)
+	$(CC) -o $@ $^ $(FLAGS)
+

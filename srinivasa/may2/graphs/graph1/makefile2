@@ -1,0 +1,9 @@
+CC=gcc
+FLAGS=-I.
+DEPS=graph.h
+OBJ=llmain.o llgraph.o
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(FLAGS)
+
+runmake: $(OBJ)
+	$(CC) -o $@ $^ $(FLAGS)

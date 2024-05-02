@@ -1,0 +1,19 @@
+        -:    0:Source:arraymain.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<time.h>
+        -:    3:#include"array.h"
+        1:    4:int main()
+        -:    5:{
+        1:    6:	clock_t start = clock();
+        1:    7:	int numver = 4;
+        1:    8:	startgraph(numver);
+        1:    9:	addedge(0, 1);
+        1:   10:	addedge(1, 2);
+        1:   11:	addedge(2, 3);
+        1:   12:	printgraph(numver);
+        1:   13:	clock_t end = clock();
+        1:   14:	float time = ((float)(end -start));
+        1:   15:	printf("time taken:%f",time);
+        1:   16:	return 0;
+        -:   17:}
+        -:   18:
