@@ -1,0 +1,80 @@
+        -:    0:Source:graph4.c
+        -:    1:#include "graph4.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+function createNode called 3 returned 100% blocks executed 60%
+        3:    5:struct Node* createNode(int vertex) {
+        3:    6:  struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        3:    7:  if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    8:    printf("Memory allocation failed for creating node\n");
+call    0 never executed
+    #####:    9:    exit(EXIT_FAILURE);
+call    0 never executed
+        -:   10:  }
+        3:   11:  newNode->vertex = vertex;
+        3:   12:  newNode->next = NULL;
+        3:   13:  return newNode;
+        -:   14:}
+        -:   15:
+function createGraph called 1 returned 100% blocks executed 64%
+        1:   16:struct Graph* createGraph(int numVertices) {
+        1:   17:  struct Graph* graph = (struct Graph*)malloc(sizeof(struct Graph));
+        1:   18:  if (graph == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   19:    printf("Memory allocation failed for creating graph\n");
+call    0 never executed
+    #####:   20:    exit(EXIT_FAILURE);
+call    0 never executed
+        -:   21:  }
+        1:   22:  graph->numVertices = numVertices;
+        -:   23:
+        1:   24:  graph->adjLists = (struct Node**)malloc(numVertices * sizeof(struct Node*));
+        1:   25:  if (graph->adjLists == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   26:    printf("Memory allocation failed for adjacency lists\n");
+call    0 never executed
+    #####:   27:    exit(EXIT_FAILURE);
+call    0 never executed
+        -:   28:  }
+        -:   29:
+        5:   30:  for (int i = 0; i < numVertices; ++i) {
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        4:   31:    graph->adjLists[i] = NULL;
+        -:   32:  }
+        1:   33:  return graph;
+        -:   34:}
+        -:   35:
+function addEdge called 3 returned 100% blocks executed 100%
+        3:   36:void addEdge(struct Graph* graph, int src, int dest) {
+        3:   37:  struct Node* newNode = createNode(dest);
+call    0 returned 100%
+        3:   38:  newNode->next = graph->adjLists[src];
+        3:   39:  graph->adjLists[src] = newNode;
+        3:   40:}
+        -:   41:
+function printGraph called 1 returned 100% blocks executed 100%
+        1:   42:void printGraph(struct Graph* graph) {
+        5:   43:  for (int v = 0; v < graph->numVertices; ++v) {
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        4:   44:    printf("\nAdjacency list of vertex %d\n head ", v);
+call    0 returned 100%
+        4:   45:    struct Node* temp = graph->adjLists[v];
+        7:   46:    while (temp) {
+branch  0 taken 43%
+branch  1 taken 57% (fallthrough)
+        3:   47:      printf("-> %d ", temp->vertex);
+call    0 returned 100%
+        3:   48:      temp = temp->next;
+        -:   49:    }
+        4:   50:    printf("\n");
+call    0 returned 100%
+        -:   51:  }
+        1:   52:}
+        -:   53:

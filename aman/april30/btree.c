@@ -36,7 +36,7 @@ struct Node* insert(struct Node* root, int data) {
     else if (data > root->data) {
         root->right = insert(root->right, data);
     }
-    // Handle duplicates (optional: can modify to overwrite or reject)
+    // Handle duplicates 
     else {
         printf("Duplicate value: %d\n", data);
     }
@@ -58,12 +58,12 @@ void inOrder(struct Node* root) {
 
 // Function to add all the values in the binary tree
 int sumAll(struct Node* root) {
-    // Base case: if root is NULL (empty tree), return 0
+    //  if root is NULL , return 0
     if (root == NULL) {
         return 0;
     }
     
-    // Recursive case: add the current node's value
+    // Recursive  add the current node's value
     // to the sum of values in its left and right subtrees
     int sum = root->data;
     sum += sumAll(root->left);

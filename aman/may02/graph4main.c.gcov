@@ -1,0 +1,37 @@
+        -:    0:Source:graph4main.c
+        -:    1:#include "graph4.h"
+        -:    2:#include<stdlib.h>
+        -:    3:#include<stdio.h>
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        1:    5:  int numVertices = 4;
+        1:    6:  struct Graph* graph = createGraph(numVertices);
+call    0 returned 100%
+        1:    7:  addEdge(graph, 0, 1);
+call    0 returned 100%
+        1:    8:  addEdge(graph, 1, 2);
+call    0 returned 100%
+        1:    9:  addEdge(graph, 2, 3);
+call    0 returned 100%
+        -:   10:
+        1:   11:  printGraph(graph);
+call    0 returned 100%
+        -:   12:
+        5:   13:  for (int i = 0; i < numVertices; ++i) {
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        4:   14:    struct Node* temp = graph->adjLists[i];
+        7:   15:    while (temp) {
+branch  0 taken 43%
+branch  1 taken 57% (fallthrough)
+        3:   16:      struct Node* prev = temp;
+        3:   17:      temp = temp->next;
+        3:   18:      free(prev);
+        -:   19:    }
+        -:   20:  }
+        1:   21:  free(graph->adjLists);
+        1:   22:  free(graph);
+        -:   23:
+        1:   24:  return 0;
+        -:   25:}
+        -:   26://secure code - Error check for memory allocation is added in both createNode and createGraph functions.Memory allocated for the adjacency lists is freed in the main function before exit. error messages are displayed if memory allocation fails.

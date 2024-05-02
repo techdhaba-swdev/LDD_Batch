@@ -1,0 +1,2 @@
+graph_4: graph4.c graph4main.c
+	gcc -o graph_4 graph4.o graph4main.o -I.

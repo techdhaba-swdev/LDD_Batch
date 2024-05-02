@@ -27,9 +27,6 @@ int main() {//starting main function
     double time_taken = ((double)(stop - start)) / CLOCKS_PER_SEC;//calculating the time taken by subtract value to start from stop and result is double to allow fractionalvalue
     printf("Time taken: %f seconds\n", time_taken);//prints total time taken
     
-    // Free memory allocated for the binary tree (optional)
-    // FreeTree(root);
-    
     return 0;
 }
 

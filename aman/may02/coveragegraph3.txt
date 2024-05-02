@@ -1,0 +1,14 @@
+File 'graph3.c'
+Lines executed:82.14% of 28
+Branches executed:100.00% of 20
+Taken at least once:70.00% of 20
+Calls executed:37.50% of 8
+Creating 'graph3.c.gcov'
+
+File 'graph3main.c'
+Lines executed:100.00% of 9
+No branches
+Calls executed:100.00% of 6
+Creating 'graph3main.c.gcov'
+
+Lines executed:86.49% of 37

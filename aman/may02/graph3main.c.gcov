@@ -1,0 +1,28 @@
+        -:    0:Source:graph3main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "graph3.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        1:    5:  int numVertices = 4;
+        -:    6:
+        1:    7:  initializeGraph(numVertices);
+call    0 returned 100%
+        -:    8:
+        1:    9:  addEdge(0, 1, numVertices); // Directed edge from 0 to 1
+call    0 returned 100%
+        1:   10:  addEdge(1, 2, numVertices); // Directed edge from 1 to 2
+call    0 returned 100%
+        1:   11:  addEdge(2, 3, numVertices); // Directed edge from 2 to 3
+call    0 returned 100%
+        -:   12:
+        1:   13:  printGraph(numVertices);
+call    0 returned 100%
+        -:   14:
+        -:   15:  // Free allocated memory
+        1:   16:  freeGraph(numVertices);
+call    0 returned 100%
+        -:   17:
+        1:   18:  return 0;
+        -:   19:}
+        -:   20:  //secure code -  it correctly frees the allocated memory when it is no longer neede and reducing the risk of memory leak.also addEdge function checks whether the source and destination vertices are within the range of valid vertices before adding an edgewhich helps to  prevent buffer overflows and access violations.
