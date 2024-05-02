@@ -1,0 +1,100 @@
+        -:    0:Source:tree.c
+        -:    1:#include "tree.h" // Include the header file for function prototypes (used to secure multiple inclusion)
+        -:    2:
+        -:    3:#include <stdio.h>
+        -:    4:#include <stdlib.h>
+        -:    5:
+        -:    6:struct Node {
+        -:    7:    int data;
+        -:    8:    struct Node* left;
+        -:    9:    struct Node* right;
+        -:   10:};
+        -:   11:
+        -:   12:// Function to create a new node
+function createNode called 0 returned 0% blocks executed 0%
+    #####:   13:struct Node* createNode(int data) {
+        -:   14:    // Allocate memory for the new node
+    #####:   15:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node)); // Secure: Ensures proper memory allocation
+    #####:   16:    if (newNode == NULL) { // Check if memory allocation failed
+branch  0 never executed
+branch  1 never executed
+    #####:   17:        fprintf(stderr, "Memory allocation failed\n");
+call    0 never executed
+    #####:   18:        exit(EXIT_FAILURE); // Exit the program if memory allocation fails
+call    0 never executed
+        -:   19:    }
+    #####:   20:    newNode->data = data; // Initialize the data of the new node
+    #####:   21:    newNode->left = NULL; // Initialize the left child pointer of the new node
+    #####:   22:    newNode->right = NULL; // Initialize the right child pointer of the new node
+    #####:   23:    return newNode; // Return the newly created node
+        -:   24:}
+        -:   25:
+        -:   26:// Function to insert a node into the binary tree
+function insert called 0 returned 0% blocks executed 0%
+    #####:   27:struct Node* insert(struct Node* root, int data) {
+    #####:   28:    if (root == NULL) {  // Base case: Empty tree, create a new root node
+branch  0 never executed
+branch  1 never executed
+    #####:   29:        return createNode(data); // Create a new node with the given data
+call    0 never executed
+        -:   30:    }
+    #####:   31:    if (data < root->data) {
+branch  0 never executed
+branch  1 never executed
+    #####:   32:        root->left = insert(root->left, data);  // Insert in left subtree for smaller values
+call    0 never executed
+    #####:   33:    } else if (data > root->data) {
+branch  0 never executed
+branch  1 never executed
+    #####:   34:        root->right = insert(root->right, data);  // Insert in right subtree for larger values
+call    0 never executed
+        -:   35:    } else { // Handle duplicates (optional: can modify to overwrite or reject)
+        -:   36:        // printf("Duplicate value: %d\n", data);
+        -:   37:    }
+    #####:   38:    return root;  // Return the (potentially modified) root node
+        -:   39:}
+        -:   40:
+        -:   41:// Function to perform in-order traversal of the binary tree
+function inOrder called 0 returned 0% blocks executed 0%
+    #####:   42:void inOrder(struct Node* root) {
+    #####:   43:    if (root != NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   44:        inOrder(root->left);  // Visit left subtree
+call    0 never executed
+    #####:   45:        printf("%d ", root->data);  // Visit current node
+call    0 never executed
+    #####:   46:        inOrder(root->right); // Visit right subtree
+call    0 never executed
+        -:   47:    }
+    #####:   48:}
+        -:   49:
+        -:   50:// Function to calculate the sum of all nodes in the binary tree
+function sumOfNodes called 0 returned 0% blocks executed 0%
+    #####:   51:int sumOfNodes(struct Node* root) {
+    #####:   52:    if (root == NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   53:        return 0; // Base case: Empty tree, return 0
+        -:   54:    }
+    #####:   55:    int sum = root->data; // Add current node's data
+    #####:   56:    sum += sumOfNodes(root->left); // Recursively add sum of left subtree
+call    0 never executed
+    #####:   57:    sum += sumOfNodes(root->right); // Recursively add sum of right subtree
+call    0 never executed
+    #####:   58:    return sum; // Return the sum of node values
+        -:   59:}
+        -:   60:
+        -:   61:// Function to deallocate memory for the binary tree
+function freeTree called 0 returned 0% blocks executed 0%
+    #####:   62:void freeTree(struct Node* root) {
+    #####:   63:    if (root != NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   64:        freeTree(root->left); // Free left subtree
+call    0 never executed
+    #####:   65:        freeTree(root->right); // Free right subtree
+call    0 never executed
+    #####:   66:        free(root); // Free current node
+        -:   67:    }
+    #####:   68:}
