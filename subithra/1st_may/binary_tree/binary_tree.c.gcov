@@ -1,0 +1,102 @@
+        -:    0:Source:binary_tree.c
+        -:    1:#include "binary_tree.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+        -:    5:// Structure definition for a node in the binary tree
+        -:    6:struct Node {
+        -:    7:    int data;
+        -:    8:    Node* left;
+        -:    9:    Node* right;
+        -:   10:};
+        -:   11:
+        -:   12:// Function to create a new node
+function createNode called 7 returned 100% blocks executed 60%
+        7:   13:Node* createNode(int data) {
+        -:   14:    // Allocate memory for the new node
+        7:   15:    Node* newNode = (Node*)malloc(sizeof(Node));
+        7:   16:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:   17:        // Print error message if memory allocation fails
+    #####:   18:        fprintf(stderr, "Memory allocation failed.\n");
+call    0 never executed
+    #####:   19:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   20:    }
+        -:   21:    // Initialize node's data and children pointers
+        7:   22:    newNode->data = data;
+        7:   23:    newNode->left = NULL;
+        7:   24:    newNode->right = NULL;
+        7:   25:    return newNode;
+        -:   26:}
+        -:   27:
+        -:   28:// Function to insert a node into the binary tree
+function insert called 17 returned 100% blocks executed 100%
+       17:   29:Node* insert(Node* root, int data) {
+       17:   30:    if (root == NULL) {  // Base case: Empty tree, create a new root node
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:   31:        return createNode(data);
+call    0 returned 100%
+        -:   32:    }
+        -:   33:
+       10:   34:    if (data < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:   35:        root->left = insert(root->left, data);  // Insert in left subtree for smaller values
+call    0 returned 100%
+        5:   36:    } else if (data > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   37:        root->right = insert(root->right, data);  // Insert in right subtree for larger values
+call    0 returned 100%
+        -:   38:    } else { // Handle duplicates (optional: can modify to overwrite or reject)
+        -:   39:        // printf("Duplicate value: %d\n", data);
+        -:   40:    }
+        -:   41:
+       10:   42:    return root;  // Return the (potentially modified) root node
+        -:   43:}
+        -:   44:
+        -:   45:// Function to perform in-order traversal of the binary tree
+function inOrder called 15 returned 100% blocks executed 100%
+       15:   46:void inOrder(Node* root) {
+       15:   47:    if (root != NULL) {
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        7:   48:        inOrder(root->left);  // Visit left subtree
+call    0 returned 100%
+        7:   49:        printf("%d ", root->data);  // Visit current node
+call    0 returned 100%
+        7:   50:        inOrder(root->right); // Visit right subtree
+call    0 returned 100%
+        -:   51:    }
+       15:   52:}
+        -:   53:
+        -:   54:// Function to free memory allocated for the binary tree
+function freeTree called 15 returned 100% blocks executed 100%
+       15:   55:void freeTree(Node* root) {
+       15:   56:    if (root != NULL) {
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        7:   57:        freeTree(root->left);   // Free left subtree
+call    0 returned 100%
+        7:   58:        freeTree(root->right);  // Free right subtree
+call    0 returned 100%
+        7:   59:        free(root);             // Free current node
+        -:   60:    }
+       15:   61:}
+        -:   62:
+        -:   63:// Function to calculate the sum of all nodes in the binary tree
+function sumNodes called 15 returned 100% blocks executed 100%
+       15:   64:int sumNodes(Node* root) {
+       15:   65:    if (root == NULL) {
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        8:   66:        return 0;
+        -:   67:    } else {
+        7:   68:        return root->data + sumNodes(root->left) + sumNodes(root->right);
+call    0 returned 100%
+call    1 returned 100%
+        -:   69:    }
+        -:   70:}

@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+makebinary: main.o binary_tree.o
+	$(CC) -o makebinary main.o binary_tree.o $(CFLAGS)
+

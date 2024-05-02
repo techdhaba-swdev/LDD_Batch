@@ -1,0 +1,56 @@
+        -:    0:Source:main.c
+        -:    1:#include "binary_tree.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include<time.h>
+        -:    4:
+        -:    5:// Main function
+function main called 1 returned 100% blocks executed 100%
+        1:    6:int main() {
+        1:    7:     clock_t start = clock(); // Start timing
+call    0 returned 100%
+        -:    8:
+        1:    9:    Node* root = NULL;
+        1:   10:    root = insert(root, 50); // Insert root node
+call    0 returned 100%
+        1:   11:    insert(root, 30); // Insert nodes
+call    0 returned 100%
+        1:   12:    insert(root, 20);
+call    0 returned 100%
+        1:   13:    insert(root, 40);
+call    0 returned 100%
+        1:   14:    insert(root, 70);
+call    0 returned 100%
+        1:   15:    insert(root, 60);
+call    0 returned 100%
+        1:   16:    insert(root, 80);
+call    0 returned 100%
+        -:   17:    
+        1:   18:    printf("inorder traversal: ");
+call    0 returned 100%
+        1:   19:    inOrder(root);
+call    0 returned 100%
+        1:   20:    printf("\n");
+call    0 returned 100%
+        -:   21:    
+        -:   22:    // End timing
+        1:   23:    clock_t end = clock();
+call    0 returned 100%
+        -:   24:
+        -:   25:    // Calculate the elapsed time in milliseconds
+        1:   26:    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+        -:   27:   
+        -:   28:    // Print the sum of all nodes
+        1:   29:    printf("Sum of all nodes: %d\n", sumNodes(root));
+call    0 returned 100%
+call    1 returned 100%
+        -:   30:
+        -:   31:    // Print the time taken for execution
+        1:   32:    printf("Time taken: %f seconds\n", time_taken);
+call    0 returned 100%
+        -:   33:
+        -:   34:    // Free allocated memory
+        1:   35:    freeTree(root);
+call    0 returned 100%
+        -:   36:
+        1:   37:    return 0;
+        -:   38:}
