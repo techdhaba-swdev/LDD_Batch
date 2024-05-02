@@ -1,0 +1,8 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=graph_struct.h
+OBJ=graph_struct.o graph_struct_api.o
+%.o :%.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+makegraphstruct:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
