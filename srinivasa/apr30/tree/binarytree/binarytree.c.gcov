@@ -1,0 +1,55 @@
+        -:    0:Source:binarytree.c
+        -:    1:#include "binary_tree.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+        7:    5:struct Node* createNode(int data) {
+        7:    6:    struct Node* newNode = malloc(sizeof(struct Node));
+        7:    7:    if (newNode == NULL) {
+    #####:    8:        printf("Memory allocation failed.\n");
+    #####:    9:        exit(EXIT_FAILURE);
+        -:   10:    }
+        7:   11:    newNode->data = data;
+        7:   12:    newNode->left = NULL;
+        7:   13:    newNode->right = NULL;
+        7:   14:    return newNode;
+        -:   15:}
+        -:   16:
+       17:   17:struct Node* insert(struct Node* root, int data) {
+       17:   18:    if (root == NULL) {
+        7:   19:        return createNode(data);
+        -:   20:    }
+        -:   21:
+       10:   22:    if (data < root->data) {
+        5:   23:        root->left = insert(root->left, data);
+        5:   24:    } else if (data > root->data) {
+        5:   25:        root->right = insert(root->right, data);
+        -:   26:    } else {
+    #####:   27:        printf("Duplicate value: %d\n", data);
+        -:   28:        // Handling duplicate values can be modified here
+        -:   29:    }
+       10:   30:    return root;
+        -:   31:}
+        -:   32:
+       15:   33:void inOrder(struct Node* root) {
+       15:   34:    if (root != NULL) {
+        7:   35:        inOrder(root->left);
+        7:   36:        printf("%d ", root->data);
+        7:   37:        inOrder(root->right);
+        -:   38:    }
+       15:   39:}
+        -:   40:
+       15:   41:int sumOfData(struct Node* root) {
+       15:   42:    if (root == NULL) {
+        8:   43:        return 0;
+        -:   44:    }
+        7:   45:    return root->data + sumOfData(root->left) + sumOfData(root->right);
+        -:   46:}
+        -:   47:
+       15:   48:void freeTree(struct Node* root) {
+       15:   49:    if (root != NULL) {
+        7:   50:        freeTree(root->left);
+        7:   51:        freeTree(root->right);
+        7:   52:        free(root);
+        -:   53:    }
+       15:   54:}

@@ -1,0 +1,24 @@
+        -:    0:Source:main1.c
+        -:    1:#include "binary_tree.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+        1:    4:int main() {
+        1:    5:    struct Node* root = NULL;
+        -:    6:
+        1:    7:    root = insert(root, 50);
+        1:    8:    insert(root, 30);
+        1:    9:    insert(root, 20);
+        1:   10:    insert(root, 40);
+        1:   11:    insert(root, 70);
+        1:   12:    insert(root, 60);
+        1:   13:    insert(root, 80);
+        -:   14:
+        1:   15:    printf("In-order traversal: ");
+        1:   16:    inOrder(root);
+        1:   17:    printf("\n");
+        -:   18:
+        1:   19:    printf("Sum of data in the tree: %d\n", sumOfData(root));
+        -:   20:
+        1:   21:    freeTree(root); // Free allocated memory
+        1:   22:    return 0;
+        -:   23:}

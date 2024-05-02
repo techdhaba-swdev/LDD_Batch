@@ -1,0 +1,9 @@
+File 'main1.c'
+Lines executed:100.00% of 15
+Creating 'main1.c.gcov'
+
+File 'binarytree.c'
+Lines executed:91.18% of 34
+Creating 'binarytree.c.gcov'
+
+Lines executed:93.88% of 49

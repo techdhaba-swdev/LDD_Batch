@@ -1,8 +1,9 @@
 #include "bst.h"  // including the bst header file
 #include <stdio.h>  // including the input/output header functions
-
+#include<time.h>
 // Main function 
 int main() {
+	clock_t start = clock();
     struct node* root = NULL;  // creating a root and initialize as NULL
     root = insert(root, 50); // inserting 50 as root
     insert(root, 30);        // inserting some nodes 
@@ -23,6 +24,9 @@ int main() {
     } else {
         printf("%d is not present in the BST.\n", searchKey);
     }
+    clock_t end = clock();
+    float time = ((float)(start - end ));
+    printf("time taken :%f\n",time);
 
     return 0;  // executing the programe with out errors
 }

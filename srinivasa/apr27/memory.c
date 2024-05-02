@@ -22,6 +22,7 @@ FILE* safe_fopen(const char* filename, const char* mode) {
 }
  
 int main() {
+    
     // Error handling example 1: Memory allocation
     int* arr = safe_malloc(10 * sizeof(int));
  
