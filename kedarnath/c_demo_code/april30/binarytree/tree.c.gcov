@@ -1,0 +1,52 @@
+        -:    0:Source:tree.c
+        -:    1:#include"tree.h"
+        -:    2:
+        -:    3:struct Node {
+        -:    4: 	int data;
+        -:    5: 	struct Node* left;
+        -:    6: 	struct Node* right;
+        -:    7: };
+        -:    8:
+        7:    9:struct Node* createNode(int data) {
+        7:   10: 	struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        7:   11: 	newNode->data = data;
+        7:   12: 	newNode->left = NULL;
+        7:   13: 	newNode->right = NULL;
+        7:   14: 	return newNode;
+        -:   15: }
+        -:   16:
+       17:   17:struct Node* insert(struct Node* root, int data) {
+       17:   18: 	if (root == NULL) {  // Base case: Empty tree, create a new root node
+        7:   19:     	return createNode(data);
+        -:   20: 	}
+        -:   21: 
+       10:   22:	if (data < root->data) {
+        5:   23:     	root->left = insert(root->left, data);  // Insert in left subtree for smaller values
+        5:   24: 	} else if (data > root->data) {
+        5:   25:     	root->right = insert(root->right, data);  // Insert in right subtree for larger values
+        -:   26: 	} else { // Handle duplicates (optional: can modify to overwrite or reject)
+        -:   27:     	// printf("Duplicate value: %d\n", data);
+        -:   28: 	}
+        -:   29: 
+       10:   30:	return root;  // Return the (potentially modified) root node
+        -:   31: }
+        -:   32: 
+        -:   33:// Function to perform in-order traversal of the binary tree
+       15:   34: void inOrder(struct Node* root) {
+       15:   35: 	if (root != NULL) {
+        7:   36:     	inOrder(root->left);  // Visit left subtree
+        7:   37:     	printf("%d ", root->data);  // Visit current node
+        7:   38:     	inOrder(root->right); // Visit right subtree
+        -:   39: 	}
+       15:   40: }
+        -:   41:
+       15:   42:int sumOfNodes(struct Node* root) {
+       15:   43:    if (root == NULL) {
+        8:   44:        return 0; // Base case: empty subtree contributes 0 to the sum
+        -:   45:    }
+        -:   46:
+        -:   47:    // Recursively calculate sum of left and right subtrees, and add current node's value
+        7:   48:    return root->data + sumOfNodes(root->left) + sumOfNodes(root->right);
+        -:   49:}
+        -:   50:
+        -:   51:

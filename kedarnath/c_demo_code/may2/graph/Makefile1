@@ -1,0 +1,13 @@
+CC=gcc
+CFLAGS=-I.
+DEPS = arraygraph.h
+OBJ = arraymain.o arraygraph.o 
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+arraymain: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+
+

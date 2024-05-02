@@ -1,0 +1,27 @@
+        -:    0:Source:main.c
+        -:    1:#include"tree.h"
+        -:    2:#include<time.h>
+        -:    3:
+        1:    4:int main() {
+        -:    5:
+        1:    6:	clock_t start=clock();
+        1:    7: 	struct Node* root = NULL;
+        1:    8: 	root = insert(root, 50);
+        1:    9: 	insert(root, 30);
+        1:   10: 	insert(root, 20);
+        1:   11: 	insert(root, 40);
+        1:   12: 	insert(root, 70);
+        1:   13: 	insert(root, 60);
+        1:   14: 	insert(root, 80);
+        -:   15: 
+        1:   16:	printf("In-order traversal: ");
+        1:   17: 	inOrder(root);
+        1:   18: 	printf("\n");
+        1:   19:	printf("sum is %d\n",sumOfNodes(root));
+        1:   20:	clock_t end=clock();
+        1:   21: 	double time_taken=((double)(end-start));
+        1:   22: 	printf("time taken is %f\n",time_taken);
+        -:   23: 
+        1:   24:	return 0;
+        -:   25: }
+        -:   26:
