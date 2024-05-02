@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+exe: main.o array_graph.o
+	$(CC) -o exe main.o array_graph.o $(CFLAGS)
+
