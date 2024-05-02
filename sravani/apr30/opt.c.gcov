@@ -1,0 +1,23 @@
+        -:    0:Source:opt.c
+        -:    0:Graph:exe-opt.gcno
+        -:    0:Data:exe-opt.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+        -:    2:
+        1:    3:int main(){
+        1:    4:	int sum = 0;
+        1:    5:	int n = 1000;
+        -:    6://	for (int i=0; i<n; i += 2){
+        -:    7://		sum +=i;
+        -:    8://	printf("sum :%d\n",sum);
+        -:    9://	}
+      502:   10:	for (int i=0; i<=n; i += 2){
+      501:   11:		sum +=i;
+      501:   12:		if(i+1<n){
+      500:   13:		sum += i+1;
+        -:   14:
+        -:   15:		}
+        -:   16:	}
+        1:   17:printf("sum :%d\n",sum);
+        1:   18:return 0;
+        -:   19:}

@@ -1,0 +1,5 @@
+File 'opt.c'
+Lines executed:100.00% of 9
+Creating 'opt.c.gcov'
+
+Lines executed:100.00% of 9

@@ -1,0 +1,55 @@
+        -:    0:Source:bstadd.c
+        -:    1:#include "bstadd.h"
+        -:    2:#include <stdlib.h>
+        -:    3:#include <stdio.h>
+        -:    4:
+        -:    5:// Function to create a new node
+    #####:    6:struct Node* createNode(int data) {
+        -:    7:    // Allocate memory for a new node
+    #####:    8:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        -:    9:    // Check for memory allocation failure
+    #####:   10:    if (newNode == NULL) {
+    #####:   11:        fprintf(stderr, "Memory allocation failed\n");
+    #####:   12:        exit(EXIT_FAILURE);
+        -:   13:    }
+        -:   14:    // Initialize node data and pointers
+    #####:   15:    newNode->data = data;
+    #####:   16:    newNode->left = NULL;
+    #####:   17:    newNode->right = NULL;
+    #####:   18:    return newNode;
+        -:   19:}
+        -:   20:
+        -:   21:// Function to insert a new node
+    #####:   22:struct Node* insertNode(struct Node* root, int data) {
+    #####:   23:    if (root == NULL) {
+        -:   24:        // If the tree is empty, create a new node
+    #####:   25:        root = createNode(data);
+        -:   26:    } else {
+        -:   27:        // Otherwise, insert the node recursively based on data value
+    #####:   28:        if (data <= root->data) {
+    #####:   29:            root->left = insertNode(root->left, data);
+        -:   30:        } else {
+    #####:   31:            root->right = insertNode(root->right, data);
+        -:   32:        }
+        -:   33:    }
+    #####:   34:    return root;
+        -:   35:}
+        -:   36:
+        -:   37:// Function to add numbers in the binary tree
+    #####:   38:int addNumbers(struct Node* root) {
+    #####:   39:    if (root == NULL) {
+        -:   40:        // Base case: if root is NULL, return 0
+    #####:   41:        return 0;
+        -:   42:    } else {
+        -:   43:        // Recursively calculate sum of all nodes
+    #####:   44:        return root->data + addNumbers(root->left) + addNumbers(root->right);
+        -:   45:    }
+        -:   46:}
+        -:   47:
+    #####:   48:void printInorder(struct Node* root){
+    #####:   49:	if(root != NULL){
+    #####:   50:		printInorder(root->left);
+    #####:   51:		printf("%d",root->data);
+    #####:   52:		printInorder(root->right);
+        -:   53:	}
+    #####:   54:}	

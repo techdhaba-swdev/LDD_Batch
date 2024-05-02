@@ -1,0 +1,5 @@
+File 'optsam.c'
+Lines executed:100.00% of 10
+Creating 'optsam.c.gcov'
+
+Lines executed:100.00% of 10

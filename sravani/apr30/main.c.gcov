@@ -1,0 +1,32 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "bstadd.h"
+        -:    4:
+        -:    5:
+    #####:    6:int main() {
+    #####:    7:    struct Node* root = NULL;
+        -:    8:    int data;
+    #####:    9:clock_t start = clock();
+        -:   10:    // Add nodes to the binary tree
+    #####:   11:    root = insertNode(root, 1);
+    #####:   12:    root = insertNode(root, 2);
+    #####:   13:    root = insertNode(root, 7);
+    #####:   14:    root = insertNode(root, 6);
+    #####:   15:    root = insertNode(root, 4);
+    #####:   16:    root = insertNode(root, 5);
+    #####:   17:    root = insertNode(root, 8);
+    #####:   18:clock_t stop = clock();
+    #####:   19:	double time_taken = ((double)(stop-start));
+    #####:   20:	printf("time taken %f \n",time_taken);
+        -:   21:
+        -:   22:    // Print
+    #####:   23:    printf("binary tree values");
+    #####:   24:printInorder(root);
+    #####:   25:	printf("\n");
+        -:   26:    // Calculate and print te sum of all numbers in the binary tree
+    #####:   27:    int sum = addNumbers(root);
+    #####:   28:    printf("Sum of all numbers in the binary tree: %d\n", sum);
+        -:   29:
+    #####:   30:    return 0;
+        -:   31:}

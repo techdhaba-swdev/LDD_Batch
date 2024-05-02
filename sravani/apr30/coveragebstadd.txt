@@ -1,0 +1,9 @@
+File 'bstadd.c'
+Lines executed:0.00% of 26
+Creating 'bstadd.c.gcov'
+
+File 'main.c'
+Lines executed:0.00% of 19
+Creating 'main.c.gcov'
+
+Lines executed:0.00% of 45
