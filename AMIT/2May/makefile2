@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=graph2.h
+OBJ=graph_main2.o graphfn2.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+graph_2d:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
