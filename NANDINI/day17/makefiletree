@@ -1,0 +1,3 @@
+trees: trees.c maintree.c
+	gcc -o trees trees.c maintree.c -I.
+

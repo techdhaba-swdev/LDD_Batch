@@ -1,0 +1,69 @@
+        -:    0:Source:trees.c
+        -:    1:#include <stdlib.h>
+        -:    2:#include <stdio.h>
+        -:    3:#include "trees.h"
+        -:    4:
+function createNode called 7 returned 100% blocks executed 100%
+        7:    5:struct Node* createNode(int data) {
+        7:    6:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        7:    7:    newNode->data = data;
+        7:    8:    newNode->left = NULL;
+        7:    9:    newNode->right = NULL;
+        7:   10:    return newNode;
+        -:   11:}
+        -:   12:
+function insert called 17 returned 100% blocks executed 100%
+       17:   13:struct Node* insert(struct Node* root, int data) {
+       17:   14:    if (root == NULL) {
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:   15:        return createNode(data);
+call    0 returned 100%
+        -:   16:    }
+       10:   17:    if (data < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:   18:        root->left = insert(root->left, data);
+call    0 returned 100%
+        5:   19:    } else if (data > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   20:        root->right = insert(root->right, data);
+call    0 returned 100%
+        -:   21:    } else {
+        -:   22:        // Handle duplicates
+        -:   23:    }
+       10:   24:    return root;
+        -:   25:}
+        -:   26:
+function inOrder called 15 returned 100% blocks executed 100%
+       15:   27:void inOrder(struct Node* root) {
+       15:   28:    if (root != NULL) {
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        7:   29:        inOrder(root->left);
+call    0 returned 100%
+        7:   30:        printf("%d ", root->data);
+call    0 returned 100%
+        7:   31:        inOrder(root->right);
+call    0 returned 100%
+        -:   32:    }
+       15:   33:}
+        -:   34:
+function calculateSum called 15 returned 100% blocks executed 100%
+       15:   35:int calculateSum(struct Node* root) {
+       15:   36:    if (root == NULL) {
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        8:   37:        return 0;
+        -:   38:    }
+        7:   39:    return root->data + calculateSum(root->left) + calculateSum(root->right);
+call    0 returned 100%
+call    1 returned 100%
+        -:   40:
+        -:   41:   
+        -:   42:}
+        -:   43:
+        -:   44:		    
+        -:   45:
+        -:   46:

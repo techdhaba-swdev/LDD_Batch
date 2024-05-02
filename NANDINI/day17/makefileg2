@@ -1,0 +1,2 @@
+graph2: graph2.c main2.c
+	gcc -o graph2 graph2.c main2.c -I.

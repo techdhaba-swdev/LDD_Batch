@@ -1,0 +1,2 @@
+graph: graph1.c maing.c
+	gcc -o graph graph1.c maing.c -I.

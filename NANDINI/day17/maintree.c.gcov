@@ -1,0 +1,45 @@
+        -:    0:Source:maintree.c
+        -:    1:#include <stdio.h>
+        -:    2:#include<time.h>
+        -:    3:#include "trees.h"
+        -:    4:
+function main called 1 returned 100% blocks executed 100%
+        1:    5:int main() {
+        -:    6:
+        1:    7:    struct Node* root = NULL;
+        1:    8:    clock_t start = clock();
+call    0 returned 100%
+        1:    9:    root = insert(root, 50);
+call    0 returned 100%
+        1:   10:    insert(root, 30);
+call    0 returned 100%
+        1:   11:    insert(root, 20);
+call    0 returned 100%
+        1:   12:    insert(root, 40);
+call    0 returned 100%
+        1:   13:    insert(root, 70);
+call    0 returned 100%
+        1:   14:    insert(root, 60);
+call    0 returned 100%
+        1:   15:    insert(root, 80);
+call    0 returned 100%
+        -:   16:
+        1:   17:    printf("In-order traversal: ");
+call    0 returned 100%
+        1:   18:    inOrder(root);
+call    0 returned 100%
+        1:   19:    printf("\n");
+call    0 returned 100%
+        -:   20:
+        1:   21:    int sum = calculateSum(root);
+call    0 returned 100%
+        1:   22:    printf("Sum of all node values: %d\n", sum);
+call    0 returned 100%
+        1:   23:    clock_t end = clock();
+call    0 returned 100%
+        1:   24:    double Time_taken = ((double)(end - start));
+        1:   25:    printf("Time_taken: = %f seconds \n", Time_taken);
+call    0 returned 100%
+        1:   26:     return 0;
+        -:   27:}
+        -:   28:

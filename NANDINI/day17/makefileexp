@@ -1,0 +1,3 @@
+exp: exp.c mainexp.c
+	gcc -o exp exp.c mainexp.c -I.
+
