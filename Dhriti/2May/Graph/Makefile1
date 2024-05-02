@@ -1,0 +1,11 @@
+CC = gcc
+CFLAGS = -I.
+DEPS = graph_ver.h
+OBJ = graph_ver.o graphv_main.o
+
+%.o : %.c $(DEPS)
+        $(CC) -c -o $@ $< $(CFLAGS)
+
+graph_makefile1 : $(OBJ)
+        $(CC) -o $@ $^ $(CFLAGS)
+
