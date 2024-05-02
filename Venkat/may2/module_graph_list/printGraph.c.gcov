@@ -1,0 +1,23 @@
+        -:    0:Source:printGraph.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "printGraph.h"
+        -:    3:
+function printGraph called 1 returned 100% blocks executed 100%
+        1:    4:void printGraph(struct Graph* graph) {
+        5:    5:    for (int v = 0; v < graph->numVertices; ++v) {
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        4:    6:        printf("\nAdjacency list of vertex %d\n head ", v);
+call    0 returned 100%
+        4:    7:        struct Node* temp = graph->adjLists[v];
+        7:    8:        while (temp) {
+branch  0 taken 43%
+branch  1 taken 57% (fallthrough)
+        3:    9:            printf("-> %d ", temp->vertex);
+call    0 returned 100%
+        3:   10:            temp = temp->next;
+        -:   11:        }
+        4:   12:        printf("\n");
+call    0 returned 100%
+        -:   13:    }
+        1:   14:}

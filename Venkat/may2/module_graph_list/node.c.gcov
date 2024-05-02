@@ -1,0 +1,12 @@
+        -:    0:Source:node.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "node.h"
+        -:    4:
+function createNode called 3 returned 100% blocks executed 100%
+        3:    5:struct Node* createNode(int vertex) {
+        3:    6:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        3:    7:    newNode->vertex = vertex;
+        3:    8:    newNode->next = NULL;
+        3:    9:    return newNode;
+        -:   10:}

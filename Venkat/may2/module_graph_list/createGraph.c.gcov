@@ -1,0 +1,19 @@
+        -:    0:Source:createGraph.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "createGraph.h"
+        -:    4:
+function createGraph called 1 returned 100% blocks executed 100%
+        1:    5:struct Graph* createGraph(int numVertices) {
+        1:    6:    struct Graph* graph = (struct Graph*)malloc(sizeof(struct Graph));
+        1:    7:    graph->numVertices = numVertices;
+        1:    8:    graph->adjLists = (struct Node**)malloc(numVertices * sizeof(struct Node*));
+        -:    9:
+        5:   10:    for (int i = 0; i < numVertices; ++i) {
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        4:   11:        graph->adjLists[i] = NULL;
+        -:   12:    }
+        -:   13:
+        1:   14:    return graph;
+        -:   15:}

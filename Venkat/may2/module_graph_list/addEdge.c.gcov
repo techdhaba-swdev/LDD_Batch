@@ -1,0 +1,10 @@
+        -:    0:Source:addEdge.c
+        -:    1:#include "addEdge.h"
+        -:    2:
+function addEdge called 3 returned 100% blocks executed 100%
+        3:    3:void addEdge(struct Graph* graph, int src, int dest) {
+        3:    4:    struct Node* newNode = createNode(dest);
+call    0 returned 100%
+        3:    5:    newNode->next = graph->adjLists[src];
+        3:    6:    graph->adjLists[src] = newNode;
+        3:    7:}
