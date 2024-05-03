@@ -1,0 +1,14 @@
+File 'postfix_stack.c'
+Lines executed:81.33% of 75
+Branches executed:82.22% of 45
+Taken at least once:62.22% of 45
+Calls executed:76.19% of 21
+Creating 'postfix_stack.c.gcov'
+
+File 'main.c'
+Lines executed:100.00% of 8
+No branches
+Calls executed:100.00% of 6
+Creating 'main.c.gcov'
+
+Lines executed:83.13% of 83

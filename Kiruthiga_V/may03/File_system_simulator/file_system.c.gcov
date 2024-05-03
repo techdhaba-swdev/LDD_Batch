@@ -1,0 +1,144 @@
+        -:    0:Source:file_system.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include <stdbool.h>
+        -:    5:#include "file_system.h"
+        -:    6:// Create a new file node
+        2:    7:struct FileNode* createFileNode(char* name, bool isDirectory) {
+        2:    8:    struct FileNode* newNode = (struct FileNode*)malloc(sizeof(struct FileNode));
+        2:    9:    strcpy(newNode->name, name);
+        2:   10:    newNode->isDirectory = isDirectory;
+        2:   11:    newNode->next = NULL;
+        2:   12:    return newNode;
+        -:   13:}
+        -:   14:
+        -:   15:// Create a new directory node
+        4:   16:struct DirNode* createDirNode(char* name, struct DirNode* parent) {
+        4:   17:    struct DirNode* newNode = (struct DirNode*)malloc(sizeof(struct DirNode));
+        4:   18:    strcpy(newNode->name, name);
+        4:   19:    newNode->parent = parent;
+        4:   20:    newNode->files = NULL;
+        4:   21:    newNode->subdirs = NULL;
+        4:   22:    newNode->next = NULL;
+        4:   23:    return newNode;
+        -:   24:}
+        -:   25:
+        -:   26:// Create a new directory in the file system
+        3:   27:void createDirectory(struct DirNode* parent, char* name) {
+        3:   28:    struct DirNode* newDir = createDirNode(name, parent);
+        3:   29:    if (parent->subdirs == NULL) {
+        2:   30:        parent->subdirs = newDir;
+        -:   31:    } else {
+        1:   32:        struct DirNode* temp = parent->subdirs;
+        1:   33:        while (temp->next != NULL) {
+    #####:   34:            temp = temp->next;
+        -:   35:        }
+        1:   36:        temp->next = newDir;
+        -:   37:    }
+        3:   38:}
+        -:   39:
+        -:   40:// Create a new file in the directory
+        2:   41:void createFile(struct DirNode* dir, char* name, bool isDirectory) {
+        2:   42:    struct FileNode* newFile = createFileNode(name, isDirectory);
+        2:   43:    if (dir->files == NULL) {
+        2:   44:        dir->files = newFile;
+        -:   45:    } else {
+    #####:   46:        struct FileNode* temp = dir->files;
+    #####:   47:        while (temp->next != NULL) {
+    #####:   48:            temp = temp->next;
+        -:   49:        }
+    #####:   50:        temp->next = newFile;
+        -:   51:    }
+        2:   52:}
+        -:   53:
+        -:   54:// Print directory contents (files and subdirectories)
+        2:   55:void printDirContents(struct DirNode* dir) {
+        2:   56:    struct FileNode* file = dir->files;
+        2:   57:    struct DirNode* subdir = dir->subdirs;
+        -:   58:
+        2:   59:    printf("Directory: %s\n", dir->name);
+        -:   60:
+        2:   61:    printf("Files:\n");
+        3:   62:    while (file != NULL) {
+        1:   63:        printf("- %s\n", file->name);
+        1:   64:        file = file->next;
+        -:   65:    }
+        -:   66:
+        2:   67:    printf("Subdirectories:\n");
+        6:   68:    while (subdir != NULL) {
+        4:   69:        printf("- %s\n", subdir->name);
+        4:   70:        subdir = subdir->next;
+        -:   71:    }
+        2:   72:}
+        -:   73:
+        -:   74:// Delete file from directory
+        1:   75:void deleteFile(struct DirNode* dir, char* name) {
+        1:   76:    struct FileNode* prev = NULL;
+        1:   77:    struct FileNode* current = dir->files;
+        -:   78:
+        -:   79:    // Find the file
+        1:   80:    while (current != NULL && strcmp(current->name, name) != 0) {
+    #####:   81:        prev = current;
+    #####:   82:        current = current->next;
+        -:   83:    }
+        -:   84:
+        -:   85:    // File not found
+        1:   86:    if (current == NULL) {
+    #####:   87:        printf("File not found\n");
+    #####:   88:        return;
+        -:   89:    }
+        -:   90:
+        -:   91:    // Delete file node
+        1:   92:    if (prev == NULL) {
+        1:   93:        dir->files = current->next;
+        -:   94:    } else {
+    #####:   95:        prev->next = current->next;
+        -:   96:    }
+        -:   97:
+        1:   98:    free(current);
+        -:   99:}
+        -:  100:
+        -:  101:// Delete directory and its contents recursively
+        4:  102:void deleteDirectory(struct DirNode* dir) {
+        4:  103:    struct DirNode* subdir = dir->subdirs;
+        -:  104:    struct DirNode* temp;
+        -:  105:
+        -:  106:    // Delete subdirectories
+        7:  107:    while (subdir != NULL) {
+        3:  108:        temp = subdir;
+        3:  109:        subdir = subdir->next;
+        3:  110:        deleteDirectory(temp);
+        -:  111:    }
+        -:  112:
+        -:  113:    // Delete files
+        4:  114:    struct FileNode* file = dir->files;
+        -:  115:    struct FileNode* tempFile;
+        5:  116:    while (file != NULL) {
+        1:  117:        tempFile = file;
+        1:  118:        file = file->next;
+        1:  119:        free(tempFile);
+        -:  120:    }
+        -:  121:
+        -:  122:    // Free directory node
+        4:  123:    free(dir);
+        4:  124:}
+        -:  125:
+        -:  126:// Search for file by name in directory and subdirectories
+        3:  127:void searchFile(struct DirNode* dir, char* name) {
+        3:  128:    struct FileNode* file = dir->files;
+        4:  129:    while (file != NULL) {
+        2:  130:        if (strcmp(file->name, name) == 0) {
+        1:  131:            printf("File found: %s\n", file->name);
+        1:  132:            return;
+        -:  133:        }
+        1:  134:        file = file->next;
+        -:  135:    }
+        -:  136:
+        2:  137:    struct DirNode* subdir = dir->subdirs;
+        4:  138:    while (subdir != NULL) {
+        2:  139:        searchFile(subdir, name);
+        2:  140:        subdir = subdir->next;
+        -:  141:    }
+        -:  142:}
+        -:  143:

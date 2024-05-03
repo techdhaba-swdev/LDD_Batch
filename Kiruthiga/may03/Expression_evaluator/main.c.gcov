@@ -1,0 +1,26 @@
+        -:    0:Source:main.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"postfix_stack.h"
+        -:    3:// Main function
+function main called 1 returned 100% blocks executed 100%
+        1:    4:int main() {
+        -:    5:    char infix[100], postfix[100];
+        1:    6:    printf("Enter infix expression: ");
+call    0 returned 100%
+        1:    7:    scanf("%s", infix);
+call    0 returned 100%
+        -:    8:
+        1:    9:    infixToPostfix(infix, postfix);
+call    0 returned 100%
+        1:   10:    printf("Postfix expression: %s\n", postfix);
+call    0 returned 100%
+        -:   11:
+        1:   12:    int result = evaluatePostfix(postfix);
+call    0 returned 100%
+        1:   13:    printf("Result: %d\n", result);
+call    0 returned 100%
+        -:   14:
+        1:   15:    return 0;
+        -:   16:}
+        -:   17:
+        -:   18:
