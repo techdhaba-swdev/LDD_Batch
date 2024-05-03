@@ -1,0 +1,263 @@
+        -:    0:Source:bstapi.c
+        -:    1:#include<stdio.h>
+        -:    2:#include"bst.h"
+        -:    3:#include<math.h>
+        -:    4:struct node
+        -:    5:{
+        -:    6:	int data;
+        -:    7:	struct node *left;
+        -:    8:	struct node *right;
+        -:    9:};
+        -:   10:
+        -:   11://CREATE NODE API TO CREATENODE BY TAKING NODE DATA
+function createnode called 7 returned 100% blocks executed 100%
+        7:   12:struct node* createnode(int data) 
+        -:   13:{
+        7:   14:    struct node* temp = (struct node*)malloc(sizeof(struct node)); //creating space everytime to store
+        7:   15:    temp->data = data; //storing data into temp
+        7:   16:    temp->left = NULL; //Initializing left child of parent node to NULL
+        7:   17:    temp->right = NULL; //Initializing right child of parent node to NULL
+        7:   18:    return temp;
+        -:   19:}
+        -:   20:
+        -:   21://INSERT API FOR INSERTING DATA TO BINARY TREE
+function insert called 17 returned 100% blocks executed 100%
+       17:   22:struct node* insert(struct node* node, int data) 
+        -:   23:{
+       17:   24:    if (node == NULL) 
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        -:   25:    {
+        7:   26:        return createnode(data); //If the tree is NULL then we are creating the node using creaatenode API(Used for 1st insertion)
+call    0 returned 100%
+        -:   27:    }
+        -:   28:
+        -:   29:    // Recursively inserting nodes to tree based on data value
+       10:   30:    if (data < node->data) 
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   31:    {
+        5:   32:        node->left = insert(node->left, data); //Checking if data is lessthan node data then inserting the data to left of node
+call    0 returned 100%
+        5:   33:    } else if (data > node->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   34:        node->right = insert(node->right, data); //Checking if data is greaterthan node data then inserting the data to right of node
+call    0 returned 100%
+        -:   35:    }
+       10:   36:    return node;
+        -:   37:}
+        -:   38:// Search API FOR SEARCHING REQUIRED NODE IN BINARY TREE
+function search called 3 returned 100% blocks executed 100%
+        3:   39:struct node* search(struct node* node, int data) 
+        -:   40:{
+        3:   41:    if (node == NULL || node->data == data) 
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 33% (fallthrough)
+branch  3 taken 67%
+        -:   42:    {
+        1:   43:        return node;
+        -:   44:    }
+        -:   45:
+        -:   46:    // Recursively search based on data value
+        2:   47:    if (data < node->data) 
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   48:    {
+        1:   49:        return search(node->left, data); //Checks if given node is less than the node then search from nodeleft
+call    0 returned 100%
+        -:   50:    } else {
+        1:   51:        return search(node->right, data); //else case of if written above
+call    0 returned 100%
+        -:   52:    }
+        -:   53:}
+function count called 15 returned 100% blocks executed 100%
+       15:   54:int count(struct node *root) //CALCULATING NO. OF NODES IN THE TREE
+        -:   55:{
+       15:   56:	if(root==NULL) return 0;
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        7:   57:	int left_count=count(root->left);
+call    0 returned 100%
+        7:   58:	int right_count=count(root->right);
+call    0 returned 100%
+        7:   59:	return left_count+right_count+1;
+        -:   60:}
+        -:   61://fin_min API TO FIND MINIMUM NODE IN THE BINARY TREE
+function find_min called 4 returned 100% blocks executed 86%
+        4:   62:struct node* find_min(struct node* node) 
+        -:   63:{
+        4:   64:    if (node == NULL) //For better practice checking if the node is NULL then return node
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:   65:    {
+    #####:   66:        return node;
+        -:   67:    }
+        4:   68:    else if (node->left != NULL) 
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:   69:    { //recursively checking for the required node in left sub tree
+        2:   70:        return find_min(node->left);
+call    0 returned 100%
+        -:   71:    }
+        2:   72:    return node; // Traverse left subtree for minimum
+        -:   73:}
+        -:   74:
+        -:   75://fin_max  API TO FIND MAXIMUM NODE IN THE BINARY TREE
+function find_max called 2 returned 100% blocks executed 100%
+        2:   76:struct node* find_max(struct node* node) 
+        -:   77:{
+        2:   78:    if (node == NULL || node->right == NULL) 
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 50% (fallthrough)
+branch  3 taken 50%
+        -:   79:    {
+        1:   80:        return node;
+        -:   81:    }
+        -:   82:
+        1:   83:    return find_max(node->right); // Recursively Traverse right subtree for maximum
+call    0 returned 100%
+        -:   84:}
+function inordertraversal called 28 returned 100% blocks executed 100%
+       28:   85:void inordertraversal(struct node* root) //Inordertraversal API that takes parent as argument and prints all elements
+        -:   86:{
+       28:   87:    if (root != NULL) 
+branch  0 taken 46% (fallthrough)
+branch  1 taken 54%
+        -:   88:    {
+       13:   89:        inordertraversal(root->left); //Recursively traversing through left subtree first untill last left node
+call    0 returned 100%
+       13:   90:        printf("%d ", root->data); //printing data each time
+call    0 returned 100%
+       13:   91:        inordertraversal(root->right); //Recursively traversing through right subtree after left subtree
+call    0 returned 100%
+        -:   92:    }
+       28:   93:}
+function preorder called 15 returned 100% blocks executed 100%
+       15:   94:void preorder(struct node *root) // Preorder API that prints root first then left and then right recursively
+        -:   95:{
+       15:   96:	if(root !=NULL)
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        -:   97:	{
+        7:   98:		printf("%d ",root->data);
+call    0 returned 100%
+        7:   99:		preorder(root->left);
+call    0 returned 100%
+        7:  100:		preorder(root->right);
+call    0 returned 100%
+        -:  101:	}
+       15:  102:}
+function postorder called 15 returned 100% blocks executed 100%
+       15:  103:void postorder(struct node *root) //Postorder API that prints left first then right and then root recursively
+        -:  104:{
+       15:  105:	if(root!=NULL)
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        -:  106:	{
+        7:  107:		postorder(root->left);
+call    0 returned 100%
+        7:  108:		postorder(root->right);
+call    0 returned 100%
+        7:  109:		printf("%d ",root->data);
+call    0 returned 100%
+        -:  110:	}
+       15:  111:}
+function height called 15 returned 100% blocks executed 88%
+       15:  112:int height(struct node *root)
+        -:  113:{
+       15:  114:	if(root==NULL) return 0;
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        7:  115:	int left_height=height(root->left);
+call    0 returned 100%
+        7:  116:	int right_height=height(root->right);
+call    0 returned 100%
+       7*:  117:	if(left_height > right_height) return left_height + 1;
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        7:  118:	return right_height + 1;
+        -:  119:}
+        -:  120://calculatesum API TO CALCULATE SUM OF ALL NODES IN THE TREE
+function calculatesum called 13 returned 100% blocks executed 100%
+       13:  121:int calculatesum(struct node *root)
+        -:  122:{
+       13:  123:        if(root==NULL) //For better practice checking if root is NULL then return 0 as sum
+branch  0 taken 54% (fallthrough)
+branch  1 taken 46%
+        -:  124:        {
+        7:  125:                return 0;
+        -:  126:        }
+        6:  127:        return root->data+calculatesum(root->left)+calculatesum(root->right); //Recursively adding elements from the tree
+call    0 returned 100%
+call    1 returned 100%
+        -:  128:}
+        -:  129:// Delete API (handles one child, two children, and leaf node cases)
+function delete called 3 returned 100% blocks executed 67%
+        3:  130:struct node* delete(struct node* node, int data)
+        -:  131:{
+        3:  132:    if (node == NULL) 
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  133:    {
+    #####:  134:        return node; // Node not found, do nothing
+        -:  135:    }
+        -:  136:
+        -:  137:    // Recursively search for the node to delete
+        3:  138:    if (data < node->data)  //Checking if the data is lessthan the node data and recursivley deleting the data
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:  139:    {
+    #####:  140:        node->left = delete(node->left, data);
+call    0 never executed
+        -:  141:    }
+        3:  142:    else if (data > node->data) //Checking if the data is greaterthan the node data and recursivley deleting the data
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        -:  143:    {
+        1:  144:        node->right = delete(node->right, data);
+call    0 returned 100%
+        -:  145:    } 
+        -:  146:    else 
+        -:  147:    { // Node found
+        -:  148:        // Handle one child or no child case
+        2:  149:        if (node->left == NULL)
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        -:  150:        {
+        1:  151:            struct node* temp = node->right;
+        1:  152:            free(node);
+        1:  153:            return temp;
+        -:  154:        }
+        1:  155:        else if (node->left == NULL || node->right == NULL) 
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+        -:  156:	{
+        -:  157:            struct node* temp;
+    #####:  158:            if (node->left == NULL) 
+branch  0 never executed
+branch  1 never executed
+        -:  159:	    {
+    #####:  160:                temp = node->right;
+        -:  161:            }
+        -:  162:            else {
+    #####:  163:                temp = node->left;
+        -:  164:            }
+    #####:  165:            free(node);
+    #####:  166:            return temp;
+        -:  167:        }
+        -:  168:        else {
+        1:  169:            struct node* temp= find_min(node->right);
+call    0 returned 100%
+        1:  170:            node->data = temp->data;
+        1:  171:            node->right = delete (node->right, temp->data);
+call    0 returned 100%
+        -:  172:        }
+        -:  173:    }
+        2:  174:    return node;
+        -:  175:}
+        -:  176:

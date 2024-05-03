@@ -1,0 +1,15 @@
+File 'bstmain.c'
+Lines executed:97.78% of 45
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:97.50% of 40
+Creating 'bstmain.c.gcov'
+
+File 'bstapi.c'
+Lines executed:90.48% of 84
+Branches executed:95.83% of 48
+Taken at least once:77.08% of 48
+Calls executed:96.15% of 26
+Creating 'bstapi.c.gcov'
+
+Lines executed:93.02% of 129
