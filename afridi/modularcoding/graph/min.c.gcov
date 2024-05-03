@@ -1,0 +1,18 @@
+        -:    0:Source:min.c
+        -:    1:#include "node.h"
+        -:    2:// Function to find the minimum value in the BST
+function findMin called 4 returned 100% blocks executed 83%
+        4:    3:struct Node* findMin(struct Node* root) {
+        4:    4:    if (root == NULL) {// If root is NULL
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    5:        return NULL;// Return NULL
+        -:    6:    }
+        4:    7:    if (root->left == NULL) {// If left child is NULL
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        2:    8:        return root;// Return the root
+        -:    9:    }
+        2:   10:    return findMin(root->left);// Recursively find minimum in the left subtree
+call    0 returned 100%
+        -:   11:}

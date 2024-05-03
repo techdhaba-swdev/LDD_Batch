@@ -1,0 +1,16 @@
+        -:    0:Source:inorder.c
+        -:    1:#include "node.h"
+        -:    2:// Function to perform in-order traversal (left, root, right)
+function inOrderTraversal called 28 returned 100% blocks executed 100%
+       28:    3:void inOrderTraversal(struct Node* root) {
+       28:    4:    if (root != NULL) {//checks If root is not NULL
+branch  0 taken 46% (fallthrough)
+branch  1 taken 54%
+       13:    5:        inOrderTraversal(root->left);// Traverse left subtree
+call    0 returned 100%
+       13:    6:        printf("%d ", root->data);// Print root data
+call    0 returned 100%
+       13:    7:        inOrderTraversal(root->right);// Traverse right subtree
+call    0 returned 100%
+        -:    8:    }
+       28:    9:}

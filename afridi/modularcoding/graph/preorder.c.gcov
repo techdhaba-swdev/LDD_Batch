@@ -1,0 +1,16 @@
+        -:    0:Source:preorder.c
+        -:    1:#include "node.h"
+        -:    2:// Function to perform pre-order traversal (root, left, right)
+function preOrderTraversal called 15 returned 100% blocks executed 100%
+       15:    3:void preOrderTraversal(struct Node* root) {
+       15:    4:    if (root != NULL) {//checks weather noot is null or not
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        7:    5:        printf("%d ", root->data);// Print root data
+call    0 returned 100%
+        7:    6:        preOrderTraversal(root->left);// Traverse left subtree
+call    0 returned 100%
+        7:    7:        preOrderTraversal(root->right);// Traverse right subtree
+call    0 returned 100%
+        -:    8:    }
+       15:    9:}
