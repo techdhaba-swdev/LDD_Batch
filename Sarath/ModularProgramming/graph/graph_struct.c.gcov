@@ -1,0 +1,23 @@
+        -:    0:Source:graph_struct.c
+        -:    1:#include"graph_struct.h"
+        -:    2:struct Graph
+        -:    3:{
+        -:    4:  int numVertices;
+        -:    5:  struct Node** adjLists;  // Array of pointers to linked list heads
+        -:    6:};
+function main called 1 returned 100% blocks executed 100%
+        1:    7:int main()
+        -:    8:{
+        1:    9:  int numVertices = 4;
+        1:   10:  struct Graph* graph = createGraph(numVertices);
+call    0 returned 100%
+        1:   11:  addEdge(graph, 0, 1);
+call    0 returned 100%
+        1:   12:  addEdge(graph, 1, 2);
+call    0 returned 100%
+        1:   13:  addEdge(graph, 2, 3);
+call    0 returned 100%
+        1:   14:  printGraph(graph);
+call    0 returned 100%
+        1:   15:  return 0;
+        -:   16:}

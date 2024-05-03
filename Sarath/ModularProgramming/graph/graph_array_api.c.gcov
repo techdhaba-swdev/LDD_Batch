@@ -1,0 +1,46 @@
+        -:    0:Source:graph_array_api.c
+        -:    1:#include"graph.h"
+        -:    2:int adjMatrix[MAX_VERTICES][MAX_VERTICES];
+        -:    3:// Function to initialize the graph with no edges
+function initializeGraph called 1 returned 100% blocks executed 100%
+        1:    4:void initializeGraph(int numVertices)
+        -:    5:{
+        5:    6:  for (int i = 0; i < numVertices; i++)
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        -:    7:  {
+       20:    8:    for (int j = 0; j < numVertices; j++)
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        -:    9:    {
+       16:   10:      adjMatrix[i][j] = 0;
+        -:   11:    }
+        -:   12:  }
+        1:   13:}
+        -:   14:// Function to add a directed edge from src to dest
+function addEdge called 3 returned 100% blocks executed 100%
+        3:   15:void addEdge(int src, int dest)
+        -:   16:{
+        3:   17:  adjMatrix[src][dest] = 1;  // Mark 1 to indicate an edge
+        3:   18:}
+        -:   19:// Function to print the adjacency matrix representation of the graph
+function printGraph called 1 returned 100% blocks executed 100%
+        1:   20:void printGraph(int numVertices)
+        -:   21:{
+        1:   22:  printf("Adjacency Matrix:\n");
+call    0 returned 100%
+        5:   23:  for (int i = 0; i < numVertices; i++)
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        -:   24:  {
+       20:   25:    for (int j = 0; j < numVertices; j++)
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        -:   26:    {
+       16:   27:      printf("%d ", adjMatrix[i][j]);
+call    0 returned 100%
+        -:   28:    }
+        4:   29:    printf("\n");
+call    0 returned 100%
+        -:   30:  }
+        1:   31:}
