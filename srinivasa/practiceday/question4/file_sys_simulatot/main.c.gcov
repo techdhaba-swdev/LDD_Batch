@@ -1,0 +1,42 @@
+        -:    0:Source:main.c
+        -:    1://including all the required headerfiles
+        -:    2:#include <stdio.h>
+        -:    3:#include "code.h"
+        -:    4:// main function 
+        1:    5:int main() {
+        -:    6:    // creating a root directory and named as root
+        1:    7:    Directory *root = createDirectory(NULL, "root");
+        -:    8:    // creating files by calling the createfile function
+        1:    9:    createFile(root, "file1.txt"); // creating the file1.txt file 
+        1:   10:    createFile(root, "file2.txt"); //creating the file2.txt file 
+        -:   11:    // creating a subdirectory to the root and name as subdir
+        1:   12:    Directory *subdir = createDirectory(root, "subdir");
+        -:   13:    //creating a file in the subdirectory of name subdir
+        1:   14:    createFile(subdir, "subfile1.txt"); // creating a file name subfile.txt in subdir
+        -:   15:    // this function is used to show the content inside the root
+        1:   16:    viewContents(root);
+        1:   17:    printf("\n");
+        -:   18:    // creating a founddir and calling the navigate function
+        -:   19:    // this navigate function is  used to navigate the subdir to the founddir
+        1:   20:    Directory *foundDir = navigate(root, "subdir");
+        -:   21:    //printing the navigation succesfull or not
+        1:   22:    if (foundDir != NULL) {
+    #####:   23:        printf("Navigated to directory '%s'.\n", foundDir->name);
+        -:   24:    }
+        1:   25:    printf("\n");
+        -:   26:    // this function is used to search a file in the root directory
+        1:   27:    File *foundFile = searchFile(root, "file2.txt");
+        -:   28:    // printing the results of the search function
+        1:   29:    if (foundFile != NULL) {
+        1:   30:        printf("Found file '%s'.\n", foundFile->name);
+        -:   31:    }
+        1:   32:    printf("\n");
+        -:   33:    // deleting the files in the root of the file name file1.txt
+        1:   34: deleteFile(root, "file1.txt");
+        -:   35:    //printing the files present in the root after deleting file1.txt
+        1:   36:    viewContents(root);
+        -:   37:    // deleting the root directory
+        1:   38:    deleteDirectory(root);
+        -:   39:    // executing the programe without errors
+        1:   40:    return 0;
+        -:   41:}

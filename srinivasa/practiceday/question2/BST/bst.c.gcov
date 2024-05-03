@@ -1,0 +1,121 @@
+        -:    0:Source:bst.c
+        -:    1:// including all the required headerfile
+        -:    2:#include <stdio.h>
+        -:    3:#include<stdbool.h>
+        -:    4:#include "bst.h"
+        -:    5:#include<stdlib.h>
+        -:    6://function to create a new node
+        7:    7:struct Node* createNode(int data) {
+        -:    8:   // creating a new node dinamically
+        7:    9:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        7:   10:    newNode->data = data;
+        7:   11:    newNode->left = NULL;
+        7:   12:    newNode->right = NULL;
+        7:   13:    return newNode;
+        -:   14:}
+        -:   15:// function to insert the nodes to the tree
+       17:   16:struct Node* insert(struct Node* root, int data) {
+       17:   17:    if (root == NULL) {   // checking the root is NULL
+        7:   18:        return createNode(data); // if the root NULL creating a newnode
+        -:   19:    }
+        -:   20:    
+       10:   21:    if (data < root->data) {  //if data is greater than the root data
+        5:   22:        root->left = insert(root->left, data);  //asign the data to left child of the root
+        5:   23:    } else if (data > root->data) { // if data is less than the root data
+        5:   24:        root->right = insert(root->right, data); //asign the data to left child of the root
+        -:   25:    }
+        -:   26:    
+       10:   27:    return root;     // return the root 
+        -:   28:}
+        -:   29:// this function is used to print the tree in inordertransversal
+        -:   30:// in inorder transversal first we print left values than middle and last right values 
+       15:   31:void inOrderTraversal(struct Node* root) {
+       15:   32:    if (root != NULL) {
+        -:   33:	// calling recursivly and printing the data
+        7:   34:        inOrderTraversal(root->left);
+        7:   35:        printf("%d ", root->data);
+        7:   36:        inOrderTraversal(root->right);
+        -:   37:    }
+       15:   38:}
+        -:   39:// this function is used to print the tree in preorder transversal
+        -:   40:// in preorder transversal first we print data than left and last right values
+       29:   41:void preordertraversal(struct Node *root)
+        -:   42:{
+       29:   43:	if (root != NULL) {
+       13:   44:		printf("%d ", root->data);
+       13:   45:		preordertraversal(root->left);
+       13:   46:		preordertraversal(root->right);
+        -:   47:	}
+       29:   48:}
+        -:   49:// this function is used to print the tree in postordertransversal
+        -:   50:// in inorder transversal first we print left values and  middle and data
+        1:   51:void postordertraversal(struct Node *root)
+        -:   52:{
+        1:   53:        if (root != NULL) {
+        1:   54:                preordertraversal(root->left);
+        1:   55:                preordertraversal(root->right);
+        1:   56:		printf("%d ", root->data);
+        -:   57:        }
+        1:   58:}
+        -:   59://this function is used to check the tree is binary or not
+        1:   60:bool isbst(struct Node* root)
+        -:   61:{     
+        -:   62:        //creating a node pointer prev by assigning NULL
+        1:   63:	struct Node* prev = NULL;
+        -:   64:	// calling the function to cheking the bst or not
+        1:   65:	return isbstutil(root, prev);
+        -:   66:}
+        -:   67:// fuction to find the tree is following the the bst properties or not
+       15:   68:bool isbstutil(struct Node* root, struct Node* prev)
+        -:   69:{
+       15:   70:	if (root != NULL)  // checking the root is NULL
+        -:   71:	{       // RECURSIVLY CHECKING THE FUNCTION IS FOLLOWING THE BST PROPERITES
+        7:   72:		if (!isbstutil(root->left, prev))
+        -:   73:		{
+    #####:   74:			return false;
+        -:   75:		}
+        7:   76:		if (prev != NULL && root->data <=prev->data)
+        -:   77:		{
+    #####:   78:			return false;
+        -:   79:		}
+        7:   80:		prev = root;
+        7:   81:		return isbstutil(root->right, prev);
+        -:   82:	}
+        8:   83:	return true;
+        -:   84:}
+        -:   85://function to know the height of the tree
+       15:   86:int height(struct Node *root)
+        -:   87:{ 
+       15:   88:	if (root == NULL)
+        -:   89:	{
+        8:   90:	    return 0; //if the root equal to NULL return 0
+        -:   91:	}
+        -:   92:	else {  
+        -:   93:	        // checking the left sub trees 
+        7:   94:		int leftheight = height(root->left);
+        -:   95:		//cheking the right sub tress
+        7:   96:		int rightheight = height(root->right);
+        -:   97:		//returning the height of the tree
+        7:   98:		if (leftheight > rightheight)
+        -:   99:		{
+    #####:  100:			return leftheight + 1;
+        -:  101:		}
+        -:  102:		else 
+        7:  103:			return rightheight + 1;
+        -:  104:	}
+        -:  105:}
+        -:  106:// Function to find the minimum and maximum values in a binary tree
+       15:  107:void find_min_max(struct Node* node, int* min_val, int* max_val) {
+       15:  108:  if (node == NULL) {
+        8:  109:    return;
+        -:  110:  }
+        -:  111:
+        -:  112:  // Update minimum if current node's data is smaller
+        7:  113:  *min_val = (*min_val < node->data) ? (*min_val) : node->data;
+        -:  114:
+        -:  115:  // Update maximum if current node's data is greater
+        7:  116:  *max_val = (*max_val > node->data) ? (*max_val) : node->data;
+        -:  117:  // recurcively checking the min and max values of the tree
+        7:  118:  find_min_max(node->left, min_val, max_val);
+        7:  119:  find_min_max(node->right, min_val, max_val);
+        -:  120:}

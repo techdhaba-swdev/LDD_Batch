@@ -1,0 +1,49 @@
+        -:    0:Source:main1.c
+        -:    1:// Including the all required  header files
+        -:    2:#include <stdio.h>
+        -:    3:#include<stdbool.h>
+        -:    4:#include "bst.h"
+        -:    5:#include<time.h>
+        -:    6:#include<limits.h>
+        -:    7:// Starting the main function
+        1:    8:int main() {
+        1:    9:    clock_t start = clock();   // starting time of the execution
+        1:   10:    struct Node* root = NULL; // creating a root node 
+        1:   11:    root = insert(root, 50);  // insering a value to the  root 
+        1:   12:    insert(root, 30);         //insering some nodes 
+        1:   13:    insert(root, 20);
+        1:   14:    insert(root, 40);
+        1:   15:    insert(root, 70);
+        1:   16:    insert(root, 60);
+        1:   17:    insert(root, 80);
+        -:   18:    // printing the inorder traversal of the tree
+        1:   19:    printf("In-order traversal of the BST: ");
+        1:   20:    inOrderTraversal(root);      // calling the function by value 
+        1:   21:    printf("\n");
+        -:   22:    //printing the preorder traversal of the tree
+        1:   23:    printf("pre-order traversal of the tree:");
+        1:   24:    preordertraversal(root);
+        1:   25:    printf("\n");
+        -:   26:    //printing the postorder traversal of the tree
+        1:   27:    printf("post -ordertraversal of the tree");
+        1:   28:    postordertraversal(root);
+        1:   29:    printf("\n");
+        -:   30:    // checking the tree is binary search tree or not
+        1:   31:    if (isbst(root))
+        1:   32:	    printf("the tree is binarysearch tree\n");
+        -:   33:    else 
+    #####:   34:	    printf("this tree is not a binarysearch tree\n");
+        -:   35:    // height of the tree
+        1:   36:    printf("height of the tree is %d\n",height(root));
+        -:   37:    //priting the maximun and minimum values of the binary tree
+        1:   38:    int min_val = INT_MAX;
+        1:   39:    int max_val = INT_MIN;
+        1:   40:    find_min_max(root, &min_val, &max_val);
+        1:   41:    printf("MINIMUM VALUE : %d\n",min_val);
+        1:   42:    printf("MAXIMUN VALUE : %d\n",max_val);
+        -:   43:
+        1:   44:    clock_t end = clock();   //end time of the execution
+        1:   45:    float time = ((float)(end - start ));
+        1:   46:    printf("time taken :%f",time);
+        1:   47:    return 0;
+        -:   48:}

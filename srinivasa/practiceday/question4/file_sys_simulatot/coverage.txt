@@ -1,0 +1,9 @@
+File 'code.c'
+Lines executed:75.00% of 72
+Creating 'code.c.gcov'
+
+File 'main.c'
+Lines executed:95.00% of 20
+Creating 'main.c.gcov'
+
+Lines executed:79.35% of 92

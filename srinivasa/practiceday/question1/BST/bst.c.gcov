@@ -1,0 +1,97 @@
+        -:    0:Source:bst.c
+        -:    1:// including all the required headerfile
+        -:    2:#include <stdio.h>
+        -:    3:#include "bst.h"
+        -:    4:#include<stdlib.h>
+        -:    5://function to create a new node
+        7:    6:struct Node* createNode(int data) {
+        -:    7:   // creating a new node dinamically
+        7:    8:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        7:    9:    newNode->data = data;
+        7:   10:    newNode->left = NULL;
+        7:   11:    newNode->right = NULL;
+        7:   12:    return newNode;
+        -:   13:}
+        -:   14:// function to insert the nodes to the tree
+       17:   15:struct Node* insert(struct Node* root, int data) {
+       17:   16:    if (root == NULL) {   // checking the root is NULL
+        7:   17:        return createNode(data); // if the root NULL creating a newnode
+        -:   18:    }
+        -:   19:    
+       10:   20:    if (data < root->data) {  //if data is greater than the root data
+        5:   21:        root->left = insert(root->left, data);  //asign the data to left child of the root
+        5:   22:    } else if (data > root->data) { // if data is less than the root data
+        5:   23:        root->right = insert(root->right, data); //asign the data to left child of the root
+        -:   24:    }
+        -:   25:    
+       10:   26:    return root;     // return the root 
+        -:   27:}
+        -:   28://this fucntion is used to find the node with the minimun value in a given sub tree
+    #####:   29:struct Node* minValueNode(struct Node* node) {
+    #####:   30:    struct Node* current = node;
+    #####:   31:    while (current && current->left != NULL) {  // looping untile find the last left node
+    #####:   32:        current = current->left;
+        -:   33:    }
+    #####:   34:    return current;
+        -:   35:}
+        -:   36:// this function is used to delete a node in the bst
+        3:   37:struct Node* deleteNode(struct Node* root, int key) {
+        3:   38:    if (root == NULL) {  // checking the root is null
+    #####:   39:        return root;     //returing the root 
+        -:   40:    } 
+        -:   41:    // if the key is less than the root data
+        3:   42:    if (key < root->data) {
+        -:   43:	    //recursivey enter the deletenode function with value root->left
+        2:   44:        root->left = deleteNode(root->left, key);
+        -:   45:	// if the key is grater than the root data
+        1:   46:    } else if (key > root->data) {
+        -:   47:	    //recursivey enter the deletenode function with value root->right
+    #####:   48:        root->right = deleteNode(root->right, key);
+        -:   49:    } else {
+        -:   50:	    //checking the root left is equal to NULL
+        1:   51:        if (root->left == NULL) {
+        -:   52:		// assigin the root->right value to temp
+        1:   53:            struct Node* temp = root->right;
+        -:   54:	    //free the root 
+        1:   55:            free(root);
+        1:   56:            return temp;// returing temp value
+        -:   57:        } //checking the root right is NULL
+    #####:   58:	  else if (root->right == NULL) {      
+        -:   59:            //assigining the temp value as root->left
+    #####:   60:            struct Node* temp = root->left;
+    #####:   61:            free(root);
+    #####:   62:            return temp; // returning the temp
+        -:   63:        }
+        -:   64:        // assiging temp equal to minvaluenode function which tells the least left node of the sub tree
+    #####:   65:        struct Node* temp = minValueNode(root->right);
+    #####:   66:        root->data = temp->data;
+        -:   67:	// now deleting the right side subtree of the bst
+    #####:   68:        root->right = deleteNode(root->right, temp->data);
+        -:   69:    }
+        2:   70:    return root;
+        -:   71:}
+        -:   72:// this function is used to search an element in the bst
+        2:   73:struct Node* search(struct Node* root, int key) {
+        -:   74:	//if root = NULL, root data is a key then return the root
+        2:   75:    if (root == NULL || root->data == key) {
+        1:   76:        return root;
+        -:   77:    }
+        -:   78:    
+        1:   79:    if (root->data < key) {
+        -:   80:	    //if the key is grater than the root data 
+        -:   81:	    //search recursivly right subtree elements as root as root right 
+    #####:   82:        return search(root->right, key);  // returing the element
+        -:   83:    }
+        -:   84:    //search recursivly right subtree elements as root as root right
+        1:   85:    return search(root->left, key);
+        -:   86:}
+        -:   87:// this function is used to print the tree in inordertransversal
+        -:   88:// in inorder transversal first we print left values than middle and last right values 
+       28:   89:void inOrderTraversal(struct Node* root) {
+       28:   90:    if (root != NULL) {
+        -:   91:	// calling recursivly and printing the data
+       13:   92:        inOrderTraversal(root->left);
+       13:   93:        printf("%d ", root->data);
+       13:   94:        inOrderTraversal(root->right);
+        -:   95:    }
+       28:   96:}

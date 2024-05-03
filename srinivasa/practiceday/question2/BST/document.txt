@@ -1,0 +1,33 @@
+first we have to create 3 diffrent files main.c bst.c and bst.h for modularity code 
+for the first file main.c 
+we have included the required header files like stdio.h ,stdlib.h, time.h and bst.h
+now by clock() function we will know the starting time of the execution
+we are giving the required elements to insert into the binaray search tree
+now we printing the elements in the inorder travesal order
+now we printing the elements in the preorder travesal order
+now we printing the elements in the postorder travesal order
+now we are checking the tree is binary search tree or not if yes we are printing this folows the bst properties .
+now we are finding the minimum and maximum values of the tree and printing the values
+now we are caliculating the ending time ofthe execution of the programe and printing that time to know the time taken for the execution of the programe.
+for the bst.h headerfile 
+we created a tree structure of data left and right nodes by using the struct node 
+we are decleraing the functions we are using inside the programe 
+for the bst.c file
+ we create empty node as root gives some date to insesrt
+now the insert function is called and the programe enters to insert function
+in the insert function, first it checks the root is null , if it null it calls the creates a new node in the create function
+so the createnode function is used to create newnode to that tree.
+in the insert function if the value is grater than root it will enter into the right side and if the number the less than the root then it enter into the left side of the root
+this will done recursivly and the binary search tree has been created 
+after that function is used to print the tree in inordertransversal
+in inorder transversal first we print left values than middle and last right values
+now the preoder and post order travesal functions are also created to values are printing according to  those rules.
+the isbst function is used to check the tree is binary or not
+so we are creating a strcut node pointer prev and assiging as the NULL value to perform the isbstutil function 
+the isbstutil function is used to check the tree is following the properties of the binary search tree or not.
+the properies are the root value must be grater than or equal to the left child and the value of the right child must grater than the root , if the tree is following the these properies it is called as bst tree.
+the height function is used to find the height of the tree  by checking the left and right childs and finding the height by recursivly and return the int value as height
+the function find_min_max function is used to find the minimum and the maximum values present inside the bst by recursivy checking all the elements inside the tree
+and printing the height and min and max values of the tree
+after completing the three files we are creating the make file to execute the programe
+ after the make file we are creating the profile and coverage files for the bst

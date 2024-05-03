@@ -1,0 +1,9 @@
+File 'main1.c'
+Lines executed:96.88% of 32
+Creating 'main1.c.gcov'
+
+File 'bst.c'
+Lines executed:94.92% of 59
+Creating 'bst.c.gcov'
+
+Lines executed:95.60% of 91

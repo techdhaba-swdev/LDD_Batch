@@ -1,0 +1,122 @@
+        -:    0:Source:func.c
+        -:    1:#include "func.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:#include <string.h>
+        -:    5:
+        7:    6:StackNode* createStackNode(int data) {
+        7:    7:    StackNode* newNode = (StackNode*)malloc(sizeof(StackNode));
+        7:    8:    if (newNode == NULL) {
+    #####:    9:        printf("Memory allocation failed.\n");
+    #####:   10:        exit(EXIT_FAILURE);
+        -:   11:    }
+        7:   12:    newNode->data = data;
+        7:   13:    newNode->next = NULL;
+        7:   14:    return newNode;
+        -:   15:}
+        -:   16:
+        7:   17:void push(StackNode** top, int data) {
+        7:   18:    StackNode* newNode = createStackNode(data);
+        7:   19:    newNode->next = *top;
+        7:   20:    *top = newNode;
+        7:   21:}
+        7:   22:int pop(StackNode** top) {
+        7:   23:    if (isEmpty(*top)) {
+    #####:   24:        printf("Stack underflow.\n");
+    #####:   25:        exit(EXIT_FAILURE);
+        -:   26:    }
+        7:   27:    StackNode* temp = *top;
+        7:   28:    int data = temp->data;
+        7:   29:    *top = (*top)->next;
+        7:   30:    free(temp);
+        7:   31:    return data;
+        -:   32:}
+        -:   33:
+       13:   34:int isEmpty(StackNode* top) {
+       13:   35:    return top == NULL;
+        -:   36:}
+        -:   37:
+        1:   38:int peek(StackNode* top) {
+        1:   39:    if (isEmpty(top)) {
+    #####:   40:        printf("Stack is empty.\n");
+    #####:   41:        exit(EXIT_FAILURE);
+        -:   42:    }
+        1:   43:    return top->data;
+        -:   44:    }
+        -:   45:
+        4:   46:int isOperator(char ch) {
+       4*:   47:    return (ch == '+' || ch == '-' || ch == '*' || ch == '/');
+        -:   48:}
+        -:   49:
+        2:   50:int precedence(char op) {
+        2:   51:    if (op == '+' || op == '-')
+        1:   52:        return 1;
+       1*:   53:    if (op == '*' || op == '/')
+        1:   54:        return 2;
+    #####:   55:    return 0;
+        -:   56:}
+        1:   57:void infixToPostfix(char* infix, char* postfix) {
+        1:   58:    StackNode* stack = NULL;
+        1:   59:    int i = 0, j = 0;
+       10:   60:    while (infix[i]) {
+        9:   61:        if (infix[i] == ' ' || infix[i] == '\t') {
+        4:   62:            i++;
+        4:   63:            continue;
+        -:   64:        }
+        5:   65:        if (isdigit(infix[i])) {
+        3:   66:            postfix[j++] = infix[i++];
+        3:   67:            while (isdigit(infix[i]))
+    #####:   68:                postfix[j++] = infix[i++];
+        3:   69:            postfix[j++] = ' ';
+        2:   70:        } else if (infix[i] == '(') {
+    #####:   71:            push(&stack, infix[i++]);
+        2:   72:        } else if (infix[i] == ')') {
+    #####:   73:            while (!isEmpty(stack) && peek(stack) != '(')
+    #####:   74:                postfix[j++] = pop(&stack);
+    #####:   75:            if (!isEmpty(stack) && peek(stack) != '(') {
+    #####:   76:                printf("Invalid expression.\n");
+    #####:   77:                exit(EXIT_FAILURE);
+        -:   78:		} else {
+    #####:   79:                pop(&stack);
+        -:   80:            }
+    #####:   81:            i++;
+        2:   82:        } else if (isOperator(infix[i])) {
+        2:   83:            while (!isEmpty(stack) && precedence(infix[i]) <= precedence(peek(stack)))
+    #####:   84:                postfix[j++] = pop(&stack);
+        2:   85:            push(&stack, infix[i++]);
+        -:   86:        } else {
+    #####:   87:            printf("Invalid character in expression.\n");
+    #####:   88:            exit(EXIT_FAILURE);
+        -:   89:        }
+        -:   90:    }
+        3:   91:    while (!isEmpty(stack))
+        2:   92:        postfix[j++] = pop(&stack);
+        1:   93:    postfix[j] = '\0';
+        2:   94:}int evaluatePostfix(char* postfix) {
+        1:   95:    StackNode* stack = NULL;
+        1:   96:    int i = 0;
+        9:   97:    while (postfix[i]) {
+        8:   98:        if (postfix[i] == ' ' || postfix[i] == '\t') {
+        3:   99:            i++;
+        3:  100:            continue;
+        -:  101:        }
+        5:  102:        if (isdigit(postfix[i])) {
+        3:  103:            int operand = 0;
+        6:  104:            while (isdigit(postfix[i])) {
+        3:  105:                operand = operand * 10 + (postfix[i] - '0');
+        3:  106:                i++;
+        3:  107:            }push(&stack, operand);
+        2:  108:        } else if (isOperator(postfix[i])) {
+        2:  109:            int operand2 = pop(&stack);
+        2:  110:            int operand1 = pop(&stack);
+        2:  111:            switch (postfix[i]) {
+        1:  112:                case '+': push(&stack, operand1 + operand2); break;
+    #####:  113:                case '-': push(&stack, operand1 - operand2); break;
+        1:  114:                case '*': push(&stack, operand1 * operand2); break;
+    #####:  115:                case '/': push(&stack, operand1 / operand2); break;
+        -:  116:            }
+        2:  117:            i++;
+        -:  118:        }
+        -:  119:    }
+        1:  120:    return pop(&stack);
+        -:  121:}

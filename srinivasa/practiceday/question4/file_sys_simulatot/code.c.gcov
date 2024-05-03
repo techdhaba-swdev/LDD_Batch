@@ -1,0 +1,108 @@
+        -:    0:Source:code.c
+        -:    1:// including all the required headerfile 
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:#include <string.h>
+        -:    5:#include "code.h"
+        -:    6:// this function is used to create a directory 
+        2:    7: Directory* createDirectory(Directory *parent, char *name) {
+        -:    8: // creating a newdir by dinamically 
+        2:    9:     Directory* newDir = (Directory*)malloc(sizeof(Directory));
+        2:   10:    if (newDir == NULL) {
+        -:   11:    // if the creating a directory fails this will print
+    #####:   12:        printf("Memory allocation failed.\n");
+    #####:   13:        exit(1);
+        -:   14:    }
+        -:   15:    //giving the name of directory to newdir->name 
+        2:   16:    strcpy(newDir->name, name);
+        2:   17:    newDir->parent = parent;
+        2:   18:    newDir->subdirectories = NULL;
+        2:   19:    newDir->files = NULL;
+        2:   20:    return newDir;
+        -:   21:}
+        -:   22://this function is used to create files in side the directory
+        3:   23:void createFile(Directory *dir, char *name) {
+        3:   24:    File* newFile = (File*)malloc(sizeof(File));
+        3:   25:    if (newFile == NULL) {
+    #####:   26:        printf("Memory allocation failed.\n");
+    #####:   27:        exit(1);
+        -:   28:    }
+        3:   29:    strcpy(newFile->name, name);
+        3:   30:    newFile->next = dir->files;
+        3:   31:    dir->files = newFile;
+        3:   32:}
+        -:   33://this function is used to delete the files inside the directory
+        1:   34:void deleteFile(Directory *dir, char *name) {
+        1:   35:    File *current = dir->files;
+        1:   36:    File *prev = NULL;
+        2:   37:    while (current != NULL) {
+        2:   38:        if (strcmp(current->name, name) == 0) {
+        1:   39:            if (prev == NULL) {
+    #####:   40:                dir->files = current->next;
+        -:   41:            } else {
+        1:   42:                prev->next = current->next;
+        -:   43:            }
+        1:   44:            free(current);
+        1:   45:            return;
+        -:   46:        }
+        1:   47:        prev = current;
+        1:   48:        current = current->next;
+        -:   49:    }
+    #####:   50:    printf("File '%s' not found.\n", name);
+        -:   51:}
+        -:   52:// this function is used to delete the directory
+        1:   53:void deleteDirectory(Directory *dir) {
+       1*:   54:    if (dir == NULL) return;
+        1:   55:    File *file = dir->files;
+        2:   56:    while (file != NULL) {
+        1:   57:        File *temp = file;
+        1:   58:        file = file->next;
+        1:   59:        free(temp);
+        -:   60:    }
+        1:   61:    Directory *subdir = dir->subdirectories;
+        1:   62:    while (subdir != NULL) {
+    #####:   63:        Directory *temp = subdir;
+    #####:   64:        subdir = subdir->subdirectories;
+    #####:   65:        deleteDirectory(temp);
+    #####:   66:        free(temp);
+        -:   67:    }
+        -:   68:}
+        -:   69:// this function used to show the contents of the directory
+        2:   70:void viewContents(Directory *dir) {
+        2:   71:    printf("Contents of directory '%s':\n", dir->name);
+        2:   72:    File *file = dir->files;
+        5:   73:    while (file != NULL) {
+        3:   74:        printf("File: %s\n", file->name);
+        3:   75:        file = file->next;
+        -:   76:    }
+        2:   77:    Directory *subdir = dir->subdirectories;
+        2:   78:    while (subdir != NULL) {
+    #####:   79:        printf("Directory: %s\n", subdir->name);
+    #####:   80:        subdir = subdir->subdirectories;
+        -:   81:    }
+        2:   82:}
+        -:   83://this function is used to navigate the one dirctory into another
+        1:   84:Directory* navigate(Directory *currentDir, char *name) {
+        1:   85:    Directory *subdir = currentDir->subdirectories;
+        1:   86:    while (subdir != NULL) {
+    #####:   87:        if (strcmp(subdir->name, name) == 0) {
+    #####:   88:            return subdir;
+        -:   89:        }
+    #####:   90:        subdir = subdir->subdirectories;
+        -:   91:    }
+        1:   92:    printf("Subdirectory '%s' not found.\n", name);
+        1:   93:    return NULL;
+        -:   94:}
+        -:   95:// this function is used to search the files inside the directory
+        1:   96:File* searchFile(Directory *dir, char *name) {
+        1:   97:    File *file = dir->files;
+        1:   98:    while (file != NULL) {
+        1:   99:        if (strcmp(file->name, name) == 0) {
+        1:  100:            return file;
+        -:  101:        }
+    #####:  102:        file = file->next;
+        -:  103:    }
+    #####:  104:    printf("File '%s' not found.\n", name);
+    #####:  105:    return NULL;
+        -:  106:}
+        -:  107:
