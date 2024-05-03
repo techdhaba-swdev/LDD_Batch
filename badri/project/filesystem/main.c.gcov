@@ -1,0 +1,60 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h> // Include standard input/output library.
+        -:    2:#include <stdlib.h> // Include standard library for memory allocation and other functions.
+        -:    3:#include <string.h> // Include string manipulation functions.
+        -:    4:#include"file.h" // Include the custom header file "file.h" which contains declarations related to file management.
+        -:    5:#include<time.h> // Include time-related functions for measuring program execution time.
+        -:    6:
+function main called 1 returned 100% blocks executed 100%
+        1:    7:int main() // Define the main function.
+        -:    8:{   
+        1:    9:    clock_t start = clock(); // Record the starting time of program execution.
+call    0 returned 100%
+        -:   10:
+        -:   11:    // Initialize the root directory
+        1:   12:    struct Directory* root = createDirectory("/"); // Create the root directory with name "/".
+call    0 returned 100%
+        -:   13:
+        -:   14:    // Example usage:
+        1:   15:    struct Directory* userDir = createDirectory("user"); // Create a subdirectory named "user".
+call    0 returned 100%
+        1:   16:    root->subdirectories = userDir; // Assign the "user" subdirectory to the root directory.
+        -:   17:
+        1:   18:    struct File* reportFile = createFile("report.txt"); // Create a file named "report.txt".
+call    0 returned 100%
+        1:   19:    userDir->files = reportFile; // Assign the "report.txt" file to the "user" directory.
+        -:   20:
+        -:   21:    // Call navigateToSubdirectory
+        1:   22:    struct Directory* subDir = navigateToSubdirectory(root, "user"); // Navigate to the "user" subdirectory.
+call    0 returned 100%
+        1:   23:    if (subDir) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   24:        printf("Navigated to subdirectory: %s\n", subDir->name); // Print a message if navigation is successful.
+call    0 returned 100%
+        -:   25:    }
+        -:   26:
+        -:   27:    // Call listDirectoryContents
+        1:   28:    listDirectoryContents(root); // List the contents of the root directory.
+call    0 returned 100%
+        -:   29:
+        -:   30:    // Call searchFilesByName
+        1:   31:    searchFilesByName(userDir, "report.txt"); // Search for the "report.txt" file in the "user" directory.
+call    0 returned 100%
+        -:   32:
+        -:   33:     // Call delete
+        1:   34:    delete(userDir, "report.txt"); // Delete the "report.txt" file from the "user" directory.
+call    0 returned 100%
+        -:   35:
+        -:   36:    // List contents after deletion
+        1:   37:    listDirectoryContents(userDir); // List the contents of the "user" directory after deletion.
+call    0 returned 100%
+        -:   38:
+        1:   39:    clock_t end = clock(); // Record the ending time of program execution.
+call    0 returned 100%
+        1:   40:    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC; // Calculate the time taken for program execution.
+        1:   41:    printf("Time taken: %f seconds\n", time_taken); // Print the total time taken for program execution.
+call    0 returned 100%
+        -:   42:
+        1:   43:    return 0; // Return 0 to indicate successful program execution.
+        -:   44:}

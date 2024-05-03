@@ -1,0 +1,21 @@
+File 'expression.c'
+Lines executed:75.93% of 54
+Branches executed:87.23% of 47
+Taken at least once:63.83% of 47
+Calls executed:65.22% of 23
+Creating 'expression.c.gcov'
+
+File 'stack.c'
+Lines executed:76.00% of 25
+Branches executed:100.00% of 6
+Taken at least once:50.00% of 6
+Calls executed:25.00% of 8
+Creating 'stack.c.gcov'
+
+File 'main.c'
+Lines executed:100.00% of 12
+No branches
+Calls executed:100.00% of 9
+Creating 'main.c.gcov'
+
+Lines executed:79.12% of 91

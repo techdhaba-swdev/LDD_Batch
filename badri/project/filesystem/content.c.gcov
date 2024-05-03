@@ -1,0 +1,23 @@
+        -:    0:Source:content.c
+        -:    1:#include "header.h"
+function listDirectoryContents called 2 returned 100% blocks executed 80%
+        2:    2:void listDirectoryContents(const struct Directory* dir) { // Define a function to list the contents of a directory.
+        2:    3:    printf("Contents of directory '%s':\n", dir->name); // Print the name of the directory.
+call    0 returned 100%
+        2:    4:    struct File* filePtr = dir->files; // Initialize a pointer to iterate through files.
+        2:    5:    while (filePtr) { // Iterate through files and print their names.
+branch  0 taken 0%
+branch  1 taken 100% (fallthrough)
+    #####:    6:        printf("File: %s\n", filePtr->name);
+call    0 never executed
+    #####:    7:        filePtr = filePtr->next;
+        -:    8:    }
+        2:    9:    struct Directory* subDirPtr = dir->subdirectories; // Initialize a pointer to iterate through subdirectories.
+        3:   10:    while (subDirPtr) { // Iterate through subdirectories and print their names.
+branch  0 taken 33%
+branch  1 taken 67% (fallthrough)
+        1:   11:        printf("Subdirectory: %s\n", subDirPtr->name);
+call    0 returned 100%
+        1:   12:        subDirPtr = subDirPtr->subdirectories;
+        -:   13:    }
+        2:   14:}

@@ -1,0 +1,30 @@
+        -:    0:Source:delete.c
+        -:    1:#include "header.h"
+function delete called 1 returned 100% blocks executed 73%
+        1:    2:void delete(struct Directory* parentDir, const char* name) { // Define a function to delete a file or directory.
+        1:    3:    struct File* filePtr = parentDir->files; // Initialize a pointer to iterate through files.
+        1:    4:    struct File* prevFile = NULL; // Pointer to keep track of the previous file while iterating.
+        1:    5:    while (filePtr) { // Iterate through files to find the specified file for deletion.
+branch  0 taken 100%
+branch  1 taken 0% (fallthrough)
+        1:    6:        if (strcmp(filePtr->name, name) == 0) { // Check if the file name matches the specified name.
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:    7:            if (prevFile) { // If the file is not the first in the list.
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    8:                prevFile->next = filePtr->next; // Update the previous file's next pointer.
+        -:    9:            } else { // If the file is the first in the list.
+        1:   10:                parentDir->files = filePtr->next; // Update the parent directory's file pointer.
+        -:   11:            }
+        1:   12:            free(filePtr); // Free memory allocated for the file.
+        1:   13:            printf("File '%s' deleted.\n", name); // Print a message indicating file deletion.
+call    0 returned 100%
+        1:   14:            return;
+        -:   15:        }
+    #####:   16:        prevFile = filePtr; // Update the previous file pointer.
+    #####:   17:        filePtr = filePtr->next; // Move to the next file.
+        -:   18:    }
+    #####:   19:    printf("File '%s' not found.\n", name); // Print a message if the file is not found.
+call    0 never executed
+        -:   20:}

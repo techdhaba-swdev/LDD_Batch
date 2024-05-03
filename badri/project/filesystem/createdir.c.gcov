@@ -1,0 +1,11 @@
+        -:    0:Source:createdir.c
+        -:    1:#include "header.h"
+        -:    2:// Create a new directory
+function createDirectory called 2 returned 100% blocks executed 100%
+        2:    3:struct Directory* createDirectory(const char* name) { // Define a function to create a new directory with the given name.
+        2:    4:    struct Directory* newDir = (struct Directory*)malloc(sizeof(struct Directory)); // Allocate memory for the new directory.
+        2:    5:    strcpy(newDir->name, name); // Copy the name of the directory to the newly created directory structure.
+        2:    6:    newDir->subdirectories = NULL; // Initialize the subdirectory pointer to NULL.
+        2:    7:    newDir->files = NULL; // Initialize the file pointer to NULL.
+        2:    8:    return newDir; // Return a pointer to the newly created directory.
+        -:    9:}
