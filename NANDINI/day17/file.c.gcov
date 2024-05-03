@@ -1,0 +1,169 @@
+        -:    0:Source:file.c
+        -:    1:#include "file.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:#include <string.h>
+        -:    5:
+function createDirectory called 2 returned 100% blocks executed 60%
+        2:    6:Directory* createDirectory(char* name) {
+        2:    7:    Directory* newDirectory = (Directory*)malloc(sizeof(Directory));
+        2:    8:    if (newDirectory == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    9:        printf("Memory allocation failed.\n");
+call    0 never executed
+    #####:   10:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   11:    }
+        2:   12:    strcpy(newDirectory->name, name);
+        2:   13:    newDirectory->subdirectories = NULL;
+        2:   14:    newDirectory->files = NULL;
+        2:   15:    newDirectory->next = NULL;
+        2:   16:    return newDirectory;
+        -:   17:}
+        -:   18:
+function createFile called 1 returned 100% blocks executed 60%
+        1:   19:File* createFile(char* name) {
+        1:   20:    File* newFile = (File*)malloc(sizeof(File));
+        1:   21:    if (newFile == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   22:        printf("Memory allocation failed.\n");
+call    0 never executed
+    #####:   23:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   24:    }
+        1:   25:    strcpy(newFile->name, name);
+        1:   26:    newFile->next = NULL;
+        1:   27:    return newFile;
+        -:   28:}
+        -:   29:
+function addDirectory called 1 returned 100% blocks executed 100%
+        1:   30:void addDirectory(Directory** root, char* name) {
+        1:   31:    Directory* newDirectory = createDirectory(name);
+call    0 returned 100%
+        1:   32:    newDirectory->next = *root;
+        1:   33:    *root = newDirectory;
+        1:   34:}
+        -:   35:
+function addFile called 1 returned 100% blocks executed 100%
+        1:   36:void addFile(Directory* directory, char* name) {
+        1:   37:    File* newFile = createFile(name);
+call    0 returned 100%
+        1:   38:    newFile->next = directory->files;
+        1:   39:    directory->files = newFile;
+        1:   40:}
+        -:   41:
+function viewDirectoryContents called 1 returned 100% blocks executed 83%
+        1:   42:void viewDirectoryContents(Directory* directory) {
+        1:   43:    printf("Directory: %s\n", directory->name);
+call    0 returned 100%
+        1:   44:    printf("Files:\n");
+call    0 returned 100%
+        1:   45:    File* filePtr = directory->files;
+        2:   46:    while (filePtr != NULL) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        1:   47:        printf("- %s\n", filePtr->name);
+call    0 returned 100%
+        1:   48:        filePtr = filePtr->next;
+        -:   49:    }
+        1:   50:    printf("Subdirectories:\n");
+call    0 returned 100%
+        1:   51:    Directory* subdirectoryPtr = directory->subdirectories;
+        1:   52:    while (subdirectoryPtr != NULL) {
+branch  0 taken 0%
+branch  1 taken 100% (fallthrough)
+    #####:   53:        printf("- %s\n", subdirectoryPtr->name);
+call    0 never executed
+    #####:   54:        subdirectoryPtr = subdirectoryPtr->next;
+        -:   55:    }
+        1:   56:}
+        -:   57:
+function navigateToSubdirectory called 1 returned 100% blocks executed 62%
+        1:   58:Directory* navigateToSubdirectory(Directory* root, char* name) {
+        1:   59:    Directory* current = root->subdirectories;
+        1:   60:    while (current != NULL) {
+branch  0 taken 0%
+branch  1 taken 100% (fallthrough)
+    #####:   61:        if (strcmp(current->name, name) == 0)
+branch  0 never executed
+branch  1 never executed
+    #####:   62:            return current;
+    #####:   63:        current = current->next;
+        -:   64:    }
+        1:   65:    printf("Subdirectory '%s' not found.\n", name);
+call    0 returned 100%
+        1:   66:    return NULL;
+        -:   67:}
+        -:   68:
+function deleteFile called 1 returned 100% blocks executed 67%
+        1:   69:void deleteFile(Directory* directory, char* name) {
+        1:   70:    File* current = directory->files;
+        1:   71:    File* prev = NULL;
+        1:   72:    while (current != NULL && strcmp(current->name, name) != 0) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0%
+branch  3 taken 100% (fallthrough)
+    #####:   73:        prev = current;
+    #####:   74:        current = current->next;
+        -:   75:    }
+        1:   76:    if (current == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   77:        printf("File '%s' not found.\n", name);
+call    0 never executed
+    #####:   78:        return;
+        -:   79:    }
+        1:   80:    if (prev == NULL)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   81:        directory->files = current->next;
+        -:   82:    else
+    #####:   83:        prev->next = current->next;
+        1:   84:    free(current);
+        -:   85:}
+        -:   86:
+function deleteDirectory called 1 returned 100% blocks executed 67%
+        1:   87:void deleteDirectory(Directory** root, char* name) {
+        1:   88:    Directory* current = *root;
+        1:   89:    Directory* prev = NULL;
+        1:   90:    while (current != NULL && strcmp(current->name, name) != 0) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0%
+branch  3 taken 100% (fallthrough)
+    #####:   91:        prev = current;
+    #####:   92:        current = current->next;
+        -:   93:    }
+        1:   94:    if (current == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   95:        printf("Directory '%s' not found.\n", name);
+call    0 never executed
+    #####:   96:        return;
+        -:   97:    }
+        1:   98:    if (prev == NULL)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   99:        *root = current->next;
+        -:  100:    else
+    #####:  101:        prev->next = current->next;
+        1:  102:    free(current);
+        -:  103:}
+        -:  104:
+function searchFile called 0 returned 0% blocks executed 0%
+    #####:  105:File* searchFile(Directory* directory, char* name) {
+    #####:  106:    File* current = directory->files;
+    #####:  107:    while (current != NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:  108:        if (strcmp(current->name, name) == 0)
+branch  0 never executed
+branch  1 never executed
+    #####:  109:            return current;
+    #####:  110:        current = current->next;
+        -:  111:    }
+    #####:  112:    return NULL;
+        -:  113:}

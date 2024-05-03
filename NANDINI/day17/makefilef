@@ -1,0 +1,3 @@
+file: file.c mainfile.c
+	gcc -o file file.c mainfile.c -I.
+

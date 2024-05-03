@@ -1,0 +1,2 @@
+stkexp: stkexp.c mainstkexp.c
+	gcc -o stkexp stkexp.c mainstkexp.c -I. 

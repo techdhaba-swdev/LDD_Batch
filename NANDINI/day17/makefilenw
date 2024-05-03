@@ -1,0 +1,3 @@
+snw: network.c mainnet.c
+	gcc -o snw network.c mainnet.c -I.
+

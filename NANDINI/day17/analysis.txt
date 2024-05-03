@@ -5,10 +5,14 @@ Each sample counts as 0.01 seconds.
 
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
-  0.00      0.00     0.00        7     0.00     0.00  createNode
-  0.00      0.00     0.00        7     0.00     0.00  insert
-  0.00      0.00     0.00        1     0.00     0.00  calculateSum
-  0.00      0.00     0.00        1     0.00     0.00  inOrder
+  0.00      0.00     0.00        2     0.00     0.00  createDirectory
+  0.00      0.00     0.00        1     0.00     0.00  addDirectory
+  0.00      0.00     0.00        1     0.00     0.00  addFile
+  0.00      0.00     0.00        1     0.00     0.00  createFile
+  0.00      0.00     0.00        1     0.00     0.00  deleteDirectory
+  0.00      0.00     0.00        1     0.00     0.00  deleteFile
+  0.00      0.00     0.00        1     0.00     0.00  navigateToSubdirectory
+  0.00      0.00     0.00        1     0.00     0.00  viewDirectoryContents
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -49,24 +53,32 @@ notice and this notice are preserved.
 granularity: each sample hit covers 4 byte(s) no time propagated
 
 index % time    self  children    called     name
-                0.00    0.00       7/7           insert [2]
-[1]      0.0    0.00    0.00       7         createNode [1]
+                0.00    0.00       1/2           addDirectory [2]
+                0.00    0.00       1/2           main [14]
+[1]      0.0    0.00    0.00       2         createDirectory [1]
 -----------------------------------------------
-                                  10             insert [2]
-                0.00    0.00       7/7           main [10]
-[2]      0.0    0.00    0.00       7+10      insert [2]
-                0.00    0.00       7/7           createNode [1]
-                                  10             insert [2]
+                0.00    0.00       1/1           main [14]
+[2]      0.0    0.00    0.00       1         addDirectory [2]
+                0.00    0.00       1/2           createDirectory [1]
 -----------------------------------------------
-                                  14             calculateSum [3]
-                0.00    0.00       1/1           main [10]
-[3]      0.0    0.00    0.00       1+14      calculateSum [3]
-                                  14             calculateSum [3]
+                0.00    0.00       1/1           main [14]
+[3]      0.0    0.00    0.00       1         addFile [3]
+                0.00    0.00       1/1           createFile [4]
 -----------------------------------------------
-                                  14             inOrder [4]
-                0.00    0.00       1/1           main [10]
-[4]      0.0    0.00    0.00       1+14      inOrder [4]
-                                  14             inOrder [4]
+                0.00    0.00       1/1           addFile [3]
+[4]      0.0    0.00    0.00       1         createFile [4]
+-----------------------------------------------
+                0.00    0.00       1/1           main [14]
+[5]      0.0    0.00    0.00       1         deleteDirectory [5]
+-----------------------------------------------
+                0.00    0.00       1/1           main [14]
+[6]      0.0    0.00    0.00       1         deleteFile [6]
+-----------------------------------------------
+                0.00    0.00       1/1           main [14]
+[7]      0.0    0.00    0.00       1         navigateToSubdirectory [7]
+-----------------------------------------------
+                0.00    0.00       1/1           main [14]
+[8]      0.0    0.00    0.00       1         viewDirectoryContents [8]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -159,5 +171,6 @@ notice and this notice are preserved.
 
 Index by function name
 
-   [3] calculateSum            [4] inOrder
-   [1] createNode              [2] insert
+   [2] addDirectory            [4] createFile              [7] navigateToSubdirectory
+   [3] addFile                 [5] deleteDirectory         [8] viewDirectoryContents
+   [1] createDirectory         [6] deleteFile

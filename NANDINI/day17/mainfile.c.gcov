@@ -1,0 +1,53 @@
+        -:    0:Source:mainfile.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <time.h>
+        -:    4:#include "file.h"
+        -:    5:
+function main called 1 returned 100% blocks executed 93%
+        1:    6:int main() {
+        -:    7:    clock_t start, end;
+        -:    8:    double cpu_time_used;
+        -:    9:
+        1:   10:    Directory* root = createDirectory("root");
+call    0 returned 100%
+        -:   11:
+        -:   12:    // Creating directories and files
+        1:   13:    addDirectory(&root, "folder1");
+call    0 returned 100%
+        1:   14:    addFile(root, "file1.txt");
+call    0 returned 100%
+        -:   15:
+        -:   16:    // Viewing directory contents
+        1:   17:    viewDirectoryContents(root);
+call    0 returned 100%
+        -:   18:
+        -:   19:    // Navigating to subdirectory
+        1:   20:    Directory* subdirectory = navigateToSubdirectory(root, "folder1");
+call    0 returned 100%
+        1:   21:    if (subdirectory != NULL)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   22:        printf("Navigated to subdirectory: %s\n", subdirectory->name);
+call    0 never executed
+        -:   23:
+        -:   24:    // Deleting file
+        1:   25:    deleteFile(root, "file1.txt");
+call    0 returned 100%
+        -:   26:
+        -:   27:    // Deleting directory
+        1:   28:    deleteDirectory(&root, "folder1");
+call    0 returned 100%
+        -:   29:
+        -:   30:    // Measure time taken
+        1:   31:    start = clock();
+call    0 returned 100%
+        -:   32:    // Perform operations here...
+        1:   33:    end = clock();
+call    0 returned 100%
+        1:   34:    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+        1:   35:    printf("Time taken: %f seconds\n", cpu_time_used);
+call    0 returned 100%
+        -:   36:
+        1:   37:    return 0;
+        -:   38:}

@@ -1,0 +1,41 @@
+        -:    0:Source:BST.c
+        -:    1:#include <stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include "BST.h"
+        -:    4:
+function createNode called 5 returned 100% blocks executed 100%
+        5:    5:struct Node* createNode(int data) {
+        5:    6:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        5:    7:    newNode->data = data;
+        5:    8:    newNode->left = NULL;
+        5:    9:    newNode->right = NULL;
+        5:   10:    return newNode;
+        -:   11:}
+        -:   12:
+function preorderTraversal called 11 returned 100% blocks executed 100%
+       11:   13:void preorderTraversal(struct Node* root) {
+       11:   14:    if (root == NULL) 
+branch  0 taken 55% (fallthrough)
+branch  1 taken 45%
+        6:   15:        return;
+        5:   16:    printf("%d ", root->data);
+call    0 returned 100%
+        5:   17:    preorderTraversal(root->left);
+call    0 returned 100%
+        5:   18:    preorderTraversal(root->right);
+call    0 returned 100%
+        -:   19:}
+        -:   20:
+function postorderTraversal called 11 returned 100% blocks executed 100%
+       11:   21:void postorderTraversal(struct Node* root) {
+       11:   22:    if (root == NULL) 
+branch  0 taken 55% (fallthrough)
+branch  1 taken 45%
+        6:   23:        return;
+        5:   24:    postorderTraversal(root->left);
+call    0 returned 100%
+        5:   25:    postorderTraversal(root->right);
+call    0 returned 100%
+        5:   26:    printf("%d ", root->data);
+call    0 returned 100%
+        -:   27:}

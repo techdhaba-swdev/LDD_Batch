@@ -1,0 +1,61 @@
+        -:    0:Source:mainbst1.c
+        -:    1:#include <stdio.h>
+        -:    2:#include<time.h>
+        -:    3:#include "bst1.h"
+        -:    4:
+function main called 1 returned 100% blocks executed 95%
+        1:    5:int main() {
+        1:    6:	 clock_t start = clock(); //start the close
+call    0 returned 100%
+        1:    7:    struct node* root = NULL;
+        -:    8:    // Insert some nodes into the BST
+        1:    9:    root = insert(root, 5);
+call    0 returned 100%
+        1:   10:    insert(root, 3);
+call    0 returned 100%
+        1:   11:    insert(root, 2);
+call    0 returned 100%
+        1:   12:    insert(root, 4);
+call    0 returned 100%
+        1:   13:    insert(root, 7);
+call    0 returned 100%
+        1:   14:    insert(root, 6);
+call    0 returned 100%
+        1:   15:    insert(root, 8);
+call    0 returned 100%
+        -:   16:
+        1:   17:    clock_t end = clock(); //stop the clock
+call    0 returned 100%
+        1:   18:	double time_taken = ((double)(end - start)); //cal the elapsed time'
+        -:   19:    
+        -:   20:    // Print the in-order traversal of the BST
+        1:   21:    printf("Inorder traversal of the bst: ");
+call    0 returned 100%
+        1:   22:    inorderTraversal(root);
+call    0 returned 100%
+        1:   23:    printf("\n");
+call    0 returned 100%
+        1:   24:    printf("time taken %f \n",time_taken);
+call    0 returned 100%
+        -:   25:    //delete a node from the BST
+        1:   26:    int key = 2;
+        1:   27:    root = deleteNode(root,key);
+call    0 returned 100%
+        1:   28:    printf("Node with data %d deleted froM THE BST\n",key);
+call    0 returned 100%
+        -:   29:
+        -:   30:    // Search for a v// Search for a value in the BST
+        1:   31:    int searchKey = 6;
+        1:   32:    if (search(root, searchKey)) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        1:   33:        printf("%d is present in the bst.\n", searchKey);
+call    0 returned 100%
+        -:   34:    } else {
+    #####:   35:        printf("%d is not present in the bst.\n", searchKey);
+call    0 never executed
+        -:   36:    }
+        -:   37:
+        1:   38:    return 0;
+        -:   39:}

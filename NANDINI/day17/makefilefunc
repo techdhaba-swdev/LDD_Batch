@@ -1,0 +1,2 @@
+func: bstfunc.c mainfunc.c
+	gcc -o func bstfunc.c mainfunc.c -I.
