@@ -1,0 +1,21 @@
+        -:    0:Source:searchuser.c
+        -:    1:#include "profile.h"
+function searchUser called 1 returned 100% blocks executed 90%
+        1:    2:UserProfile* searchUser(const char* name, UserProfile* profiles[]) { // Function to search for a user by name.
+        2:    3:    for (int i = 0; i < 26; i++) { // Looping through each index of the profiles array.
+branch  0 taken 100%
+branch  1 taken 0% (fallthrough)
+        2:    4:        UserProfile* current = profiles[i]; // Getting the current profile.
+        3:    5:        while (current != NULL) { // Looping through each user profile at the current index.
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        2:    6:            if (strcmp(current->name, name) == 0) { // Comparing the name of the current profile with the given name.
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:    7:                return current; // Returning the current profile if found.
+        -:    8:            }
+        1:    9:            current = current->next; // Moving to the next profile.
+        -:   10:        }
+        -:   11:    }
+    #####:   12:    return NULL; // Returning NULL if the user is not found.
+        -:   13:}

@@ -1,0 +1,43 @@
+File 'userprofile.c'
+Lines executed:100.00% of 9
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+No calls
+Creating 'userprofile.c.gcov'
+
+File 'addfriend.c'
+Lines executed:83.33% of 12
+Branches executed:100.00% of 4
+Taken at least once:50.00% of 4
+Calls executed:0.00% of 1
+Creating 'addfriend.c.gcov'
+
+File 'searchuser.c'
+Lines executed:87.50% of 8
+Branches executed:100.00% of 6
+Taken at least once:83.33% of 6
+No calls
+Creating 'searchuser.c.gcov'
+
+File 'display.c'
+Lines executed:100.00% of 5
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 1
+Creating 'display.c.gcov'
+
+File 'free.c'
+Lines executed:100.00% of 13
+Branches executed:100.00% of 6
+Taken at least once:100.00% of 6
+No calls
+Creating 'free.c.gcov'
+
+File 'main.c'
+Lines executed:95.65% of 23
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:92.86% of 14
+Creating 'main.c.gcov'
+
+Lines executed:94.29% of 70

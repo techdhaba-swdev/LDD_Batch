@@ -1,0 +1,23 @@
+        -:    0:Source:addfriend.c
+        -:    1:#include "profile.h"
+function addFriend called 2 returned 100% blocks executed 67%
+        2:    2:void addFriend(GraphNode* graph[], UserProfile* user1, UserProfile* user2) { // Function to add a friend connection between two users.
+        2:    3:    GraphNode* node1 = (GraphNode*)malloc(sizeof(GraphNode)); // Allocating memory for graph node.
+        2:    4:    GraphNode* node2 = (GraphNode*)malloc(sizeof(GraphNode)); // Allocating memory for graph node.
+        2:    5:    if (node1 == NULL || node2 == NULL) { // Checking if memory allocation is successful.
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+    #####:    6:        printf("Memory allocation failed.\n"); // Printing error message if memory allocation failed.
+call    0 never executed
+    #####:    7:        return; // Returning from the function.
+        -:    8:    }
+        2:    9:    node1->profile = user1; // Assigning user1 to the profile pointer of node1.
+        2:   10:    node2->profile = user2; // Assigning user2 to the profile pointer of node2.
+        2:   11:    node1->next = graph[user1->name[0] - 'A']; // Assigning the current head of the adjacency list to the next of node1.
+        2:   12:    node2->next = graph[user2->name[0] - 'A']; // Assigning the current head of the adjacency list to the next of node2.
+        2:   13:    graph[user1->name[0] - 'A'] = node2; // Updating the head of the adjacency list for user1.
+        2:   14:    graph[user2->name[0] - 'A'] = node1; // Updating the head of the adjacency list for user2.
+        -:   15:}
+        -:   16:

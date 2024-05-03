@@ -1,0 +1,16 @@
+        -:    0:Source:userprofile.c
+        -:    1:#include "profile.h"
+function createProfile called 3 returned 100% blocks executed 100%
+        3:    2:UserProfile* createProfile(const char* name, const char* interests) { // Function to create a new user profile.
+        3:    3:    UserProfile* newUser = (UserProfile*)malloc(sizeof(UserProfile)); // Allocating memory for user profile.
+        3:    4:    if (newUser != NULL) { // Checking if memory allocation is successful.
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        3:    5:        strncpy(newUser->name, name, MAX_NAME_LENGTH - 1); // Safely copying user name to profile.
+        3:    6:        newUser->name[MAX_NAME_LENGTH - 1] = '\0'; // Null-terminating the user name.
+        3:    7:        strncpy(newUser->interests, interests, MAX_INTERESTS_LENGTH - 1); // Safely copying user interests to profile.
+        3:    8:        newUser->interests[MAX_INTERESTS_LENGTH - 1] = '\0'; // Null-terminating the user interests.
+        3:    9:        newUser->next = NULL; // Initializing next pointer to NULL.
+        -:   10:    }
+        3:   11:    return newUser; // Returning pointer to the newly created user profile.
+        -:   12:}

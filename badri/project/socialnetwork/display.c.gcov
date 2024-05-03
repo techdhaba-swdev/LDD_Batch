@@ -1,0 +1,13 @@
+        -:    0:Source:display.c
+        -:    1:#include "profile.h"
+function displayFriendList called 1 returned 100% blocks executed 100%
+        1:    2:void displayFriendList(GraphNode* friends) { // Function to display a user's friend list.
+        2:    3:    while (friends != NULL) { // Looping through each friend in the friend list.
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        1:    4:        printf("%s\n", friends->profile->name); // Printing the name of the current friend.
+call    0 returned 100%
+        1:    5:        friends = friends->next; // Moving to the next friend in the list.
+        -:    6:    }
+        1:    7:}
+        -:    8:

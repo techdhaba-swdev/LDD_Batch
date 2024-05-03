@@ -1,0 +1,25 @@
+        -:    0:Source:free.c
+        -:    1:#include "profile.h"
+function freeMemory called 1 returned 100% blocks executed 100%
+        1:    2:void freeMemory(UserProfile* profiles[], GraphNode* graph[]) { // Function to free allocated memory for user profiles and graph nodes.
+       27:    3:    for (int i = 0; i < 26; i++) { // Looping through each index of the profiles and graph arrays.
+branch  0 taken 96%
+branch  1 taken 4% (fallthrough)
+       26:    4:        UserProfile* currentProfile = profiles[i]; // Getting the current user profile.
+       29:    5:        while (currentProfile != NULL) { // Looping through each user profile at the current index.
+branch  0 taken 10%
+branch  1 taken 90% (fallthrough)
+        3:    6:            UserProfile* nextProfile = currentProfile->next; // Getting the next user profile.
+        3:    7:            free(currentProfile); // Freeing memory for the current user profile.
+        3:    8:            currentProfile = nextProfile; // Moving to the next user profile.
+        -:    9:        }
+       26:   10:        GraphNode* currentGraph = graph[i]; // Getting the current graph node.
+       30:   11:        while (currentGraph != NULL) { // Looping through each graph node at the current index.
+branch  0 taken 13%
+branch  1 taken 87% (fallthrough)
+        4:   12:            GraphNode* nextGraph = currentGraph->next; // Getting the next graph node.
+        4:   13:            free(currentGraph); // Freeing memory for the current graph node.
+        4:   14:            currentGraph = nextGraph; // Moving to the next graph node.
+        -:   15:        }
+        -:   16:    }
+        1:   17:}
