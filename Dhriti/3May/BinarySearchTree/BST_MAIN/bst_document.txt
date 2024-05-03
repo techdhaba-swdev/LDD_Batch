@@ -1,0 +1,51 @@
+
+
+1. createNode Function:
+   Creates a new node with the given data.
+   int data: The data to be stored in the new node.
+   Returns: A pointer to the newly created node.
+
+2. insert Function:
+   Inserts a new node with the given data into the binary search tree.
+   struct Node* root: Pointer to the root node of the binary search tree.
+   int data: The data to be inserted into the tree.
+   Returns: A pointer to the root node of the modified tree.
+
+3. deletion Function:
+   Deletes a node with the given data from the binary search tree.
+  
+     struct Node* root: Pointer to the root node of the binary search tree.
+      int data: The data to be deleted from the tree.
+    Returns: A pointer to the root node of the modified tree.
+
+4. Minimum Function:
+   Finds the minimum value node in the binary search tree.
+   
+      struct Node* node: Pointer to the root node of the subtree.
+    Returns: A pointer to the node containing the minimum value.
+
+5. preorder Function:
+    Performs preorder traversal of the binary search tree.
+    struct Node* root: Pointer to the root node of the binary search tree.
+
+6. postorder Function:
+    Performs postorder traversal of the binary search tree.
+   
+      struct Node* root: Pointer to the root node of the binary search tree.
+
+7. MinMax Function:
+  Finds the minimum and maximum values in the binary search tree.
+  
+      struct Node* node: Pointer to the root node of the binary search tree.
+      int *min: Pointer to store the minimum value.
+      int *max: Pointer to store the maximum value.
+
+8. inOrderTraversal Function:
+    Performs in-order traversal of the binary search tree.
+   struct Node* root: Pointer to the root node of the binary search tree.
+
+9. height Function:
+  Calculates the height of the binary search tree.
+  struct Node* node: Pointer to the root node of the binary search tree.
+   Returns: The height of the tree.
+

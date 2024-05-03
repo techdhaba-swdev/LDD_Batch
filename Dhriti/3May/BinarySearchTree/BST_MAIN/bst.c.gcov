@@ -1,0 +1,121 @@
+        -:    0:Source:bst.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include<limits.h>
+        -:    4:#include "bst.h"
+        -:    5:
+        -:    6:// Function to create a new node 
+        7:    7:struct Node* createNode(int data) {
+        7:    8:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));  // Allocate memory for the new node
+        7:    9:    if (newNode == NULL) {
+    #####:   10:        printf("Memory allocation failed!\n");
+    #####:   11:        exit(EXIT_FAILURE); //SECURING BY HANDLING MEMORY ALLOCATION FALIURE
+        -:   12:    }
+        -:   13:    
+        7:   14:    newNode->data = data;  // Assign the data to the new node
+        7:   15:    newNode->left = NULL;  // Initialize the left subtree pointer to NULL
+        7:   16:    newNode->right = NULL; // Initialize the right subtree pointer to NULL
+        7:   17:    return newNode;        // Return the pointer to the new node
+        -:   18:}
+        -:   19:
+        -:   20:// Function to insert a new node 
+       17:   21:struct Node* insert(struct Node* root, int data) {
+       17:   22:    if (root == NULL) {
+        7:   23:        return createNode(data);  // If the root is NULL, create a new node with the given data and return it
+        -:   24:    }
+       10:   25:    if (data < root->data) {
+        5:   26:        root->left = insert(root->left, data);   // If the data is less than the root's data, insert into the left subtree
+        5:   27:    } else if (data > root->data) {
+        5:   28:        root->right = insert(root->right, data); // If the data is greater than the root's data, insert into the right subtree
+        -:   29:    }
+       10:   30:    return root;  // Return the root node
+        -:   31:}
+        -:   32:
+        -:   33:// Function to delete a node 
+        3:   34:struct Node* deletion(struct Node* root, int data) {
+        3:   35:    if (root == NULL) {
+    #####:   36:        return root;  // If the root is NULL, return NULL
+        -:   37:    }
+        3:   38:    if (data < root->data) {
+        2:   39:        root->left = deletion(root->left, data);   // If the data is less than the root's data, delete from the left subtree
+        1:   40:    } else if (data > root->data) {
+    #####:   41:        root->right = deletion(root->right, data); // If the data is greater than the root's data, delete from the right subtree
+        -:   42:    } else {
+        1:   43:        if (root->left == NULL) {
+        1:   44:            struct Node* temp = root->right;
+        1:   45:            free(root);        // If the node to be deleted has only right child, replace it with its right child
+        1:   46:            return temp;       // and return the right child
+    #####:   47:        } else if (root->right == NULL) {
+    #####:   48:            struct Node* temp = root->left;
+    #####:   49:            free(root);        // If the node to be deleted has only left child, replace it with its left child
+    #####:   50:            return temp;       // and return the left child
+        -:   51:        }
+    #####:   52:        struct Node* temp = Minimum(root->right);  // If the node to be deleted has both children
+    #####:   53:        root->data = temp->data;                   // find the minimum value in its right subtree
+    #####:   54:        root->right = deletion(root->right, temp->data);  // Replace the node's data with the minimum value
+        -:   55:    }
+        2:   56:    return root;  // Return the root node
+        -:   57:}
+        -:   58:
+        -:   59://  find the minimum value node in a binary tree
+    #####:   60:struct Node* Minimum(struct Node* node) {
+    #####:   61:    struct Node* current = node;
+    #####:   62:    while (current && current->left != NULL) {
+    #####:   63:        current = current->left;  // Traverse to the leftmost node to find the minimum value
+        -:   64:    }
+    #####:   65:    return current;  // Return the pointer to the minimum value node
+        -:   66:}
+        -:   67:
+        -:   68:// Function to check if the binary tree is a binary search tree (BST)
+       15:   69:bool isBSTUtil(struct Node* node, int min, int max) {
+       15:   70:    if (node == NULL) {
+        8:   71:        return true;  // An empty tree is a BST
+        -:   72:    }
+        7:   73:    if (node->data < min || node->data > max) {
+    #####:   74:        return false;  // If node data is not within the called range it's not a BST
+        -:   75:    }
+      14*:   76:    return isBSTUtil(node->left, min, node->data - 1) &&   // Recursively check left subtree with updated max value
+        7:   77:           isBSTUtil(node->right, node->data + 1, max);   // Recursively check right subtree with updated min value
+        -:   78:}
+        -:   79:
+        -:   80:// Function to check if the binary tree is a BST
+        1:   81:bool isBST(struct Node* root) {
+        1:   82:    return isBSTUtil(root, INT_MIN, INT_MAX);  // Calling the utility function with initial min and max values
+        -:   83:}
+        -:   84:
+        -:   85:// Function to find the minimum and maximum values in a binary tree
+       15:   86:void MinMax(struct Node* node, int *min, int *max) {
+       15:   87:    if (node == NULL) {
+        8:   88:        return;  // If the node is NULL, return
+        -:   89:    }
+        -:   90:
+        7:   91:    MinMax(node->left, min, max);  // Recursively find min and max values in the left subtree
+        -:   92:    
+        7:   93:    if (node->data < *min) {
+        1:   94:        *min = node->data;  // Update min value if current node's data is smaller
+        -:   95:    }
+        7:   96:    if (node->data > *max) {
+        7:   97:        *max = node->data;  // Update max value if current node's data is larger
+        -:   98:    }
+        -:   99:
+        7:  100:    MinMax(node->right, min, max);  // Recursively find min and max values in the right subtree
+        -:  101:}
+        -:  102:
+        -:  103:// Function to perform in-order traversal of a binary tree
+       28:  104:void inOrderTraversal(struct Node* root) {
+       28:  105:    if (root != NULL) {
+       13:  106:        inOrderTraversal(root->left);   // Traverse the left subtree
+       13:  107:        printf("%d ", root->data);      // Print the data of the current node
+       13:  108:        inOrderTraversal(root->right);  // Traverse the right subtree
+        -:  109:    }
+       28:  110:}
+        -:  111:
+        -:  112:// Function to calculate the height of a binary tree
+       15:  113:int height(struct Node* node) {
+       15:  114:    if (node == NULL) {
+        8:  115:        return 0;  // If the node is NULL, return 0
+        -:  116:    }
+        7:  117:    int leftHeight = height(node->left);   //  calculate the height of the left subtree
+        7:  118:    int rightHeight = height(node->right); //  calculate the height of the right subtree
+        7:  119:    return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);  // Return the maximum of leftHeight and rightHeight, plus 1
+        -:  120:}

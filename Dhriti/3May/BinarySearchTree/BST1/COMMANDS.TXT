@@ -1,0 +1,61 @@
+FILES:
+
+$ bst1.c
+$ main_bst1.c
+
+EXECUTION:
+
+$ gcc -c bst1.c -o bst1.o
+$ gcc -c main_bst1.c -o main_bst1.o
+$ gcc -o execute_bst1 bst1.c main_bst1.c
+$ ./execute_bst1
+
+$vim Makefile
+CC = gcc
+
+CFLAGS = -I.
+
+DEPS = bst1.h
+
+OBJ = bst1.o main_bst1.o
+
+%.o : %.c $(DEPS)	
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+myprogram : $(OBJ)	
+	$(CC) -o $@ $^ $(CFLAGS)
+
+$ gcc -o myprogram bst1.c main_bst1.c
+$ ./myprogram
+
+TIME OPTIMIZATION:
+In main_bst1.c:
+ clock_t start = clock(); //start the clock
+ 
+ clock_t end = clock(); //stop the clock
+ 
+ double time_taken = ((double)(end - start)); //cal the elapsed time'
+
+$ gcc -O2 bst1.c main_bst1.c -o myprogram
+$ ./myprogram
+
+$  gcc -O3 bst1.c main_bst1.c -o myprogram
+$ ./myprogram
+
+ANALYSIS:
+
+$ gcc -Wall -pg main_bst1.c bst1.c -o execute_gprof
+$ ./execute_gprof
+
+$gprof execute_gprof gmon.out>analysis.txt
+FUNCTION PROFILING (gcov)
+
+$ gcc -fprofile-arcs -ftest-coverage -o execute_fprofile bst1.c main_bst1.c
+
+$ ./execute_fprofile
+$ ls
+
+$ gcov  execute_fprofile-bst1.c  execute_fprofile-main_bst1.c
+
+ gcov  execute_fprofile-bst1.c  execute_fprofile-main_bst1.c > coverage.txt
+
