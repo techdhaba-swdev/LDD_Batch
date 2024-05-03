@@ -1,0 +1,210 @@
+        -:    0:Source:Binary_fn.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <stdbool.h>
+        -:    4:#include <limits.h> // for INT_MIN and INT_MAX
+        -:    5:#include"tree.h"
+        -:    6:
+        -:    7:// Function to create a new node
+function createNode called 7 returned 100% blocks executed 60%
+        7:    8:struct Node* createNode(int data) {
+        7:    9:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        7:   10:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   11:        fprintf(stderr, "Memory allocation failed\n");
+call    0 never executed
+    #####:   12:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   13:    }
+        7:   14:    newNode->data = data;
+        7:   15:    newNode->left = NULL;
+        7:   16:    newNode->right = NULL;
+        7:   17:    return newNode;
+        -:   18:}
+        -:   19:
+        -:   20:// Function to insert a new node
+function insert called 17 returned 100% blocks executed 100%
+       17:   21:struct Node* insert(struct Node* root, int data) {
+       17:   22:    if (root == NULL) {
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:   23:        return createNode(data);
+call    0 returned 100%
+        -:   24:    }
+       10:   25:    if (data < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:   26:        root->left = insert(root->left, data);
+call    0 returned 100%
+        5:   27:    } else if (data > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   28:        root->right = insert(root->right, data);
+call    0 returned 100%
+        -:   29:    }
+       10:   30:    return root;
+        -:   31:}
+        -:   32:
+        -:   33:// Function to perform in-order traversal (left, root, right)
+function inOrderTraversal called 28 returned 100% blocks executed 100%
+       28:   34:void inOrderTraversal(struct Node* root) {
+       28:   35:    if (root != NULL) {
+branch  0 taken 46% (fallthrough)
+branch  1 taken 54%
+       13:   36:        inOrderTraversal(root->left);
+call    0 returned 100%
+       13:   37:        printf("%d ", root->data);
+call    0 returned 100%
+       13:   38:        inOrderTraversal(root->right);
+call    0 returned 100%
+        -:   39:    }
+       28:   40:}
+        -:   41:
+        -:   42:// Function to search for a value in the BST
+function search called 2 returned 100% blocks executed 75%
+        2:   43:struct Node* search(struct Node* root, int data) {
+        2:   44:    if (root == NULL || root->data == data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 50% (fallthrough)
+branch  3 taken 50%
+        1:   45:        return root;
+        -:   46:    }
+        1:   47:    if (data < root->data) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   48:        return search(root->left, data);
+call    0 never executed
+        -:   49:    }
+        1:   50:    return search(root->right, data);
+call    0 returned 100%
+        -:   51:}
+        -:   52:
+        -:   53:// Function to find the minimum value in the BST
+function findMin called 4 returned 100% blocks executed 83%
+        4:   54:struct Node* findMin(struct Node* root) {
+        4:   55:    if (root == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   56:        return NULL;
+        -:   57:    }
+        4:   58:    if (root->left == NULL) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        2:   59:        return root;
+        -:   60:    }
+        2:   61:    return findMin(root->left);
+call    0 returned 100%
+        -:   62:}
+        -:   63:
+        -:   64:// Function to find the maximum value in the BST
+function findMax called 3 returned 100% blocks executed 83%
+        3:   65:struct Node* findMax(struct Node* root) {
+        3:   66:    if (root == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   67:        return NULL;
+        -:   68:    }
+        3:   69:    if (root->right == NULL) {
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   70:        return root;
+        -:   71:    }
+        2:   72:    return findMax(root->right);
+call    0 returned 100%
+        -:   73:}
+        -:   74:
+        -:   75:// Function to delete a node from the BST
+function deleteNode called 3 returned 100% blocks executed 76%
+        3:   76:struct Node* deleteNode(struct Node* root, int data) {
+        3:   77:    if (root == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   78:        return root;
+        -:   79:    }
+        3:   80:    if (data < root->data) {
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   81:        root->left = deleteNode(root->left, data);
+call    0 returned 100%
+        2:   82:    } else if (data > root->data) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   83:        root->right = deleteNode(root->right, data);
+call    0 never executed
+        -:   84:    } else {
+        -:   85:        // Node with only one child or no child
+        2:   86:        if (root->left == NULL) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   87:            struct Node* temp = root->right;
+        1:   88:            free(root);
+        1:   89:            return temp;
+        1:   90:        } else if (root->right == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   91:            struct Node* temp = root->left;
+    #####:   92:            free(root);
+    #####:   93:            return temp;
+        -:   94:        }
+        -:   95:        // Node with two children: Get the inorder successor (smallest in the right subtree)
+        1:   96:        struct Node* temp = findMin(root->right);
+call    0 returned 100%
+        -:   97:        // Copy the inorder successor's content to this node
+        1:   98:        root->data = temp->data;
+        -:   99:        // Delete the inorder successor
+        1:  100:        root->right = deleteNode(root->right, temp->data);
+call    0 returned 100%
+        -:  101:    }
+        2:  102:    return root;
+        -:  103:}
+        -:  104:
+        -:  105:// Function to check if a binary tree is a BST
+function isBSTUtil called 13 returned 100% blocks executed 85%
+       13:  106:bool isBSTUtil(struct Node* root, int min, int max) {
+       13:  107:    if (root == NULL) {
+branch  0 taken 54% (fallthrough)
+branch  1 taken 46%
+        7:  108:        return true;
+        -:  109:    }
+        6:  110:    if (root->data < min || root->data > max) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+    #####:  111:        return false;
+        -:  112:    }
+      12*:  113:    return (isBSTUtil(root->left, min, root->data - 1) &&
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+branch  3 taken 100% (fallthrough)
+branch  4 taken 0%
+        6:  114:            isBSTUtil(root->right, root->data + 1, max));
+call    0 returned 100%
+        -:  115:}
+        -:  116:
+function isBST called 1 returned 100% blocks executed 100%
+        1:  117:bool isBST(struct Node* root) {
+        1:  118:    return isBSTUtil(root, INT_MIN, INT_MAX);
+call    0 returned 100%
+        -:  119:}
+        -:  120:
+        -:  121:// Function to find the height of the BST
+function height called 13 returned 100% blocks executed 100%
+       13:  122:int height(struct Node* root) {
+       13:  123:    if (root == NULL) {
+branch  0 taken 54% (fallthrough)
+branch  1 taken 46%
+        7:  124:        return -1;
+        -:  125:    }
+        6:  126:    int leftHeight = height(root->left);
+call    0 returned 100%
+        6:  127:    int rightHeight = height(root->right);
+call    0 returned 100%
+        6:  128:    return (leftHeight > rightHeight) ? (leftHeight + 1) : (rightHeight + 1);
+branch  0 taken 17% (fallthrough)
+branch  1 taken 83%
+        -:  129:}
+        -:  130:

@@ -1,0 +1,15 @@
+File 'Binary_main.c'
+Lines executed:96.77% of 31
+Branches executed:100.00% of 4
+Taken at least once:50.00% of 4
+Calls executed:96.43% of 28
+Creating 'Binary_main.c.gcov'
+
+File 'Binary_fn.c'
+Lines executed:85.33% of 75
+Branches executed:100.00% of 48
+Taken at least once:72.92% of 48
+Calls executed:80.95% of 21
+Creating 'Binary_fn.c.gcov'
+
+Lines executed:88.68% of 106

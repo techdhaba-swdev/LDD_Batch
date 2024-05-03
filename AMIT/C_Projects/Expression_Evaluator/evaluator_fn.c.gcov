@@ -1,0 +1,194 @@
+        -:    0:Source:evaluator_fn.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include <ctype.h>
+        -:    5:#include"infix.h"
+        -:    6:
+        -:    7:
+function createStackNode called 7 returned 100% blocks executed 100%
+        7:    8:struct StackNode* createStackNode(double value) {
+        7:    9:    struct StackNode* newNode = (struct StackNode*)malloc(sizeof(struct StackNode));
+        7:   10:    newNode->value = value;
+        7:   11:    newNode->next = NULL;
+        7:   12:    return newNode;
+        -:   13:}
+        -:   14:
+function push called 7 returned 100% blocks executed 100%
+        7:   15:void push(struct StackNode** stack, double value) {
+        7:   16:    struct StackNode* newNode = createStackNode(value);
+call    0 returned 100%
+        7:   17:    newNode->next = *stack;
+        7:   18:    *stack = newNode;
+        7:   19:}
+        -:   20:
+function pop called 7 returned 100% blocks executed 60%
+        7:   21:double pop(struct StackNode** stack) {
+        7:   22:    if (*stack == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   23:        printf("Error: Stack is empty.\n");
+call    0 never executed
+    #####:   24:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   25:    }
+        7:   26:    double value = (*stack)->value;
+        7:   27:    struct StackNode* temp = *stack;
+        7:   28:    *stack = (*stack)->next;
+        7:   29:    free(temp);
+        7:   30:    return value;
+        -:   31:}
+        -:   32:
+        -:   33:// Operator precedence
+function precedence called 2 returned 100% blocks executed 60%
+        2:   34:int precedence(char op) {
+        2:   35:    switch (op) {
+branch  0 taken 0%
+branch  1 taken 100%
+branch  2 taken 0%
+    #####:   36:        case '+':
+        -:   37:        case '-':
+    #####:   38:            return 1;
+        2:   39:        case '*':
+        -:   40:        case '/':
+        2:   41:            return 2;
+        -:   42:        // Add more operators as needed
+    #####:   43:        default:
+    #####:   44:            return 0;
+        -:   45:    }
+        -:   46:}
+        -:   47:
+        -:   48:// Convert infix expression to postfix
+function infixToPostfix called 1 returned 100% blocks executed 79%
+        1:   49:void infixToPostfix(const char* infix, char* postfix) {
+        1:   50:    struct StackNode* stack = NULL;
+        1:   51:    int j = 0;
+        -:   52:
+        6:   53:    for (int i = 0; infix[i]; ++i) {
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:   54:        char c = infix[i];
+        5:   55:        if (isdigit(c)) {
+branch  0 taken 60% (fallthrough)
+branch  1 taken 40%
+        6:   56:            while (isdigit(infix[i])) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        3:   57:                postfix[j++] = infix[i++];
+        -:   58:            }
+        3:   59:            postfix[j++] = ' ';
+        3:   60:            --i; // Move back to the last digit
+        2:   61:        } else if (c == '(') {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   62:            push(&stack, c);
+call    0 never executed
+        2:   63:        } else if (c == ')') {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   64:            while (stack && stack->value != '(') {
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   65:                postfix[j++] = pop(&stack);
+call    0 never executed
+    #####:   66:                postfix[j++] = ' ';
+        -:   67:            }
+    #####:   68:            pop(&stack); // Remove '('
+call    0 never executed
+        2:   69:        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 50% (fallthrough)
+branch  5 taken 50%
+branch  6 taken 100% (fallthrough)
+branch  7 taken 0%
+        3:   70:            while (stack && precedence(c) <= precedence(stack->value)) {
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+call    2 returned 100%
+call    3 returned 100%
+branch  4 taken 100%
+branch  5 taken 0% (fallthrough)
+        1:   71:                postfix[j++] = pop(&stack);
+call    0 returned 100%
+        1:   72:                postfix[j++] = ' ';
+        -:   73:            }
+        2:   74:            push(&stack, c);
+call    0 returned 100%
+        -:   75:        }
+        -:   76:    }
+        -:   77:
+        2:   78:    while (stack) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        1:   79:        postfix[j++] = pop(&stack);
+call    0 returned 100%
+        1:   80:        postfix[j++] = ' ';
+        -:   81:    }
+        -:   82:
+        1:   83:    postfix[j] = '\0';
+        1:   84:}
+        -:   85:
+        -:   86:// Evaluate postfix expression
+function evaluatePostfix called 1 returned 100% blocks executed 91%
+        1:   87:double evaluatePostfix(const char* postfix) {
+        1:   88:    struct StackNode* stack = NULL;
+        1:   89:    int i = 0;
+        -:   90:
+       11:   91:    while (postfix[i]) {
+branch  0 taken 91%
+branch  1 taken 9% (fallthrough)
+       10:   92:        char c = postfix[i];
+       10:   93:        if (isdigit(c)) {
+branch  0 taken 30% (fallthrough)
+branch  1 taken 70%
+        3:   94:            double operand = 0;
+        6:   95:            while (isdigit(postfix[i])) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        3:   96:                operand = operand * 10 + (postfix[i] - '0');
+        3:   97:                ++i;
+        -:   98:            }
+        3:   99:            push(&stack, operand);
+call    0 returned 100%
+        7:  100:        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 86% (fallthrough)
+branch  5 taken 14%
+branch  6 taken 17% (fallthrough)
+branch  7 taken 83%
+        2:  101:            double operand2 = pop(&stack);
+call    0 returned 100%
+        2:  102:            double operand1 = pop(&stack);
+call    0 returned 100%
+        2:  103:            switch (c) {
+branch  0 taken 0%
+branch  1 taken 0%
+branch  2 taken 50%
+branch  3 taken 50%
+branch  4 taken 0%
+    #####:  104:                case '+': push(&stack, operand1 + operand2); break;
+call    0 never executed
+    #####:  105:                case '-': push(&stack, operand1 - operand2); break;
+call    0 never executed
+        1:  106:                case '*': push(&stack, operand1 * operand2); break;
+call    0 returned 100%
+        1:  107:                case '/': push(&stack, operand1 / operand2); break;
+call    0 returned 100%
+        -:  108:            }
+        2:  109:            ++i;
+        -:  110:        } else {
+        5:  111:            ++i; // Skip spaces
+        -:  112:        }
+        -:  113:    }
+        -:  114:
+        1:  115:    return pop(&stack);
+call    0 returned 100%
+        -:  116:}

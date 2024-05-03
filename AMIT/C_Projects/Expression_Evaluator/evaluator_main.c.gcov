@@ -1,0 +1,32 @@
+        -:    0:Source:evaluator_main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include <ctype.h>
+        -:    5:#include"infix.h"
+        -:    6:
+        -:    7:
+        -:    8:
+        -:    9:
+        -:   10:
+        -:   11:
+function main called 1 returned 100% blocks executed 100%
+        1:   12:int main() 
+        -:   13:{
+        -:   14:    char infix[100];
+        1:   15:    printf("Enter an infix expression: ");
+call    0 returned 100%
+        1:   16:    scanf("%s", infix);
+call    0 returned 100%
+        -:   17:
+        -:   18:    char postfix[100];
+        1:   19:    infixToPostfix(infix, postfix);
+call    0 returned 100%
+        -:   20:
+        1:   21:    double result = evaluatePostfix(postfix);
+call    0 returned 100%
+        1:   22:    printf("Result: %.2f\n", result);
+call    0 returned 100%
+        -:   23:
+        1:   24:    return 0;
+        -:   25:}

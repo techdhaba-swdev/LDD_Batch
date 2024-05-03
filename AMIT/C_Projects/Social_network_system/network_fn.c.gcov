@@ -1,0 +1,95 @@
+        -:    0:Source:network_fn.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include"network.h"
+        -:    5:
+        -:    6:
+        -:    7:// Create a new user profile
+function createUserProfile called 2 returned 100% blocks executed 100%
+        2:    8:struct UserProfile* createUserProfile(const char* name, const char* interests) {
+        2:    9:    struct UserProfile* newUser = (struct UserProfile*)malloc(sizeof(struct UserProfile));
+        2:   10:    strcpy(newUser->name, name);
+        2:   11:    strcpy(newUser->interests, interests);
+        2:   12:    newUser->next = NULL;
+        2:   13:    return newUser;
+        -:   14:}
+        -:   15:
+        -:   16:// Initialize the social network graph
+function createGraph called 1 returned 100% blocks executed 100%
+        1:   17:struct Graph* createGraph(int numUsers) {
+        1:   18:    struct Graph* newGraph = (struct Graph*)malloc(sizeof(struct Graph));
+        1:   19:    newGraph->numUsers = numUsers;
+        1:   20:    newGraph->adjacencyList = (struct GraphNode*)malloc(numUsers * sizeof(struct GraphNode));
+        3:   21:    for (int i = 0; i < numUsers; ++i) {
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        2:   22:        newGraph->adjacencyList[i] = NULL;
+        -:   23:    }
+        1:   24:    return newGraph;
+        -:   25:}
+        -:   26:
+        -:   27:// Add a friend connection (edge) between users
+function addFriend called 1 returned 100% blocks executed 100%
+        1:   28:void addFriend(struct Graph* graph, int user1, int user2) {
+        -:   29:    // Add user2 to user1's adjacency list and vice versa
+        1:   30:    struct GraphNode* newNode1 = (struct GraphNode*)malloc(sizeof(struct GraphNode));
+        1:   31:    newNode1->userId = user2;
+        1:   32:    newNode1->next = graph->adjacencyList[user1];
+        1:   33:    graph->adjacencyList[user1] = newNode1;
+        -:   34:
+        1:   35:    struct GraphNode* newNode2 = (struct GraphNode*)malloc(sizeof(struct GraphNode));
+        1:   36:    newNode2->userId = user1;
+        1:   37:    newNode2->next = graph->adjacencyList[user2];
+        1:   38:    graph->adjacencyList[user2] = newNode2;
+        1:   39:}
+        -:   40:// Search for users by name or interest
+function searchUsers called 2 returned 100% blocks executed 100%
+        2:   41:void searchUsers(const struct UserProfile* profiles, const char* query) {
+        2:   42:    struct UserProfile* currProfile = profiles;
+        6:   43:    while (currProfile) {
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        4:   44:        if (strstr(currProfile->name, query) || strstr(currProfile->interests, query)) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 50% (fallthrough)
+branch  3 taken 50%
+        2:   45:            printf("Found user: %s\n", currProfile->name);
+call    0 returned 100%
+        -:   46:        }
+        4:   47:        currProfile = currProfile->next;
+        -:   48:    }
+        2:   49:}
+        -:   50:
+        -:   51:// Recommend friends based on mutual connections or interests
+function recommendFriends called 1 returned 100% blocks executed 100%
+        1:   52:void recommendFriends(const struct Graph* graph, int userId) {
+        1:   53:    printf("Recommended friends for user %d:\n", userId);
+call    0 returned 100%
+        1:   54:    struct GraphNode* currNode = graph->adjacencyList[userId];
+        2:   55:    while (currNode) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        1:   56:        int friendId = currNode->userId;
+        -:   57:        // You can further filter recommendations based on interests or other criteria
+        1:   58:        printf("Friend: %d\n", friendId);
+call    0 returned 100%
+        1:   59:        currNode = currNode->next;
+        -:   60:    }
+        1:   61:}
+        -:   62:
+        -:   63:// Display a user's friend list
+function displayFriendList called 1 returned 100% blocks executed 100%
+        1:   64:void displayFriendList(const struct Graph* graph, int userId) {
+        1:   65:    printf("Friend list for user %d:\n", userId);
+call    0 returned 100%
+        1:   66:    struct GraphNode* currNode = graph->adjacencyList[userId];
+        2:   67:    while (currNode) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        1:   68:        printf("Friend: %d\n", currNode->userId);
+call    0 returned 100%
+        1:   69:        currNode = currNode->next;
+        -:   70:    }
+        1:   71:}

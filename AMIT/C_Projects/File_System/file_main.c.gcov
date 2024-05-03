@@ -1,0 +1,63 @@
+        -:    0:Source:file_main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include"file.h"
+        -:    5:#include<time.h>
+        -:    6:
+function main called 1 returned 100% blocks executed 100%
+        1:    7:int main()
+        -:    8:{   
+        1:    9:    clock_t start = clock();
+call    0 returned 100%
+        -:   10:    // Initialize the root directory
+        1:   11:    struct Directory* root = createDirectory("/");
+call    0 returned 100%
+        -:   12:
+        -:   13:    // Example usage:
+        1:   14:    struct Directory* userDir = createDirectory("user");
+call    0 returned 100%
+        1:   15:    root->subdirectories = userDir;
+        -:   16:
+        1:   17:    struct File* reportFile = createFile("report.txt");
+call    0 returned 100%
+        1:   18:    userDir->files = reportFile;
+        -:   19:
+        -:   20:    // Call navigateToSubdirectory
+        1:   21:    struct Directory* subDir = navigateToSubdirectory(root, "user");
+call    0 returned 100%
+        1:   22:    if (subDir) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   23:        printf("Navigated to subdirectory: %s\n", subDir->name);
+call    0 returned 100%
+        -:   24:    }
+        -:   25:
+        -:   26:    // Call listDirectoryContents
+        1:   27:    listDirectoryContents(root);
+call    0 returned 100%
+        -:   28:
+        -:   29:    // Call searchFilesByName
+        1:   30:    searchFilesByName(userDir, "report.txt");
+call    0 returned 100%
+        -:   31:
+        -:   32:     // Call delete
+        1:   33:    delete(userDir, "report.txt");
+call    0 returned 100%
+        -:   34:
+        -:   35:    // List contents after deletion
+        1:   36:    listDirectoryContents(userDir);
+call    0 returned 100%
+        -:   37:
+        1:   38:    clock_t end = clock();
+call    0 returned 100%
+        1:   39:    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+        1:   40:      printf("Time taken: %f seconds\n", time_taken);
+call    0 returned 100%
+        -:   41:
+        -:   42:
+        -:   43:
+        1:   44:    return 0;
+        -:   45:}
+        -:   46:              
+        -:   47:
