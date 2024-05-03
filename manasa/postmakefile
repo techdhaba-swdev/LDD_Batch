@@ -1,0 +1,2 @@
+prepost: premain.c post.c
+	gcc -o prepost premain.c post.c -I.

@@ -1,0 +1,47 @@
+        -:    0:Source:funcmain.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <time.h>
+        -:    4:#include "func.h"
+        -:    5:#include <string.h>
+        -:    6:
+function main called 1 returned 100% blocks executed 100%
+        1:    7:int main() {
+        -:    8:    clock_t start, end;
+        -:    9:    double cpu_time_used;
+        -:   10:
+        -:   11:    char infix[100], postfix[100];
+        -:   12:
+        -:   13:    // Input infix expression
+        1:   14:    printf("Enter an infix expression: ");
+call    0 returned 100%
+        1:   15:    fgets(infix, sizeof(infix), stdin);
+call    0 returned 100%
+        -:   16:
+        -:   17:    // Remove newline character from input
+        1:   18:    infix[strcspn(infix, "\n")] = '\0';
+        -:   19:
+        -:   20:    // Convert infix to postfix
+        1:   21:    infixToPostfix(infix, postfix);
+call    0 returned 100%
+        1:   22:    printf("Postfix expression: %s\n", postfix);
+call    0 returned 100%
+        -:   23:
+        -:   24:    // Evaluate postfix expression
+        1:   25:    int result = evaluatePostfix(postfix);
+call    0 returned 100%
+        1:   26:    printf("Result: %d\n", result);
+call    0 returned 100%
+        -:   27:
+        -:   28:    // Measure time taken
+        1:   29:    start = clock();
+call    0 returned 100%
+        -:   30:    // Perform operations here...
+        1:   31:    end = clock();
+call    0 returned 100%
+        1:   32:    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+        1:   33:    printf("Time taken: %f seconds\n", cpu_time_used);
+call    0 returned 100%
+        -:   34:
+        1:   35:    return 0;
+        -:   36:}

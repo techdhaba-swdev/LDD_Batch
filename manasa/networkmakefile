@@ -1,0 +1,3 @@
+network: networkmain.c network.c
+	gcc -o network networkmain.c network.c -I.
+

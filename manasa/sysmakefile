@@ -1,0 +1,3 @@
+system: sysmain.c system.c
+	gcc -o system system.c sysmain.c -I.
+

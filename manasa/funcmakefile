@@ -1,0 +1,4 @@
+
+function: func.c funcmain.c
+	gcc -o function funcmain.c func.c -I.
+

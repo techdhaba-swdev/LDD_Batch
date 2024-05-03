@@ -1,0 +1,2 @@
+bs: bs.c bsmain.c
+	gcc -o bs bs.c bsmain.c -I.	

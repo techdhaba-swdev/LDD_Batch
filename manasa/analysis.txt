@@ -5,10 +5,12 @@ Each sample counts as 0.01 seconds.
 
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
-  0.00      0.00     0.00        7     0.00     0.00  createNode
-  0.00      0.00     0.00        7     0.00     0.00  insert
-  0.00      0.00     0.00        1     0.00     0.00  calculateSum
-  0.00      0.00     0.00        1     0.00     0.00  inOrder
+  0.00      0.00     0.00        3     0.00     0.00  add_user
+  0.00      0.00     0.00        2     0.00     0.00  add_friendship
+  0.00      0.00     0.00        1     0.00     0.00  is_friend_of_user
+  0.00      0.00     0.00        1     0.00     0.00  recommend_friends
+  0.00      0.00     0.00        1     0.00     0.00  search_users_by_interest
+  0.00      0.00     0.00        1     0.00     0.00  search_users_by_name
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -49,24 +51,24 @@ notice and this notice are preserved.
 granularity: each sample hit covers 4 byte(s) no time propagated
 
 index % time    self  children    called     name
-                0.00    0.00       7/7           insert [2]
-[1]      0.0    0.00    0.00       7         createNode [1]
+                0.00    0.00       3/3           main [12]
+[1]      0.0    0.00    0.00       3         add_user [1]
 -----------------------------------------------
-                                  10             insert [2]
-                0.00    0.00       7/7           main [10]
-[2]      0.0    0.00    0.00       7+10      insert [2]
-                0.00    0.00       7/7           createNode [1]
-                                  10             insert [2]
+                0.00    0.00       2/2           main [12]
+[2]      0.0    0.00    0.00       2         add_friendship [2]
 -----------------------------------------------
-                                  14             calculateSum [3]
-                0.00    0.00       1/1           main [10]
-[3]      0.0    0.00    0.00       1+14      calculateSum [3]
-                                  14             calculateSum [3]
+                0.00    0.00       1/1           recommend_friends [4]
+[3]      0.0    0.00    0.00       1         is_friend_of_user [3]
 -----------------------------------------------
-                                  14             inOrder [4]
-                0.00    0.00       1/1           main [10]
-[4]      0.0    0.00    0.00       1+14      inOrder [4]
-                                  14             inOrder [4]
+                0.00    0.00       1/1           main [12]
+[4]      0.0    0.00    0.00       1         recommend_friends [4]
+                0.00    0.00       1/1           is_friend_of_user [3]
+-----------------------------------------------
+                0.00    0.00       1/1           main [12]
+[5]      0.0    0.00    0.00       1         search_users_by_interest [5]
+-----------------------------------------------
+                0.00    0.00       1/1           main [12]
+[6]      0.0    0.00    0.00       1         search_users_by_name [6]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -159,5 +161,5 @@ notice and this notice are preserved.
 
 Index by function name
 
-   [3] calculateSum            [4] inOrder
-   [1] createNode              [2] insert
+   [2] add_friendship          [3] is_friend_of_user       [5] search_users_by_interest
+   [1] add_user                [4] recommend_friends       [6] search_users_by_name

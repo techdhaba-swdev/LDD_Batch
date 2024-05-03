@@ -1,0 +1,3 @@
+lltree: lltree.c lltreemain.c
+	gcc -o lltree lltree.c lltreemain.c -I.
+

@@ -1,0 +1,3 @@
+search: search.c searchmain.c
+	gcc -o search search.c searchmain.c -I.
+
