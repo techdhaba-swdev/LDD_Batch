@@ -1,0 +1,171 @@
+        -:    0:Source:Expression_evaluator.c
+        -:    1:#include "stack.h"  // Include header file for stack operations (assumed)
+        -:    2:#include <ctype.h>  // Include header for character classification functions
+        -:    3:#include <stdio.h>  // Include standard input/output header
+        -:    4:
+        -:    5:// Function to check if character is an operator
+function is_operator called 7 returned 100% blocks executed 100%
+        7:    6:int is_operator(char c) {
+        -:    7:    // Check if the character is one of the common arithmetic operators
+        7:    8:    return c == '+' || c == '-' || c == '*' || c == '/';
+branch  0 taken 71% (fallthrough)
+branch  1 taken 29%
+branch  2 taken 60% (fallthrough)
+branch  3 taken 40%
+branch  4 taken 33% (fallthrough)
+branch  5 taken 67%
+branch  6 taken 0% (fallthrough)
+branch  7 taken 100%
+        -:    9:}
+        -:   10:
+        -:   11:// Function to get precedence of operator
+function precedence called 4 returned 100% blocks executed 75%
+        4:   12:int precedence(char c) {
+        -:   13:    // Assign precedence levels based on operator type
+        4:   14:    if (c == '+' || c == '-') {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+branch  2 taken 50% (fallthrough)
+branch  3 taken 50%
+        3:   15:        return 1;
+       1*:   16:    } else if (c == '*' || c == '/') {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+branch  2 never executed
+branch  3 never executed
+        1:   17:        return 2;
+        -:   18:    } else {
+    #####:   19:        return 0; // Parentheses have highest precedence (convention)
+        -:   20:    }
+        -:   21:}
+        -:   22:
+        -:   23:// Function to convert infix expression to postfix
+function infix_to_postfix called 1 returned 100% blocks executed 71%
+        1:   24:void infix_to_postfix(char* infix, char* postfix) {
+        -:   25:    Stack stack;  // Declare a stack object for operator manipulation
+        1:   26:    stack.top = NULL;  // Initialize stack to be empty (top pointer points to NULL)
+        -:   27:
+        1:   28:    int i = 0, j = 0;  // Indexes for infix and postfix strings
+        -:   29:
+        9:   30:    while (infix[i] != '\0') { // Loop until null terminator in infix string
+branch  0 taken 89%
+branch  1 taken 11% (fallthrough)
+        8:   31:        if (isdigit(infix[i])) {  // Check if current character is a digit
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        4:   32:            postfix[j++] = infix[i++];  // Copy digit to postfix and increment both indexes
+        4:   33:        } else if (infix[i] == '(') {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   34:            push(&stack, infix[i++]);  // Push '(' onto the stack and increment index
+call    0 never executed
+        4:   35:        } else if (infix[i] == ')') {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   36:            while (!is_empty(&stack) && peek(&stack) != '(') {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+        -:   37:                // Pop operators from stack until encountering '(' and append them to postfix
+    #####:   38:                postfix[j++] = pop(&stack);
+call    0 never executed
+        -:   39:            }
+    #####:   40:            pop(&stack); // Discard '(' from stack
+call    0 never executed
+    #####:   41:            i++;  // Increment index after processing closing parenthesis
+        4:   42:        } else if (is_operator(infix[i])) {
+call    0 returned 100%
+branch  1 taken 75% (fallthrough)
+branch  2 taken 25%
+        5:   43:            while (!is_empty(&stack) && precedence(peek(&stack)) >= precedence(infix[i])) {
+call    0 returned 100%
+branch  1 taken 40% (fallthrough)
+branch  2 taken 60%
+call    3 returned 100%
+call    4 returned 100%
+call    5 returned 100%
+branch  6 taken 100%
+branch  7 taken 0% (fallthrough)
+        -:   44:                // Pop operators with higher or equal precedence from stack and append to postfix
+        2:   45:                postfix[j++] = pop(&stack);
+call    0 returned 100%
+        -:   46:            }
+        3:   47:            push(&stack, infix[i++]);  // Push current operator onto the stack and increment index
+call    0 returned 100%
+        -:   48:        } else {
+        -:   49:            // Ignore other characters like spaces (optional handling)
+        1:   50:            i++;
+        -:   51:        }
+        -:   52:    }
+        -:   53:
+        -:   54:    // Pop remaining operators from stack after processing infix string
+        2:   55:    while (!is_empty(&stack)) {
+call    0 returned 100%
+branch  1 taken 50%
+branch  2 taken 50% (fallthrough)
+        1:   56:        postfix[j++] = pop(&stack);
+call    0 returned 100%
+        -:   57:    }
+        -:   58:
+        1:   59:    postfix[j] = '\0';  // Add null terminator to mark the end of the postfix string
+        1:   60:}
+        -:   61:
+        -:   62:// Function to evaluate postfix expression
+function evaluate_postfix called 1 returned 100% blocks executed 90%
+        1:   63:int evaluate_postfix(char* postfix) {
+        -:   64:    Stack stack;  // Declare a stack object for operand manipulation
+        1:   65:    stack.top = NULL;  // Initialize stack to be empty
+        -:   66:
+        1:   67:    int i = 0;  // Index for postfix string
+        -:   68:
+        8:   69:    while (postfix[i] != '\0') { // Loop until null terminator in postfix string
+branch  0 taken 88%
+branch  1 taken 12% (fallthrough)
+        7:   70:        if (isdigit(postfix[i])) {
+branch  0 taken 57% (fallthrough)
+branch  1 taken 43%
+        4:   71:            push(&stack, postfix[i] - '0'); // Convert digit character to integer value and push onto stack
+call    0 returned 100%
+        3:   72:        } else if (is_operator(postfix[i])) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        3:   73:            int operand2 = pop(&stack);  // Pop the second operand from the stack
+call    0 returned 100%
+        3:   74:            int operand1 = pop(&stack);  // Pop the first operand from the stack
+call    0 returned 100%
+        3:   75:            switch (postfix[i]) {
+branch  0 taken 33%
+branch  1 taken 33%
+branch  2 taken 33%
+branch  3 taken 0%
+branch  4 taken 0%
+        1:   76:                case '+':
+        1:   77:                    push(&stack, operand1 + operand2);  // Perform addition and push result onto stack
+call    0 returned 100%
+        1:   78:                    break;
+        1:   79:                case '-':
+        1:   80:                    push(&stack, operand1 - operand2);  // Perform subtraction and push result onto stack
+call    0 returned 100%
+        1:   81:                    break;
+        1:   82:                case '*':
+        1:   83:                    push(&stack, operand1 * operand2);  // Perform multiplication and push result onto stack
+call    0 returned 100%
+        1:   84:                    break;
+    #####:   85:                case '/':
+    #####:   86:                    push(&stack, operand1 / operand2);  // Perform division and push result onto stack
+call    0 never executed
+    #####:   87:                    break;
+        -:   88:            }
+        -:   89:        }
+        7:   90:        i++;  // Increment index after processing the current character
+        -:   91:    }
+        -:   92:
+        1:   93:    return pop(&stack);
+call    0 returned 100%
+        -:   94:  // The final element on the stack is the result of the expression
+        -:   95:}
+        -:   96:

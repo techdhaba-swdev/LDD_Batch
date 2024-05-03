@@ -1,0 +1,44 @@
+        -:    0:Source:main.c
+        -:    1:#include "expression_evaluator.h"  // Include header for expression evaluation functions (assumed)
+        -:    2:#include <stdio.h>                   // Include standard input/output header
+        -:    3:#include <time.h>                    // Include time header for clock function
+        -:    4:
+        -:    5:#define MAX_EXPR_SIZE 100            // Define maximum expression size (constant)
+        -:    6:
+function main called 1 returned 100% blocks executed 100%
+        1:    7:int main() {
+        -:    8:    char infix[MAX_EXPR_SIZE];       // Declare character array to store infix expression
+        -:    9:    char postfix[MAX_EXPR_SIZE];      // Declare character array to store postfix expression
+        -:   10:    double start_time, end_time;      // Declare variables to store start and end times
+        -:   11:
+        -:   12:    // Get start time before expression evaluation
+        1:   13:    start_time = clock();            // Get starting CPU time in clock ticks
+call    0 returned 100%
+        -:   14:
+        1:   15:    printf("Enter an infix expression: ");
+call    0 returned 100%
+        1:   16:    fgets(infix, MAX_EXPR_SIZE, stdin);  // Read infix expression from user input
+call    0 returned 100%
+        -:   17:
+        1:   18:    infix_to_postfix(infix, postfix);  // Convert infix to postfix expression (assuming function exists)
+call    0 returned 100%
+        1:   19:    printf("Postfix expression: %s\n", postfix);  // Print converted postfix expression
+call    0 returned 100%
+        -:   20:
+        1:   21:    int result = evaluate_postfix(postfix);  // Evaluate postfix expression (assuming function exists)
+call    0 returned 100%
+        1:   22:    printf("Result: %d\n", result);          // Print evaluation result
+call    0 returned 100%
+        -:   23:
+        -:   24:    // Get end time after expression evaluation
+        1:   25:    end_time = clock();                // Get ending CPU time in clock ticks
+call    0 returned 100%
+        -:   26:
+        -:   27:    // Calculate elapsed time in seconds
+        1:   28:    double elapsed_time = (end_time - start_time) / CLOCKS_PER_SEC;
+        -:   29:
+        1:   30:    printf("Elapsed time: %.6f seconds\n", elapsed_time);  // Print elapsed time with 6 decimal places
+call    0 returned 100%
+        -:   31:
+        1:   32:    return 0;//successfull execution of program
+        -:   33:}

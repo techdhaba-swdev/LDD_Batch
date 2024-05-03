@@ -1,0 +1,69 @@
+        -:    0:Source:main.c
+        -:    1:#include "graph.h"//Including the header file for the graph.h 
+        -:    2:
+function main called 1 returned 100% blocks executed 100%
+        1:    3:int main() {
+        1:    4:    SocialNetwork* network = createSocialNetwork();//creating a new social network
+call    0 returned 100%
+        -:    5:
+        -:    6:    // Adding user profiles
+        1:    7:    addUserProfile(network, "Seetha", "Art, Music");//Adding user profile for seetha with interests
+call    0 returned 100%
+        1:    8:    addUserProfile(network, "Ram", "Sports, Movies");//Adding user profile for ram with interests
+call    0 returned 100%
+        1:    9:addUserProfile(network, "Charlie", "Technology, Reading");//Adding user profile for Charlie with interests
+call    0 returned 100%
+        1:   10:    addUserProfile(network, "Radha", "Gaming, Cooking");//Adding user profile for Radha with interests
+call    0 returned 100%
+        1:   11:    addUserProfile(network, "Raman", "Travel, Photography");//Adding user profile foe Raman with interests
+call    0 returned 100%
+        -:   12:
+        -:   13:    // Adding friendships
+        1:   14:    addFriend(network, "Seetha", "Ram");//seetha become friends with ram
+call    0 returned 100%
+        1:   15:    addFriend(network, "Seetha", "Charlie");//seetha become friends with charlie
+call    0 returned 100%
+        1:   16:    addFriend(network, "Seetha", "Radha");//seetha become friends with radha
+call    0 returned 100%
+        1:   17:    addFriend(network, "Seetha", "Raman");//seetha become friends with raman
+call    0 returned 100%
+        1:   18:    addFriend(network, "Ram", "Charlie");//ram become friends with charlie
+call    0 returned 100%
+        1:   19:    addFriend(network, "Ram", "Radha");//ram become friends with radha
+call    0 returned 100%
+        1:   20:    addFriend(network, "Ram", "Raman");//ram become friends with raman
+call    0 returned 100%
+        1:   21:    addFriend(network, "Charlie", "Radha");//charlie become friends with radha
+call    0 returned 100%
+        1:   22:    addFriend(network, "Charlie", "Raman");//charlie become friends with raman
+call    0 returned 100%
+        -:   23:    //addFriend(network, "Radha", "Raman");//radha become friends with raman 
+        -:   24:
+        -:   25:    // Displaying friend list
+        1:   26:    displayFriendList(network, "Seetha");//displaying seetha's friend list
+call    0 returned 100%
+        1:   27:    displayFriendList(network, "Ram");//displaying ram's friend list
+call    0 returned 100%
+        1:   28:    displayFriendList(network, "Charlie");//displaying charlie friend list
+call    0 returned 100%
+        1:   29:    displayFriendList(network, "Radha");//displaying radha freind list
+call    0 returned 100%
+        1:   30:    displayFriendList(network, "Raman");//displaying raman friend list
+call    0 returned 100%
+        -:   31:
+        -:   32:    // Recommending friends
+        1:   33:    recommendFriends(network, "Seetha");//recommending friends for seetha
+call    0 returned 100%
+        1:   34:    recommendFriends(network, "Ram");//recommending friends for ram
+call    0 returned 100%
+        1:   35:    recommendFriends(network, "Charlie");//recommending freinds for charlie
+call    0 returned 100%
+        1:   36:    recommendFriends(network, "Radha");//recommending friends for radha
+call    0 returned 100%
+        1:   37:    recommendFriends(network, "Raman");//recommending friends for raman
+call    0 returned 100%
+        -:   38:
+        -:   39:    // More functionality testing...
+        -:   40:
+        1:   41:    return 0;//Returning 0 to indicate successful execution.
+        -:   42:}
