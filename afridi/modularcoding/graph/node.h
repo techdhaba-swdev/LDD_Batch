@@ -2,10 +2,12 @@
 #define NODE_H
 
 struct Node {
-    int vertex;
-    struct Node* next;
+    int data;
+    struct Node* left;
+    struct Node* right;
 };
 
-struct Node* createNode(int vertex);
+struct Node* createNode(int data);
+struct Node* minValueNode(struct Node* node);
 
 #endif /* NODE_H */
