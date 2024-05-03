@@ -1,0 +1,33 @@
+Function 'destroyGraph'
+Lines executed:100.00% of 10
+
+Function 'displayFriendList'
+Lines executed:50.00% of 14
+
+Function 'displayNewsFeed'
+Lines executed:0.00% of 7
+
+Function 'recommendFriends'
+Lines executed:0.00% of 25
+
+Function 'searchUsers'
+Lines executed:0.00% of 7
+
+Function 'addFriend'
+Lines executed:50.00% of 18
+
+Function 'createUserProfile'
+Lines executed:77.78% of 9
+
+Function 'main'
+Lines executed:80.00% of 25
+
+File 'network.c'
+Lines executed:36.67% of 90
+Creating 'network.c.gcov'
+
+File 'main.c'
+Lines executed:80.00% of 25
+Creating 'main.c.gcov'
+
+Lines executed:46.09% of 115

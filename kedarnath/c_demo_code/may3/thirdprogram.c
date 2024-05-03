@@ -45,7 +45,7 @@ Node* createUserProfile(char name[], char interests[]) {
 }
 
 void addFriend(Graph* graph, char user1[], char user2[]) {
-    // Assume both users exist in the graph
+    // Find indices of user1 and user2
     int v1 = -1, v2 = -1;
     for (int i = 0; i < graph->V; i++) {
         if (strcmp(graph->adjList[i]->user.name, user1) == 0)
@@ -55,6 +55,13 @@ void addFriend(Graph* graph, char user1[], char user2[]) {
         if (v1 != -1 && v2 != -1)
             break;
     }
+
+    // Check if both users were found
+    if (v1 == -1 || v2 == -1) {
+        printf("Error: One or both users not found.\n");
+        return;
+    }
+
     // Add connection between users
     Node* newNode1 = createUserProfile(user1, "");
     newNode1->next = graph->adjList[v2]->next;
@@ -64,6 +71,10 @@ void addFriend(Graph* graph, char user1[], char user2[]) {
     newNode2->next = graph->adjList[v1]->next;
     graph->adjList[v1]->next = newNode2;
 }
+
+
+
+
 
 void searchUsers(Node* head, char query[]) {
     Node* current = head;

@@ -6,39 +6,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 #include<time.h>
 
+#define MAX_NAME_LENGTH 50
+#define MAX_INTERESTS_LENGTH 100
 
-// Define structure for user profile
-//typedef struct UserProfile UserProfile;
 
-// Define structure for user connection
-//typedef struct UserConnection UserConnection;
+//typedef struct UserProfile UserProfile; 
+//typedef struct Node Node;
+//typedef struct Graph Graph;
 
-// Structure for user profile
+// Structures
 typedef struct UserProfile {
-    char name[100];
-    char interests[100];
-    UserConnection* friends;
-}UserProfile;
+    char name[MAX_NAME_LENGTH];
+    char interests[MAX_INTERESTS_LENGTH];
+    // Add more fields as needed
+} UserProfile;
 
-// Structure for user connection
-typedef struct UserConnection {
-    UserProfile* friend;
-    UserConnection* next;
-}UserConnection;
+typedef struct Node {
+    UserProfile user;
+    struct Node* next;
+} Node;
 
+typedef struct Graph {
+    int V; // Number of vertices
+    Node** adjList; // Array of adjacency lists
+} Graph;
 
 // Function prototypes
-UserProfile* createUserProfile(const char* name, const char* interests);
-void displayUserProfile(UserProfile* profile);
-UserConnection* addFriend(UserProfile* user1, UserProfile* user2);
-void displayFriendList(UserProfile* user);
-void searchUserByName(UserProfile* root, const char* name);
-void searchUserByInterest(UserProfile* root, const char* interest);
-void recommendFriends(UserProfile* user);
-void displayNewsFeed(UserProfile* user);
+Node* createUserProfile(char name[], char interests[]);
+void addFriend(Graph* graph, char user1[], char user2[]);
+void searchUsers(Node* head, char query[]);
+void recommendFriends(Graph* graph, char user[]);
+void displayFriendList(Graph* graph, char user[]);
+void displayNewsFeed(char user[]);
+void destroyGraph(Graph* graph);
+
+
 
 #endif /* SOCIAL_NETWORK_H */
 

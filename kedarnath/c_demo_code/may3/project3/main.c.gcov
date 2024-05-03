@@ -1,0 +1,46 @@
+        -:    0:Source:main.c
+        -:    1:#include"network.h"
+        -:    2:
+        1:    3:int main() {
+        -:    4:
+        1:    5:    clock_t start=clock();
+        -:    6:    // Create a sample graph
+        1:    7:    Graph* graph = (Graph*)malloc(sizeof(Graph));
+        1:    8:    if (graph == NULL) {
+    #####:    9:        fprintf(stderr, "Memory allocation failed.\n");
+    #####:   10:        return EXIT_FAILURE;
+        -:   11:    }
+        1:   12:    graph->V = 3; // Number of users
+        1:   13:    graph->adjList = (Node**)malloc(graph->V * sizeof(Node*));
+        1:   14:    if (graph->adjList == NULL) {
+    #####:   15:        fprintf(stderr, "Memory allocation failed.\n");
+    #####:   16:        free(graph);
+    #####:   17:        return EXIT_FAILURE;
+        -:   18:    }
+        -:   19:
+        -:   20:    // Initialize adjacency lists
+        4:   21:    for (int i = 0; i < graph->V; i++) {
+        3:   22:        graph->adjList[i] = createUserProfile("", ""); // Dummy node for each user
+        -:   23:    }
+        -:   24:
+        -:   25:    // Add connections (friends)
+        1:   26:    addFriend(graph, "Alice", "Bob");
+        1:   27:    addFriend(graph, "Alice", "Charlie");
+        1:   28:    addFriend(graph, "Bob", "Charlie");
+        -:   29:
+        -:   30:    // Example usage
+        1:   31:    displayFriendList(graph, "Alice");
+        1:   32:    displayFriendList(graph, "Bob");
+        1:   33:    displayFriendList(graph, "Charlie");
+        -:   34:
+        -:   35:    // Clean up
+        1:   36:    destroyGraph(graph);
+        -:   37:    
+        1:   38:    clock_t end=clock();
+        1:   39:    double time_taken=((double)(end-start));
+        1:   40:    printf("time taken is %f\n",time_taken);
+        -:   41:
+        1:   42:    return 0;
+        -:   43:}
+        -:   44:
+        -:   45:   

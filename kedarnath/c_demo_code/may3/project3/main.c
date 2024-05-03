@@ -1,45 +1,45 @@
 #include"network.h"
 
 int main() {
-    // Create user profiles
-    UserProfile* user1 = createUserProfile("Alice", "Programming, Reading");
-    UserProfile* user2 = createUserProfile("Bob", "Gaming, Music");
-    UserProfile* user3 = createUserProfile("Charlie", "Sports, Cooking");
 
-    // Add friends
-    addFriend(user1, user2);
-    addFriend(user1, user3);
-    addFriend(user2, user3);
+    clock_t start=clock();
+    // Create a sample graph
+    Graph* graph = (Graph*)malloc(sizeof(Graph));
+    if (graph == NULL) {
+        fprintf(stderr, "Memory allocation failed.\n");
+        return EXIT_FAILURE;
+    }
+    graph->V = 3; // Number of users
+    graph->adjList = (Node**)malloc(graph->V * sizeof(Node*));
+    if (graph->adjList == NULL) {
+        fprintf(stderr, "Memory allocation failed.\n");
+        free(graph);
+        return EXIT_FAILURE;
+    }
 
-    // Display user profiles and friend lists
-    printf("User Profiles:\n");
-    displayUserProfile(user1);
-    displayUserProfile(user2);
-    displayUserProfile(user3);
+    // Initialize adjacency lists
+    for (int i = 0; i < graph->V; i++) {
+        graph->adjList[i] = createUserProfile("", ""); // Dummy node for each user
+    }
 
-    printf("\nFriend Lists:\n");
-    displayFriendList(user1);
-    displayFriendList(user2);
-    displayFriendList(user3);
+    // Add connections (friends)
+    addFriend(graph, "Alice", "Bob");
+    addFriend(graph, "Alice", "Charlie");
+    addFriend(graph, "Bob", "Charlie");
 
-    // Search for users by name and interest
-    printf("\nSearch by Name:\n");
-    searchUserByName(user1, "Alice");
-    searchUserByName(user1, "Eve");
+    // Example usage
+    displayFriendList(graph, "Alice");
+    displayFriendList(graph, "Bob");
+    displayFriendList(graph, "Charlie");
 
-    printf("\nSearch by Interest:\n");
-    searchUserByInterest(user1, "Programming");
-    searchUserByInterest(user1, "Music");
-
-    // Recommend friends and display news feed
-    recommendFriends(user1);
-    displayNewsFeed(user1);
-
-    // Free memory
-    free(user1);
-    free(user2);
-    free(user3);
+    // Clean up
+    destroyGraph(graph);
+    
+    clock_t end=clock();
+    double time_taken=((double)(end-start));
+    printf("time taken is %f\n",time_taken);
 
     return 0;
 }
 
+   
