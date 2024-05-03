@@ -1,10 +1,14 @@
 #ifndef GRAPH_H
 #define GRAPH_H
+#include "node.h"
 
-#define MAX_VERTICES 100
+struct Graph {
+    int numVertices;
+    struct Node** adjLists;
+};
 
-void initializeGraph(int numVertices);
-void addEdge(int src, int dest);
-void printGraph(int numVertices);
+struct Graph* createGraph(int numVertices);
+void addEdge(struct Graph* graph, int src, int dest);
+void printGraph(struct Graph* graph);
 
 #endif /* GRAPH_H */
