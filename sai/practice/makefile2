@@ -1,0 +1,2 @@
+exe:main.c fun.c
+	gcc -o exe main.c fun.c -I.

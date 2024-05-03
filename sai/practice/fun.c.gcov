@@ -1,0 +1,244 @@
+        -:    0:Source:fun.c
+        -:    1:#include "fun.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:#include <string.h>
+        -:    5:#include<ctype.h>
+        -:    6:
+function createStackNode called 4 returned 100% blocks executed 60%
+        4:    7:StackNode* createStackNode(int data) {
+        4:    8:    StackNode* newNode = (StackNode*)malloc(sizeof(StackNode));
+        4:    9:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   10:        printf("Memory allocation failed.\n");
+call    0 never executed
+    #####:   11:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   12:    }
+        4:   13:    newNode->data = data;
+        4:   14:    newNode->next = NULL;
+        4:   15:    return newNode;
+        -:   16:}
+        -:   17:
+function push called 4 returned 100% blocks executed 100%
+        4:   18:void push(StackNode** top, int data) {
+        4:   19:    StackNode* newNode = createStackNode(data);
+call    0 returned 100%
+        4:   20:    newNode->next = *top;
+        4:   21:    *top = newNode;
+        4:   22:}
+        -:   23:
+function pop called 4 returned 100% blocks executed 67%
+        4:   24:int pop(StackNode** top) {
+        4:   25:    if (isEmpty(*top)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   26:        printf("Stack underflow.\n");
+call    0 never executed
+    #####:   27:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   28:    }
+        4:   29:    StackNode* temp = *top;
+        4:   30:    int data = temp->data;
+        4:   31:    *top = (*top)->next;
+        4:   32:    free(temp);
+        4:   33:    return data;
+        -:   34:}
+        -:   35:
+function isEmpty called 7 returned 100% blocks executed 100%
+        7:   36:int isEmpty(StackNode* top) {
+        7:   37:    return top == NULL;
+        -:   38:}
+        -:   39:
+function peek called 0 returned 0% blocks executed 0%
+    #####:   40:int peek(StackNode* top) {
+    #####:   41:    if (isEmpty(top)) {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   42:        printf("Stack is empty.\n");
+call    0 never executed
+    #####:   43:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   44:    }
+    #####:   45:    return top->data;
+        -:   46:}
+        -:   47:
+function isOperator called 2 returned 100% blocks executed 50%
+        2:   48:int isOperator(char ch) {
+       2*:   49:    return (ch == '+' || ch == '-' || ch == '*' || ch == '/');
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+branch  5 never executed
+branch  6 never executed
+branch  7 never executed
+        -:   50:}
+        -:   51:
+function precedence called 0 returned 0% blocks executed 0%
+    #####:   52:int precedence(char op) {
+    #####:   53:    if (op == '+' || op == '-')
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   54:        return 1;
+    #####:   55:    if (op == '*' || op == '/')
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   56:        return 2;
+    #####:   57:    return 0;
+        -:   58:}
+        -:   59:
+function infixToPostfix called 1 returned 100% blocks executed 46%
+        1:   60:void infixToPostfix(char* infix, char* postfix) {
+        1:   61:    StackNode* stack = NULL;
+        1:   62:    int i = 0, j = 0;
+        4:   63:    while (infix[i]) {
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+       3*:   64:        if (infix[i] == ' ' || infix[i] == '\t') {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+    #####:   65:            i++;
+    #####:   66:            continue;
+        -:   67:        }
+        3:   68:        if (isdigit(infix[i])) {
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+        2:   69:            postfix[j++] = infix[i++];
+        2:   70:            while (isdigit(infix[i]))
+branch  0 taken 0%
+branch  1 taken 100% (fallthrough)
+    #####:   71:                postfix[j++] = infix[i++];
+        2:   72:            postfix[j++] = ' ';
+        1:   73:        } else if (infix[i] == '(') {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   74:            push(&stack, infix[i++]);
+call    0 never executed
+        1:   75:        } else if (infix[i] == ')') {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   76:            while (!isEmpty(stack) && peek(stack) != '(')
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   77:                postfix[j++] = pop(&stack);
+call    0 never executed
+    #####:   78:            if (!isEmpty(stack) && peek(stack) != '(') {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   79:                printf("Invalid expression.\n");
+call    0 never executed
+    #####:   80:                exit(EXIT_FAILURE);
+call    0 never executed
+        -:   81:            } else {
+    #####:   82:                pop(&stack);
+call    0 never executed
+        -:   83:            }
+    #####:   84:            i++;
+        1:   85:        } else if (isOperator(infix[i])) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+       1*:   86:            while (!isEmpty(stack) && precedence(infix[i]) <= precedence(peek(stack)))
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    #####:   87:                postfix[j++] = pop(&stack);
+call    0 never executed
+        1:   88:            push(&stack, infix[i++]);
+call    0 returned 100%
+        -:   89:        } else {
+    #####:   90:            printf("Invalid character in expression.\n");
+call    0 never executed
+    #####:   91:            exit(EXIT_FAILURE);
+call    0 never executed
+        -:   92:        }
+        -:   93:    }
+        2:   94:    while (!isEmpty(stack))
+call    0 returned 100%
+branch  1 taken 50%
+branch  2 taken 50% (fallthrough)
+        1:   95:        postfix[j++] = pop(&stack);
+call    0 returned 100%
+        1:   96:    postfix[j] = '\0';
+        1:   97:}
+        -:   98:
+function evaluatePostfix called 1 returned 100% blocks executed 87%
+        1:   99:int evaluatePostfix(char* postfix) {
+        1:  100:    StackNode* stack = NULL;
+        1:  101:    int i = 0;
+        6:  102:    while (postfix[i]) {
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        5:  103:        if (postfix[i] == ' ' || postfix[i] == '\t') {
+branch  0 taken 60% (fallthrough)
+branch  1 taken 40%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+        2:  104:            i++;
+        2:  105:            continue;
+        -:  106:        }
+        3:  107:        if (isdigit(postfix[i])) {
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+        2:  108:            int operand = 0;
+        4:  109:            while (isdigit(postfix[i])) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        2:  110:                operand = operand * 10 + (postfix[i] - '0');
+        2:  111:                i++;
+        -:  112:            }
+        2:  113:            push(&stack, operand);
+call    0 returned 100%
+        1:  114:        } else if (isOperator(postfix[i])) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        1:  115:            int operand2 = pop(&stack);
+call    0 returned 100%
+        1:  116:            int operand1 = pop(&stack);
+call    0 returned 100%
+        1:  117:            switch (postfix[i]) {
+branch  0 taken 100%
+branch  1 taken 0%
+branch  2 taken 0%
+branch  3 taken 0%
+branch  4 taken 0%
+        1:  118:                case '+': push(&stack, operand1 + operand2); break;
+call    0 returned 100%
+    #####:  119:                case '-': push(&stack, operand1 - operand2); break;
+call    0 never executed
+    #####:  120:                case '*': push(&stack, operand1 * operand2); break;
+call    0 never executed
+    #####:  121:                case '/': push(&stack, operand1 / operand2); break;
+call    0 never executed
+        -:  122:            }
+        1:  123:            i++;
+        -:  124:        }
+        -:  125:    }
+        1:  126:    return pop(&stack);
+call    0 returned 100%
+        -:  127:}

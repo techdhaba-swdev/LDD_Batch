@@ -1,0 +1,53 @@
+        -:    0:Source:dbtmain.c
+        -:    1:#include<stdio.h>
+        -:    2:#include "dbt.h"
+        -:    3:#include<stdlib.h>
+        -:    4:
+function main called 1 returned 100% blocks executed 94%
+        1:    5:int main()
+        -:    6:{
+        1:    7:	struct Node* root = NULL;
+        1:    8:	root = insert(root,25);
+call    0 returned 100%
+        1:    9:	insert(root,60);
+call    0 returned 100%
+        1:   10:	insert(root,50);
+call    0 returned 100%
+        1:   11:	insert(root,90);
+call    0 returned 100%
+        1:   12:	insert(root,70);
+call    0 returned 100%
+        -:   13:
+        1:   14:	printf("Inorder Node  BST:");
+call    0 returned 100%
+        1:   15:	inorder(root);
+call    0 returned 100%
+        1:   16:	printf("\n");
+call    0 returned 100%
+        -:   17:	
+        1:   18:	 root= deletenode(root,50);
+call    0 returned 100%
+        1:   19:	printf("After inorder  delete Node:\n");
+call    0 returned 100%
+        1:   20:       inorder(root);
+call    0 returned 100%
+        1:   21:       printf("\n");
+call    0 returned 100%
+        -:   22:       
+        1:   23:       struct Node* found = search(root,25);
+call    0 returned 100%
+        1:   24:       if (root == found)
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+        -:   25:       {
+    #####:   26:	       printf("found the value\n");
+call    0 never executed
+        -:   27:       }
+        -:   28:       else
+        -:   29:       {
+        1:   30:	       printf("Not found the value\n");
+call    0 returned 100%
+        -:   31:       }
+        1:   32:       return 0;
+        -:   33:}       
+        -:   34:

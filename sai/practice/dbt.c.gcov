@@ -1,0 +1,138 @@
+        -:    0:Source:dbt.c
+        -:    1:#include "dbt.h"
+        -:    2:#include<stdio.h>
+        -:    3:#include<stdlib.h>
+        -:    4:
+        -:    5:// Function to create a new node
+function createNode called 5 returned 100% blocks executed 100%
+        5:    6:struct Node* createNode(int data) {
+        5:    7:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        5:    8:    if (newNode != NULL) { //check if memory allocation was successful
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:    9:        newNode->data = data;//initialize node data
+        5:   10:        newNode->left = NULL;
+        5:   11:        newNode->right = NULL;
+        -:   12:    }
+        5:   13:    return newNode;
+        -:   14:}
+        -:   15:
+        -:   16:
+        -:   17:// Function to insert a new node into the BST
+function insert called 13 returned 100% blocks executed 100%
+       13:   18:struct Node* insert(struct Node* root, int data) {
+       13:   19:    if (root == NULL) { //if tree is empty create a new node and return
+branch  0 taken 38% (fallthrough)
+branch  1 taken 62%
+        5:   20:        return createNode(data);
+call    0 returned 100%
+        -:   21:    }
+        -:   22:
+        8:   23:    if (data < root->data) {  //insert into left subtree if data is less than current node
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        2:   24:        root->left = insert(root->left, data);
+call    0 returned 100%
+        6:   25:    } else if (data > root->data) { //insert into right subtree if data is greater than current nod
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        6:   26:        root->right = insert(root->right, data);
+call    0 returned 100%
+        -:   27:    }
+        -:   28:
+        8:   29:    return root;
+        -:   30:}
+        -:   31://Function to find the node with the minimum value in a subtree
+function minValue called 0 returned 0% blocks executed 0%
+    #####:   32:struct Node* minValue(struct Node* root){
+    #####:   33:	struct Node* current = root;
+    #####:   34:	while(current && current ->left != NULL){
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   35:		current = current ->left;
+        -:   36:	}
+    #####:   37:	return current;
+        -:   38:}
+        -:   39:// Function to delete for a node with the given data in the BST
+function deletenode called 3 returned 100% blocks executed 65%
+        3:   40:struct Node* deletenode(struct Node* root, int data){
+        3:   41:	if(root == NULL){
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   42:		return root;
+        -:   43:	}
+        3:   44:	if(data < root -> data){
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   45:		root->left=deletenode(root->left,data);
+call    0 returned 100%
+        -:   46:	}
+        2:   47:	else if(data > root->data){
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   48:		root->right=deletenode(root->right,data);
+call    0 returned 100%
+        -:   49:	}
+        -:   50:	else {
+        1:   51:		if(root->left == NULL){
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   52:			struct Node* temp = root->right;
+        1:   53:			free(root);
+        1:   54:			return temp;
+        -:   55:		}
+    #####:   56:		else if(root->right == NULL)
+branch  0 never executed
+branch  1 never executed
+        -:   57:		{
+    #####:   58:			struct Node* temp = root->left;
+    #####:   59:			free(root);
+    #####:   60:			return temp;
+        -:   61:	}
+    #####:   62:	struct Node* temp = minValue(root->right);
+call    0 never executed
+    #####:   63:	root->data = temp->data;
+    #####:   64:	root->right=deletenode(root->right,temp->data);
+call    0 never executed
+        -:   65:	}
+        2:   66:	return root;}
+        -:   67:
+        -:   68:// Function to search for a node with the given data in the BST
+function search called 3 returned 100% blocks executed 100%
+        3:   69:struct Node*  search(struct Node* root, int num) {
+        3:   70:    if (root == NULL ) { //if tree is empty or node with data is found return
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:   71:        return root; //retun 1 if root is not null , 0 otherwise
+        -:   72:    }
+        -:   73:
+        2:   74:    if (num < root ->data) { //search left subtree if data is less than current nodes data
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   75:        return search(root->left,num);
+call    0 returned 100%
+        -:   76:
+        -:   77:    }
+        -:   78:    else  {
+        1:   79:        return search(root->right, num);
+call    0 returned 100%
+        -:   80:    }
+        -:   81:}
+        -:   82:
+        -:   83:// Function to perform an in-order traversal of the BST
+function inorder called 20 returned 100% blocks executed 100%
+       20:   84:void inorder(struct Node* root) {
+       20:   85:    if (root == NULL) {//if tree is empty return
+branch  0 taken 55% (fallthrough)
+branch  1 taken 45%
+       11:   86:	    return;
+        -:   87:    }
+        9:   88:        inorder(root->left);//transvers left tree
+call    0 returned 100%
+        9:   89:        printf("%d ", root->data);
+call    0 returned 100%
+        9:   90:        inorder(root->right);//transverse right tree
+call    0 returned 100%
+        -:   91:    }

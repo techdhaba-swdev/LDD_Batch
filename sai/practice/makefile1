@@ -1,0 +1,2 @@
+socnet: network.c networkmain.c
+	gcc -o socnet network.c networkmain.c -I.
