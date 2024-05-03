@@ -1,6 +1,6 @@
 CC = gcc.
 CFLAGS = -I.
-DEPS = graph.h
+DEPS = node.h graph.h
 %.o: %.c $(DEPS) $(CC) -c -o $0 $< $(CFLAGS)
-graph: graph.c graphmain.c
-	gcc -o graph graph.c graphmain.c
+graph: graph.c node.c main.c
+	gcc -o graph graph.c node.c main.c
