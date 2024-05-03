@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+file_sys: main.o file_system.o
+	$(CC) -o file_sys main.o file_system.o $(CFLAGS)
+

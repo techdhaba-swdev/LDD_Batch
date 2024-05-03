@@ -1,0 +1,112 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h> // Standard input-output header
+        -:    2:#include "main.h" // Header file for BST operations
+        -:    3:#include <time.h>// for adding clock
+        -:    4:
+function main called 0 returned 0% blocks executed 0%
+    #####:    5:int main() {
+    #####:    6:    clock_t start = clock();//optimization:clock start for knowing time taken by program
+call    0 never executed
+    #####:    7:    struct Node* root = NULL; // Initialize root pointer to NULL, indicating an empty tree
+        -:    8:
+        -:    9:    // Insert values into the binary search tree
+    #####:   10:    root = insert(root, 50); // Insert 50 as the root node
+call    0 never executed
+    #####:   11:    root = insert(root, 30); // Insert 30
+call    0 never executed
+    #####:   12:    root = insert(root, 20); // Insert 20
+call    0 never executed
+    #####:   13:    root = insert(root, 40); // Insert 40
+call    0 never executed
+    #####:   14:    root = insert(root, 70); // Insert 70
+call    0 never executed
+    #####:   15:    root = insert(root, 60); // Insert 60
+call    0 never executed
+    #####:   16:    root = insert(root, 80); // Insert 80
+call    0 never executed
+        -:   17:
+        -:   18:    // Print inorder traversal of the binary search tree
+    #####:   19:    printf("Inorder traversal: ");
+call    0 never executed
+    #####:   20:    inorderTraversal(root); // Visit nodes in ascending order (Left-Root-Right)
+call    0 never executed
+    #####:   21:    printf("\n");
+call    0 never executed
+        -:   22:
+        -:   23:    // Print preorder traversal of the binary search tree
+    #####:   24:    printf("Preorder traversal: ");
+call    0 never executed
+    #####:   25:    preorderTraversal(root); // Visit root before its children (Root-Left-Right)
+call    0 never executed
+    #####:   26:    printf("\n");
+call    0 never executed
+        -:   27:
+        -:   28:    // Print postorder traversal of the binary search tree
+    #####:   29:    printf("Postorder traversal: ");
+call    0 never executed
+    #####:   30:    postorderTraversal(root); // Visit children before their root (Left-Right-Root)
+call    0 never executed
+    #####:   31:    printf("\n");
+call    0 never executed
+        -:   32:
+        -:   33:    // Print the minimum value in the binary search tree
+    #####:   34:    printf("Minimum value in BST: %d\n", minValue(root)); // Find and print the minimum value
+call    0 never executed
+call    1 never executed
+        -:   35:
+        -:   36:    // Print the maximum value in the binary search tree
+    #####:   37:    printf("Maximum value in BST: %d\n", maxValue(root)); // Find and print the maximum value
+call    0 never executed
+call    1 never executed
+        -:   38:
+    #####:   39:    int key = 70; // Key to search for
+        -:   40:    // Search for a key in the binary search tree
+    #####:   41:    if (search(root, key) != NULL) { // If key is found
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   42:        printf("%d found in the BST.\n", key); // Print message
+call    0 never executed
+        -:   43:    } else {
+    #####:   44:        printf("%d not found in the BST.\n", key); // Print message
+call    0 never executed
+        -:   45:    }
+        -:   46:
+        -:   47:    // Delete a node from the binary search tree
+    #####:   48:    root = deleteNode(root, 20); // Delete node with key 20
+call    0 never executed
+        -:   49:    // Print inorder traversal after deletion
+    #####:   50:    printf("Inorder traversal after deletion: ");
+call    0 never executed
+    #####:   51:    inorderTraversal(root); // Print the updated tree
+call    0 never executed
+    #####:   52:    printf("\n");
+call    0 never executed
+        -:   53:
+        -:   54:    // Check if the binary tree is a binary search tree (BST)
+    #####:   55:    printf("Checking if a Binary Tree is a Binary Search Tree (BST):\n");
+call    0 never executed
+    #####:   56:    if (isBST(root)) { // If the tree is a BST
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   57:        printf("The tree is a BST.\n"); // Print message
+call    0 never executed
+        -:   58:    } else {
+    #####:   59:        printf("The tree is not a BST.\n"); // Print message
+call    0 never executed
+        -:   60:    }
+        -:   61:
+        -:   62:    // Find the height of the binary tree
+    #####:   63:    printf("Finding the Height of a Binary Tree:\n");
+call    0 never executed
+    #####:   64:    printf("Height of the tree: %d\n", height(root)); // Print height
+call    0 never executed
+call    1 never executed
+    #####:   65:    clock_t end = clock();
+call    0 never executed
+    #####:   66:    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+    #####:   67:    printf("Time Taken : %f seconds\n", time_taken);
+call    0 never executed
+    #####:   68:    return 0; // Return 0 to indicate successful completion
+        -:   69:}

@@ -1,0 +1,206 @@
+        -:    0:Source:exp_eval.c
+        -:    1:#include "exp_eval.h" // Include the header file for the expression evaluator
+        -:    2:#include <stdlib.h> // Standard library for memory allocation functions
+        -:    3:#include <stdio.h> // Standard I/O library for input/output functions
+        -:    4:#include <ctype.h> // Library for character handling functions
+        -:    5:
+        -:    6:// Define a structure for stack node
+        -:    7:struct StackNode {
+        -:    8:    int data; // Data of the node
+        -:    9:    struct StackNode* next; // Pointer to the next node in the stack
+        -:   10:}; // End of structure definition
+        -:   11:
+function push called 0 returned 0% blocks executed 0%
+    #####:   12:void push(struct StackNode** top, int data) { // Function to push data onto the stack
+    #####:   13:    struct StackNode* newNode = (struct StackNode*)malloc(sizeof(struct StackNode)); // Allocate memory for a new node
+    #####:   14:    if (newNode == NULL) { // Check if memory allocation failed (security: memory safety)
+branch  0 never executed
+branch  1 never executed
+    #####:   15:        printf("Memory allocation error.\n"); // Print error message
+call    0 never executed
+    #####:   16:        exit(EXIT_FAILURE); // Exit the program with failure status
+call    0 never executed
+        -:   17:    }
+    #####:   18:    newNode->data = data; // Set the data for the new node
+    #####:   19:    newNode->next = *top; // Link the new node to the top of the stack
+    #####:   20:    *top = newNode; // Update the top pointer to point to the new node
+    #####:   21:}
+        -:   22:
+function pop called 0 returned 0% blocks executed 0%
+    #####:   23:int pop(struct StackNode** top) { // Function to pop data from the stack
+    #####:   24:    if (*top == NULL) { // Check if the stack is empty (security: defensive programming)
+branch  0 never executed
+branch  1 never executed
+    #####:   25:        printf("Stack underflow.\n"); // Print error message
+call    0 never executed
+    #####:   26:        exit(EXIT_FAILURE); // Exit the program with failure status
+call    0 never executed
+        -:   27:    }
+    #####:   28:    struct StackNode* temp = *top; // Create a temporary pointer to the top node
+    #####:   29:    int data = temp->data; // Get the data from the top node
+    #####:   30:    *top = (*top)->next; // Move the top pointer to the next node
+    #####:   31:    free(temp); // Free the memory of the popped node
+    #####:   32:    return data; // Return the popped data
+        -:   33:}
+        -:   34:
+function peek called 0 returned 0% blocks executed 0%
+    #####:   35:int peek(struct StackNode* top) { // Function to peek at the top of the stack
+    #####:   36:    if (top == NULL) { // Check if the stack is empty (security: defensive programming)
+branch  0 never executed
+branch  1 never executed
+    #####:   37:        printf("Stack is empty.\n"); // Print error message
+call    0 never executed
+    #####:   38:        exit(EXIT_FAILURE); // Exit the program with failure status
+call    0 never executed
+        -:   39:    }
+    #####:   40:    return top->data; // Return the data at the top of the stack
+        -:   41:}
+        -:   42:
+function isOperator called 0 returned 0% blocks executed 0%
+    #####:   43:int isOperator(char c) { // Function to check if a character is an operator
+    #####:   44:    return (c == '+' || c == '-' || c == '*' || c == '/'); // Return true if the character is an operator
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+branch  5 never executed
+branch  6 never executed
+branch  7 never executed
+        -:   45:}
+        -:   46:
+function precedence called 0 returned 0% blocks executed 0%
+    #####:   47:int precedence(char c) { // Function to determine the precedence of an operator
+    #####:   48:    if (c == '+' || c == '-') // If the operator is addition or subtraction
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   49:        return 1; // Return precedence 1
+    #####:   50:    else if (c == '*' || c == '/') // If the operator is multiplication or division
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   51:        return 2; // Return precedence 2
+        -:   52:    else
+    #####:   53:        return 0; // Return precedence 0 for other characters (security: fail-safe)
+        -:   54:}
+        -:   55:
+function infixToPostfix called 0 returned 0% blocks executed 0%
+    #####:   56:void infixToPostfix(char* infix, char* postfix) { // Function to convert infix expression to postfix
+    #####:   57:    struct StackNode* stack = NULL; // Initialize an empty stack
+    #####:   58:    int i = 0, j = 0; // Initialize counters for input and output strings
+        -:   59:
+    #####:   60:    while (infix[i] != '\0') { // Loop through the infix expression
+branch  0 never executed
+branch  1 never executed
+    #####:   61:        if (isdigit(infix[i])) { // If the character is a digit
+branch  0 never executed
+branch  1 never executed
+    #####:   62:            postfix[j++] = infix[i++]; // Copy the digit to the postfix expression
+    #####:   63:        } else if (isOperator(infix[i])) { // If the character is an operator
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   64:            while (stack != NULL && precedence(infix[i]) <= precedence(peek(stack))) { // While there are operators on the stack with higher or equal precedence
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    #####:   65:                postfix[j++] = pop(&stack); // Pop and copy operators from the stack to the postfix expression
+call    0 never executed
+        -:   66:            }
+    #####:   67:            push(&stack, infix[i++]); // Push the current operator onto the stack
+call    0 never executed
+    #####:   68:        } else if (infix[i] == '(') { // If the character is an opening parenthesis
+branch  0 never executed
+branch  1 never executed
+    #####:   69:            push(&stack, infix[i++]); // Push the opening parenthesis onto the stack
+call    0 never executed
+    #####:   70:        } else if (infix[i] == ')') { // If the character is a closing parenthesis
+branch  0 never executed
+branch  1 never executed
+    #####:   71:            while (stack != NULL && peek(stack) != '(') { // While there are operators on the stack and the top is not an opening parenthesis
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    #####:   72:                postfix[j++] = pop(&stack); // Pop and copy operators from the stack to the postfix expression
+call    0 never executed
+        -:   73:            }
+    #####:   74:            pop(&stack); // Discard the opening parenthesis
+call    0 never executed
+    #####:   75:            i++; // Move to the next character
+        -:   76:        } else {
+    #####:   77:            printf("Invalid character in expression.\n"); // Print error message for invalid character
+call    0 never executed
+    #####:   78:            exit(EXIT_FAILURE); // Exit the program with failure status
+call    0 never executed
+        -:   79:        }
+        -:   80:    }
+        -:   81:
+    #####:   82:    while (stack != NULL) { // While there are operators on the stack
+branch  0 never executed
+branch  1 never executed
+    #####:   83:        postfix[j++] = pop(&stack); // Pop and copy operators from the stack to the postfix expression
+call    0 never executed
+        -:   84:    }
+    #####:   85:    postfix[j] = '\0'; // Null-terminate the postfix expression
+    #####:   86:}
+        -:   87:
+function evaluatePostfix called 0 returned 0% blocks executed 0%
+    #####:   88:int evaluatePostfix(char* postfix) { // Function to evaluate postfix expression
+    #####:   89:    struct StackNode* stack = NULL; // Initialize an empty stack
+    #####:   90:    int i = 0; // Initialize counter for input string
+        -:   91:
+    #####:   92:    while (postfix[i] != '\0') { // Loop through the postfix expression
+branch  0 never executed
+branch  1 never executed
+    #####:   93:        if (isdigit(postfix[i])) { // If the character is a digit
+branch  0 never executed
+branch  1 never executed
+    #####:   94:            push(&stack, postfix[i] - '0'); // Push the digit value onto the stack
+call    0 never executed
+    #####:   95:        } else if (isOperator(postfix[i])) { // If the character is an operator
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   96:            int operand2 = pop(&stack); // Pop the second operand from the stack
+call    0 never executed
+    #####:   97:            int operand1 = pop(&stack); // Pop the first operand from the stack
+call    0 never executed
+    #####:   98:            switch (postfix[i]) { // Perform the operation based on the operator
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+    #####:   99:                case '+':
+    #####:  100:                    push(&stack, operand1 + operand2); // Push the result of addition onto the stack
+call    0 never executed
+    #####:  101:                    break;
+    #####:  102:                case '-':
+    #####:  103:                    push(&stack, operand1 - operand2); // Push the result of subtraction onto the stack
+call    0 never executed
+    #####:  104:                    break;
+    #####:  105:                case '*':
+    #####:  106:                    push(&stack, operand1 * operand2); // Push the result of multiplication onto the stack
+call    0 never executed
+    #####:  107:                    break;
+    #####:  108:                case '/':
+    #####:  109:                    push(&stack, operand1 / operand2); // Push the result of division onto the stack
+call    0 never executed
+    #####:  110:                    break;
+        -:  111:            }
+        -:  112:        }
+    #####:  113:        i++; // Move to the next character in the postfix expression
+        -:  114:    }
+        -:  115:
+    #####:  116:    return pop(&stack); // Return the result of the postfix expression
+call    0 never executed
+        -:  117:}

@@ -1,0 +1,35 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h> // Standard I/O library for input/output functions
+        -:    2:#include <stdlib.h> // Standard library for memory allocation functions
+        -:    3:#include <ctype.h> // Library for character handling functions
+        -:    4:#include <time.h>// for adding clock
+        -:    5:#include "main.h" // Include the header file for expression evaluation which we declare in main.h
+        -:    6:
+function main called 0 returned 0% blocks executed 0%
+    #####:    7:int main() {
+    #####:    8:    clock_t start = clock();//optimization:clock start for knowing time taken by program
+call    0 never executed
+        -:    9:    char infix[100]; // Array to store the input infix expression
+    #####:   10:    printf("Enter infix expression: "); // Prompt the user to enter an infix expression
+call    0 never executed
+    #####:   11:    scanf("%s", infix); // Read the infix expression from the user
+call    0 never executed
+        -:   12:
+        -:   13:    char postfix[100]; // Array to store the converted postfix expression
+    #####:   14:    infixToPostfix(infix, postfix); // Convert the infix expression to postfix
+call    0 never executed
+    #####:   15:    printf("Postfix expression: %s\n", postfix); // Print the postfix expression
+call    0 never executed
+        -:   16:
+    #####:   17:    int result = evaluatePostfix(postfix); // Evaluate the postfix expression
+call    0 never executed
+    #####:   18:    printf("Result: %d\n", result); // Print the result of the expression evaluation
+call    0 never executed
+    #####:   19:    clock_t end = clock();
+call    0 never executed
+    #####:   20:    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+    #####:   21:    printf("Time Taken : %f seconds\n", time_taken);
+call    0 never executed
+        -:   22:
+    #####:   23:    return 0; // Return 0 to indicate successful completion of the program
+        -:   24:}

@@ -1,0 +1,14 @@
+File 'exp_eval.c'
+Lines executed:0.00% of 78
+Branches executed:0.00% of 53
+Taken at least once:0.00% of 53
+Calls executed:0.00% of 28
+Creating 'exp_eval.c.gcov'
+
+File 'main.c'
+Lines executed:0.00% of 12
+No branches
+Calls executed:0.00% of 9
+Creating 'main.c.gcov'
+
+Lines executed:0.00% of 90
