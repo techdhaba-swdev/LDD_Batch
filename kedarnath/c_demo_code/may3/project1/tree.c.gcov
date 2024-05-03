@@ -1,0 +1,134 @@
+        -:    0:Source:tree.c
+        -:    1:#include"tree.h"
+        -:    2:
+        -:    3:// Structure for stack node
+        -:    4: struct StackNode {
+        -:    5:    char data;
+        -:    6:    struct StackNode* next;
+        -:    7:} ;
+        -:    8:
+        -:    9:// Structure for stack
+        -:   10: struct Stack{
+        -:   11:    StackNode* top;
+        -:   12:} ; 
+        -:   13:
+        -:   14:// Create a new stack
+        2:   15:Stack* createStack() {
+        2:   16:    Stack* stack = (Stack*)malloc(sizeof(Stack));
+        2:   17:    stack->top = NULL;
+        2:   18:    return stack;
+        -:   19:}
+        -:   20:
+        -:   21:// Push an element onto the stack
+        8:   22:void push(Stack* stack, char data) {
+        8:   23:    StackNode* newNode = (StackNode*)malloc(sizeof(StackNode));
+        8:   24:    newNode->data = data;
+        8:   25:    newNode->next = stack->top;
+        8:   26:    stack->top = newNode;
+        8:   27:}
+        -:   28:
+        -:   29:// Pop an element from the stack
+        8:   30:char pop(Stack* stack) {
+        8:   31:    if (isEmpty(stack))
+    #####:   32:        return '\0';
+        8:   33:    char popped = stack->top->data;
+        8:   34:    StackNode* temp = stack->top;
+        8:   35:    stack->top = stack->top->next;
+        8:   36:    free(temp);
+        8:   37:    return popped;
+        -:   38:}
+        -:   39:
+        -:   40:// Peek at the top element of the stack
+        4:   41:char peek(Stack* stack) {
+        4:   42:    if (isEmpty(stack))
+    #####:   43:        return '\0';
+        4:   44:    return stack->top->data;
+        -:   45:}
+        -:   46:
+        -:   47:// Check if the stack is empty
+       19:   48:int isEmpty(Stack* stack) {
+       19:   49:    return stack->top == NULL;
+        -:   50:}
+        -:   51:
+        -:   52:// Check if a character is an operand
+       12:   53:int isOperand(char ch) {
+       12:   54:    return isalnum(ch);
+        -:   55:}
+        -:   56:
+        -:   57:// Get precedence of operators
+        2:   58:int precedence(char ch) {
+        2:   59:    switch(ch) {
+        1:   60:        case '+':
+        -:   61:        case '-':
+        1:   62:            return 1;
+    #####:   63:        case '*':
+        -:   64:        case '/':
+    #####:   65:            return 2;
+        1:   66:        default:
+        1:   67:            return -1;
+        -:   68:    }
+        -:   69:}
+        -:   70:
+        -:   71:// Convert infix expression to postfix
+        1:   72:char* infixToPostfix(char* expression) {
+        1:   73:    Stack* stack = createStack();
+        1:   74:    char* postfix = (char*)malloc((strlen(expression) + 1) * sizeof(char));
+        -:   75:    int i, j;
+        8:   76:    for (i = 0, j = 0; expression[i]; i++) {
+        7:   77:        if (isOperand(expression[i])) {
+        3:   78:            postfix[j++] = expression[i];
+        4:   79:        } else if (expression[i] == '(') {
+        1:   80:            push(stack, expression[i]);
+        3:   81:        } else if (expression[i] == ')') {
+        2:   82:            while (!isEmpty(stack) && peek(stack) != '(')
+        1:   83:                postfix[j++] = pop(stack);
+        1:   84:            if (!isEmpty(stack) && peek(stack) != '(')
+    #####:   85:                return NULL; // Invalid expression
+        -:   86:            else
+        1:   87:                pop(stack); // Pop '('
+        -:   88:        } else { // Operator
+        2:   89:            while (!isEmpty(stack) && precedence(expression[i]) <= precedence(peek(stack)))
+    #####:   90:                postfix[j++] = pop(stack);
+        2:   91:            push(stack, expression[i]);
+        -:   92:        }
+        -:   93:    }
+        2:   94:    while (!isEmpty(stack))
+        1:   95:        postfix[j++] = pop(stack);
+        1:   96:    postfix[j] = '\0';
+        1:   97:    return postfix;
+        -:   98:}
+        -:   99:
+        -:  100:// Evaluate postfix expression
+        1:  101:int evaluatePostfix(char* postfix) {
+        1:  102:    Stack* stack = createStack();
+        -:  103:    int i;
+        6:  104:    for (i = 0; postfix[i]; i++) {
+        5:  105:        if (isOperand(postfix[i]))
+        3:  106:            push(stack, postfix[i] - '0');
+        -:  107:        else {
+        2:  108:            int operand2 = pop(stack);
+        2:  109:            int operand1 = pop(stack);
+        2:  110:            switch(postfix[i]) {
+        1:  111:                case '+':
+        1:  112:                    push(stack, operand1 + operand2);
+        1:  113:                    break;
+    #####:  114:                case '-':
+    #####:  115:                    push(stack, operand1 - operand2);
+    #####:  116:                    break;
+        1:  117:                case '*':
+        1:  118:                    push(stack, operand1 * operand2);
+        1:  119:                    break;
+    #####:  120:                case '/':
+    #####:  121:                    if (operand2 == 0) {
+    #####:  122:                        printf("Error: Division by zero\n");
+    #####:  123:                        return -1;
+        -:  124:                    }
+    #####:  125:                    push(stack, operand1 / operand2);
+    #####:  126:                    break;
+        -:  127:            }
+        -:  128:        }
+        -:  129:    }
+        1:  130:    return pop(stack);
+        -:  131:}
+        -:  132:
+        -:  133:

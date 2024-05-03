@@ -1,0 +1,48 @@
+Function 'main'
+Lines executed:100.00% of 36
+
+Function 'findMinMax'
+Lines executed:88.89% of 9
+
+Function 'height'
+Lines executed:100.00% of 6
+
+Function 'isBST'
+Lines executed:100.00% of 2
+
+Function 'isBSTUtil'
+Lines executed:85.71% of 7
+
+Function 'postOrderTraversal'
+Lines executed:100.00% of 6
+
+Function 'preOrderTraversal'
+Lines executed:100.00% of 6
+
+Function 'inOrderTraversal'
+Lines executed:100.00% of 6
+
+Function 'search'
+Lines executed:83.33% of 6
+
+Function 'minValueNode'
+Lines executed:0.00% of 5
+
+Function 'delete'
+Lines executed:52.63% of 19
+
+Function 'insert'
+Lines executed:100.00% of 8
+
+Function 'createNode'
+Lines executed:77.78% of 9
+
+File 'main.c'
+Lines executed:100.00% of 36
+Creating 'main.c.gcov'
+
+File 'binarytree.c'
+Lines executed:78.65% of 89
+Creating 'binarytree.c.gcov'
+
+Lines executed:84.80% of 125

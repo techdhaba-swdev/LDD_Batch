@@ -1,0 +1,64 @@
+        -:    0:Source:main.c
+        -:    1:#include"binarytree.h"
+        -:    2:
+        1:    3:int main() {
+        -:    4:
+        1:    5:    clock_t start=clock();
+        1:    6:    Node* root = NULL;
+        -:    7:
+        -:    8:    // Insert some nodes into the BST
+        1:    9:    root = insert(root, 50);
+        1:   10:    insert(root, 30);
+        1:   11:    insert(root, 20);
+        1:   12:    insert(root, 40);
+        1:   13:    insert(root, 70);
+        1:   14:    insert(root, 60);
+        1:   15:    insert(root, 80);
+        -:   16:
+        -:   17:    // Print in-order traversal (should be sorted)
+        1:   18:    printf("In-order traversal: ");
+        1:   19:    inOrderTraversal(root);
+        1:   20:    printf("\n");
+        -:   21:
+        -:   22:    // Print pre-order traversal
+        1:   23:    printf("Pre-order traversal: ");
+        1:   24:    preOrderTraversal(root);
+        1:   25:    printf("\n");
+        -:   26:
+        -:   27:    // Print post-order traversal
+        1:   28:    printf("Post-order traversal: ");
+        1:   29:    postOrderTraversal(root);
+        1:   30:    printf("\n");
+        -:   31:
+        -:   32:    // Check if BST
+       1*:   33:    printf("Is BST? %s\n", isBST(root) ? "Yes" : "No");
+        -:   34:
+        -:   35:    // Find height of BST
+        1:   36:    printf("Height of BST: %d\n", height(root));
+        -:   37:
+        -:   38:    // Find minimum and maximum values
+        -:   39:    int min, max;
+        1:   40:    findMinMax(root, &min, &max);
+        1:   41:    printf("Minimum value in BST: %d\n", min);
+        1:   42:    printf("Maximum value in BST: %d\n", max);
+        -:   43:
+        -:   44:    // Search for a value
+        1:   45:    int searchValue = 30;
+        1:   46:    Node* searchResult = search(root, searchValue);
+       1*:   47:    printf("Search for value %d: %s\n", searchValue, searchResult ? "Found" : "Not found");
+        -:   48:
+        -:   49:    // Delete a node
+        1:   50:    int deleteValue = 20;
+        1:   51:    root = delete(root, deleteValue);
+        1:   52:    printf("In-order traversal after deleting %d: ", deleteValue);
+        1:   53:    inOrderTraversal(root);
+        1:   54:    printf("\n");
+        -:   55:
+        1:   56:    clock_t end=clock();
+        1:   57:    double time_taken=((double)(end-start));
+        1:   58:    printf("time taken is %f\n",time_taken);
+        -:   59:    
+        -:   60:
+        1:   61:    return 0;
+        -:   62:}
+        -:   63:

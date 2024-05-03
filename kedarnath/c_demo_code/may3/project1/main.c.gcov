@@ -1,0 +1,22 @@
+        -:    0:Source:main.c
+        -:    1:#include"tree.h"
+        -:    2:
+        -:    3:// Main function
+        1:    4:int main() {
+        -:    5:    char infix[100];
+        1:    6:    printf("Enter an infix expression: ");
+        1:    7:    scanf("%s", infix);
+        1:    8:    char* postfix = infixToPostfix(infix);
+        1:    9:    if (postfix == NULL) {
+    #####:   10:        printf("Error: Invalid expression\n");
+    #####:   11:        return 1;
+        -:   12:    }
+        1:   13:    printf("Postfix expression: %s\n", postfix);
+        1:   14:    int result = evaluatePostfix(postfix);
+        1:   15:    if (result != -1)
+        1:   16:        printf("Result: %d\n", result);
+        1:   17:    free(postfix);
+        1:   18:    return 0;
+        -:   19:}
+        -:   20:
+        -:   21:

@@ -1,0 +1,47 @@
+        -:    0:Source:main.c
+        -:    1:#include"file.h"
+        -:    2:
+        1:    3:int main() {
+        -:    4:    // Create root directory
+        -:    5:    
+        1:    6:    clock_t start=clock();
+        -:    7:    
+        1:    8:    DirectoryNode* root = createDirectory("root", NULL);
+        -:    9:
+        -:   10:    // Create some files in root directory
+        1:   11:    createFile(root, "file1.txt");
+        1:   12:    createFile(root, "file2.txt");
+        1:   13:    createFile(root, "file3.txt");
+        -:   14:
+        -:   15:    // List contents of root directory
+        1:   16:    listDirectoryContents(root);
+        -:   17:
+        -:   18:    // Create a subdirectory
+        1:   19:    DirectoryNode* subDir = createDirectory("subdir", root);
+        1:   20:    root->child = subDir;
+        -:   21:
+        -:   22:    // Navigate into subdirectory
+        1:   23:    printf("\nNavigating into subdir...\n");
+        1:   24:    listDirectoryContents(subDir);
+        -:   25:
+        -:   26:    // Search for a file in subdir
+        1:   27:    printf("\nSearching for file 'file2.txt' in subdir...\n");
+        1:   28:    searchFile(subDir, "file2.txt");
+        -:   29:
+        -:   30:    // Delete a file from subdir
+        1:   31:    printf("\nDeleting file 'file2.txt' from subdir...\n");
+        1:   32:    deleteFile(subDir, "file2.txt");
+        1:   33:    listDirectoryContents(subDir);
+        -:   34:
+        -:   35:    // Delete subdir and root directories
+        1:   36:    deleteDirectory(root);
+        -:   37:    
+        1:   38:    clock_t end=clock();
+        1:   39:    double time_taken=((double)(end-start));
+        1:   40:    printf("time taken is %f\n",time_taken);
+        -:   41:
+        -:   42:
+        1:   43:    return 0;
+        -:   44:}
+        -:   45:
+        -:   46:

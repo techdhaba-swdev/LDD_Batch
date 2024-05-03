@@ -1,0 +1,39 @@
+Function 'evaluatePostfix'
+Lines executed:62.50% of 24
+
+Function 'infixToPostfix'
+Lines executed:90.48% of 21
+
+Function 'precedence'
+Lines executed:75.00% of 8
+
+Function 'isOperand'
+Lines executed:100.00% of 2
+
+Function 'isEmpty'
+Lines executed:100.00% of 2
+
+Function 'peek'
+Lines executed:75.00% of 4
+
+Function 'pop'
+Lines executed:87.50% of 8
+
+Function 'push'
+Lines executed:100.00% of 6
+
+Function 'createStack'
+Lines executed:100.00% of 4
+
+Function 'main'
+Lines executed:84.62% of 13
+
+File 'tree.c'
+Lines executed:81.01% of 79
+Creating 'tree.c.gcov'
+
+File 'main.c'
+Lines executed:84.62% of 13
+Creating 'main.c.gcov'
+
+Lines executed:81.52% of 92
