@@ -1,0 +1,42 @@
+        -:    0:Source:deletenode.c
+        -:    1:#include "node.h"
+        -:    2:// Function to delete a node from the BST
+function deleteNode called 3 returned 100% blocks executed 76%
+        3:    3:struct Node* deleteNode(struct Node* root, int data) {
+        3:    4:    if (root == NULL) { // If root is NULL                                                 
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    5:        return root; // Return root                                                    
+        -:    6:    }
+        3:    7:    if (data < root->data) {  // If data is less than root data                                           
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:    8:        root->left = deleteNode(root->left, data);  // Recursively delete from left subtree                     
+call    0 returned 100%
+        2:    9:    } else if (data > root->data) {   // If data is greater than root data                                   
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   10:        root->right = deleteNode(root->right, data);  // Recursively delete from right subtree                   
+call    0 never executed
+        -:   11:    } else {    // If data matches root data                                                         
+        2:   12:        if (root->left == NULL) {     // If left child is NULL                                   
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   13:            struct Node* temp = root->right;  // Assign right child to temporary node                           
+        1:   14:            free(root);    // Free memory of root                                              
+        1:   15:            return temp;     // Return right child as root                                            
+        1:   16:        } else if (root->right == NULL) {     // If right child is NULL                           
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   17:            struct Node* temp = root->left; // Assign left child to temporary node                             
+    #####:   18:            free(root);  // Free memory of root                                                
+    #####:   19:            return temp;  // Return left child as root                                               
+        -:   20:        }
+        1:   21:        struct Node* temp = findMin(root->right);  // Find minimum in right subtree                      
+call    0 returned 100%
+        1:   22:        root->data = temp->data;  // Copy minimum value to root                                       
+        1:   23:        root->right = deleteNode(root->right, temp->data); // Delete the minimum value node              
+call    0 returned 100%
+        -:   24:    }
+        2:   25:    return root; // Return root                                                        
+        -:   26:}

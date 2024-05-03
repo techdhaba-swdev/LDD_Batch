@@ -1,0 +1,8 @@
+CC = gcc
+CFLAGS = -I.
+DEPS = node.h
+%.o : %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+operator: binary_op.c binari_opmain.c
+	$(CC) -o operator binary_op.c binari_opmain.c	

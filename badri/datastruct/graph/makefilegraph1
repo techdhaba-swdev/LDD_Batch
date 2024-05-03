@@ -1,0 +1,8 @@
+CC = gcc
+CFLAGS = -I.
+DEPS =  graph1.h 
+%.o : %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+graph1 :  graph1.c grap1main.c
+	$(CC) -o graph1 graph1.c grap1main.c

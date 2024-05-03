@@ -1,6 +1,6 @@
 #include"header.h" //includes header.h headerfile 
 #include "insert.h"// includes insert header file
-#include "newnode.c" // includes the newnode function 
+  
 
 struct Node *insert(struct Node *root , int data) // function for inserting nodes and data using structure
 {

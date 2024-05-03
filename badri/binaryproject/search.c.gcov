@@ -1,0 +1,22 @@
+        -:    0:Source:search.c
+        -:    1:#include "node.h"
+        -:    2:// Function to search for a value in the BST
+function search called 2 returned 100% blocks executed 75%
+        2:    3:struct Node* search(struct Node* root, int data) {
+        2:    4:    if (root == NULL || root->data == data) {// If root is NULL or matches the data
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 50% (fallthrough)
+branch  3 taken 50%
+        1:    5:        return root; // Return the root
+        -:    6:    }
+        1:    7:    if (data < root->data) {// If data is less than root data
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    8:        return search(root->left, data);// Search in the left subtree
+call    0 never executed
+        -:    9:    }
+        1:   10:    return search(root->right, data);// Search in the right subtree
+call    0 returned 100%
+        -:   11:									 
+        -:   12:}

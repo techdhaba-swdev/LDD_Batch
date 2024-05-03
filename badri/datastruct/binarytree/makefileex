@@ -1,0 +1,3 @@
+expre : binary_expre.c expressionmain.c
+	gcc -o expression.c expressionmain.c -I.
+	

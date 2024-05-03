@@ -1,0 +1,20 @@
+        -:    0:Source:newnode.c
+        -:    1:#include "header.h"//includes headerfile containing stdio.h , stdlib.h , stdbool.h , linit.h
+        -:    2:#include "node.h"//includes node.h containing node fuction declaration
+        -:    3:// Function to create a new node
+function createNode called 7 returned 100% blocks executed 60%
+        7:    4:struct Node* createNode(int data) {
+        7:    5:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));// Allocate memory for a new node
+        7:    6:    if (newNode == NULL) {// Check if memory allocation failed
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    7:        fprintf(stderr, "Memory allocation failed\n");// Print error message to the os 
+call    0 never executed
+    #####:    8:        exit(1);// Exit program if allocation failed unsuccesfull termination of program
+call    0 never executed
+        -:    9:    }
+        7:   10:    newNode->data = data;// Assign data to the new node
+        7:   11:    newNode->left = NULL;// Initialize left child pointer to NULL
+        7:   12:    newNode->right = NULL;// Initialize right child pointer to NULL
+        7:   13:    return newNode;// Return the new node
+        -:   14:}

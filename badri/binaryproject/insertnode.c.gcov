@@ -1,0 +1,25 @@
+        -:    0:Source:insertnode.c
+        -:    1:#include "node.h"//includes node.h header file which contains node structure
+        -:    2:// Function to insert a new node
+function insert called 17 returned 100% blocks executed 100%
+       17:    3:struct Node* insert(struct Node* root, int data) {
+       17:    4:    if (root == NULL) {//checks  If the root is NULL or not
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:    5:        return createNode(data); //returns to  CreateNode function to create a new node as the root if the root is null
+call    0 returned 100%
+        -:    6:    }
+       10:    7:    if (data < root->data) {// If the data is less than root data
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:    8:        root->left = insert(root->left, data);// Recursively insert into the left subtree
+call    0 returned 100%
+        5:    9:    } else if (data > root->data) {// If the data is greater than root data
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   10:        root->right = insert(root->right, data);// Recursively insert into the right subtree
+call    0 returned 100%
+        -:   11:    }
+       10:   12:    return root;// Return the root to the insert function
+        -:   13:}
+        -:   14:

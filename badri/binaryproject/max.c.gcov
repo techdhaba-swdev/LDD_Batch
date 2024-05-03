@@ -1,0 +1,18 @@
+        -:    0:Source:max.c
+        -:    1:#include "node.h"
+        -:    2:// Function to find the maximum value in the BST
+function findMax called 3 returned 100% blocks executed 83%
+        3:    3:struct Node* findMax(struct Node* root) {
+        3:    4:    if (root == NULL) {// If root is NULL
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    5:        return NULL;  // Return NULL                                                   
+        -:    6:    }
+        3:    7:    if (root->right == NULL) {  // If right child is NULL                                         
+branch  0 taken 33% (fallthrough)
+branch  1 taken 67%
+        1:    8:        return root; // Return the root                                                    
+        -:    9:    }
+        2:   10:    return findMax(root->right); // Recursively find maximum in the right subtree                                        
+call    0 returned 100%
+        -:   11:}

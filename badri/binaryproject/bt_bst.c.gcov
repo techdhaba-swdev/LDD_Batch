@@ -1,0 +1,32 @@
+        -:    0:Source:bt_bst.c
+        -:    1:#include "node.h"
+        -:    2:// Function to check if a binary tree is a BST
+function isBSTUtil called 13 returned 100% blocks executed 85%
+       13:    3:bool isBSTUtil(struct Node* root, int min, int max) {
+       13:    4:    if (root == NULL) {   // If root is NULL                                               
+branch  0 taken 54% (fallthrough)
+branch  1 taken 46%
+        7:    5:        return true;  // It is a BST                                                   
+        -:    6:    }
+        6:    7:    if (root->data < min || root->data > max) { // If root data violates BST property                         
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+    #####:    8:        return false;    // It is not a BST                                                
+        -:    9:    }
+      12*:   10:    return (isBSTUtil(root->left, min, root->data - 1) &&                
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+branch  3 taken 100% (fallthrough)
+branch  4 taken 0%
+        6:   11:            isBSTUtil(root->right, root->data + 1, max));   // Check left subtree  and Check right subtree
+call    0 returned 100%
+        -:   12:}
+        -:   13:
+function isBST called 1 returned 100% blocks executed 100%
+        1:   14:bool isBST(struct Node* root) {
+        1:   15:    return isBSTUtil(root, INT_MIN, INT_MAX);   // Check if BST property is satisfied
+call    0 returned 100%
+        -:   16:}

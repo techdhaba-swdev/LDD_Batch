@@ -1,0 +1,18 @@
+        -:    0:Source:height.c
+        -:    1:#include "node.h"
+        -:    2:// Function to find the height of the BST
+function height called 13 returned 100% blocks executed 100%
+       13:    3:int height(struct Node* root) {
+       13:    4:    if (root == NULL) {   // If root is NULL                                               
+branch  0 taken 54% (fallthrough)
+branch  1 taken 46%
+        7:    5:        return -1;  // Height is -1                                                     
+        -:    6:    }
+        6:    7:    int leftHeight = height(root->left); // Height of left subtree                                
+call    0 returned 100%
+        6:    8:    int rightHeight = height(root->right);  // Height of right subtree                             
+call    0 returned 100%
+        6:    9:    return (leftHeight > rightHeight) ? (leftHeight + 1) : (rightHeight + 1);  // Return maximum height + 1
+branch  0 taken 17% (fallthrough)
+branch  1 taken 83%
+        -:   10:}
