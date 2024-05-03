@@ -1,155 +1,102 @@
 #include"network.h"
 
 
-// Function definitions
-Node* createUserProfile(char name[], char interests[]) {
-    Node* newNode = (Node*)malloc(sizeof(Node));
-    if (newNode == NULL) {
-        fprintf(stderr, "Memory allocation failed.\n");
-        exit(EXIT_FAILURE);
-    }
-    strcpy(newNode->user.name, name);
-    strcpy(newNode->user.interests, interests);
-    newNode->next = NULL;
-    return newNode;
-}
-
-void addFriend(Graph* graph, char user1[], char user2[]) {
-    // Find indices of user1 and user2
-    int v1 = -1, v2 = -1;
-    for (int i = 0; i < graph->V; i++) {
-        if (strcmp(graph->adjList[i]->user.name, user1) == 0)
-            v1 = i;
-        if (strcmp(graph->adjList[i]->user.name, user2) == 0)
-            v2 = i;
-        if (v1 != -1 && v2 != -1)
-            break;
-    }
-
-    // Check if both users were found
-    if (v1 == -1 || v2 == -1) {
-        printf("Error: One or both users not found.\n");
+void add_user(Graph* graph, const char* name, const char* interests) {
+    if (graph->num_users >= MAX_USERS) {
+        printf("Cannot add more users.\n");
         return;
     }
-
-    // Add connection between users
-    Node* newNode1 = createUserProfile(user1, "");
-    newNode1->next = graph->adjList[v2]->next;
-    graph->adjList[v2]->next = newNode1;
-
-    Node* newNode2 = createUserProfile(user2, "");
-    newNode2->next = graph->adjList[v1]->next;
-    graph->adjList[v1]->next = newNode2;
+    User* user = &graph->users[graph->num_users++];
+    strncpy(user->name, name, MAX_NAME_LENGTH - 1);
+    user->name[MAX_NAME_LENGTH - 1] = '\0'; // Ensure null-terminated string
+    strncpy(user->interests, interests, MAX_INTEREST_LENGTH - 1);
+    user->interests[MAX_INTEREST_LENGTH - 1] = '\0'; // Ensure null-terminated string
+    user->num_friends = 0;
 }
 
-
-
-
-
-void searchUsers(Node* head, char query[]) {
-    Node* current = head;
-    while (current != NULL) {
-        if (strstr(current->user.name, query) != NULL || strstr(current->user.interests, query) != NULL) {
-            printf("Name: %s, Interests: %s\n", current->user.name, current->user.interests);
+bool are_friends(User* user1, User* user2) {
+    for (int i = 0; i < user1->num_friends; i++) {
+        if (user1->friends[i] == user2) {
+            return true;
         }
-        current = current->next;
     }
+    return false;
 }
 
-void recommendFriends(Graph* graph, char user[]) {
-    // Find the index of the user in the graph
-    int userIndex = -1;
-    for (int i = 0; i < graph->V; i++) {
-        if (strcmp(graph->adjList[i]->user.name, user) == 0) {
-            userIndex = i;
-            break;
+void add_friendship(Graph* graph, const char* user1_name, const char* user2_name) {
+    User* user1 = NULL, * user2 = NULL;
+    for (int i = 0; i < graph->num_users; i++) {
+        if (strcmp(graph->users[i].name, user1_name) == 0) {
+            user1 = &graph->users[i];
+        }
+        if (strcmp(graph->users[i].name, user2_name) == 0) {
+            user2 = &graph->users[i];
         }
     }
-    if (userIndex == -1) {
-        printf("User not found.\n");
+    if (!user1 || !user2) {
+        printf("One or both users not found.\n");
         return;
     }
+    if (user1->num_friends >= MAX_USERS || user2->num_friends >= MAX_USERS) {
+        printf("Cannot add more friends for one or both users.\n");
+        return;
+    }
+    if (are_friends(user1, user2)) {
+        printf("Users are already friends.\n");
+        return;
+    }
+    user1->friends[user1->num_friends++] = user2;
+    user2->friends[user2->num_friends++] = user1;
+}
 
-    // Iterate through user's friends
-    Node* current = graph->adjList[userIndex]->next;
-    printf("Recommendations for %s:\n", user);
-    while (current != NULL) {
-        // For each friend, recommend their friends
-        int friendIndex = -1;
-        for (int i = 0; i < graph->V; i++) {
-            if (strcmp(graph->adjList[i]->user.name, current->user.name) == 0) {
-                friendIndex = i;
-                break;
-            }
+void search_users_by_name(Graph* graph, const char* name) {
+    printf("Users with name '%s':\n", name);
+    bool found = false;
+    for (int i = 0; i < graph->num_users; i++) {
+        if (strstr(graph->users[i].name, name)) {
+            printf("%s\n", graph->users[i].name);
+            found = true;
         }
-        if (friendIndex != -1) {
-            // Print recommendations (friends of friends)
-            Node* friendNode = graph->adjList[friendIndex]->next;
-            while (friendNode != NULL) {
-                // Check if the recommended friend is not the user and not already a friend
-                if (strcmp(friendNode->user.name, user) != 0 &&
-                    strcmp(friendNode->user.name, user) != 0) {
-                    printf("- %s\n", friendNode->user.name);
+    }
+    if (!found) {
+        printf("No users found with that name.\n");
+    }
+}
+
+void search_users_by_interest(Graph* graph, const char* interest) {
+    printf("Users interested in '%s':\n", interest);
+    bool found = false;
+    for (int i = 0; i < graph->num_users; i++) {
+        if (strstr(graph->users[i].interests, interest)) {
+            printf("%s\n", graph->users[i].name);
+            found = true;
+        }
+    }
+    if (!found) {
+        printf("No users found interested in that.\n");
+    }
+}
+
+void recommend_friends(Graph* graph, const char* name) {
+    printf("Recommended friends for %s:\n", name);
+    bool found = false;
+    for (int i = 0; i < graph->num_users; i++) {
+        if (strcmp(graph->users[i].name, name) == 0) {
+            User* user = &graph->users[i];
+            for (int j = 0; j < graph->num_users; j++) {
+                User* potential_friend = &graph->users[j];
+                if (strcmp(potential_friend->name, name) != 0 &&
+                    !are_friends(user, potential_friend)) {
+                    printf("%s\n", potential_friend->name);
+                    found = true;
                 }
-                friendNode = friendNode->next;
             }
-        }
-        current = current->next;
-    }
-}
-
-void displayNewsFeed(char user[]) {
-    // Simulated news feed data
-    char* newsFeed[] = {
-        "Post 1 by friend A",
-        "Post 2 by friend B",
-        "Post 3 by friend C",
-        // Add more posts as needed
-    };
-    int numPosts = sizeof(newsFeed) / sizeof(newsFeed[0]);
-
-    // Display the news feed
-    printf("News feed for %s:\n", user);
-    for (int i = 0; i < numPosts; i++) {
-        printf("%s\n", newsFeed[i]);
-    }
-}
-
-void displayFriendList(Graph* graph, char user[]) {
-    // Find the user in the graph
-    int index = -1;
-    for (int i = 0; i < graph->V; i++) {
-        if (strcmp(graph->adjList[i]->user.name, user) == 0) {
-            index = i;
             break;
         }
     }
-    if (index == -1) {
-        printf("User not found.\n");
-        return;
-    }
-
-    // Print friend list
-    Node* current = graph->adjList[index]->next;
-    printf("Friend list for %s:\n", user);
-    while (current != NULL) {
-        printf("%s\n", current->user.name);
-        current = current->next;
+    if (!found) {
+        printf("No recommended friends.\n");
     }
 }
 
-
-
-void destroyGraph(Graph* graph) {
-    for (int i = 0; i < graph->V; i++) {
-        Node* current = graph->adjList[i];
-        while (current != NULL) {
-            Node* temp = current;
-            current = current->next;
-            free(temp);
-        }
-    }
-    free(graph->adjList);
-    free(graph);
-}
 
