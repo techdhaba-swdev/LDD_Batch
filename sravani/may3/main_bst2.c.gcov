@@ -1,0 +1,35 @@
+        -:    0:Source:main_bst2.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <time.h>
+        -:    3:#include "bst2.h"
+        -:    4:
+        1:    5:int main() {
+        -:    6:    // Creating a binary tree
+        1:    7:    struct Node *root = createNode(1);
+        1:    8:    root->left = createNode(2);
+        1:    9:    root->right = createNode(3);
+        1:   10:    root->left->left = createNode(4);
+        1:   11:    root->left->right = createNode(5);
+        -:   12:
+        -:   13:    clock_t start, end;
+        -:   14:    double cpu_time_used;
+        -:   15:
+        -:   16:    // Timing the pre-order traversal
+        1:   17:    start = clock();
+        1:   18:    printf("Pre-order traversal: ");
+        1:   19:    preorderTraversal(root);
+        1:   20:    printf("\n");
+        1:   21:    end = clock();
+        1:   22:    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+        1:   23:    printf("Time taken for pre-order traversal: %f seconds\n", cpu_time_used);
+        -:   24:// Timing the post-order traversal
+        1:   25:    start = clock();
+        1:   26:    printf("Post-order traversal: ");
+        1:   27:    postorderTraversal(root);
+        1:   28:    printf("\n");
+        1:   29:    end = clock();
+        1:   30:    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+        1:   31:    printf("Time taken for post-order traversal: %f seconds\n", cpu_time_used);
+        -:   32:
+        1:   33:    return 0;
+        -:   34:}

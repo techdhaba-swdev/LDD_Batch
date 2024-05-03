@@ -1,0 +1,10 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=bst4.h
+OBJ=bst4.o main_bst4.o
+
+%.o: %c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+bst4:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

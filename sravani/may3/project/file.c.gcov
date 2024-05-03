@@ -1,0 +1,101 @@
+        -:    0:Source:file.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include "file.h"
+        -:    4:// Create a directory
+        2:    5:DirectoryNode* createDirectory(const char* name, DirectoryNode* parent) {
+        2:    6:DirectoryNode* newDir = (DirectoryNode*)malloc(sizeof(DirectoryNode));
+        2:    7:if (newDir == NULL) {
+    #####:    8:    printf("Memory allocation failed\n");
+    #####:    9:    exit(EXIT_FAILURE);
+        -:   10:}
+        2:   11:strcpy(newDir->name, name);
+        2:   12:newDir->parent = parent;
+        2:   13:newDir->child = NULL;
+        2:   14:newDir->sibling = NULL;
+        2:   15:newDir->files = NULL;
+        2:   16:return newDir;
+        -:   17:}
+        -:   18:
+        -:   19:// Create a file in a directory
+        3:   20:void createFile(DirectoryNode* directory, const char* filename) {
+        3:   21:FileNode* newFile = (FileNode*)malloc(sizeof(FileNode));
+        3:   22:if (newFile == NULL) {
+    #####:   23:    printf("Memory allocation failed\n");
+    #####:   24:    exit(EXIT_FAILURE);
+        -:   25:}
+        3:   26:strcpy(newFile->name, filename);
+        3:   27:newFile->next = directory->files;
+        3:   28:directory->files = newFile;
+        3:   29:}
+        -:   30:
+        -:   31:// List contents of a directory
+        3:   32:void listDirectoryContents(DirectoryNode* directory) {
+        3:   33:printf("Directory: %s\n", directory->name);
+        3:   34:printf("Files:\n");
+        3:   35:FileNode* currentFile = directory->files;
+        6:   36:while (currentFile != NULL) {
+        3:   37:    printf("%s\n", currentFile->name);
+        3:   38:    currentFile = currentFile->next;
+        -:   39:}
+        3:   40:}
+        -:   41:
+        -:   42:// Navigate into a subdirectory
+    #####:   43:DirectoryNode* navigateDirectory(DirectoryNode* currentDirectory, const char* dirname) {
+    #####:   44:DirectoryNode* temp = currentDirectory->child;
+    #####:   45:while (temp != NULL) {
+    #####:   46:    if (strcmp(temp->name, dirname) == 0)
+    #####:   47:        return temp;
+    #####:   48:    temp = temp->sibling;
+        -:   49:}
+    #####:   50:printf("Directory '%s' not found\n", dirname);
+    #####:   51:return NULL;
+        -:   52:}
+        -:   53:
+        -:   54:// Delete a directory and its contents
+        5:   55:void deleteDirectory(DirectoryNode* directory) {
+        5:   56:if (directory == NULL)
+        3:   57:    return;
+        2:   58:deleteDirectory(directory->child);
+        2:   59:deleteDirectory(directory->sibling);
+        2:   60:free(directory);
+        -:   61:}
+        -:   62:
+        -:   63:// Delete a file from a directory
+        1:   64:void deleteFile(DirectoryNode* directory, const char* filename) {
+        1:   65:FileNode* currentFile = directory->files;
+        1:   66:FileNode* prevFile = NULL;
+        -:   67:
+        -:   68:// Traverse the file list to find the file to be deleted
+       1*:   69:while (currentFile != NULL && strcmp(currentFile->name, filename) != 0) {
+    #####:   70:    prevFile = currentFile;
+    #####:   71:    currentFile = currentFile->next;
+        -:   72:}
+        -:   73:
+        -:   74:// If file not found
+        1:   75:if (currentFile == NULL) {
+        1:   76:    printf("File '%s' not found\n", filename);
+        1:   77:    return;
+        -:   78:}
+        -:   79:
+        -:   80:// If file found, remove it from the list
+    #####:   81:if (prevFile == NULL)
+    #####:   82:    directory->files = currentFile->next;
+        -:   83:else
+    #####:   84:    prevFile->next = currentFile->next;
+        -:   85:
+    #####:   86:free(currentFile);
+        -:   87:}
+        -:   88:
+        -:   89:// Search for a file in a directory
+        1:   90:void searchFile(DirectoryNode* directory, const char* filename) {
+        1:   91:FileNode* currentFile = directory->files;
+        1:   92:while (currentFile != NULL) {
+    #####:   93:    if (strcmp(currentFile->name, filename) == 0) {
+    #####:   94:        printf("File '%s' found in directory '%s'\n", filename, directory->name);
+    #####:   95:        return;
+        -:   96:    }
+    #####:   97:    currentFile = currentFile->next;
+        -:   98:}
+        1:   99:printf("File '%s' not found in directory '%s'\n", filename, directory->name);
+        -:  100:}

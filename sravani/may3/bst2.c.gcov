@@ -1,0 +1,28 @@
+        -:    0:Source:bst2.c
+        -:    1:#include <stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include "bst2.h"
+        -:    4:
+        5:    5:struct Node* createNode(int data) {
+        5:    6:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        5:    7:    newNode->data = data;
+        5:    8:    newNode->left = NULL;
+        5:    9:    newNode->right = NULL;
+        5:   10:    return newNode;
+        -:   11:}
+        -:   12:
+       11:   13:void preorderTraversal(struct Node* root) {
+       11:   14:    if (root == NULL) 
+        6:   15:        return;
+        5:   16:    printf("%d ", root->data);
+        5:   17:    preorderTraversal(root->left);
+        5:   18:    preorderTraversal(root->right);
+        -:   19:}
+        -:   20:
+       11:   21:void postorderTraversal(struct Node* root) {
+       11:   22:    if (root == NULL) 
+        6:   23:        return;
+        5:   24:    postorderTraversal(root->left);
+        5:   25:    postorderTraversal(root->right);
+        5:   26:    printf("%d ", root->data);
+        -:   27:}

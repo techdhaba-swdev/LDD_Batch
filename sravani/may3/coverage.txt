@@ -1,0 +1,9 @@
+File 'binary_tree.c'
+Lines executed:0.00% of 89
+Creating 'binary_tree.c.gcov'
+
+File 'main.c'
+Lines executed:0.00% of 36
+Creating 'main.c.gcov'
+
+Lines executed:0.00% of 125

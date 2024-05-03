@@ -1,0 +1,155 @@
+        -:    0:Source:binary_tree.c
+        -:    1:#include"binary_tree.h"
+        -:    2:#include<stdio.h>
+        -:    3:#include<stdlib.h>
+        -:    4:#include<limits.h>
+        -:    5:
+        -:    6:struct Node {
+        -:    7:int data;
+        -:    8:struct Node* left;
+        -:    9:struct Node* right;
+        -:   10:} ;
+        -:   11:
+        -:   12:// Function to create a new node
+    #####:   13:Node* createNode(int data) {
+    #####:   14:Node* newNode = (Node*)malloc(sizeof(Node));
+    #####:   15:if (newNode == NULL) {
+    #####:   16:    printf("Memory allocation failed\n");
+    #####:   17:    exit(EXIT_FAILURE);
+        -:   18:}
+    #####:   19:newNode->data = data;
+    #####:   20:newNode->left = NULL;
+    #####:   21:newNode->right = NULL;
+    #####:   22:return newNode;
+        -:   23:}
+        -:   24:
+        -:   25:// Function to insert a node into BST
+    #####:   26:Node* insert(Node* root, int data) {
+    #####:   27:if (root == NULL) {
+    #####:   28:    return createNode(data);
+        -:   29:}
+    #####:   30:if (data < root->data) {
+    #####:   31:    root->left = insert(root->left, data);
+    #####:   32:} else if (data > root->data) {
+    #####:   33:    root->right = insert(root->right, data);
+        -:   34:}
+    #####:   35:return root;
+        -:   36:}
+        -:   37:
+        -:   38:// Function to delete a node from BST
+    #####:   39:Node* delete(Node* root, int data) {
+    #####:   40:if (root == NULL) {
+    #####:   41:    return root;
+        -:   42:}
+    #####:   43:if (data < root->data) {
+    #####:   44:    root->left = delete(root->left, data);
+    #####:   45:} else if (data > root->data) {
+    #####:   46:    root->right = delete(root->right, data);
+        -:   47:} else {
+        -:   48:    // Node with only one child or no child
+    #####:   49:    if (root->left == NULL) {
+    #####:   50:        Node* temp = root->right;
+    #####:   51:        free(root);
+    #####:   52:        return temp;
+    #####:   53:    } else if (root->right == NULL) {
+    #####:   54:        Node* temp = root->left;
+    #####:   55:        free(root);
+    #####:   56:        return temp;
+        -:   57:    }
+        -:   58:    // Node with two children: Get the inorder successor (smallest in the right subtree)
+    #####:   59:    Node* temp = minValueNode(root->right);
+        -:   60:    // Copy the inorder successor's content to this node
+    #####:   61:    root->data = temp->data;
+        -:   62:    // Delete the inorder successor
+    #####:   63:    root->right = delete(root->right, temp->data);
+        -:   64:}
+    #####:   65:return root;
+        -:   66:}
+        -:   67:
+        -:   68:// Function to find the node with the minimum value
+    #####:   69:Node* minValueNode(Node* node) {
+    #####:   70:Node* current = node;
+    #####:   71:while (current && current->left != NULL) {
+    #####:   72:    current = current->left;
+        -:   73:}
+    #####:   74:return current;
+        -:   75:}
+        -:   76:
+        -:   77:// Function to search for a node in BST
+    #####:   78:Node* search(Node* root, int data) {
+    #####:   79:if (root == NULL || root->data == data) {
+    #####:   80:    return root;
+        -:   81:}
+    #####:   82:if (data < root->data) {
+    #####:   83:    return search(root->left, data);
+        -:   84:}
+    #####:   85:return search(root->right, data);
+        -:   86:}
+        -:   87:
+        -:   88:// Function to perform in-order traversal (left, root, right)
+    #####:   89:void inOrderTraversal(Node* root) {
+    #####:   90:if (root != NULL) {
+    #####:   91:    inOrderTraversal(root->left);
+    #####:   92:    printf("%d ", root->data);
+    #####:   93:    inOrderTraversal(root->right);
+        -:   94:}
+    #####:   95:}
+        -:   96:
+        -:   97:// Function to perform pre-order traversal (root, left, right)
+    #####:   98:void preOrderTraversal(Node* root) {
+    #####:   99:if (root != NULL) {
+    #####:  100:    printf("%d ", root->data);
+    #####:  101:    preOrderTraversal(root->left);
+    #####:  102:    preOrderTraversal(root->right);
+        -:  103:}
+    #####:  104:}
+        -:  105:
+        -:  106:// Function to perform post-order traversal (left, right, root)
+    #####:  107:void postOrderTraversal(Node* root) {
+    #####:  108:if (root != NULL) {
+    #####:  109:    postOrderTraversal(root->left);
+    #####:  110:    postOrderTraversal(root->right);
+    #####:  111:    printf("%d ", root->data);
+        -:  112:}
+    #####:  113:}
+        -:  114:
+        -:  115:// Function to check if a binary tree is a binary search tree (BST)
+    #####:  116:bool isBSTUtil(Node* root, int min, int max) {
+    #####:  117:if (root == NULL) {
+    #####:  118:    return true;
+        -:  119:}
+    #####:  120:if (root->data < min || root->data > max) {
+    #####:  121:    return false;
+        -:  122:}
+    #####:  123:return isBSTUtil(root->left, min, root->data - 1) &&
+    #####:  124:        isBSTUtil(root->right, root->data + 1, max);
+        -:  125:}
+        -:  126:
+    #####:  127:bool isBST(Node* root) {
+    #####:  128:return isBSTUtil(root, INT_MIN, INT_MAX);
+        -:  129:}
+        -:  130:
+        -:  131:// Function to find the height of a binary tree
+    #####:  132:int height(Node* root) {
+    #####:  133:if (root == NULL) {
+    #####:  134:    return 0;
+        -:  135:}
+    #####:  136:int leftHeight = height(root->left);
+    #####:  137:int rightHeight = height(root->right);
+    #####:  138:return (leftHeight > rightHeight) ? leftHeight + 1 : rightHeight + 1;
+        -:  139:}
+        -:  140:
+        -:  141:// Function to find the minimum and maximum values in a binary tree
+    #####:  142:void findMinMax(Node* root, int* min, int* max) {
+    #####:  143:if (root == NULL) {
+    #####:  144:    return;
+        -:  145:}
+    #####:  146:if (root->data < *min) {
+    #####:  147:    *min = root->data;
+        -:  148:}
+    #####:  149:if (root->data > *max) {
+    #####:  150:    *max = root->data;
+        -:  151:}
+    #####:  152:findMinMax(root->left, min, max);
+    #####:  153:findMinMax(root->right, min, max);
+        -:  154:}
