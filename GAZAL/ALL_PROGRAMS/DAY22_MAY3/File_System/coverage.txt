@@ -1,0 +1,15 @@
+File 'file_system.c'
+Lines executed:71.15% of 104
+Branches executed:100.00% of 74
+Taken at least once:59.46% of 74
+Calls executed:25.00% of 16
+Creating 'file_system.c.gcov'
+
+File 'main.c'
+Lines executed:91.67% of 24
+Branches executed:100.00% of 4
+Taken at least once:50.00% of 4
+Calls executed:94.44% of 18
+Creating 'main.c.gcov'
+
+Lines executed:75.00% of 128

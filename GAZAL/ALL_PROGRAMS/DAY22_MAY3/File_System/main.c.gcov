@@ -1,0 +1,78 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>          // Include standard input-output library
+        -:    2:#include "file_system.h"    // Include the header file containing function prototypes
+        -:    3:#include <time.h>
+function main called 1 returned 100% blocks executed 91%
+        1:    4:int main() {                // Main function where the program starts execution
+        1:    5: clock_t start = clock();
+call    0 returned 100%
+        1:    6:    struct Directory* rootDir = createDirectory(NULL, "root");  // Create the root directory
+call    0 returned 100%
+        -:    7:
+        1:    8:    if (!rootDir) {         // Check if root directory creation failed
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    9:        printf("Error: Failed to create root directory.\n");   // Print error message
+call    0 never executed
+    #####:   10:        return 1;            // Return with error code
+        -:   11:    }
+        -:   12:
+        -:   13:    // Create subdirectories and files
+        1:   14:    struct Directory* subDir1 = createDirectory(rootDir, "subdir1");  // Create subdirectory 1
+call    0 returned 100%
+        1:   15:    struct Directory* subDir2 = createDirectory(rootDir, "subdir2");  // Create subdirectory 2
+call    0 returned 100%
+        -:   16:
+        1:   17:    createFile(rootDir, "file1.txt");   // Create file1.txt in the root directory
+call    0 returned 100%
+        1:   18:    createFile(rootDir, "file2.txt");   // Create file2.txt in the root directory
+call    0 returned 100%
+        1:   19:    createFile(subDir1, "file3.txt");   // Create file3.txt in subdirectory 1
+call    0 returned 100%
+        1:   20:    createFile(subDir2, "file4.txt");   // Create file4.txt in subdirectory 2
+call    0 returned 100%
+        -:   21:
+        -:   22:    // View contents of root directory
+        1:   23:    viewDirectoryContents(rootDir);
+call    0 returned 100%
+        -:   24:
+        -:   25:    // Navigate to subdirectory and view contents
+        1:   26:    struct Directory* currentDir = navigateToDirectory(rootDir, "subdir1");  // Navigate to subdir1
+call    0 returned 100%
+        1:   27:    if (currentDir != NULL) {         // Check if navigation was successful
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   28:        viewDirectoryContents(currentDir);  // View contents of subdir1
+call    0 returned 100%
+        -:   29:    }
+        -:   30:    
+        -:   31:
+        -:   32:    // Search for a file
+        1:   33:    searchFile(rootDir, "file6.txt");  // Search for file6.txt
+call    0 returned 100%
+        -:   34: //struct FileInfo* foundFile = searchFile(rootDir, "file2.txt");
+        -:   35: 
+        -:   36:    // Delete a file
+        1:   37:    deleteFile(rootDir, "file1.txt");  // Delete file1.txt from root directory
+call    0 returned 100%
+        -:   38:
+        -:   39:    // Delete a directory
+        1:   40:    deleteDirectory(rootDir, "subdir2");  // Delete subdir2
+call    0 returned 100%
+        -:   41:    
+        -:   42:   
+        -:   43:  //  }
+        -:   44:    
+        -:   45:
+        1:   46: viewDirectoryContents(rootDir);
+call    0 returned 100%
+        -:   47:  // End timing
+        1:   48:    clock_t end = clock();
+call    0 returned 100%
+        -:   49:
+        -:   50:    // Calculate the elapsed time in milliseconds
+        1:   51:    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+        1:   52:printf("time take is %f\n", time_taken);
+call    0 returned 100%
+        1:   53:    return 0;   // Return with success code
+        -:   54:}

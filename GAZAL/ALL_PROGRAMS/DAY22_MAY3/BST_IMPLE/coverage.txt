@@ -1,0 +1,15 @@
+File 'bst_tree.c'
+Lines executed:0.00% of 89
+Branches executed:0.00% of 52
+Taken at least once:0.00% of 52
+Calls executed:0.00% of 25
+Creating 'bst_tree.c.gcov'
+
+File 'main.c'
+Lines executed:0.00% of 39
+Branches executed:0.00% of 4
+Taken at least once:0.00% of 4
+Calls executed:0.00% of 37
+Creating 'main.c.gcov'
+
+Lines executed:0.00% of 128

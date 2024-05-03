@@ -1,0 +1,292 @@
+        -:    0:Source:file_system.c
+        -:    1:#include <stdio.h>          // Include standard input-output library
+        -:    2:#include <stdlib.h>         // Include standard library
+        -:    3:#include <string.h>         // Include string library for string manipulation
+        -:    4:#include "file_system.h"    // Include the header file containing function prototypes
+        -:    5:
+        -:    6:// Define structures
+        -:    7:
+        -:    8:struct FileInfo {          // Define structure for file information
+        -:    9:    char name[50];         // Name of the file
+        -:   10:    struct FileInfo* next; // Pointer to the next file in the list
+        -:   11:};
+        -:   12:
+        -:   13:struct Directory {          // Define structure for directory
+        -:   14:    char name[50];          // Name of the directory
+        -:   15:    struct Directory* parent;        // Pointer to parent directory
+        -:   16:    struct Directory* children;      // Pointer to first child directory
+        -:   17:    struct FileInfo* files;          // Pointer to files in this directory
+        -:   18:    struct Directory* nextSibling;   // Pointer to next sibling directory
+        -:   19:};
+        -:   20:
+        -:   21:// Function implementations
+        -:   22:
+function createDirectory called 3 returned 100% blocks executed 69%
+        3:   23:struct Directory* createDirectory(struct Directory* parent, const char* name) {
+        3:   24:    if (!name || strlen(name) == 0) {     // Check if directory name is valid
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+    #####:   25:        printf("Error: Invalid directory name.\n");  // Print error message
+call    0 never executed
+    #####:   26:        return NULL;                    // Return NULL indicating failure
+        -:   27:    }
+        -:   28:
+        3:   29:    struct Directory* newDir = (struct Directory*)malloc(sizeof(struct Directory)); // Allocate memory for new directory
+        3:   30:    if (!newDir) {                      // Check if memory allocation failed
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   31:        printf("Error: Memory allocation failed.\n");  // Print error message
+call    0 never executed
+    #####:   32:        return NULL;                    // Return NULL indicating failure
+        -:   33:    }
+        -:   34:
+        3:   35:    strcpy(newDir->name, name);        // Copy directory name
+        3:   36:    newDir->parent = parent;            // Set parent directory
+        3:   37:    newDir->children = NULL;            // Initialize children pointer
+        3:   38:    newDir->files = NULL;               // Initialize files pointer
+        3:   39:    newDir->nextSibling = NULL;         // Initialize next sibling pointer
+        -:   40:
+        -:   41:    // Add the new directory to the parent's children list
+        3:   42:    if (parent != NULL) {               // If parent directory exists
+branch  0 taken 67% (fallthrough)
+branch  1 taken 33%
+        2:   43:        struct Directory* child = parent->children;   // Get the first child directory
+        2:   44:        if (child == NULL) {            // If no children exist
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   45:            parent->children = newDir; // Set the new directory as the first child
+        -:   46:        } else {                       // If children already exist
+        1:   47:            while (child->nextSibling != NULL) {  // Traverse to the last sibling
+branch  0 taken 0%
+branch  1 taken 100% (fallthrough)
+    #####:   48:                child = child->nextSibling;
+        -:   49:            }
+        1:   50:            child->nextSibling = newDir;  // Add the new directory as the next sibling
+        -:   51:        }
+        -:   52:    }
+        -:   53:
+        3:   54:    return newDir;                      // Return the new directory
+        -:   55:}
+        -:   56:
+function createFile called 4 returned 100% blocks executed 67%
+        4:   57:void createFile(struct Directory* dir, const char* name) {
+        4:   58:    if (!dir || !name || strlen(name) == 0) {  // Check if input is valid
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 0% (fallthrough)
+branch  5 taken 100%
+    #####:   59:        printf("Error: Invalid input for creating file.\n");  // Print error message
+call    0 never executed
+    #####:   60:        return;                          // Return without creating file
+        -:   61:    }
+        -:   62:
+        4:   63:    struct FileInfo* newFile = (struct FileInfo*)malloc(sizeof(struct FileInfo));  // Allocate memory for new file
+        4:   64:    if (!newFile) {                     // Check if memory allocation failed
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   65:        printf("Error: Memory allocation failed.\n");  // Print error message
+call    0 never executed
+    #####:   66:        return;                          // Return without creating file
+        -:   67:    }
+        -:   68:
+        4:   69:    strcpy(newFile->name, name);       // Copy file name
+        4:   70:    newFile->next = NULL;              // Initialize next pointer
+        -:   71:
+        -:   72:    // Add the new file to the directory's files list
+        4:   73:    struct FileInfo* file = dir->files;  // Get the first file in the directory
+        4:   74:    if (file == NULL) {                // If no files exist
+branch  0 taken 75% (fallthrough)
+branch  1 taken 25%
+        3:   75:        dir->files = newFile;          // Set the new file as the first file
+        -:   76:    } else {                           // If files already exist
+        1:   77:        while (file->next != NULL) {   // Traverse to the last file
+branch  0 taken 0%
+branch  1 taken 100% (fallthrough)
+    #####:   78:            file = file->next;
+        -:   79:        }
+        1:   80:        file->next = newFile;          // Add the new file at the end of the list
+        -:   81:    }
+        -:   82:}
+        -:   83:
+function viewDirectoryContents called 3 returned 100% blocks executed 85%
+        3:   84:void viewDirectoryContents(struct Directory* dir) {
+        3:   85:    if (!dir) {                       // Check if directory is valid
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   86:        printf("Error: Invalid directory.\n");  // Print error message
+call    0 never executed
+    #####:   87:        return;                          // Return without viewing contents
+        -:   88:    }
+        -:   89:
+        3:   90:    printf("Contents of directory '%s':\n", dir->name);  // Print directory name
+call    0 returned 100%
+        -:   91:
+        -:   92:    // Print files in the directory
+        3:   93:    struct FileInfo* file = dir->files;
+        7:   94:    while (file != NULL) {
+branch  0 taken 57%
+branch  1 taken 43% (fallthrough)
+        4:   95:        printf("File: %s\n", file->name);
+call    0 returned 100%
+        4:   96:        file = file->next;
+        -:   97:    }
+        -:   98:
+        -:   99:    // Print subdirectories in the directory
+        3:  100:    struct Directory* subdir = dir->children;
+        6:  101:    while (subdir != NULL) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        3:  102:        printf("Directory: %s\n", subdir->name);
+call    0 returned 100%
+        3:  103:        subdir = subdir->nextSibling;
+        -:  104:    }
+        -:  105:}
+        -:  106:
+function navigateToDirectory called 1 returned 100% blocks executed 62%
+        1:  107:struct Directory* navigateToDirectory(struct Directory* currentDir, const char* name) {
+        1:  108:    if (!currentDir || !name || strlen(name) == 0) {  // Check if inputs are valid
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 0% (fallthrough)
+branch  5 taken 100%
+    #####:  109:        printf("Error: Invalid input for navigating to directory.\n");  // Print error message
+call    0 never executed
+    #####:  110:        return NULL;                   // Return NULL indicating failure
+        -:  111:    }
+        -:  112:
+        1:  113:    struct Directory* subdir = currentDir->children;  // Get the first child directory
+        1:  114:    while (subdir != NULL) {          // Traverse through children directories
+branch  0 taken 100%
+branch  1 taken 0% (fallthrough)
+        1:  115:        if (strcmp(subdir->name, name) == 0) {  // If directory found
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:  116:            return subdir;             // Return the found directory
+        -:  117:        }
+    #####:  118:        subdir = subdir->nextSibling;  // Move to next sibling directory
+        -:  119:    }
+        -:  120:
+    #####:  121:    printf("Error: Directory '%s' not found.\n", name);  // Print error message
+call    0 never executed
+    #####:  122:    return NULL;                       // Return NULL indicating failure
+        -:  123:}
+        -:  124:
+function deleteFile called 1 returned 100% blocks executed 67%
+        1:  125:void deleteFile(struct Directory* dir, const char* name) {
+        1:  126:    if (!dir || !name || strlen(name) == 0) {  // Check if input is valid
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 0% (fallthrough)
+branch  5 taken 100%
+    #####:  127:        printf("Error: Invalid input for deleting file.\n");  // Print error message
+call    0 never executed
+    #####:  128:        return;                          // Return without deleting file
+        -:  129:    }
+        -:  130:
+        1:  131:    struct FileInfo* prev = NULL;       // Pointer to previous file
+        1:  132:    struct FileInfo* current = dir->files;  // Pointer to current file
+        -:  133:
+        1:  134:    while (current != NULL) {
+branch  0 taken 100%
+branch  1 taken 0% (fallthrough)
+        1:  135:        if (strcmp(current->name, name) == 0) {  // If file found
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:  136:            if (prev == NULL) {         // If first file
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:  137:                dir->files = current->next;  // Update files pointer
+        -:  138:            } else {                     // If not first file
+    #####:  139:                prev->next = current->next;  // Update previous file's next pointer
+        -:  140:            }
+        1:  141:            free(current);              // Free memory for file
+        1:  142:            return;
+        -:  143:        }
+    #####:  144:        prev = current;                // Move to next file
+    #####:  145:        current = current->next;
+        -:  146:    }
+        -:  147:
+    #####:  148:    printf("Error: File '%s' not found.\n", name);  // Print error message
+call    0 never executed
+        -:  149:}
+        -:  150:
+function deleteDirectory called 1 returned 100% blocks executed 73%
+        1:  151:void deleteDirectory(struct Directory* parent, const char* name) {
+        1:  152:    if (!parent || !name || strlen(name) == 0) {  // Check if input is valid
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 0% (fallthrough)
+branch  5 taken 100%
+    #####:  153:        printf("Error: Invalid input for deleting directory.\n");  // Print error message
+call    0 never executed
+    #####:  154:        return;                          // Return without deleting directory
+        -:  155:    }
+        -:  156:
+        1:  157:    struct Directory* prev = NULL;       // Pointer to previous directory
+        1:  158:    struct Directory* current = parent->children;  // Pointer to current directory
+        -:  159:
+        2:  160:    while (current != NULL) {
+branch  0 taken 100%
+branch  1 taken 0% (fallthrough)
+        2:  161:        if (strcmp(current->name, name) == 0) {  // If directory found
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:  162:            if (prev == NULL) {         // If first directory
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  163:                parent->children = current->nextSibling;  // Update parent's children pointer
+        -:  164:            } else {                     // If not first directory
+        1:  165:                prev->nextSibling = current->nextSibling;  // Update previous directory's nextSibling pointer
+        -:  166:            }
+        1:  167:            free(current);              // Free memory for directory
+        1:  168:            return;
+        -:  169:        }
+        1:  170:        prev = current;                // Move to next directory
+        1:  171:        current = current->nextSibling;
+        -:  172:    }
+        -:  173:
+    #####:  174:    printf("Error: Directory '%s' not found.\n", name);  // Print error message
+call    0 never executed
+        -:  175:}
+        -:  176:
+function searchFile called 1 returned 100% blocks executed 77%
+        1:  177:struct FileInfo* searchFile(struct Directory* dir, const char* name) {
+        1:  178:    if (!dir || !name || strlen(name) == 0) {  // Check if input is valid
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 100% (fallthrough)
+branch  3 taken 0%
+branch  4 taken 0% (fallthrough)
+branch  5 taken 100%
+    #####:  179:        printf("Error: Invalid input for searching file.\n");  // Print error message
+call    0 never executed
+    #####:  180:        return NULL;                   // Return NULL indicating failure
+        -:  181:    }
+        -:  182:
+        1:  183:    struct FileInfo* file = dir->files;  // Get the first file in the directory
+        -:  184:
+        3:  185:    while (file != NULL) {
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        2:  186:        if (strcmp(file->name, name) == 0) {  // If file found
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  187:            return file;                // Return pointer to the file
+        -:  188:        }
+        2:  189:        file = file->next;              // Move to next file
+        -:  190:    }
+        -:  191:
+        1:  192:    printf("Error: File '%s' not found.\n", name);  // Print error message
+call    0 returned 100%
+        1:  193:    return NULL;                       // Return NULL indicating failure
+        -:  194:}
