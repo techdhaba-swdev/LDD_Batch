@@ -1,0 +1,2 @@
+express: main.c expression_evaluator.c stack.c
+	gcc -o express main.c expression_evaluator.c stack.c -I.

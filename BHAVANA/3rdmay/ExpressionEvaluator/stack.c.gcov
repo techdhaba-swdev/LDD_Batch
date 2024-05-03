@@ -1,0 +1,79 @@
+        -:    0:Source:stack.c
+        -:    1:#include "stack.h"  // Include header file for stack structure definition (assumed)
+        -:    2:#include <stdlib.h>  // Include standard library for memory allocation (malloc, free)
+        -:    3:#include <stdio.h>   // Include standard input/output header (printf)
+        -:    4:
+        -:    5:// Function to push data onto stack
+function push called 5 returned 100% blocks executed 50%
+        5:    6:void push(Stack* stack, char data) {
+        -:    7:    // Create a new node for the data
+        5:    8:    Node* newNode = (Node*)malloc(sizeof(Node));
+        5:    9:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   10:        printf("Error: Memory allocation failed\n");
+call    0 never executed
+    #####:   11:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   12:    }
+        -:   13:
+        -:   14:    // Set data and next pointer of the new node
+        5:   15:    newNode->data = data;
+        5:   16:    newNode->next = stack->top;
+        -:   17:
+        -:   18:    // Update the top pointer of the stack to point to the new node
+        5:   19:    stack->top = newNode;
+        5:   20:}
+        -:   21:
+        -:   22:// Function to pop data from stack
+function pop called 5 returned 100% blocks executed 67%
+        5:   23:char pop(Stack* stack) {
+        -:   24:    // Check if stack is empty
+        5:   25:    if (is_empty(stack)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   26:        printf("Error: Stack is empty\n");
+call    0 never executed
+    #####:   27:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   28:    }
+        -:   29:
+        -:   30:    // Store the top node and its data
+        5:   31:    Node* temp = stack->top;
+        5:   32:    char data = temp->data;
+        -:   33:
+        -:   34:    // Update the top pointer to point to the next node
+        5:   35:    stack->top = temp->next;
+        -:   36:
+        -:   37:    // Free the memory used by the popped node
+        5:   38:    free(temp);
+        -:   39:
+        -:   40:    // Return the popped data
+        5:   41:    return data;
+        -:   42:}
+        -:   43:
+        -:   44:// Function to peek at the top of the stack
+function peek called 3 returned 100% blocks executed 67%
+        3:   45:char peek(Stack* stack) {
+        -:   46:    // Check if stack is empty
+        3:   47:    if (is_empty(stack)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   48:        printf("Error: Stack is empty\n");
+call    0 never executed
+    #####:   49:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   50:    }
+        -:   51:
+        -:   52:    // Return the data of the top node without removing it
+        3:   53:    return stack->top->data;
+        -:   54:}
+        -:   55:
+        -:   56:// Function to check if stack is empty
+function is_empty called 12 returned 100% blocks executed 100%
+       12:   57:int is_empty(Stack* stack) {
+        -:   58:    // Return true if the top pointer is NULL (empty stack)
+       12:   59:    return stack->top == NULL;
+        -:   60:}
