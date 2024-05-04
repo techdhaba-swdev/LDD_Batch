@@ -1,0 +1,3 @@
+evaluator: evaluator.c evaluatormain.c
+	gcc -o evaluator evaluator.c evaluatormain.c -I.
+
