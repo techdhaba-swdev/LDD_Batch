@@ -1,0 +1,20 @@
+        -:    0:Source:SearchUsersByName.c
+        -:    1:#include "SearchUsersByName.h"
+        -:    2:#include <string.h>
+        -:    3:#include <stdio.h>
+        -:    4:
+        -:    5:// Function to search for users by name.
+function searchUsersByName called 1 returned 100% blocks executed 100%
+        1:    6:void searchUsersByName(Graph *graph, char *name) {
+        5:    7:    for (int i = 0; i < graph->numUsers; i++) {
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        4:    8:        if (strcmp(graph->users[i].profile.name, name) == 0) {
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        1:    9:            printf("User found: %s\n", graph->users[i].profile.name);
+call    0 returned 100%
+        -:   10:            // Display additional user details here if needed.
+        -:   11:        }
+        -:   12:    }
+        1:   13:}

@@ -1,0 +1,21 @@
+        -:    0:Source:CreateUserProfile.c
+        -:    1:#include "CreateUserProfile.h"
+        -:    2:#include <string.h>
+        -:    3:#include <stddef.h>
+        -:    4:
+        -:    5:// Function to create a new user profile.
+function createUserProfile called 4 returned 100% blocks executed 100%
+        4:    6:void createUserProfile(Graph *graph, char *name, char *interests) {
+        -:    7:    UserProfile profile;
+        4:    8:    strcpy(profile.name, name); // Copy the name into the profile.
+        4:    9:    strcpy(profile.interests, interests); // Copy the interests into the profile.
+        -:   10:    // Initialize other profile details here.
+        -:   11:
+        -:   12:    User newUser;
+        4:   13:    newUser.profile = profile; // Assign the profile to the new user.
+        4:   14:    newUser.friendsList = NULL; // Initialize the friends list to NULL.
+        -:   15:
+        4:   16:    graph->users[graph->numUsers++] = newUser; // Add the new user to the graph.
+        4:   17:}
+        -:   18:
+        -:   19:

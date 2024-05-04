@@ -1,0 +1,12 @@
+        -:    0:Source:isEmpty.c
+        -:    1:// isEmpty.c
+        -:    2:
+        -:    3:#include "isEmpty.h"
+        -:    4:#include <stddef.h>
+        -:    5:// Function to check if the stack is empty.
+function isEmpty called 11 returned 100% blocks executed 100%
+       11:    6:int isEmpty(Stack* stack) {
+       11:    7:    return stack->top == NULL; // Return 1 (true) if the stack is empty, 0 (false) otherwise.
+        -:    8:}
+        -:    9:
+        -:   10:

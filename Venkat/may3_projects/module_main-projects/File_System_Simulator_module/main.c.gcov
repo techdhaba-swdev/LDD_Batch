@@ -1,0 +1,93 @@
+        -:    0:Source:main.c
+        -:    1:#include "CreateNode.h"
+        -:    2:#include "AddChildNode.h"
+        -:    3:#include "ListDirectoryContents.h"
+        -:    4:#include "NavigateToSubdirectory.h"
+        -:    5:#include "DeleteNode.h"
+        -:    6:#include "SearchFile.h"
+        -:    7:#include <stdio.h>
+        -:    8:#include <time.h>
+function main called 1 returned 100% blocks executed 100%
+        1:    9:int main() {
+        1:   10:    clock_t start = clock();
+call    0 returned 100%
+        -:   11:    // Create the root of the file system
+        1:   12:    Node* root = createNode("/");
+call    0 returned 100%
+        -:   13:
+        -:   14:    // Add directories and files to the root
+        1:   15:    addChildNode(root, createNode("dir1"));
+call    0 returned 100%
+call    1 returned 100%
+        1:   16:    addChildNode(root, createNode("file1.txt"));
+call    0 returned 100%
+call    1 returned 100%
+        1:   17:    addChildNode(root, createNode("dir2"));
+call    0 returned 100%
+call    1 returned 100%
+        -:   18:
+        -:   19:    // Add files to dir1
+        1:   20:    Node* dir1 = navigateToSubdirectory(root, "dir1");
+call    0 returned 100%
+        1:   21:    addChildNode(dir1, createNode("file2.txt"));
+call    0 returned 100%
+call    1 returned 100%
+        1:   22:    addChildNode(dir1, createNode("file3.txt"));
+call    0 returned 100%
+call    1 returned 100%
+        -:   23:
+        -:   24:    // Add files to dir2
+        1:   25:    Node* dir2 = navigateToSubdirectory(root, "dir2");
+call    0 returned 100%
+        1:   26:    addChildNode(dir2, createNode("file4.txt"));
+call    0 returned 100%
+call    1 returned 100%
+        1:   27:    addChildNode(dir2, createNode("file5.txt"));
+call    0 returned 100%
+call    1 returned 100%
+        -:   28:
+        -:   29:    // List contents of the root directory
+        1:   30:    printf("Contents of root directory:\n");
+call    0 returned 100%
+        1:   31:    listDirectoryContents(root);
+call    0 returned 100%
+        -:   32:
+        -:   33:    // List contents of dir1
+        1:   34:    printf("\nContents of dir1:\n");
+call    0 returned 100%
+        1:   35:    listDirectoryContents(dir1);
+call    0 returned 100%
+        -:   36:
+        -:   37:    // List contents of dir2
+        1:   38:    printf("\nContents of dir2:\n");
+call    0 returned 100%
+        1:   39:    listDirectoryContents(dir2);
+call    0 returned 100%
+        -:   40:
+        -:   41:    // Search for file 
+        1:   42:    searchFile(root, "file5.txt");
+call    0 returned 100%
+        -:   43:   // Node* file =  searchFile(root, "file5.txt");
+        -:   44:
+        1:   45:    clock_t end = clock();
+call    0 returned 100%
+        -:   46:
+        -:   47:    // Calculate the elapsed time
+        -:   48:
+        1:   49:    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+        -:   50:
+        1:   51:    printf("Time taken: %f seconds\n", time_taken);
+call    0 returned 100%
+        -:   52:
+        -:   53:  //  if (file) {
+        -:   54:      //  printf("\nFile '%s' found.\n", file->name);
+        -:   55:   // } else {
+        -:   56:     //   printf("\nFile not found.\n");
+        -:   57:   // }
+        -:   58:
+        -:   59:    // Clean up memory by deleting all nodes
+        1:   60:    deleteNode(root);
+call    0 returned 100%
+        -:   61:
+        1:   62:    return 0;
+        -:   63:}

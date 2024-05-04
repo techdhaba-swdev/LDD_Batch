@@ -1,0 +1,62 @@
+Expression Evaluator Code Documentation
+ Overview
+ This documentation outlines the implementation of an Expression Evaluator in C. The system is designed to interpret and calculate the result of mathematical expressions input by the user. It supports basic arithmetic operations and handles both infix and postfix notation.
+
+Modules Node
+
+    Files: Node.h
+    Description: Defines the structure for a node used in the stack, containing integer data and a pointer to the next node.
+
+Stack
+
+    Files: Stack.h, Stack.c
+    Description: Implements a stack data structure essential for expression evaluation, providing operations such as push, pop, and isEmpty.
+
+CreateStack
+
+    Files: createStack.h, createStack.c
+    Description: Contains the function to create and initialize a new stack.
+
+Push
+
+    Files: push.h, push.c
+    Description: Provides the functionality to push an integer onto the stack.
+
+Pop
+
+    Files: pop.h, pop.c
+    Description: Allows for popping the top integer from the stack.
+
+IsEmpty
+
+    Files: isEmpty.h, isEmpty.c
+    Description: Checks if the stack is empty.
+
+GetPrecedence
+
+    Files: getPrecedence.h, getPrecedence.c
+    Description: Determines the precedence of arithmetic operators to ensure correct order of operations in expressions.
+
+ConvertToPostfix
+
+    Files: convertToPostfix.h, convertToPostfix.c
+    Description: Converts an infix expression to postfix notation using the shunting-yard algorithm.
+
+EvaluatePostfix
+
+    Files: evaluatePostfix.h, evaluatePostfix.c
+    Description: Evaluates a postfix expression and returns the calculated result.
+
+Main Function
+
+    File: main.c
+    Description: Acts as the entry point of the program. It prompts the user for an infix expression, converts it to postfix notation, and then evaluates it to display the result.
+
+output
+ Enter an infix expression: 5-(2*3-1)/2
+ Postfix expression: 5 2 3 * 1 - 2 / - 
+ Result: 3 
+ Enter an infix expression: (1+2)*(3-1)
+ Postfix expression: 1 2 + 3 1 - * 
+ Result: 6
+

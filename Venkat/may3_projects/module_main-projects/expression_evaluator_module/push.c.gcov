@@ -1,0 +1,23 @@
+        -:    0:Source:push.c
+        -:    1:// push.c
+        -:    2:
+        -:    3:#include "push.h"
+        -:    4:#include <stdlib.h>
+        -:    5:#include <stdio.h>
+        -:    6:
+        -:    7:// Function to push a new integer data onto the stack.
+function push called 14 returned 100% blocks executed 50%
+       14:    8:void push(Stack* stack, int data) {
+       14:    9:    Node* newNode = (Node*)malloc(sizeof(Node)); // Allocate memory for a new node.
+       14:   10:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   11:        printf("Error: Memory not allocated for new node\n"); // Error handling for memory allocation.
+call    0 never executed
+    #####:   12:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   13:    }
+       14:   14:    newNode->data = data; // Set the data for the new node.
+       14:   15:    newNode->next = stack->top; // Link the new node to the current top node.
+       14:   16:    stack->top = newNode; // Update the top pointer to the new node.
+       14:   17:}

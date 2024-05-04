@@ -1,0 +1,23 @@
+        -:    0:Source:AddChildNode.c
+        -:    1:#include "AddChildNode.h"
+        -:    2:#include <stddef.h>
+        -:    3:// Adds a child node to a parent node in the file system.
+function addChildNode called 7 returned 100% blocks executed 100%
+        7:    4:void addChildNode(Node* parent, Node* child) {
+        7:    5:    if (parent->firstChild == NULL) {
+branch  0 taken 43% (fallthrough)
+branch  1 taken 57%
+        3:    6:        parent->firstChild = child; // If the parent has no children, add the child as the first child.
+        -:    7:    } else {
+        4:    8:        Node* current = parent->firstChild;
+        -:    9:        // Traverse to the end of the sibling list and add the child there.
+        5:   10:        while (current->nextSibling != NULL) {
+branch  0 taken 20%
+branch  1 taken 80% (fallthrough)
+        1:   11:            current = current->nextSibling;
+        -:   12:        }
+        4:   13:        current->nextSibling = child; // Add the child as the next sibling of the last child.
+        -:   14:    }
+        7:   15:}
+        -:   16:
+        -:   17:

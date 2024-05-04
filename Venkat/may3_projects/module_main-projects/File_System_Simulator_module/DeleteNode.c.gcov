@@ -1,0 +1,27 @@
+        -:    0:Source:DeleteNode.c
+        -:    1:#include "DeleteNode.h"
+        -:    2:#include <stdlib.h>
+        -:    3:
+        -:    4:// Deletes a node and all its children from the file system, freeing the memory.
+function deleteNode called 8 returned 100% blocks executed 88%
+        8:    5:void deleteNode(Node* node) {
+        8:    6:    if (node == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    7:        return; // If the node is NULL, there is nothing to delete.
+        -:    8:    }
+        8:    9:    Node* current = node->firstChild;
+        -:   10:    // Recursively delete all children of the node.
+       15:   11:    while (current != NULL) {
+branch  0 taken 47%
+branch  1 taken 53% (fallthrough)
+        7:   12:        Node* next = current->nextSibling;
+        7:   13:        deleteNode(current);
+call    0 returned 100%
+        7:   14:        current = next;
+        -:   15:    }
+        8:   16:    free(node->name); // Free the memory allocated for the node's name.
+        8:   17:    free(node); // Free the memory allocated for the node itself.
+        -:   18:}
+        -:   19:
+        -:   20:

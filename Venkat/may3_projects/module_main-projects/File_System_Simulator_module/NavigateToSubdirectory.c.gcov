@@ -1,0 +1,23 @@
+        -:    0:Source:NavigateToSubdirectory.c
+        -:    1:#include "NavigateToSubdirectory.h"
+        -:    2:#include <string.h>
+        -:    3:
+        -:    4:// Navigates to a subdirectory with the given name within the specified directory.
+function navigateToSubdirectory called 2 returned 100% blocks executed 86%
+        2:    5:Node* navigateToSubdirectory(Node* currentDirectory, const char* subdirectoryName) {
+        2:    6:    Node* current = currentDirectory->firstChild;
+        -:    7:    // Loop through each child node to find the subdirectory with the matching name.
+        4:    8:    while (current != NULL) {
+branch  0 taken 100%
+branch  1 taken 0% (fallthrough)
+        4:    9:        if (strcmp(current->name, subdirectoryName) == 0) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        2:   10:            return current; // Return the subdirectory node if found.
+        -:   11:        }
+        2:   12:        current = current->nextSibling;
+        -:   13:    }
+    #####:   14:    return NULL; // Return NULL if the subdirectory is not found.
+        -:   15:}
+        -:   16:
+        -:   17:

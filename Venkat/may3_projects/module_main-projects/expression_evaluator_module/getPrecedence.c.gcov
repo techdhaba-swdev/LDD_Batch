@@ -1,0 +1,24 @@
+        -:    0:Source:getPrecedence.c
+        -:    1:// getPrecedence.c
+        -:    2:
+        -:    3:#include "getPrecedence.h"
+        -:    4:
+        -:    5:// Function to get the precedence of an operator in an expression.
+function getPrecedence called 12 returned 100% blocks executed 100%
+       12:    6:int getPrecedence(char op) {
+       12:    7:    switch (op) {
+branch  0 taken 42%
+branch  1 taken 42%
+branch  2 taken 17%
+        5:    8:        case '+':
+        -:    9:        case '-':
+        5:   10:            return 1; // Lower precedence for addition and subtraction.
+        5:   11:        case '*':
+        -:   12:        case '/':
+        5:   13:            return 2; // Higher precedence for multiplication and division.
+        2:   14:        default:
+        2:   15:            return -1; // Return -1 for invalid operators.
+        -:   16:    }
+        -:   17:}
+        -:   18:
+        -:   19:

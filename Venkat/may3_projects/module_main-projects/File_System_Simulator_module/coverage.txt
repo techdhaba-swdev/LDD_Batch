@@ -1,0 +1,48 @@
+File 'AddChildNode.c'
+Lines executed:100.00% of 8
+Branches executed:100.00% of 4
+Taken at least once:100.00% of 4
+No calls
+Creating 'AddChildNode.c.gcov'
+
+File 'CreateNode.c'
+Lines executed:100.00% of 6
+No branches
+No calls
+Creating 'CreateNode.c.gcov'
+
+File 'DeleteNode.c'
+Lines executed:90.00% of 10
+Branches executed:100.00% of 4
+Taken at least once:75.00% of 4
+Calls executed:100.00% of 1
+Creating 'DeleteNode.c.gcov'
+
+File 'ListDirectoryContents.c'
+Lines executed:100.00% of 6
+Branches executed:100.00% of 2
+Taken at least once:100.00% of 2
+Calls executed:100.00% of 1
+Creating 'ListDirectoryContents.c.gcov'
+
+File 'main.c'
+Lines executed:100.00% of 24
+No branches
+Calls executed:100.00% of 28
+Creating 'main.c.gcov'
+
+File 'NavigateToSubdirectory.c'
+Lines executed:85.71% of 7
+Branches executed:100.00% of 4
+Taken at least once:75.00% of 4
+No calls
+Creating 'NavigateToSubdirectory.c.gcov'
+
+File 'SearchFile.c'
+Lines executed:92.59% of 27
+Branches executed:100.00% of 12
+Taken at least once:83.33% of 12
+Calls executed:75.00% of 4
+Creating 'SearchFile.c.gcov'
+
+Lines executed:95.45% of 88

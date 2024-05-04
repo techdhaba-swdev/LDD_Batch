@@ -1,0 +1,92 @@
+File System Simulation Code Documentation
+Overview
+
+This documentation covers the implementation of a simple file system simulation in C. The codebase allows for creating a  directories and files, navigating through them, listing contents, searching for files, and cleaning up allocated memory.
+Modules
+Node
+
+*File: Node.h
+
+Description: Defines the structure for a node in the file system, representing both files and directories.
+CreateNode
+
+*Files: CreateNode.h, CreateNode.c
+
+Description: Provides functionality to create a new node, which can represent a file or a directory within the file system.
+
+Usage:
+
+Node* newNode = createNode("newNodeName");
+
+->AddChildNode
+
+*Files: AddChildNode.h, AddChildNode.c
+
+Description: Allows adding a child node to a parent node, effectively building the file system hierarchy.
+
+Usage:
+
+addChildNode(parentNode, childNode);
+
+->ListDirectoryContents
+
+*Files: ListDirectoryContents.h, ListDirectoryContents.c
+
+Description: Lists the contents of a directory by printing the names of its child nodes.
+
+Usage:
+
+listDirectoryContents(directoryNode);
+
+->NavigateToSubdirectory
+
+*Files: NavigateToSubdirectory.h, NavigateToSubdirectory.c
+
+Description: Navigates to a specified subdirectory within a given directory node.
+
+Usage:
+
+Node* subDir = navigateToSubdirectory(directoryNode, "subDirName");
+
+->DeleteNode
+
+*Files: DeleteNode.h, DeleteNode.c
+
+Description: Recursively deletes a node and all its children, freeing the allocated memory.
+
+Usage:
+
+deleteNode(nodeToBeDeleted);
+
+->SearchFile
+
+*Files: SearchFile.h, SearchFile.c
+
+Description: Searches for a file by name within the file system and prints the full path to the file if found.
+
+Usage:
+
+searchFile(rootNode, "fileName");
+
+->Main Function
+
+*File: main.c
+
+Description: The entry point of the program. It demonstrates the creation of a file system, adding files and directories, listing contents, searching for a file, and cleaning up before program termination.
+
+Example Output:
+
+Contents of root directory:
+dir1
+file1.txt
+dir2
+
+Contents of dir1:
+file2.txt
+file3.txt
+
+Contents of dir2:
+file4.txt
+file5.txt
+File 'file5.txt' found at path: /dir2/file5.txt
+
