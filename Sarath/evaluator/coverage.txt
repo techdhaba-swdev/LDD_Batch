@@ -1,0 +1,14 @@
+File 'evalmain.c'
+Lines executed:100.00% of 13
+No branches
+Calls executed:100.00% of 9
+Creating 'evalmain.c.gcov'
+
+File 'evalapi.c'
+Lines executed:81.52% of 92
+Branches executed:97.10% of 69
+Taken at least once:66.67% of 69
+Calls executed:65.79% of 38
+Creating 'evalapi.c.gcov'
+
+Lines executed:83.81% of 105
