@@ -1,0 +1,61 @@
+        -:    0:Source:stack.c
+        -:    1:#include "stack.h" 
+        -:    2:#include <stdlib.h> 
+        -:    3:#include <stdio.h> 
+        -:    4:
+        -:    5:// Function to push data onto stack
+        8:    6:void push(Stack* stack, char data) {
+        -:    7:    // Create a new node for the data
+        8:    8:    Node* newNode = (Node*)malloc(sizeof(Node));
+        8:    9:    if (newNode == NULL) {
+    #####:   10:        printf("Error: Memory allocation failed\n");
+    #####:   11:        exit(EXIT_FAILURE);
+        -:   12:    }
+        -:   13:
+        -:   14:    // Set data and next pointer of the new node
+        8:   15:    newNode->data = data;
+        8:   16:    newNode->next = stack->top;
+        -:   17:
+        -:   18:    // Update the top pointer of the stack to point to the new node
+        8:   19:    stack->top = newNode;
+        8:   20:}
+        -:   21:
+        -:   22:// Function to pop data from stack
+        8:   23:char pop(Stack* stack) {
+        -:   24:    // Check if stack is empty
+        8:   25:    if (isEmpty(stack)) {
+    #####:   26:        printf("Error: Stack is empty\n");
+    #####:   27:        exit(EXIT_FAILURE);
+        -:   28:    }
+        -:   29:
+        -:   30:    // Store the top node and its data
+        8:   31:    Node* temp = stack->top;
+        8:   32:    char data = temp->data;
+        -:   33:
+        -:   34:    // Update the top pointer to point to the next node
+        8:   35:    stack->top = temp->next;
+        -:   36:
+        -:   37:    // Free the memory used by the popped node
+        8:   38:    free(temp);
+        -:   39:
+        -:   40:    // Return the popped data
+        8:   41:    return data;
+        -:   42:}
+        -:   43:
+        -:   44:// Function to peek at the top of the stack
+        3:   45:char peek(Stack* stack) {
+        -:   46:    // Check if stack is empty
+        3:   47:    if (isEmpty(stack)) {
+    #####:   48:        printf("Error: Stack is empty\n");
+    #####:   49:        exit(EXIT_FAILURE);
+        -:   50:    }
+        -:   51:
+        -:   52:    // Return the data of the top node without removing it
+        3:   53:    return stack->top->data;
+        -:   54:}
+        -:   55:
+        -:   56:// Function to check if stack is empty
+       17:   57:int isEmpty(Stack* stack) {
+        -:   58:    // Return true if the top pointer is NULL (empty stack)
+       17:   59:    return stack->top == NULL;
+        -:   60:}

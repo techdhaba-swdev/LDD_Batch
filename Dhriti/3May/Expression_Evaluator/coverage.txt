@@ -1,0 +1,13 @@
+File 'expression.c'
+Lines executed:85.19% of 54
+Creating 'expression.c.gcov'
+
+File 'main.c'
+Lines executed:100.00% of 12
+Creating 'main.c.gcov'
+
+File 'stack.c'
+Lines executed:76.00% of 25
+Creating 'stack.c.gcov'
+
+Lines executed:84.62% of 91
