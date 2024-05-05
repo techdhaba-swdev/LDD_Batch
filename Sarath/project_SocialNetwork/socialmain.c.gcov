@@ -1,0 +1,47 @@
+        -:    0:Source:socialmain.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "network.h"
+        -:    4:#include <time.h>
+        -:    5:
+function main called 1 returned 100% blocks executed 100%
+        1:    6:int main() 
+        -:    7:{
+        1:    8:	clock_t start = clock();
+call    0 returned 100%
+        -:    9:    	Graph social_network;
+        1:   10:    	social_network.num_users = 0;
+        -:   11:
+        -:   12:    	// Create users
+        1:   13:    	add_user(&social_network, "Vivek", "Photography, Trecking");
+call    0 returned 100%
+        1:   14:    	add_user(&social_network, "Koushik", "Music, Riding");
+call    0 returned 100%
+        1:   15:    	add_user(&social_network, "karthik", "Photography, Drinking");
+call    0 returned 100%
+        -:   16:	
+        -:   17:    	// Add friendships
+        1:   18:    	add_friend(&social_network, "Vivek", "Koushik");
+call    0 returned 100%
+        1:   19:    	add_friend(&social_network, "Koushik", "karthik");
+call    0 returned 100%
+        -:   20:
+        -:   21:    	// Search for users
+        1:   22:    	search_by_name(&social_network, "Vivek");
+call    0 returned 100%
+        1:   23:    	search_by_interest(&social_network, "Photography");
+call    0 returned 100%
+        -:   24:
+        -:   25:    	// Recommend friends
+        1:   26:    	recommend_friends(&social_network, "Vivek");
+call    0 returned 100%
+        -:   27:    	//time taken
+        1:   28:    	clock_t end = clock();
+call    0 returned 100%
+        1:   29:    	double time_taken = ((double)(end - start));
+        1:   30:    	printf("Time taken: %f seconds \n", time_taken);
+call    0 returned 100%
+        -:   31:
+        -:   32:
+        1:   33:    	return 0;
+        -:   34:}
