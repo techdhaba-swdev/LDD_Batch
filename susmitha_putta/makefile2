@@ -1,0 +1,2 @@
+hi:simulatormain.c simulator.c
+	gcc -o hi simulatormain.c simulator.c -I.
