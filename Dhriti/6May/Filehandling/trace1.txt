@@ -1,0 +1,48 @@
+execve("./fileapi", ["./fileapi"], 0x7ffcfd764a70 /* 46 vars */) = 0
+brk(NULL)                               = 0x64ae08a59000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffe9145fe20) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7aa770b6b000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=59567, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 59567, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7aa770b5c000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\226 \25\252\235\23<l\274\3731\3540\5\226\327"..., 68, 896) = 68
+newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7aa770800000
+mprotect(0x7aa770828000, 2023424, PROT_NONE) = 0
+mmap(0x7aa770828000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7aa770828000
+mmap(0x7aa7709bd000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7aa7709bd000
+mmap(0x7aa770a16000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7aa770a16000
+mmap(0x7aa770a1c000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7aa770a1c000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7aa770b59000
+arch_prctl(ARCH_SET_FS, 0x7aa770b59740) = 0
+set_tid_address(0x7aa770b59a10)         = 203450
+set_robust_list(0x7aa770b59a20, 24)     = 0
+rseq(0x7aa770b5a0e0, 0x20, 0, 0x53053053) = 0
+mprotect(0x7aa770a16000, 16384, PROT_READ) = 0
+mprotect(0x64ae080d8000, 4096, PROT_READ) = 0
+mprotect(0x7aa770ba5000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7aa770b5c000, 59567)           = 0
+openat(AT_FDCWD, "my_file.txt", O_RDWR|O_CREAT, 0644) = 3
+write(3, "This is some data to write to th"..., 41) = 41
+newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+getrandom("\x74\xca\x0c\x07\xb3\x73\x94\x60", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x64ae08a59000
+brk(0x64ae08a7a000)                     = 0x64ae08a7a000
+write(1, "Successfully wrote 41 bytes to t"..., 41) = 41
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "This is some data to write to th"..., 100) = 41
+write(1, "Read 41 bytes from the file:\n", 29) = 29
+write(1, "This is some data to write to th"..., 40) = 40
+write(1, "\n", 1)                       = 1
+close(3)                                = 0
+exit_group(0)                           = ?
++++ exited with 0 +++
