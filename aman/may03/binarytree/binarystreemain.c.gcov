@@ -1,0 +1,121 @@
+        -:    0:Source:binarystreemain.c
+        -:    1:#include "binarystree.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+function main called 1 returned 100% blocks executed 98%
+        1:    4:int main() {
+        1:    5:    struct Node* root = NULL;
+        -:    6:    
+        -:    7:    
+        1:    8:    root = insertNode(root, 40);
+call    0 returned 100%
+        1:    9:    insertNode(root, 20);
+call    0 returned 100%
+        1:   10:    insertNode(root, 10);
+call    0 returned 100%
+        1:   11:    insertNode(root, 30);
+call    0 returned 100%
+        1:   12:    insertNode(root, 60);
+call    0 returned 100%
+        1:   13:    insertNode(root, 50);
+call    0 returned 100%
+        1:   14:    insertNode(root, 70);
+call    0 returned 100%
+        -:   15:
+        1:   16:    printf("In-order traversal: ");
+call    0 returned 100%
+        1:   17:    inOrderTraversal(root);
+call    0 returned 100%
+        1:   18:    printf("\n");
+call    0 returned 100%
+        -:   19:
+        1:   20:    printf("Pre-order traversal: ");
+call    0 returned 100%
+        1:   21:    preOrderTraversal(root);
+call    0 returned 100%
+        1:   22:    printf("\n");
+call    0 returned 100%
+        -:   23:
+        1:   24:    printf("Post-order traversal: ");
+call    0 returned 100%
+        1:   25:    postOrderTraversal(root);
+call    0 returned 100%
+        1:   26:    printf("\n");
+call    0 returned 100%
+        -:   27:
+        1:   28:    int searchValue = 30;
+        1:   29:    struct Node* foundNode = searchNodeValue(root, searchValue);
+call    0 returned 100%
+        1:   30:    if (foundNode != NULL) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   31:        printf("%d found in the Binary Tree.\n", searchValue);
+call    0 returned 100%
+        -:   32:    } else {
+    #####:   33:        printf("%d not found in the Binary Tree.\n", searchValue);
+call    0 never executed
+        -:   34:    }
+        -:   35:
+        1:   36:    int minValue = findMinValue(root);
+call    0 returned 100%
+        1:   37:    printf("Minimum value in the Binary Tree: %d\n", minValue);
+call    0 returned 100%
+        -:   38:
+        1:   39:    int maxValue = findMaxValue(root);
+call    0 returned 100%
+        1:   40:    printf("Maximum value in the Binary Tree: %d\n", maxValue);
+call    0 returned 100%
+        -:   41:
+        -:   42:
+        1:   43:    printf("Height of the binary tree: %d\n", maxHeight(root));
+call    0 returned 100%
+call    1 returned 100%
+        -:   44:
+        -:   45:    
+        1:   46:    root = deleteNode(root, 10);
+call    0 returned 100%
+        1:   47:    printf("Inorder traversal after deleting 10 is: ");
+call    0 returned 100%
+        1:   48:    inOrderTraversal(root);
+call    0 returned 100%
+        1:   49:    printf("\n");
+call    0 returned 100%
+        1:   50:    printf("Preorder traversal after deleting 10 is: ");
+call    0 returned 100%
+        1:   51:    preOrderTraversal(root);
+call    0 returned 100%
+        1:   52:    printf("\n");
+call    0 returned 100%
+        1:   53:    printf("Postorder traversal after deleting 10 is: ");
+call    0 returned 100%
+        1:   54:    postOrderTraversal(root);
+call    0 returned 100%
+        1:   55:    printf("\n");
+call    0 returned 100%
+        -:   56:
+        1:   57:    root = deleteNode(root, 20);
+call    0 returned 100%
+        1:   58:    printf("Inorder traversal after deleting 20 is: ");
+call    0 returned 100%
+        1:   59:    inOrderTraversal(root);
+call    0 returned 100%
+        1:   60:    printf("\n");
+call    0 returned 100%
+        1:   61:    printf("Preorder traversal after deleting 20 is: ");
+call    0 returned 100%
+        1:   62:    preOrderTraversal(root);
+call    0 returned 100%
+        1:   63:    printf("\n");
+call    0 returned 100%
+        1:   64:    printf("Postorder traversal after deleting 20 is: ");
+call    0 returned 100%
+        1:   65:    postOrderTraversal(root);
+call    0 returned 100%
+        1:   66:    printf("\n");
+call    0 returned 100%
+        -:   67:
+        1:   68:    freeTree(root);
+call    0 returned 100%
+        -:   69:
+        1:   70:    return 0;
+        -:   71:}

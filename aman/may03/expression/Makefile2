@@ -1,0 +1,8 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=evaluator.h
+OBJ=evaluatormain.c evaluator.c
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+evaluator2: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

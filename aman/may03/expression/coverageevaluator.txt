@@ -1,0 +1,15 @@
+File 'evaluator.c'
+Lines executed:66.23% of 77
+Branches executed:60.78% of 51
+Taken at least once:35.29% of 51
+Calls executed:46.15% of 26
+Creating 'evaluator.c.gcov'
+
+File 'evaluatormain.c'
+Lines executed:100.00% of 15
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:100.00% of 9
+Creating 'evaluatormain.c.gcov'
+
+Lines executed:71.74% of 92

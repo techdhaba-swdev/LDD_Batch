@@ -1,0 +1,10 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=binarystree.h
+OBJ=binarystreemain.c binarystree.c
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+binarystree2: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+	

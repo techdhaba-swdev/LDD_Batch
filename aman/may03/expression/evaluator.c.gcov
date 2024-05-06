@@ -1,0 +1,218 @@
+        -:    0:Source:evaluator.c
+        -:    1:#include "evaluator.h"
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include <ctype.h>
+        -:    5:
+        -:    6:
+        -:    7:struct StackNode {
+        -:    8:    char data;
+        -:    9:    struct StackNode* next;
+        -:   10:};
+        -:   11:
+        -:   12:
+function createStackNode called 2 returned 100% blocks executed 100%
+        2:   13:static struct StackNode* createStackNode(char data) {
+        2:   14:    struct StackNode* newNode = (struct StackNode*)malloc(sizeof(struct StackNode));
+        2:   15:    newNode->data = data;
+        2:   16:    newNode->next = NULL;
+        2:   17:    return newNode;
+        -:   18:}
+        -:   19:
+function isEmpty called 7 returned 100% blocks executed 100%
+        7:   20:static int isEmpty(struct StackNode* root) {
+        7:   21:    return !root;
+        -:   22:}
+        -:   23:
+function push called 2 returned 100% blocks executed 100%
+        2:   24:static void push(struct StackNode** root, char data) {
+        2:   25:    struct StackNode* newNode = createStackNode(data);
+call    0 returned 100%
+        2:   26:    newNode->next = *root;
+        2:   27:    *root = newNode;
+        2:   28:}
+        -:   29:
+function pop called 4 returned 100% blocks executed 100%
+        4:   30:static char pop(struct StackNode** root) {
+        4:   31:    if (isEmpty(*root))
+call    0 returned 100%
+branch  1 taken 50% (fallthrough)
+branch  2 taken 50%
+        2:   32:        return '\0';
+        2:   33:    struct StackNode* temp = *root;
+        2:   34:    *root = (*root)->next;
+        2:   35:    char popped = temp->data;
+        2:   36:    free(temp);
+        2:   37:    return popped;
+        -:   38:}
+        -:   39:
+function peek called 0 returned 0% blocks executed 0%
+    #####:   40:static char peek(struct StackNode* root) {
+    #####:   41:    if (isEmpty(root))
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   42:        return '\0';
+    #####:   43:    return root->data;
+        -:   44:}
+        -:   45:
+function isOperator called 2 returned 100% blocks executed 62%
+        2:   46:static int isOperator(char ch) {
+       2*:   47:    return (ch == '+' || ch == '-' || ch == '*' || ch == '/');
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+branch  4 never executed
+branch  5 never executed
+branch  6 never executed
+branch  7 never executed
+        -:   48:}
+        -:   49:
+function precedence called 0 returned 0% blocks executed 0%
+    #####:   50:static int precedence(char op) {
+    #####:   51:    if (op == '+' || op == '-')
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   52:        return 1;
+    #####:   53:    if (op == '*' || op == '/')
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   54:        return 2;
+    #####:   55:    return 0;
+        -:   56:}
+        -:   57:
+function infixToPostfix called 1 returned 100% blocks executed 54%
+        1:   58:char* infixToPostfix(char* expression) {
+        1:   59:    struct StackNode* stack = NULL;
+        1:   60:    int length = strlen(expression);
+        1:   61:    char* postfix = (char*)malloc((length + 1) * sizeof(char));
+        1:   62:    int j = 0;
+        -:   63:
+        2:   64:    for (int i = 0; expression[i]; i++) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        1:   65:        if (isalnum(expression[i])) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   66:            postfix[j++] = expression[i];
+        -:   67:        }
+        -:   68:        
+        1:   69:        else if (expression[i] == '(') {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   70:            push(&stack, expression[i]);
+call    0 never executed
+        -:   71:        }
+        -:   72:        
+        1:   73:        else if (expression[i] == ')') {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   74:            while (!isEmpty(stack) && peek(stack) != '(') {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   75:                postfix[j++] = pop(&stack);
+call    0 never executed
+        -:   76:            }
+    #####:   77:            pop(&stack); 
+call    0 never executed
+        -:   78:        }
+        -:   79:     
+        1:   80:        else if (isOperator(expression[i])) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+       1*:   81:            while (!isEmpty(stack) && precedence(peek(stack)) >= precedence(expression[i])) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    #####:   82:                postfix[j++] = pop(&stack);
+call    0 never executed
+        -:   83:            }
+        -:   84:            
+        1:   85:            push(&stack, expression[i]);
+call    0 returned 100%
+        -:   86:        }
+        -:   87:    }
+        -:   88:
+        -:   89:    
+        2:   90:    while (!isEmpty(stack)) {
+call    0 returned 100%
+branch  1 taken 50%
+branch  2 taken 50% (fallthrough)
+        1:   91:        postfix[j++] = pop(&stack);
+call    0 returned 100%
+        -:   92:    }
+        -:   93:
+        1:   94:    postfix[j] = '\0';
+        1:   95:    return postfix;
+        -:   96:}
+        -:   97:
+        -:   98:
+function evaluatePostfix called 1 returned 100% blocks executed 67%
+        1:   99:int evaluatePostfix(char* expression) {
+        1:  100:    struct StackNode* stack = NULL;
+        1:  101:    int length = strlen(expression);
+        -:  102:
+        2:  103:    for (int i = 0; i < length; i++) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        -:  104:       
+        1:  105:        if (isdigit(expression[i])) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  106:            push(&stack, expression[i] - '0');
+call    0 never executed
+        -:  107:        }
+        -:  108:        
+        1:  109:        else if (isOperator(expression[i])) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        1:  110:            int operand2 = pop(&stack);
+call    0 returned 100%
+        1:  111:            int operand1 = pop(&stack);
+call    0 returned 100%
+        1:  112:            switch (expression[i]) {
+branch  0 taken 0%
+branch  1 taken 100%
+branch  2 taken 0%
+branch  3 taken 0%
+branch  4 taken 0%
+    #####:  113:                case '+':
+    #####:  114:                    push(&stack, operand1 + operand2);
+call    0 never executed
+    #####:  115:                    break;
+        1:  116:                case '-':
+        1:  117:                    push(&stack, operand1 - operand2);
+call    0 returned 100%
+        1:  118:                    break;
+    #####:  119:                case '*':
+    #####:  120:                    push(&stack, operand1 * operand2);
+call    0 never executed
+    #####:  121:                    break;
+    #####:  122:                case '/':
+    #####:  123:                    push(&stack, operand1 / operand2);
+call    0 never executed
+    #####:  124:                    break;
+        -:  125:            }
+        -:  126:        }
+        -:  127:    }
+        -:  128:
+        -:  129:    
+        1:  130:    return pop(&stack);
+call    0 returned 100%
+        -:  131:}

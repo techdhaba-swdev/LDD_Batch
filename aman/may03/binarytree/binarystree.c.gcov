@@ -1,0 +1,227 @@
+        -:    0:Source:binarystree.c
+        -:    1:#include "binarystree.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:#include <limits.h>
+        -:    5:
+function createNode called 7 returned 100% blocks executed 60%
+        7:    6:struct Node* createNode(int value) {
+        7:    7:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        7:    8:    if (newNode == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    9:        printf("Memory allocation failed!\n");
+call    0 never executed
+    #####:   10:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   11:    }
+        7:   12:    newNode->data = value;
+        7:   13:    newNode->left = NULL;
+        7:   14:    newNode->right = NULL;
+        7:   15:    return newNode;
+        -:   16:}
+        -:   17:
+function insertNode called 17 returned 100% blocks executed 100%
+       17:   18:struct Node* insertNode(struct Node* root, int value) {
+       17:   19:    if (root == NULL) {
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:   20:        return createNode(value);
+call    0 returned 100%
+        -:   21:    }
+       10:   22:    if (value < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:   23:        root->left = insertNode(root->left, value);
+call    0 returned 100%
+        5:   24:    } else if (value > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   25:        root->right = insertNode(root->right, value);
+call    0 returned 100%
+        -:   26:    }
+       10:   27:    return root;
+        -:   28:}
+        -:   29:
+function searchNodeValue called 3 returned 100% blocks executed 100%
+        3:   30:struct Node* searchNodeValue(struct Node* root, int value) {
+        3:   31:    if (root == NULL || root->data == value) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 33% (fallthrough)
+branch  3 taken 67%
+        1:   32:        return root;
+        -:   33:    }
+        2:   34:    if (value < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        1:   35:        return searchNodeValue(root->left, value);
+call    0 returned 100%
+        -:   36:    }
+        1:   37:    return searchNodeValue(root->right, value);
+call    0 returned 100%
+        -:   38:}
+        -:   39:
+function findMin called 0 returned 0% blocks executed 0%
+    #####:   40:struct Node* findMin(struct Node* root) {
+    #####:   41:    if (root == NULL || root->left == NULL) {
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   42:        return root;
+        -:   43:    }
+    #####:   44:    return findMin(root->left);
+call    0 never executed
+        -:   45:}
+        -:   46:
+function deleteNode called 5 returned 100% blocks executed 53%
+        5:   47:struct Node* deleteNode(struct Node* root, int value) {
+        5:   48:    if (root == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   49:        return root;
+        -:   50:    }
+        5:   51:    if (value < root->data) {
+branch  0 taken 60% (fallthrough)
+branch  1 taken 40%
+        3:   52:        root->left = deleteNode(root->left, value);
+call    0 returned 100%
+        2:   53:    } else if (value > root->data) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   54:        root->right = deleteNode(root->right, value);
+call    0 never executed
+        -:   55:    } else {
+        2:   56:        if (root->left == NULL) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        2:   57:            struct Node* temp = root->right;
+        2:   58:            free(root);
+        2:   59:            return temp;
+    #####:   60:        } else if (root->right == NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:   61:            struct Node* temp = root->left;
+    #####:   62:            free(root);
+    #####:   63:            return temp;
+        -:   64:        }
+    #####:   65:        struct Node* temp = findMin(root->right);
+call    0 never executed
+    #####:   66:        root->data = temp->data;
+    #####:   67:        root->right = deleteNode(root->right, temp->data);
+call    0 never executed
+        -:   68:    }
+        3:   69:    return root;
+        -:   70:}
+        -:   71:
+function inOrderTraversal called 39 returned 100% blocks executed 100%
+       39:   72:void inOrderTraversal(struct Node* root) {
+       39:   73:    if (root != NULL) {
+branch  0 taken 46% (fallthrough)
+branch  1 taken 54%
+       18:   74:        inOrderTraversal(root->left);
+call    0 returned 100%
+       18:   75:        printf("%d ", root->data);
+call    0 returned 100%
+       18:   76:        inOrderTraversal(root->right);
+call    0 returned 100%
+        -:   77:    }
+       39:   78:}
+        -:   79:
+function preOrderTraversal called 39 returned 100% blocks executed 100%
+       39:   80:void preOrderTraversal(struct Node* root) {
+       39:   81:    if (root != NULL) {
+branch  0 taken 46% (fallthrough)
+branch  1 taken 54%
+       18:   82:        printf("%d ", root->data);
+call    0 returned 100%
+       18:   83:        preOrderTraversal(root->left);
+call    0 returned 100%
+       18:   84:        preOrderTraversal(root->right);
+call    0 returned 100%
+        -:   85:    }
+       39:   86:}
+        -:   87:
+function postOrderTraversal called 39 returned 100% blocks executed 100%
+       39:   88:void postOrderTraversal(struct Node* root) {
+       39:   89:    if (root != NULL) {
+branch  0 taken 46% (fallthrough)
+branch  1 taken 54%
+       18:   90:        postOrderTraversal(root->left);
+call    0 returned 100%
+       18:   91:        postOrderTraversal(root->right);
+call    0 returned 100%
+       18:   92:        printf("%d ", root->data);
+call    0 returned 100%
+        -:   93:    }
+       39:   94:}
+        -:   95:
+function maxHeight called 15 returned 100% blocks executed 88%
+       15:   96:int maxHeight(struct Node* root) {
+       15:   97:    if (root == NULL) {
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        8:   98:        return 0;
+        -:   99:    } else {
+        7:  100:        int leftHeight = maxHeight(root->left);
+call    0 returned 100%
+        7:  101:        int rightHeight = maxHeight(root->right);
+call    0 returned 100%
+        -:  102:        
+        7:  103:        if (leftHeight > rightHeight) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  104:            return (leftHeight + 1);
+        -:  105:        } else {
+        7:  106:            return (rightHeight + 1);
+        -:  107:        }
+        -:  108:    }
+        -:  109:}
+        -:  110:
+function findMinValue called 1 returned 100% blocks executed 75%
+        1:  111:int findMinValue(struct Node* root) {
+        1:  112:    if (root == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  113:        printf("Tree is empty\n");
+call    0 never executed
+    #####:  114:        return INT_MIN;
+        -:  115:    }
+        3:  116:    while (root->left != NULL) {
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        2:  117:        root = root->left;
+        -:  118:    }
+        1:  119:    return root->data;
+        -:  120:}
+        -:  121:
+function findMaxValue called 1 returned 100% blocks executed 75%
+        1:  122:int findMaxValue(struct Node* root) {
+        1:  123:    if (root == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:  124:        printf("Tree is empty\n");
+call    0 never executed
+    #####:  125:        return INT_MAX;
+        -:  126:    }
+        3:  127:    while (root->right != NULL) {
+branch  0 taken 67%
+branch  1 taken 33% (fallthrough)
+        2:  128:        root = root->right;
+        -:  129:    }
+        1:  130:    return root->data;
+        -:  131:}
+        -:  132:
+function freeTree called 11 returned 100% blocks executed 100%
+       11:  133:void freeTree(struct Node* root) {
+       11:  134:    if (root != NULL) {
+branch  0 taken 45% (fallthrough)
+branch  1 taken 55%
+        5:  135:        freeTree(root->left);
+call    0 returned 100%
+        5:  136:        freeTree(root->right);
+call    0 returned 100%
+        5:  137:        free(root);
+        -:  138:    }
+       11:  139:}

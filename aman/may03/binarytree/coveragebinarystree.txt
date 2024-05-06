@@ -1,0 +1,15 @@
+File 'binarystree.c'
+Lines executed:78.26% of 92
+Branches executed:87.50% of 48
+Taken at least once:68.75% of 48
+Calls executed:70.37% of 27
+Creating 'binarystree.c.gcov'
+
+File 'binarystreemain.c'
+Lines executed:98.00% of 50
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:97.83% of 46
+Creating 'binarystreemain.c.gcov'
+
+Lines executed:85.21% of 142
