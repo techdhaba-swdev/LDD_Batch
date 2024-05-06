@@ -1,3 +1,2 @@
-
-hello:sus.c main.c
-	gcc -o hello sus.c main.c -I.
+binary:bstmain.c bst.c
+	gcc -o binary bstmain.c bst.c -I.
