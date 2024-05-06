@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may4_Device_Drivers/linux_hello/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/Venkatasai/may4_Device_Drivers/linux_hello/Module.symvers -T /home/rps/Desktop/Venkatasai/may4_Device_Drivers/linux_hello/modules.order -i Module.symvers -e 
