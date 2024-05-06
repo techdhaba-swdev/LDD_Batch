@@ -1,7 +1,6 @@
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/printk.h>
-#include<linux/kernal.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("KEDARNATH");
