@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may7/device/device1/device.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/may7/device/device1/device.ko /home/rps/may7/device/device1/device.o /home/rps/may7/device/device1/device.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/may7/device/device1/device.ko
