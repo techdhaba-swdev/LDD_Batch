@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may07/mychardev.mod := printf '%s\n'   mychardev.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may07/"$$0) }' > /home/rps/Desktop/daywise/may07/mychardev.mod
