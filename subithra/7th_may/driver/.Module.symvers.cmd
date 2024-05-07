@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/7th_may/driver/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/subithra_s/Documents/7th_may/driver/Module.symvers -T /home/rps/subithra_s/Documents/7th_may/driver/modules.order -i Module.symvers -e 
