@@ -1,1 +1,0 @@
-savedcmd_/home/rps/Desktop/daywise/may06/module/hello.mod := printf '%s\n'   hello.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may06/module/"$$0) }' > /home/rps/Desktop/daywise/may06/module/hello.mod
