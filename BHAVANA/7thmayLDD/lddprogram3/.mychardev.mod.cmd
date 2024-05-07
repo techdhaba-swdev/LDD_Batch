@@ -1,0 +1,1 @@
+savedcmd_/home/rps/7thmayLDD/lddprogram3/mychardev.mod := printf '%s\n'   mychardev.o | awk '!x[$$0]++ { print("/home/rps/7thmayLDD/lddprogram3/"$$0) }' > /home/rps/7thmayLDD/lddprogram3/mychardev.mod
