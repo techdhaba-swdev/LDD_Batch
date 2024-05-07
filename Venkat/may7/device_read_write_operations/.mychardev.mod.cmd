@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may7/device_read_write_operations/mychardev.mod := printf '%s\n'   mychardev.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may7/device_read_write_operations/"$$0) }' > /home/rps/Desktop/Venkatasai/may7/device_read_write_operations/mychardev.mod

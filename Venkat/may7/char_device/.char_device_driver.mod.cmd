@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may7/char_device/char_device_driver.mod := printf '%s\n'   char_device_driver.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may7/char_device/"$$0) }' > /home/rps/Desktop/Venkatasai/may7/char_device/char_device_driver.mod

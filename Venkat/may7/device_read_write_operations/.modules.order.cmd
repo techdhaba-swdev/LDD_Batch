@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may7/device_read_write_operations/modules.order := {   echo /home/rps/Desktop/Venkatasai/may7/device_read_write_operations/mychardev.o; :; } > /home/rps/Desktop/Venkatasai/may7/device_read_write_operations/modules.order
