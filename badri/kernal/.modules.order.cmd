@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/modules.order := {   echo /home/rps/Desktop/demo/LDD_Batch/badri/kernal/hello.o; :; } > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/modules.order
