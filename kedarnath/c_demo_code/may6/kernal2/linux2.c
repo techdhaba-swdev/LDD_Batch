@@ -77,5 +77,3 @@ MODULE_LICENSE("GPL");
 MODULE_AUTHOR("TechDhaba");
 MODULE_DESCRIPTION("A simple kernel module for data access through sysfs");
 
-
-
