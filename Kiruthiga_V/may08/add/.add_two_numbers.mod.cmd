@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may08/add/add_two_numbers.mod := printf '%s\n'   add_two_numbers.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may08/add/"$$0) }' > /home/rps/Desktop/daywise/may08/add/add_two_numbers.mod
