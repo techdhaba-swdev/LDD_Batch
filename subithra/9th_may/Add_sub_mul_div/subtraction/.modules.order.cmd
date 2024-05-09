@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/8th_may/calculator/SUBTRACT/modules.order := {   echo /home/rps/subithra_s/Documents/8th_may/calculator/SUBTRACT/sub.o; :; } > /home/rps/subithra_s/Documents/8th_may/calculator/SUBTRACT/modules.order

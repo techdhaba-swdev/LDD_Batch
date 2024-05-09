@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/8th_may/math/math.mod := printf '%s\n'   math.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/8th_may/math/"$$0) }' > /home/rps/subithra_s/Documents/8th_may/math/math.mod

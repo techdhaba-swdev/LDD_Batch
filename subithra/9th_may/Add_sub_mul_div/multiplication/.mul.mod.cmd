@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/8th_may/calculator/MULTIPLY/mul.mod := printf '%s\n'   mul.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/8th_may/calculator/MULTIPLY/"$$0) }' > /home/rps/subithra_s/Documents/8th_may/calculator/MULTIPLY/mul.mod

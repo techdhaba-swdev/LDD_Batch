@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/8th_may/calculator/MULTIPLY/modules.order := {   echo /home/rps/subithra_s/Documents/8th_may/calculator/MULTIPLY/mul.o; :; } > /home/rps/subithra_s/Documents/8th_may/calculator/MULTIPLY/modules.order

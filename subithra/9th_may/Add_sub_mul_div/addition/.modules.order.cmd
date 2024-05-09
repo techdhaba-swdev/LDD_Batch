@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/8th_may/calculator/add/modules.order := {   echo /home/rps/subithra_s/Documents/8th_may/calculator/add/add.o; :; } > /home/rps/subithra_s/Documents/8th_may/calculator/add/modules.order

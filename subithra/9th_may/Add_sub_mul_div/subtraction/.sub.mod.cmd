@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/8th_may/calculator/SUBTRACT/sub.mod := printf '%s\n'   sub.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/8th_may/calculator/SUBTRACT/"$$0) }' > /home/rps/subithra_s/Documents/8th_may/calculator/SUBTRACT/sub.mod
