@@ -1,8 +1,8 @@
-#include <linux/init.h>         // Include necessary headers for module initialization
-#include <linux/module.h>       // Include necessary headers for module functionality
-#include <linux/kernel.h>       // Include necessary headers for kernel functions
-#include <linux/fs.h>           // Include necessary headers for file system operations
-#include <linux/uaccess.h>      // Include necessary headers for user-space access
+#include <linux/init.h>         //  module initialization & cleanup
+#include <linux/module.h>       //  module functionality
+#include <linux/kernel.h>       //  kernel functions
+#include <linux/fs.h>           //  file system operations
+#include <linux/uaccess.h>      //  user-space access
 
 #define DEVICE_NAME "calculator"    // Define the name of the device
 
@@ -17,15 +17,15 @@ static int calculator_dev_open(struct inode *inode, struct file *file) {
     return 0;   // Return success
 }
 
-// Function to handle releasing of the device file
+// Function to handle closing of the device file
 static int calculator_dev_release(struct inode *inode, struct file *file) {
     return 0;   // Return success
 }
 
 // Function to handle writing to the device file
 static ssize_t calculator_dev_write(struct file *file, const char *buf, size_t count, loff_t *ppos) {
-    sscanf(buf, "%c %d %d", &operation, &operand1, &operand2);  // Parse the input
-    switch (operation) {    // Perform the appropriate operation based on the input
+    sscanf(buf, "%c %d %d", &operation, &operand1, &operand2);  // input
+    switch (operation) {    //  operation based on the input
         case '+':
             result = operand1 + operand2;
             break;

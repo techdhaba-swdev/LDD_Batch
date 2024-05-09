@@ -1,7 +1,7 @@
-#include <stdio.h>      // Include standard input-output library
-#include <fcntl.h>      // Include file control library
-#include <unistd.h>     // Include POSIX operating system API library
-#include <string.h>     // Include string manipulation library
+#include <stdio.h>      //  standard input-output library
+#include <fcntl.h>      //  file control library
+#include <unistd.h>     // POSIX operating system API library
+#include <string.h>     //  string manipulation library
 
 #define DEVICE_NAME "/dev/calculator"  // Define the device file name
 
@@ -51,6 +51,6 @@ int main() {
     // Close the device file
     close(fd);                                      // Close the device file
 
-    return 0;                                       // Return 0 to indicate success
+    return 0;                                       
 }
 

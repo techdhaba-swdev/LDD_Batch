@@ -6,7 +6,7 @@
 #define DEVICE_NAME "double_integer"
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("bhavana");
+MODULE_AUTHOR("Dhriti");
 
 static int major;
 static int value;
