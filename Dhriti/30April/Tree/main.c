@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "binary_tree.h"
 #include<time.h>
-// Main function: Example usage
 int main() {
     // Initialize an empty binary search tree (BST) represented by the root node
     struct Node* root = NULL;

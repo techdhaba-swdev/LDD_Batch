@@ -1,8 +1,9 @@
+#include "sub1.h"
+
 int sub_2(int x, int y)
 {       
         return x-y;
 }
-
 
 int sub_3(int x, int y, int z)
 {

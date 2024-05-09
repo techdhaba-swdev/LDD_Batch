@@ -1,0 +1,21 @@
+$ vim double_integer.c
+$ vim Makefile
+$ make
+$ sudo insmod double_integer.ko
+$ sudo dmesg | tail
+$ sudo rmmod double_integer
+$ sudo dmesg | tail
+
+$ vim user.c
+$ vim user.c -o user
+
+FOR FILE DOSENT EXIST ERROR:
+
+$ make clean
+$ make -C /lib/modules/$(uname -r)/build M=$(pwd) modules
+$ sudo dmesg | grep double_integer
+
+$ sudo su
+# ./user1
+# ls -l /dev/double_integer
+# mknod /dev/double_integer c 239 0 : As a temporary workaround for troubleshooting purposes, you can try manually creating the device file /dev/calculator using the mknod command

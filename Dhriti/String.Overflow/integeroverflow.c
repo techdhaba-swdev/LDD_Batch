@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 int main() {
-    int a = 1234567890/0;
+    float a = 1234567890/0;
 
-    printf("Value of a: %d\n", a); 
+    printf("Value of a: %f\n", a); 
     return 0;
 }
 

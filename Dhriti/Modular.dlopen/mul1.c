@@ -1,4 +1,6 @@
-int mul(int x, int y)
+#include "mul1.h"
+
+int mul_2(int x, int y)
 {
         return x*y;
 }

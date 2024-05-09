@@ -1,6 +1,8 @@
 #include "binary_tree.h"
 #include<stdio.h>
 
+
+
 // Function to insert a node into the binary tree
 struct Node* insert(struct Node* root, int data) {
     // Base case: Empty tree, create a new root node

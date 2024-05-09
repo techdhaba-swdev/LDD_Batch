@@ -1,0 +1,33 @@
+1. Modules:
+- a Module refers a piece of code that can be Dynamically loaded into or unloaded from the kernel.
+- Dynamic loading: Kernel modules are compiled separately from the Kernel and are loaded into memory when neede using 'insmod'(insert module)  and 'rmmod'(remove module).
+
+2. Application Programming Iterface(APIs):
+- Refers to set of functions, structures and macros to interact with and utilize Kernel functionality.
+- These APIs enable developers to write code that can interact with the Kernel, access the resources from system and perform various tasks.
+
+3. Character Device Registration APIs:
+- alloc_chrdev_region: Allocate character device numbers.
+- cdev_init: Initialize a cdev structure for a character device.
+- cdev_add: Add a character device to the system.
+
+4. File Operation APIs:
+- struct file_operations: Defines file operations like open, release, read, write.
+- open, release, read, write: Functions for file operations.
+
+5. Device File Access APIs:
+- copy_to_user: Copy data from kernel to user space.
+- copy_from_user: Copy data from user to kernel space.
+
+6. Kernel Logging API:
+- printk: Print messages to the kernel log.
+
+7. Module Initialization and Cleanup APIs:
+- module_init: Specify module initialization function.
+- module_exit: Specify module cleanup function.
+
+8. Module Metadata APIs:
+- MODULE_LICENSE: Specifies module distribution license.
+- MODULE_AUTHOR: Specifies module author.
+- MODULE_DESCRIPTION: Provides module description.
+ 

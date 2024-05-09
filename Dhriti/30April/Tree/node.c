@@ -7,7 +7,6 @@ struct Node* createNode(int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
    // SECURED: MEMORY ALLOCATION FALIURE
     if (newNode == NULL) {
-        // Handle memory allocation failure
         return NULL;
     }
     // Initialize the data and pointers of the new node
@@ -16,4 +15,3 @@ struct Node* createNode(int data) {
     newNode->right = NULL;
     return newNode;
 }
-

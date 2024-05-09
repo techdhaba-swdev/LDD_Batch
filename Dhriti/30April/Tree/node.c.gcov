@@ -8,13 +8,11 @@
         7:    7:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
         -:    8:   // SECURED: MEMORY ALLOCATION FALIURE
         7:    9:    if (newNode == NULL) {
-        -:   10:        // Handle memory allocation failure
-    #####:   11:        return NULL;
-        -:   12:    }
-        -:   13:    // Initialize the data and pointers of the new node
-        7:   14:    newNode->data = data;
-        7:   15:    newNode->left = NULL;
-        7:   16:    newNode->right = NULL;
-        7:   17:    return newNode;
-        -:   18:}
-        -:   19:
+    #####:   10:        return NULL;
+        -:   11:    }
+        -:   12:    // Initialize the data and pointers of the new node
+        7:   13:    newNode->data = data;
+        7:   14:    newNode->left = NULL;
+        7:   15:    newNode->right = NULL;
+        7:   16:    return newNode;
+        -:   17:}

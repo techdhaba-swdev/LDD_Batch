@@ -26,7 +26,7 @@ int main() {
     end_time = clock();                // Get ending CPU time in clock ticks
 
     // Calculate elapsed time in seconds
-    double elapsed_time = (end_time - start_time) / CLOCKS_PER_SEC;
+    double elapsed_time = (end_time-start_time);
 
     printf("Elapsed time: %.6f seconds\n", elapsed_time);  // Print elapsed time with 6 decimal places
 

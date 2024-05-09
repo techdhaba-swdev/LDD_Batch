@@ -1,3 +1,5 @@
+#include "div1.h"
+
 int div_2(int x, int y)
 {
 	if(y==0) {

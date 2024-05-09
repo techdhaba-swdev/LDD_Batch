@@ -1,4 +1,4 @@
-#include<stdio.h>
+
 
 #include "main.h"
 
@@ -23,8 +23,8 @@ int main(){
         printf("Mul4:  %d\n", mul_4(a,b,c,d));
 
 
-         printf("Divison:  %d\n", div(a,b));
-	 printf("Division3: %d\n", div(a,b,c));
+         printf("Divison:  %d\n", div_2(a,b));
+	 printf("Division3: %d\n", div_3(a,b,c));
         
 	 return 0;
 }
