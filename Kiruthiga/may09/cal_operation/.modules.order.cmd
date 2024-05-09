@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may09/cal_operation/modules.order := {   echo /home/rps/Desktop/daywise/may09/cal_operation/operation.o; :; } > /home/rps/Desktop/daywise/may09/cal_operation/modules.order
