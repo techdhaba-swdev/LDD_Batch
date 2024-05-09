@@ -1,0 +1,1 @@
+savedcmd_/home/rps/9thmayLDD/IOCTL_PROGRAM/simple_char_driver.mod := printf '%s\n'   simple_char_driver.o | awk '!x[$$0]++ { print("/home/rps/9thmayLDD/IOCTL_PROGRAM/"$$0) }' > /home/rps/9thmayLDD/IOCTL_PROGRAM/simple_char_driver.mod
