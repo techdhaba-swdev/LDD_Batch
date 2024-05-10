@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may9/kernal_space/simple.mod := printf '%s\n'   simple.o | awk '!x[$$0]++ { print("/home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may9/kernal_space/"$$0) }' > /home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may9/kernal_space/simple.mod
