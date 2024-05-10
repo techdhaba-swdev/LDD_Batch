@@ -1,1 +1,0 @@
-savedcmd_/home/rps/MAY/May9/Simple_char_driver/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/MAY/May9/Simple_char_driver/Module.symvers -T /home/rps/MAY/May9/Simple_char_driver/modules.order -i Module.symvers -e 
