@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY25_MAY08/reverse.mod := printf '%s\n'   reverse.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY25_MAY08/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY25_MAY08/reverse.mod

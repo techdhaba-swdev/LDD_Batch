@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY25_MAY08/SUBTRACT/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY25_MAY08/SUBTRACT/Module.symvers -T /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY25_MAY08/SUBTRACT/modules.order -i Module.symvers -e 

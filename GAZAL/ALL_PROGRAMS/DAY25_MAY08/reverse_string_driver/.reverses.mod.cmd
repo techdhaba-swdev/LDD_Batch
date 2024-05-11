@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY25_MAY08/reverse_string_driver/reverses.mod := printf '%s\n'   reverses.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY25_MAY08/reverse_string_driver/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY25_MAY08/reverse_string_driver/reverses.mod
