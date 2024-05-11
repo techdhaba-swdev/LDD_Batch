@@ -1,0 +1,1 @@
+savedcmd_/home/rps/amanraj/LDD_Batch/aman/may11/double_integer.c/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/amanraj/LDD_Batch/aman/may11/double_integer.c/Module.symvers -T /home/rps/amanraj/LDD_Batch/aman/may11/double_integer.c/modules.order -i Module.symvers -e 

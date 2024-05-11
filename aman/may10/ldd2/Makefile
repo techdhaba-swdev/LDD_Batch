@@ -1,4 +1,4 @@
-obj-m += double_integer.o
+obj-m += module1.o
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 clean:

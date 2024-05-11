@@ -3,7 +3,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define DEVICE_PATH "/dev/double_number"
+#define DEVICE_PATH "/dev/double_mutex"
 
 int main() {
     int fd;

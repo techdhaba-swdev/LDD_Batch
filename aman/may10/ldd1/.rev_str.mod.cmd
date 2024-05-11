@@ -1,0 +1,1 @@
+savedcmd_/home/rps/amanraj/LDD_Batch/aman/may10/ldd1/rev_str.mod := printf '%s\n'   rev_str.o | awk '!x[$$0]++ { print("/home/rps/amanraj/LDD_Batch/aman/may10/ldd1/"$$0) }' > /home/rps/amanraj/LDD_Batch/aman/may10/ldd1/rev_str.mod
