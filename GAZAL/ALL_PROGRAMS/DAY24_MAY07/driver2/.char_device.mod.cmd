@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY24_MAY07/driver2/char_device.mod := printf '%s\n'   char_device.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY24_MAY07/driver2/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY24_MAY07/driver2/char_device.mod

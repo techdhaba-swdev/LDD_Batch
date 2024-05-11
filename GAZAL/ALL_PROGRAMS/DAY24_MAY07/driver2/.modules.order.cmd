@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY24_MAY07/driver2/modules.order := {   echo /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY24_MAY07/driver2/char_device.o; :; } > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY24_MAY07/driver2/modules.order

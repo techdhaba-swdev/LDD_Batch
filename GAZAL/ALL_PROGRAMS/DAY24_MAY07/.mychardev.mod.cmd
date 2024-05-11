@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY24_MAY07/mychardev.mod := printf '%s\n'   mychardev.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY24_MAY07/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY24_MAY07/mychardev.mod
