@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/10th_may/mutex/mutex.mod := printf '%s\n'   mutex.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/10th_may/mutex/"$$0) }' > /home/rps/subithra_s/Documents/10th_may/mutex/mutex.mod

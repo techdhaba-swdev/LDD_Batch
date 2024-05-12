@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/10th_may/reverse_strdevice/modules.order := {   echo /home/rps/subithra_s/Documents/10th_may/reverse_strdevice/string.o; :; } > /home/rps/subithra_s/Documents/10th_may/reverse_strdevice/modules.order
