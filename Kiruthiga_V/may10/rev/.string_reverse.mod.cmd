@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may10/reverse/string_reverse.mod := printf '%s\n'   string_reverse.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may10/reverse/"$$0) }' > /home/rps/Desktop/daywise/may10/reverse/string_reverse.mod
