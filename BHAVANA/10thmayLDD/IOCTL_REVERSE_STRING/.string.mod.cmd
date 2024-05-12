@@ -1,0 +1,1 @@
+savedcmd_/home/rps/10thmayLDD/IOCTL_REVERSE_STRING/string.mod := printf '%s\n'   string.o | awk '!x[$$0]++ { print("/home/rps/10thmayLDD/IOCTL_REVERSE_STRING/"$$0) }' > /home/rps/10thmayLDD/IOCTL_REVERSE_STRING/string.mod

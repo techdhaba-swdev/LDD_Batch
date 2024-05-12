@@ -1,0 +1,1 @@
+savedcmd_/home/rps/10thmayLDD/MUTEX_CALCULATOR/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/10thmayLDD/MUTEX_CALCULATOR/Module.symvers -T /home/rps/10thmayLDD/MUTEX_CALCULATOR/modules.order -i Module.symvers -e 
