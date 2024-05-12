@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may10/mutex_driver/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/Venkatasai/may10/mutex_driver/Module.symvers -T /home/rps/Desktop/Venkatasai/may10/mutex_driver/modules.order -i Module.symvers -e 

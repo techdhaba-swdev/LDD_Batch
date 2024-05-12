@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may10/reverse_string_IOCTL/kernal.mod := printf '%s\n'   kernal.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may10/reverse_string_IOCTL/"$$0) }' > /home/rps/Desktop/Venkatasai/may10/reverse_string_IOCTL/kernal.mod

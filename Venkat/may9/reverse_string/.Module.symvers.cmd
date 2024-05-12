@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may9/reverse_string/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/Venkatasai/may9/reverse_string/Module.symvers -T /home/rps/Desktop/Venkatasai/may9/reverse_string/modules.order -i Module.symvers -e 
