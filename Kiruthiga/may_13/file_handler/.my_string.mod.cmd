@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may10/my_rev/my_string.mod := printf '%s\n'   my_string.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may10/my_rev/"$$0) }' > /home/rps/Desktop/daywise/may10/my_rev/my_string.mod

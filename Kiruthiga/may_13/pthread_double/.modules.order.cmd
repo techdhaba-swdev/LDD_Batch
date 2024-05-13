@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may_13/pthread_double/modules.order := {   echo /home/rps/Desktop/daywise/may_13/pthread_double/double_int.o; :; } > /home/rps/Desktop/daywise/may_13/pthread_double/modules.order

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may_13/multi_reverse_string/multi_reverse_string.mod := printf '%s\n'   multi_reverse_string.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may_13/multi_reverse_string/"$$0) }' > /home/rps/Desktop/daywise/may_13/multi_reverse_string/multi_reverse_string.mod

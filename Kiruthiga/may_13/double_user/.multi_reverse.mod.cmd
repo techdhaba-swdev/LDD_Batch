@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may_13/multi_reverse/multi_reverse.mod := printf '%s\n'   multi_reverse.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may_13/multi_reverse/"$$0) }' > /home/rps/Desktop/daywise/may_13/multi_reverse/multi_reverse.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may_13/pthread_double/double_int.mod := printf '%s\n'   double_int.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may_13/pthread_double/"$$0) }' > /home/rps/Desktop/daywise/may_13/pthread_double/double_int.mod
