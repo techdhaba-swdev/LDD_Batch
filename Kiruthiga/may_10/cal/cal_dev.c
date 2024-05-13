@@ -93,7 +93,7 @@ module_init(calculator_dev_init);
 module_exit(calculator_dev_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Ganavi");
+MODULE_AUTHOR("Kiruthiga");
 MODULE_DESCRIPTION("Simple calculator device driver");
 
 
