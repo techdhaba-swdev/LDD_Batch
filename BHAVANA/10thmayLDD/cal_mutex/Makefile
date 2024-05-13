@@ -1,4 +1,4 @@
-obj-m += calci.o
+obj-m += calculator_mutex_kernel.o
 
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules

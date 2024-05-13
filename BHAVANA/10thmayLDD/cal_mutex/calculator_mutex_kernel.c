@@ -12,7 +12,7 @@ static char operation;
 static int operand1;
 static int operand2;
 static int result;
-static DEFINE_MUTEX(calculator_mutex); // Mutex definition
+static DEFINE_MUTEX(calculator_mutex); // Define mutex
 
 static int calculator_dev_open(struct inode *inode, struct file *file) {
     return 0;
@@ -23,7 +23,8 @@ static int calculator_dev_release(struct inode *inode, struct file *file) {
 }
 
 static ssize_t calculator_dev_write(struct file *file, const char *buf, size_t count, loff_t *ppos) {
-    mutex_lock(&calculator_mutex); // Lock mutex before accessing shared variables
+    mutex_lock(&calculator_mutex); // Lock mutex
+
     sscanf(buf, "%c %d %d", &operation, &operand1, &operand2);
     switch (operation) {
         case '+':
@@ -42,21 +43,27 @@ static ssize_t calculator_dev_write(struct file *file, const char *buf, size_t c
                 result = -1; // Division by zero error
             break;
         default:
-            mutex_unlock(&calculator_mutex); // Unlock mutex before returning
+            mutex_unlock(&calculator_mutex); // Unlock mutex
             return -EINVAL; // Invalid operation
     }
-    mutex_unlock(&calculator_mutex); // Unlock mutex before returning
+
+    mutex_unlock(&calculator_mutex); // Unlock mutex
+
     return count;
 }
 
 static ssize_t calculator_dev_read(struct file *file, char *buf, size_t count, loff_t *ppos) {
     int len = 0;
-    mutex_lock(&calculator_mutex); // Lock mutex before accessing shared variables
+
+    mutex_lock(&calculator_mutex); // Lock mutex
+
     if (result >= 0) {
         len = snprintf(buf, count, "%d\n", result);
         result = -1; // Reset result
     }
-    mutex_unlock(&calculator_mutex); // Unlock mutex before returning
+
+    mutex_unlock(&calculator_mutex); // Unlock mutex
+
     return len;
 }
 

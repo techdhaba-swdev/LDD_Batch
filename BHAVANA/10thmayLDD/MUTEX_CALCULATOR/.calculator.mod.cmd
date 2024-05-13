@@ -1,1 +1,0 @@
-savedcmd_/home/rps/10thmayLDD/MUTEX_CALCULATOR/calculator.mod := printf '%s\n'   calculator.o | awk '!x[$$0]++ { print("/home/rps/10thmayLDD/MUTEX_CALCULATOR/"$$0) }' > /home/rps/10thmayLDD/MUTEX_CALCULATOR/calculator.mod
