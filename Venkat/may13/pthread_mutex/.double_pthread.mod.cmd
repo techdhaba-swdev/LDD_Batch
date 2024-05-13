@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may13/pthread_mutex/double_pthread.mod := printf '%s\n'   double_pthread.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may13/pthread_mutex/"$$0) }' > /home/rps/Desktop/Venkatasai/may13/pthread_mutex/double_pthread.mod

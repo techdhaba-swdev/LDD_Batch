@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may13/pthread_mutex/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/Venkatasai/may13/pthread_mutex/Module.symvers -T /home/rps/Desktop/Venkatasai/may13/pthread_mutex/modules.order -i Module.symvers -e 
