@@ -1,0 +1,1 @@
+savedcmd_/home/rps/9May_LDD/ReverseString/reverse.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/9May_LDD/ReverseString/reverse.ko /home/rps/9May_LDD/ReverseString/reverse.o /home/rps/9May_LDD/ReverseString/reverse.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/9May_LDD/ReverseString/reverse.ko

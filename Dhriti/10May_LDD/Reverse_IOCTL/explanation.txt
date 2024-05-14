@@ -1,0 +1,7 @@
+IOCTL_REVERSE_STRING _IOW('R', 1, char *) 
+-IOCTL does the work of both read and write funcs
+IOCTL_REVERSE_STRING: the name of the macro
+_IOW: indicates data being transferred from user to kernel
+R: unique identifier
+1:number chosen to identify the program
+char*: type of data being transferred
