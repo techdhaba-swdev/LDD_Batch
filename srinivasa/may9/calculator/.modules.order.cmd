@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may9/calculator/modules.order := {   echo /home/rps/Documents/LDD_Batch/srinivasa/may9/calculator/cal.o; :; } > /home/rps/Documents/LDD_Batch/srinivasa/may9/calculator/modules.order

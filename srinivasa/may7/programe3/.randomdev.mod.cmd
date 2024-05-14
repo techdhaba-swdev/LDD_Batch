@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may7/programe3/randomdev.mod := printf '%s\n'   randomdev.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may7/programe3/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may7/programe3/randomdev.mod

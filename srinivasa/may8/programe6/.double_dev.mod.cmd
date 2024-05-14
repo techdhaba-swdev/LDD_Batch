@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may8/programe6/double_dev.mod := printf '%s\n'   double_dev.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may8/programe6/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may8/programe6/double_dev.mod

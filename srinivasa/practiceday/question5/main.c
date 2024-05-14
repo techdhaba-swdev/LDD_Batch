@@ -1,12 +1,15 @@
+// incluing the required header files 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include "func.h"
-
+// main function
 int main() {
     clock_t start, end;
     double cpu_time_used;
+    //starting the clock timeoo
 
+    start = clock();
     char infix[100], postfix[100];
 
     // Input infix expression
@@ -24,8 +27,6 @@ int main() {
     printf("Result: %d\n", result);
 
     // Measure time taken
-    start = clock();
-    // Perform operations here...
     end = clock();
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     printf("Time taken: %f seconds\n", cpu_time_used);

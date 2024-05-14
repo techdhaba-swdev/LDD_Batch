@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may10/ioctl/kernal.mod := printf '%s\n'   kernal.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may10/ioctl/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may10/ioctl/kernal.mod

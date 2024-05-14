@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may8/programe9/add.mod := printf '%s\n'   add.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may8/programe9/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may8/programe9/add.mod

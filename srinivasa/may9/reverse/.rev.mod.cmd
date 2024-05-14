@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may9/reverse/rev.mod := printf '%s\n'   rev.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may9/reverse/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may9/reverse/rev.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may8/programe8/sum_dev.mod := printf '%s\n'   sum_dev.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may8/programe8/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may8/programe8/sum_dev.mod

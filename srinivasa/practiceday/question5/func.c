@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+// function to create the stacknode
 StackNode* createStackNode(int data) {
     StackNode* newNode = (StackNode*)malloc(sizeof(StackNode));
     if (newNode == NULL) {
@@ -13,12 +13,13 @@ StackNode* createStackNode(int data) {
     newNode->next = NULL;
     return newNode;
 }
-
+// function to pushn
 void push(StackNode** top, int data) {
     StackNode* newNode = createStackNode(data);
     newNode->next = *top;
     *top = newNode;
 }
+//function to pop
 int pop(StackNode** top) {
     if (isEmpty(*top)) {
         printf("Stack underflow.\n");
@@ -30,11 +31,11 @@ int pop(StackNode** top) {
     free(temp);
     return data;
 }
-
+// function to check the stack is empty or not
 int isEmpty(StackNode* top) {
     return top == NULL;
 }
-
+// function to check the top element
 int peek(StackNode* top) {
     if (isEmpty(top)) {
         printf("Stack is empty.\n");
@@ -42,11 +43,11 @@ int peek(StackNode* top) {
     }
     return top->data;
     }
-
+// function to check the operator
 int isOperator(char ch) {
     return (ch == '+' || ch == '-' || ch == '*' || ch == '/');
 }
-
+// function to not check the precedence
 int precedence(char op) {
     if (op == '+' || op == '-')
         return 1;
@@ -54,6 +55,7 @@ int precedence(char op) {
         return 2;
     return 0;
 }
+// function to change the infix to postfix notation
 void infixToPostfix(char* infix, char* postfix) {
     StackNode* stack = NULL;
     int i = 0, j = 0;
@@ -91,7 +93,9 @@ void infixToPostfix(char* infix, char* postfix) {
     while (!isEmpty(stack))
         postfix[j++] = pop(&stack);
     postfix[j] = '\0';
-}int evaluatePostfix(char* postfix) {
+}
+// function to evalute postfix
+int evaluatePostfix(char* postfix) {
     StackNode* stack = NULL;
     int i = 0;
     while (postfix[i]) {
