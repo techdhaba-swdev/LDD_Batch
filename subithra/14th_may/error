@@ -1,0 +1,8 @@
+cc     code.c   -o code
+code.c:2:3: error: expected ‘;’ before ‘int’
+    2 | bc
+      |   ^
+      |   ;
+    3 | int main() {
+      | ~~~
+make: *** [<builtin>: code] Error 1
