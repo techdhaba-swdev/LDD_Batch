@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/13th_may/interrupt/irq.mod := printf '%s\n'   irq.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/13th_may/interrupt/"$$0) }' > /home/rps/subithra_s/Documents/13th_may/interrupt/irq.mod

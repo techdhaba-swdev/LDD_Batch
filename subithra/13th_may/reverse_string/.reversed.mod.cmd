@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/13th_may/reverse_string/reversed.mod := printf '%s\n'   reversed.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/13th_may/reverse_string/"$$0) }' > /home/rps/subithra_s/Documents/13th_may/reverse_string/reversed.mod

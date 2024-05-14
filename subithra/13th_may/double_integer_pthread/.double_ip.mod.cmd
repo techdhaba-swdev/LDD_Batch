@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/13th_may/double_integer_pthread/double_ip.mod := printf '%s\n'   double_ip.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/13th_may/double_integer_pthread/"$$0) }' > /home/rps/subithra_s/Documents/13th_may/double_integer_pthread/double_ip.mod
