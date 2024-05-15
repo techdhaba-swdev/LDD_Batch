@@ -1,0 +1,7 @@
+This article is the Series on Linux Device Drivers and carries the discussion on character drivers and their implementation. The aim of this series is to provide easy and practical examples that anyone can understand.
+
+In this article, we are explaining some basic concepts about Linux and its drivers. It aims to provide easy and practical examples for understanding device drivers in Linux.
+
+Before we start with programming, it’s always better to know some basic things about Linux and its drivers. We will focus on the basics in this tutorial.
+
+You can find a video explanation of this tutorial here. Also, you can find all the Linux device driver’s video playlists here.

@@ -1,0 +1,11 @@
+class List 
+{
+public:
+    List();
+    ~List();
+    List(const List& c);
+    List& operator= (const List& t);
+private:
+    List *Next;
+    List *Prev;
+    Node *Head;
