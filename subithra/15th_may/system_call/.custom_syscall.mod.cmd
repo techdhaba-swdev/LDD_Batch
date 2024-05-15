@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/15th_may/system_call/custom_syscall.mod := printf '%s\n'   custom_syscall.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/15th_may/system_call/"$$0) }' > /home/rps/subithra_s/Documents/15th_may/system_call/custom_syscall.mod

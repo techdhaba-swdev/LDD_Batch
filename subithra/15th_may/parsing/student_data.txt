@@ -1,0 +1,3 @@
+subi 123 math
+subithra 456 science
+subithra_s 789 english
