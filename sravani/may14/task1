@@ -1,0 +1,10 @@
+#!/bin/bash
+
+string="hai"
+integer=10
+if [$integer -gt 0];
+then
+	echo"integer is greater than 0"
+else
+	echo "integer is less than 0"
+fi

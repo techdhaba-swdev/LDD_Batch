@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may10/mutex/calculator/calculator.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/may10/mutex/calculator/calculator.ko /home/rps/may10/mutex/calculator/calculator.o /home/rps/may10/mutex/calculator/calculator.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/may10/mutex/calculator/calculator.ko

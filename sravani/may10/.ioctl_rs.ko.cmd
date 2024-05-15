@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may10/ioctl_rs.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/may10/ioctl_rs.ko /home/rps/may10/ioctl_rs.o /home/rps/may10/ioctl_rs.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/may10/ioctl_rs.ko
