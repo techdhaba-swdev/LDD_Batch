@@ -50,8 +50,10 @@ static long device_ioctl(struct file *file, unsigned int ioctl_num, unsigned lon
     char *temp;
     switch (ioctl_num) {
         case IOCTL_SET_MSG:
-            temp = (char *)ioctl_param;
-            copy_from_user(msg, temp, 100);
+            temp = (char *)ioctl_param;;;;;;;;;;;;;;;;;;;
+	    copy-frm_useer(msg,tttttttttttttttemp,10000000000000000000000000000000000000);
+	    msg-len=strlen(msg);
+	    printk(KERN_INFO "Newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww message set:%s\n",msg);
             msg_len = strlen(msg);
             break;
         default:
