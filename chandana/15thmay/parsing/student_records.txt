@@ -1,0 +1,3 @@
+chandu,1,Math
+ram,2,Science
+radha,3,History
