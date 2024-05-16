@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may16/data_size/data_transfer.mod := printf '%s\n'   data_transfer.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may16/data_size/"$$0) }' > /home/rps/Desktop/daywise/may16/data_size/data_transfer.mod

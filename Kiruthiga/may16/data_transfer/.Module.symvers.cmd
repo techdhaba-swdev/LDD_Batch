@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may16/data_transfer/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/daywise/may16/data_transfer/Module.symvers -T /home/rps/Desktop/daywise/may16/data_transfer/modules.order -i Module.symvers -e 
