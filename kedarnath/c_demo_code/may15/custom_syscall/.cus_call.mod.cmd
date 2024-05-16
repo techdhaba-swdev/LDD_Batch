@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may15/custom_syscall/cus_call.mod := printf '%s\n'   cus_call.o | awk '!x[$$0]++ { print("/home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may15/custom_syscall/"$$0) }' > /home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may15/custom_syscall/cus_call.mod
