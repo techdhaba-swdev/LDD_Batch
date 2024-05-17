@@ -1,4 +1,4 @@
-#include "pthread.c"
+#include "pthread.h"
 int main() {
     // Open the input file
     FILE *input_file = fopen("input.txt", "r");
