@@ -1,0 +1,55 @@
+        -:    0:Source:maingps.c
+        -:    1:#include <stdio.h>
+        -:    2:#include "gps.h"
+        -:    3:
+function main called 1 returned 100% blocks executed 95%
+        1:    4:int main() {
+        -:    5:    // Sample GPS data
+        1:    6:    const char *gps_data[] = {
+        -:    7:        "$GPRMC,080000.00,A,40.7128,N,74.0059,W,0.00,0.0,170524,000.0,M,N*77",
+        -:    8:        "$GPRMC,080001.00,A,40.7128,N,74.0060,W,0.01,0.5,170524,000.0,M,N*74",
+        -:    9:        "$GPRMC,080002.00,A,40.7127,N,74.0061,W,0.02,1.0,170524,000.0,M,N*71",
+        -:   10:        "$GPRMC,080003.00,A,40.7127,N,74.0060,W,0.02,0.8,170524,000.0,M,N*68",
+        -:   11:    };
+        -:   12:
+        1:   13:    int num_data = sizeof(gps_data) / sizeof(gps_data[0]);
+        -:   14:    GPSData gps_data_struct[MAX_GPS_DATA];
+        -:   15:
+        -:   16:    // Parse each GPS sentence
+        5:   17:    for (int i = 0; i < num_data; ++i) {
+branch  0 taken 80%
+branch  1 taken 20% (fallthrough)
+        4:   18:        if (parse_gprmc(gps_data[i], &gps_data_struct[i]) == 0) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        4:   19:            printf("Parsed GPS Data %d:\n", i + 1);
+call    0 returned 100%
+        4:   20:            printf("UTC Time: %s\n", gps_data_struct[i].utc_time);
+call    0 returned 100%
+        4:   21:            printf("Status: %c\n", gps_data_struct[i].status);
+call    0 returned 100%
+        4:   22:            printf("Latitude: %s %c\n", gps_data_struct[i].latitude, gps_data_struct[i].lat_direction);
+call    0 returned 100%
+        4:   23:            printf("Longitude: %s %c\n", gps_data_struct[i].longitude, gps_data_struct[i].lon_direction);
+call    0 returned 100%
+        4:   24:            printf("Speed: %.2f knots\n", gps_data_struct[i].speed);
+call    0 returned 100%
+        4:   25:            printf("Course: %.2f degrees\n", gps_data_struct[i].course);
+call    0 returned 100%
+        4:   26:            printf("Date: %s\n", gps_data_struct[i].date);
+call    0 returned 100%
+        4:   27:            printf("Magnetic Variation: %.2f %c\n", gps_data_struct[i].magnetic_variation, gps_data_struct[i].mv_direction);
+call    0 returned 100%
+        4:   28:            printf("Checksum: %s\n", gps_data_struct[i].checksum);
+call    0 returned 100%
+        4:   29:            printf("\n");
+call    0 returned 100%
+        -:   30:        } else {
+    #####:   31:            printf("Failed to parse GPS data: %s\n", gps_data[i]);
+call    0 never executed
+        -:   32:        }
+        -:   33:    }
+        -:   34:
+        1:   35:    return 0;
+        -:   36:}

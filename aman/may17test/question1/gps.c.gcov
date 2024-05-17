@@ -1,0 +1,85 @@
+        -:    0:Source:gps.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include "gps.h"
+        -:    5:
+function parse_gprmc called 4 returned 100% blocks executed 72%
+        4:    6:int parse_gprmc(const char *sentence, GPSData *data) {
+        4:    7:    if (strncmp(sentence, "$GPRMC", 6) != 0) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    8:        return -1; // Not a GPRMC sentence
+        -:    9:    }
+        -:   10:
+        -:   11:    // Token array to hold the split strings
+        -:   12:    char tokens[13][MAX_TOKEN_LEN];
+        4:   13:    int token_idx = 0;
+        -:   14:
+        -:   15:    // Duplicate the sentence for safe tokenization
+        4:   16:    char *temp = strdup(sentence);
+        4:   17:    if (temp == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   18:        return -1; // Memory allocation failure
+        -:   19:    }
+        -:   20:
+        4:   21:    char *token = strtok(temp, ",");
+call    0 returned 100%
+       56:   22:    while (token != NULL && token_idx < 13) {
+branch  0 taken 93% (fallthrough)
+branch  1 taken 7%
+branch  2 taken 100%
+branch  3 taken 0% (fallthrough)
+        -:   23:        // Validate token length
+       52:   24:        if (strlen(token) >= MAX_TOKEN_LEN) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   25:            free(temp);
+    #####:   26:            return -1; // Token too long
+        -:   27:        }
+        -:   28:
+       52:   29:        strncpy(tokens[token_idx], token, MAX_TOKEN_LEN - 1);
+       52:   30:        tokens[token_idx][MAX_TOKEN_LEN - 1] = '\0'; // Ensure null-termination
+       52:   31:        token_idx++;
+       52:   32:        token = strtok(NULL, ",");
+call    0 returned 100%
+        -:   33:    }
+        -:   34:
+        4:   35:    if (token_idx < 12) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   36:        free(temp);
+    #####:   37:        return -1; // Invalid sentence
+        -:   38:    }
+        -:   39:
+        -:   40:    // Extract the data fields
+        4:   41:    strncpy(data->utc_time, tokens[1], sizeof(data->utc_time) - 1);
+        4:   42:    data->utc_time[sizeof(data->utc_time) - 1] = '\0';
+        4:   43:    data->status = tokens[2][0];
+        4:   44:    strncpy(data->latitude, tokens[3], sizeof(data->latitude) - 1);
+        4:   45:    data->latitude[sizeof(data->latitude) - 1] = '\0';
+        4:   46:    data->lat_direction = tokens[4][0];
+        4:   47:    strncpy(data->longitude, tokens[5], sizeof(data->longitude) - 1);
+        4:   48:    data->longitude[sizeof(data->longitude) - 1] = '\0';
+        4:   49:    data->lon_direction = tokens[6][0];
+        4:   50:    data->speed = atof(tokens[7]);
+        4:   51:    data->course = atof(tokens[8]);
+        4:   52:    strncpy(data->date, tokens[9], sizeof(data->date) - 1);
+        4:   53:    data->date[sizeof(data->date) - 1] = '\0';
+        4:   54:    data->magnetic_variation = atof(tokens[10]);
+        4:   55:    data->mv_direction = tokens[11][0];
+        -:   56:
+        -:   57:    // Validate checksum length
+        4:   58:    if (strlen(tokens[12]) < 2) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   59:        free(temp);
+    #####:   60:        return -1; // Invalid checksum
+        -:   61:    }
+        4:   62:    strncpy(data->checksum, &tokens[12][1], sizeof(data->checksum) - 1);
+        4:   63:    data->checksum[sizeof(data->checksum) - 1] = '\0';
+        -:   64:
+        4:   65:    free(temp);
+        4:   66:    return 0;
+        -:   67:}
