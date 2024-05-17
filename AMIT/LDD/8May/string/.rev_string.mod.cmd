@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/8May/string/rev_string.mod := printf '%s\n'   rev_string.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/8May/string/"$$0) }' > /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/8May/string/rev_string.mod

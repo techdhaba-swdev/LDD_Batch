@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/7May/chardevice/randomdev/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/7May/chardevice/randomdev/Module.symvers -T /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/7May/chardevice/randomdev/modules.order -i Module.symvers -e 

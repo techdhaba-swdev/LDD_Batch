@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/17May/ioctl_driver.mod := printf '%s\n'   ioctl_driver.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/17May/"$$0) }' > /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/17May/ioctl_driver.mod

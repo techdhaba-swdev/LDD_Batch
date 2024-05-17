@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/6May/kernal/kernal3.mod := printf '%s\n'   kernal3.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/6May/kernal/"$$0) }' > /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/6May/kernal/kernal3.mod

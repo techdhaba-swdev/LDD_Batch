@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/6May/kernal/modules.order := {   echo /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/6May/kernal/kernal3.o; :; } > /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/6May/kernal/modules.order

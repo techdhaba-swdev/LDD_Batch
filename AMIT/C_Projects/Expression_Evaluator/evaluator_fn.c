@@ -31,7 +31,7 @@ double pop(struct StackNode** stack) {
 }
 
 // Operator precedence
-int precedence(char op) {
+int precedence(char op) {        //for priority
     switch (op) {
         case '+':
         case '-':
@@ -39,25 +39,25 @@ int precedence(char op) {
         case '*':
         case '/':
             return 2;
-        // Add more operators as needed
+      
         default:
             return 0;
     }
 }
 
 // Convert infix expression to postfix
-void infixToPostfix(const char* infix, char* postfix) {
-    struct StackNode* stack = NULL;
-    int j = 0;
+void infixToPostfix(const char* infix, char* postfix) {      //create infix to postfix ex. 2+3*4  convert 234*+
+    struct StackNode* stack = NULL;                           
+    int j = 0;                                                  //empty stack to push and pop   
 
-    for (int i = 0; infix[i]; ++i) {
+    for (int i = 0; infix[i]; ++i) {                            
         char c = infix[i];
         if (isdigit(c)) {
             while (isdigit(infix[i])) {
                 postfix[j++] = infix[i++];
             }
             postfix[j++] = ' ';
-            --i; // Move back to the last digit
+            --i;                                      // Move back to the last digit
         } else if (c == '(') {
             push(&stack, c);
         } else if (c == ')') {
@@ -84,7 +84,7 @@ void infixToPostfix(const char* infix, char* postfix) {
 }
 
 // Evaluate postfix expression
-double evaluatePostfix(const char* postfix) {
+double evaluatePostfix(const char* postfix) {    //evaluating postfix function 
     struct StackNode* stack = NULL;
     int i = 0;
 

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/17May/ioctl/ioctl_read.mod := printf '%s\n'   ioctl_read.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/17May/ioctl/"$$0) }' > /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/17May/ioctl/ioctl_read.mod
