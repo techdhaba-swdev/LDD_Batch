@@ -29,7 +29,7 @@ int parseNMEA(const char *data, GPSData *gps) {
         switch (i) {
             case 0:
                     if (token == NULL) {
-            strncpy(gps->time, "0")
+            strncpy(gps->time, "0",1);
            
         }else{
                 strncpy(gps->time, token, sizeof(gps->time) - 1);
@@ -38,11 +38,11 @@ int parseNMEA(const char *data, GPSData *gps) {
                 break;
             case 1:
             if (token == NULL) {
-            strncpy(gps->latitude, "0")
+            strncpy(gps->latitude, "0",1);
            
         }else{
         
-    int degrees;
+    /*int degrees;
     float minutes;
     char direction;
 
@@ -51,14 +51,14 @@ int parseNMEA(const char *data, GPSData *gps) {
         printf("Longitude: %d degrees, %.4f minutes %c\n", degrees, minutes, direction);
     } else {
         printf("Invalid input format\n");
-    }
+    }*/
                 strncpy(gps->latitude, token, sizeof(gps->latitude) - 1);
                 gps->latitude[sizeof(gps->latitude) - 1] = '\0';
                 }
                 break;
             case 2:
             if (token == NULL) {
-            strncpy(gps->longitude, "0");
+            strncpy(gps->longitude, "0",1);
            
         }else{
                 strncpy(gps->longitude, token, sizeof(gps->longitude) - 1);
@@ -67,7 +67,7 @@ int parseNMEA(const char *data, GPSData *gps) {
                 break;
             case 7:
             if (token == NULL) {
-            strncpy(gps->speed, "0");
+            strncpy(gps->speed, "0",1);
            
         }else{
                 strncpy(gps->speed, token, sizeof(gps->speed) - 1);
@@ -76,7 +76,7 @@ int parseNMEA(const char *data, GPSData *gps) {
                 break;
             case 8:
             if (token == NULL) {
-            strncpy(gps->course, "0");
+            strncpy(gps->course, "0",1);
            
         }else{
                 strncpy(gps->course, token, sizeof(gps->course) - 1);
@@ -85,7 +85,7 @@ int parseNMEA(const char *data, GPSData *gps) {
                 break;
             case 9:
             if (token == NULL) {
-            strncpy(gps->date, "0");
+            strncpy(gps->date, "0",1);
            
         }else{
                 strncpy(gps->date, token, sizeof(gps->date) - 1);
@@ -129,19 +129,18 @@ FILE *file;
     // Read data line by line from the file
      GPSData gps[100];
     while (fgets(line, sizeof(line), file) != NULL) {
+    //printf("%s\n",line);
     
     if (updateGPSData(line, &gps[i]) == 0) {
         // Display parsed GPS information
-        printf("Time: %s\n", gps[i].time);
+    printf("Time: %s\n", gps[i].time);
         printf("Latitude: %s\n", gps[i].latitude);
         printf("Longitude: %s\n", gps[i].longitude);
         printf("Speed: %s knots\n", gps[i].speed);
         printf("Course: %s degrees\n", gps[i].course);
         printf("Date: %s\n", gps[i].date);
     }
-     i++;
-
-       
+     i++;   
     }
 
     // Close the file
