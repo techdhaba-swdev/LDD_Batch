@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may17/ioctl_multiple/ioctl_dev.mod := printf '%s\n'   ioctl_dev.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may17/ioctl_multiple/"$$0) }' > /home/rps/Desktop/daywise/may17/ioctl_multiple/ioctl_dev.mod

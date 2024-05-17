@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may09/ioctl/reverse.mod := printf '%s\n'   reverse.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may09/ioctl/"$$0) }' > /home/rps/Desktop/daywise/may09/ioctl/reverse.mod

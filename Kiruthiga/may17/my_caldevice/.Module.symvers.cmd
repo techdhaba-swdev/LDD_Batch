@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may17/my_caldevice/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/daywise/may17/my_caldevice/Module.symvers -T /home/rps/Desktop/daywise/may17/my_caldevice/modules.order -i Module.symvers -e 

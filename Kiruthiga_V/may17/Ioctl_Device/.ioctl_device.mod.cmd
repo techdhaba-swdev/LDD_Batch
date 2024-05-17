@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may17/mydeviceioctl/ioctl_device.mod := printf '%s\n'   ioctl_device.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may17/mydeviceioctl/"$$0) }' > /home/rps/Desktop/daywise/may17/mydeviceioctl/ioctl_device.mod

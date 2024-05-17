@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may17/cal_device/calculator_dev.mod := printf '%s\n'   calculator_dev.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may17/cal_device/"$$0) }' > /home/rps/Desktop/daywise/may17/cal_device/calculator_dev.mod

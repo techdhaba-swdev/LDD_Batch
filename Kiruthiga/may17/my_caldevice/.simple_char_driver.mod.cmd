@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may09/ioctl/simple_char_driver.mod := printf '%s\n'   simple_char_driver.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may09/ioctl/"$$0) }' > /home/rps/Desktop/daywise/may09/ioctl/simple_char_driver.mod
