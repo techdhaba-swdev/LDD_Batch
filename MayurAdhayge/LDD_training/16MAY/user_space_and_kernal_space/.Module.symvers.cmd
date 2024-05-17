@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/MayurAdhayge/LDD_training/16MAY/user_space_and_kernal_space/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/LDD_Batch/MayurAdhayge/LDD_training/16MAY/user_space_and_kernal_space/Module.symvers -T /home/rps/LDD_Batch/MayurAdhayge/LDD_training/16MAY/user_space_and_kernal_space/modules.order -i Module.symvers -e 

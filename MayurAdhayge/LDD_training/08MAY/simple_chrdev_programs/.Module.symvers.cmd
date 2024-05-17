@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/MayurAdhayge/LDD_training/08MAY/simple_chrdev_programs/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/LDD_Batch/MayurAdhayge/LDD_training/08MAY/simple_chrdev_programs/Module.symvers -T /home/rps/LDD_Batch/MayurAdhayge/LDD_training/08MAY/simple_chrdev_programs/modules.order -i Module.symvers -e 

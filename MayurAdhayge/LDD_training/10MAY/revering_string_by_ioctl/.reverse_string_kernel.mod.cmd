@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/MayurAdhayge/LDD_training/10MAY/revering_string_by_ioctl/reverse_string_kernel.mod := printf '%s\n'   reverse_string_kernel.o | awk '!x[$$0]++ { print("/home/rps/LDD_Batch/MayurAdhayge/LDD_training/10MAY/revering_string_by_ioctl/"$$0) }' > /home/rps/LDD_Batch/MayurAdhayge/LDD_training/10MAY/revering_string_by_ioctl/reverse_string_kernel.mod

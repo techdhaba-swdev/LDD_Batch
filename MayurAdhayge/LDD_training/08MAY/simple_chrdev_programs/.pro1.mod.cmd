@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/MayurAdhayge/LDD_training/08MAY/simple_chrdev_programs/pro1.mod := printf '%s\n'   pro1.o | awk '!x[$$0]++ { print("/home/rps/LDD_Batch/MayurAdhayge/LDD_training/08MAY/simple_chrdev_programs/"$$0) }' > /home/rps/LDD_Batch/MayurAdhayge/LDD_training/08MAY/simple_chrdev_programs/pro1.mod
