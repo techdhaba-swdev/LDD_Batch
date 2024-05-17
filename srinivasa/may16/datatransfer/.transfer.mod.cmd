@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may16/datatransfer/transfer.mod := printf '%s\n'   transfer.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may16/datatransfer/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may16/datatransfer/transfer.mod

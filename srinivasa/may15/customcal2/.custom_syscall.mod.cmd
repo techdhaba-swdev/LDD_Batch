@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may15/customcal2/custom_syscall.mod := printf '%s\n'   custom_syscall.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may15/customcal2/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may15/customcal2/custom_syscall.mod

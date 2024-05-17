@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may17/blocking/wait_event/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Documents/LDD_Batch/srinivasa/may17/blocking/wait_event/Module.symvers -T /home/rps/Documents/LDD_Batch/srinivasa/may17/blocking/wait_event/modules.order -i Module.symvers -e 

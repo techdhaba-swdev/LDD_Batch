@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may17/ioctl2/ioctl2.mod := printf '%s\n'   ioctl2.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may17/ioctl2/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may17/ioctl2/ioctl2.mod
