@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY32_MAY17/ioctl2/writes_ioctls.mod := printf '%s\n'   writes_ioctls.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY32_MAY17/ioctl2/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY32_MAY17/ioctl2/writes_ioctls.mod
