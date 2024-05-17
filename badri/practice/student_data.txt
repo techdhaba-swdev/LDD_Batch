@@ -1,0 +1,3 @@
+badri 1034 english 95.5 A
+ganesh 1035 maths 98 A
+sathish 1037 science 92 B

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/ioctl/simple_char_driver.mod := printf '%s\n'   simple_char_driver.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/ioctl/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/ioctl/simple_char_driver.mod

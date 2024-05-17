@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/spinlock/modules.order := {   echo /home/rps/Desktop/demo/LDD_Batch/badri/kernal/spinlock/spin1lock.o; :; } > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/spinlock/modules.order

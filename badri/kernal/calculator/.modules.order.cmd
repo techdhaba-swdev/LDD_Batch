@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/calculator/modules.order := {   echo /home/rps/Desktop/demo/LDD_Batch/badri/kernal/calculator/calculator.o; :; } > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/calculator/modules.order

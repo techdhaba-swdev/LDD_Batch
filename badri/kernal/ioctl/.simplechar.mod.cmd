@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/simplechar/simplechar.mod := printf '%s\n'   simplechar.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/simplechar/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/simplechar/simplechar.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/add/sum.mod := printf '%s\n'   sum.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/add/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/add/sum.mod

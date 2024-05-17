@@ -10,7 +10,6 @@
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Your Name");
 MODULE_DESCRIPTION("A simple character device driver");
-
 static int Major;
 static char msg[BUF_LEN];
 static char *msg_Ptr;

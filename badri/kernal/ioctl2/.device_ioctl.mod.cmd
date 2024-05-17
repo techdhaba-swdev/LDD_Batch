@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/ioctl2/device_ioctl.mod := printf '%s\n'   device_ioctl.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/ioctl2/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/ioctl2/device_ioctl.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/mutexcal/doublemut.mod := printf '%s\n'   doublemut.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/mutexcal/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/mutexcal/doublemut.mod

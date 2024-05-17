@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/practise/double.mod := printf '%s\n'   double.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/practise/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/practise/double.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/ioctl2/kernel.mod := printf '%s\n'   kernel.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/ioctl2/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/ioctl2/kernel.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/revstringioc/string_rev.mod := printf '%s\n'   string_rev.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/revstringioc/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/revstringioc/string_rev.mod
