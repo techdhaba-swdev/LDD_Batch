@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_BUFFER_SIZE 100
+#define MAX_BUFFER_SIZE 200
 
 // Structure to store GPS information
 typedef struct {
@@ -76,11 +76,23 @@ int updateGPSData(const char *data, GPSData *gps) {
 }
 
 int main() {
-    const char *gps_data = "$GPRMC,081830.00,A,40°45.2222,N,074°00.1234,W,0.19,060.0,270520,2.13,W*6D";
-    GPSData *gps=(GPSData *) malloc(sizeof(GPSData));
+
+int i=0;
+FILE *file;
+    char line[100];  // Buffer to store each line (adjust size as needed)
+
+    // Open the file
+    file = fopen("sample_data.txt", "r");
+    if (file == NULL) {
+        perror("Error opening file");
+        return 1;
+    }
+
+    // Read data line by line from the file
+     GPSData gps[100];
+    while (fgets(line, sizeof(line), file) != NULL) {
     
-    // Update GPS structure with parsed data
-    if (updateGPSData(gps_data, gps) == 0) {
+    if (updateGPSData(line, &gps[i]) == 0) {
         // Display parsed GPS information
         printf("Time: %s\n", gps->time);
         printf("Latitude: %s\n", gps->latitude);
@@ -89,6 +101,18 @@ int main() {
         printf("Course: %s degrees\n", gps->course);
         printf("Date: %s\n", gps->date);
     }
+     i++;
 
+       
+    }
+
+    // Close the file
+    fclose(file);
+
+    
+   
+    
+    // Update GPS structure with parsed data
+    
     return 0;
 }
