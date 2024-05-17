@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/waitque/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/demo/LDD_Batch/badri/kernal/waitque/Module.symvers -T /home/rps/Desktop/demo/LDD_Batch/badri/kernal/waitque/modules.order -i Module.symvers -e 

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/waitque/modules.order := {   echo /home/rps/Desktop/demo/LDD_Batch/badri/kernal/waitque/device_waitq.o; :; } > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/waitque/modules.order
