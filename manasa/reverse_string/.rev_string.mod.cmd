@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/reverse_string/rev_string.mod := printf '%s\n'   rev_string.o | awk '!x[$$0]++ { print("/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/reverse_string/"$$0) }' > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/reverse_string/rev_string.mod

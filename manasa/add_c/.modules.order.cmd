@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/add_c/modules.order := {   echo /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/add_c/add.o; :; } > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/add_c/modules.order

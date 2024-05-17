@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/ioctl_1/ioctl1.mod := printf '%s\n'   ioctl1.o | awk '!x[$$0]++ { print("/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/ioctl_1/"$$0) }' > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/ioctl_1/ioctl1.mod

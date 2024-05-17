@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/programs/kernal_rev.mod := printf '%s\n'   kernal_rev.o | awk '!x[$$0]++ { print("/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/programs/"$$0) }' > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/programs/kernal_rev.mod

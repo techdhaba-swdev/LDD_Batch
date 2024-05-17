@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/kernal_multiply/modules.order := {   echo /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/kernal_multiply/multiply.o; :; } > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/kernal_multiply/modules.order

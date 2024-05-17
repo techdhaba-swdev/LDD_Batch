@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/code_1/modules.order := {   echo /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/code_1/pract.o; :; } > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/code_1/modules.order

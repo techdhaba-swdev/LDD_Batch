@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/ioctl/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/ioctl/Module.symvers -T /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/ioctl/modules.order -i Module.symvers -e 

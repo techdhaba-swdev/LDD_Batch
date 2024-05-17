@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/sum_c/sum_cal.mod := printf '%s\n'   sum_cal.o | awk '!x[$$0]++ { print("/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/sum_c/"$$0) }' > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/sum_c/sum_cal.mod

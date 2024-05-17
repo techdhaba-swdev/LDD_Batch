@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/new_1/chardev.mod := printf '%s\n'   chardev.o | awk '!x[$$0]++ { print("/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/new_1/"$$0) }' > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/new_1/chardev.mod

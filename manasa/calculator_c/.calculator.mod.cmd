@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/calculator_c/calculator.mod := printf '%s\n'   calculator.o | awk '!x[$$0]++ { print("/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/calculator_c/"$$0) }' > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/calculator_c/calculator.mod

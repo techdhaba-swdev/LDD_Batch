@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/add_c/add.mod := printf '%s\n'   add.o | awk '!x[$$0]++ { print("/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/add_c/"$$0) }' > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/add_c/add.mod

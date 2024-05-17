@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/kernal_multiply/multiply.mod := printf '%s\n'   multiply.o | awk '!x[$$0]++ { print("/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/kernal_multiply/"$$0) }' > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/kernal_multiply/multiply.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/linux_c/cal_prog.mod := printf '%s\n'   cal_prog.o | awk '!x[$$0]++ { print("/home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/linux_c/"$$0) }' > /home/rps/Documents/demo_repo_ldd/LDD_Batch/manasa/linux_c/cal_prog.mod
