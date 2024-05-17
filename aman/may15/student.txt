@@ -1,0 +1,5 @@
+aman            01            maths
+raj             02            science
+singh           03            s.st
+abc             04            english
+xyz             05            hindi
