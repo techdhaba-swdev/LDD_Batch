@@ -67,7 +67,7 @@ bool validateLongitude(const float longitude_degrees, const float longitude_minu
 
 bool validateSpeed(const float speed) {
     
-    if (speed < 0) {
+    if (speed <=0) {
         return false;
     }
     return true;
@@ -82,11 +82,17 @@ bool validateCourse(const float course) {
 }
 
 bool validateDate(const char *date) {
-   
-    if (date[0] == '\0') {
-        return false;
+    if (strlen(date) != 6) {
+        return false; 
     }
-    return true;
+    int day, month, year;
+    sscanf(date, "%2d%2d%2d", &day, &month, &year);
+   
+    if (day < 1 || day > 31 || month < 1 || month > 12 || 23<year) {
+     printf("%d %d %d",day,month,year);
+        return false; 
+    }
+    return true; 
 }
 
 bool validateMagneticVariation(const float magnetic_variation) {
@@ -173,11 +179,19 @@ gps->longitude_dir=longitude_dir;
 }
 else
 {
-{
+
 gps->longitude_degrees=-1;
 gps->longitude_minutes=-1;
 gps->longitude_dir=-1;
+
 }
+if(validateSpeed(speed))
+{
+gps->speed=speed;
+}
+else
+{
+gps->speed=-1;
 }
 if(validateCourse(course))
 {
@@ -226,10 +240,11 @@ FILE *file;
     }
 
     // Read data line by line from the file
-     GPSData gps[100];
-    while (fgets(line, sizeof(line), file) != NULL) {
+    GPSData gps[100];
     
-    if (parse(line, &gps[i]) == 0) {
+    while (fgets(line, sizeof(line), file) != NULL) {
+    printf("%s",line);
+    if (parse(line, (gps+i)) == 0) {
         
      printf("\n--------------------------------------------------------------------------\n");   
         
