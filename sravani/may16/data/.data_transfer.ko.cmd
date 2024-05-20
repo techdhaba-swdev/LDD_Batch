@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may16/data/data_transfer.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/may16/data/data_transfer.ko /home/rps/may16/data/data_transfer.o /home/rps/may16/data/data_transfer.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/may16/data/data_transfer.ko

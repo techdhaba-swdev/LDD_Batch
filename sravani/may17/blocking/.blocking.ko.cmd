@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may17/blocking/blocking.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/may17/blocking/blocking.ko /home/rps/may17/blocking/blocking.o /home/rps/may17/blocking/blocking.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/may17/blocking/blocking.ko
