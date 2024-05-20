@@ -1,0 +1,1 @@
+savedcmd_/home/rps/amanraj/LDD_Batch/aman/may20/exmple_char_device/char_dev.mod := printf '%s\n'   char_dev.o | awk '!x[$$0]++ { print("/home/rps/amanraj/LDD_Batch/aman/may20/exmple_char_device/"$$0) }' > /home/rps/amanraj/LDD_Batch/aman/may20/exmple_char_device/char_dev.mod

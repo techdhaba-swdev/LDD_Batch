@@ -1,0 +1,1 @@
+savedcmd_/home/rps/amanraj/LDD_Batch/aman/may20/exmple_char_device/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/amanraj/LDD_Batch/aman/may20/exmple_char_device/Module.symvers -T /home/rps/amanraj/LDD_Batch/aman/may20/exmple_char_device/modules.order -i Module.symvers -e 
