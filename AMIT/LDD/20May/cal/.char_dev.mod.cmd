@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/20May/cal/char_dev.mod := printf '%s\n'   char_dev.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/20May/cal/"$$0) }' > /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/20May/cal/char_dev.mod
