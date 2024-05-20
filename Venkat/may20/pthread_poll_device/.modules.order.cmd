@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may20/pthread_poll_device/modules.order := {   echo /home/rps/Desktop/Venkatasai/may20/pthread_poll_device/pthread.o; :; } > /home/rps/Desktop/Venkatasai/may20/pthread_poll_device/modules.order

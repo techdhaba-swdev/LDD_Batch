@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may20/pthread_poll_device/pthread.mod := printf '%s\n'   pthread.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may20/pthread_poll_device/"$$0) }' > /home/rps/Desktop/Venkatasai/may20/pthread_poll_device/pthread.mod

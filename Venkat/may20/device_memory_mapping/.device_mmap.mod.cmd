@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may20/device_memory_mapping/device_mmap.mod := printf '%s\n'   device_mmap.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may20/device_memory_mapping/"$$0) }' > /home/rps/Desktop/Venkatasai/may20/device_memory_mapping/device_mmap.mod
