@@ -1,19 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-// Storing GPS data
-struct GPSData {
-    char timestamp[20];
-    char latitude[20];
-    char lat_direction;
-    char longitude[20];
-    char lon_direction;
-    float speed;
-    float course;
-    char date[20];
-};
-
+#include "gps.h"
 
 struct GPSData parse_gps_data(const char *data) {
     struct GPSData gps_data;
@@ -23,7 +11,6 @@ struct GPSData parse_gps_data(const char *data) {
         exit(EXIT_FAILURE);
     }
 
-   
     char *pass = strtok(copy, ",");
     if (!pass || strcmp(pass, "$GPRMC") != 0) {
         fprintf(stderr, "Invalid data format\n");
@@ -35,7 +22,7 @@ struct GPSData parse_gps_data(const char *data) {
     pass = strtok(NULL, ",");
     if (pass) strncpy(gps_data.timestamp, pass, sizeof(gps_data.timestamp));
 
-    // Skip status
+    
     pass = strtok(NULL, ",");
 
     // Parse latitude
@@ -70,8 +57,7 @@ struct GPSData parse_gps_data(const char *data) {
     return gps_data;
 }
 
-// Function to update structure with parsed data
-void update_struct(struct GPSData gps_data) {
+void update_gps_data(struct GPSData gps_data) {
     printf("Timestamp: %s\n", gps_data.timestamp);
     printf("Latitude: %s %c\n", gps_data.latitude, gps_data.lat_direction);
     printf("Longitude: %s %c\n", gps_data.longitude, gps_data.lon_direction);
@@ -80,15 +66,3 @@ void update_struct(struct GPSData gps_data) {
     printf("Date: %s\n", gps_data.date);
 }
 
-int main() {
-    // Sample GPS data
-    const char sample_data[] = "$GPRMC,081830.00,A,40°45.2222,N,074°00.1234,W,0.19,060.0,270520,2.13,W*6D";
-
-    // Parse GPS data
-    struct GPSData parsed_data = parse_gps_data(sample_data);
-
-    
-    update_struct(parsed_data);
-
-    return 0;
-}
