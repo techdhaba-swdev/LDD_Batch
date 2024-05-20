@@ -1,60 +1,26 @@
-#include "pthread.h"
-int main(int argc, char *argv[]) {
-    if (argc < 2) {
-        fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
+#include "thread.h" //created a header file named thread.h
+int main() 
+{
+    pthread_t write_even,write_odd,read_even,read_odd; //created threads with names as shown
+
+    // Create threads for writing even and odd lines
+    if (pthread_create(&write_even, NULL, write_even_lines, "input.txt") != 0 || pthread_create(&write_odd, NULL, write_odd_lines, "input.txt") != 0) {
+        perror("Error creating threads for writing");
         exit(EXIT_FAILURE);
     }
 
-    FILE *input_file = fopen(argv[1], "r");
-    if (!input_file) {
-        perror("Failed to open input file");
+    // Wait for writing threads to finish using pthread_join
+    pthread_join(write_even, NULL);
+    pthread_join(write_odd, NULL);
+
+    // Creating threads for reading and printing even and odd output files
+    if (pthread_create(&read_even, NULL, read_file, "even_lines.txt") != 0 || pthread_create(&read_odd, NULL, read_file, "odd_lines.txt") != 0) {
+        perror("Error creating threads for reading");
         exit(EXIT_FAILURE);
     }
-
-    char buffer[MAX_LINE_LENGTH];
-    while (fgets(buffer, sizeof(buffer), input_file) && line_count < MAX_LINES) {
-        lines[line_count] = strdup(buffer);
-        line_count++;
-    }
-    fclose(input_file);
-
-    pthread_t writer_threads[2];
-    thread_data_t writer_data[2] = {
-        {"even_lines.txt", 1, 2},
-        {"odd_lines.txt", 0, 2}
-    };
-
-    for (int i = 0; i < 2; i++) {
-        if (pthread_create(&writer_threads[i], NULL, write_lines, &writer_data[i])) {
-            perror("Failed to create writer thread");
-            exit(EXIT_FAILURE);
-        }
-    }
-
-    for (int i = 0; i < 2; i++) {
-        pthread_join(writer_threads[i], NULL);
-    }
-
-    pthread_t reader_threads[2];
-    char *output_files[2] = {"even_lines.txt", "odd_lines.txt"};
-
-    for (int i = 0; i < 2; i++) {
-        if (pthread_create(&reader_threads[i], NULL, read_lines, output_files[i])) {
-            perror("Failed to create reader thread");
-            exit(EXIT_FAILURE);
-        }
-    }
-
-    for (int i = 0; i < 2; i++) {
-        pthread_join(reader_threads[i], NULL);
-    }
-
-    for (int i = 0; i < line_count; i++) {
-        free(lines[i]);
-    }
-
-    pthread_mutex_destroy(&file_mutex);
+    // Wait for reading threads to finish using pthread_join
+    pthread_join(read_even, NULL);
+    pthread_join(read_odd, NULL);
 
     return 0;
 }
-

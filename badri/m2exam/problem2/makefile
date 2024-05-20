@@ -1,8 +1,8 @@
-CC = gcc
+CC = gcc 
 
 CFLAGS = -I.
 
-DEPS = pthread.h
+DEPS = thread.h 
 
 %.o : %.c $(DEPS)
 	$(CC) -c -o $@ $ < $(CFLAGS)
