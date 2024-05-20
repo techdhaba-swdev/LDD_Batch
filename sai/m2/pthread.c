@@ -12,14 +12,14 @@ int line_count = 0;
 pthread_mutex_t file_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 typedef struct {
-    char *filename;
+    char *file;
     int start_index;
     int step;
 } thread_data_t;
 
 void* write_lines(void* arg) {
     thread_data_t *data = (thread_data_t *) arg;
-    FILE *output_file = fopen(data->filename, "w");
+    FILE *output_file = fopen(data->file, "w");
     if (!output_file) {
         perror("Failed to open output file");
         pthread_exit(NULL);
@@ -38,8 +38,8 @@ void* write_lines(void* arg) {
 }
 
 void* read_lines(void* arg) {
-    char *filename = (char *) arg;
-    FILE *input_file = fopen(filename, "r");
+    char *fd = (char *) arg;
+    FILE *input_file = fopen(fd, "r");
     if (!input_file) {
         perror("Failed to open input file");
         pthread_exit(NULL);
@@ -77,8 +77,8 @@ int main(int argc, char *argv[]) {
 
     pthread_t writer_threads[2];
     thread_data_t writer_data[2] = {
-        {"even_lines.txt", 1, 2},
-        {"odd_lines.txt", 0, 2}
+        {"even.txt", 1,2},
+        {"odd.txt", 0, 2}
     };
 
     for (int i = 0; i < 2; i++) {
@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
     }
 
     pthread_t reader_threads[2];
-    char *output_files[2] = {"even_lines.txt", "odd_lines.txt"};
+    char *output_files[2] = {"even.txt", "odd.txt"};
 
     for (int i = 0; i < 2; i++) {
         if (pthread_create(&reader_threads[i], NULL, read_lines, output_files[i])) {
