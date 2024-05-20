@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY28_MAY13/reverse_string_ioctl/reverses_string.mod := printf '%s\n'   reverses_string.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY28_MAY13/reverse_string_ioctl/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY28_MAY13/reverse_string_ioctl/reverses_string.mod
