@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/mmap_program/program2/modules.order := {   echo /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/mmap_program/program2/mmap_operation.o; :; } > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/mmap_program/program2/modules.order

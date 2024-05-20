@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/char_device/modules.order := {   echo /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/char_device/calc_device.o; :; } > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/char_device/modules.order

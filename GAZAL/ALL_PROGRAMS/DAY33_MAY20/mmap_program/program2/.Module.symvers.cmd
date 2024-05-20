@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/mmap_program/program2/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/mmap_program/program2/Module.symvers -T /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/mmap_program/program2/modules.order -i Module.symvers -e 

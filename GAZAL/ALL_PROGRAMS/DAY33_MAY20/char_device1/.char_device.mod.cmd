@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/char_device/char_device.mod := printf '%s\n'   char_device.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/char_device/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/char_device/char_device.mod

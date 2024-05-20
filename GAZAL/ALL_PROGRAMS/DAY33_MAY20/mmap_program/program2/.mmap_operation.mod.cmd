@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/mmap_program/program2/mmap_operation.mod := printf '%s\n'   mmap_operation.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/mmap_program/program2/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY33_MAY20/mmap_program/program2/mmap_operation.mod
