@@ -23,7 +23,7 @@ FILE* open_file(const char* fname, const char* mode)
 }
 void* write_lines(void *arg)
 {
-ThrdData *data=(ThrdData*) arg;
+ThrdData data=(ThrdData) arg;
 char *line=NULL;
 size_t len =0;
 ssize_t read;
@@ -51,7 +51,7 @@ return NULL;
 
 
 void* read_and_print(void *arg) {
-    RdThrdData *data = (RdThrdData*) arg;
+    RdThrdData data = (RdThrdData) arg;
     char *line = NULL;
     size_t len = 0;
     ssize_t read;
@@ -113,7 +113,3 @@ int main() {
 
     return EXIT_SUCCESS;
 }
-
-
- 
-
