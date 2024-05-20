@@ -39,7 +39,7 @@ static long device_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
                 return -EFAULT;
             }
             info.result = info.value2 + info.value2;
-             printk(KERN_INFO "IOCTL opration :- %d %c %d= %.2f\n", info.value1,info.value2,info.ops,info.result);
+             printk(KERN_INFO "IOCTL opration :- %d %c %d= %.2lf\n", info.value1,info.value2,info.ops,info.result);
            if (copy_to_user((struct calculation_info __user *)arg, &info,  sizeof(struct calculation_info)) ){
                 return -EFAULT;
             }
