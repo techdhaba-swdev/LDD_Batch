@@ -9,27 +9,28 @@
 
 int main() {
     int num1,num2,result;
-    int fd = open(DEVICE_PATH, O_RDWR);
+    int fd = open(DEVICE_PATH, O_RDWR); //called open and assigned to file descriptor fd
     if (fd < 0) {
         perror("open");
         return -1;
     }
-    void *mapped_memory = mmap(NULL, MEMORY_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+    void *mapped_memory = mmap(NULL, MEMORY_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0); //called memmap system call from user program for mapping the devie in memory
     if (mapped_memory == MAP_FAILED) {
         perror("mmap");
         close(fd);
         return -1;
     }
+    //performing addition by taking input from user and returning to user and printing 
     printf("Enter values to add:");
     scanf("%d %d",&num1,&num2);
     int buffer[2]={num1,num2};
-    write(fd,buffer,2*sizeof(int));
-    read(fd,&result,sizeof(int));
+    write(fd,buffer,2*sizeof(int)); //calling write system call
+    read(fd,&result,sizeof(int)); //calling read system call
     printf("After addition received from kernel: %d\n",result);
     // Example: Writing to the mapped memory
-    strcpy((char *)mapped_memory, "Hello from user space!");
+    strcpy((char *)mapped_memory, "Hello from user space!"); //storing the string into mapped memory variable by typecasting the variable
     
-    // Example: Reading from the mapped memory
+    // Reading from the mapped memory and printing onto screen
     printf("Read from device: %s\n", (char *)mapped_memory);
 
     if (munmap(mapped_memory, MEMORY_SIZE) == -1) {

@@ -11,29 +11,31 @@
 static char *device_memory;
 static int major_number;
 static int value1,value2,result;
-
+//open system call 
 static int my_device_open(struct inode *inode, struct file *file) {
     printk(KERN_INFO "my_device: open\n");
     return 0;
 }
-
+//exit system call
 static int my_device_release(struct inode *inode, struct file *file) {
     printk(KERN_INFO "my_device: release\n");
     return 0;
 }
+//read sysytem call invokes when user calls read
 static ssize_t my_device_read(struct file *filp,char *buffer,size_t length,loff_t *offset){
-    copy_to_user(buffer, &result, sizeof(int));
+    copy_to_user(buffer, &result, sizeof(int)); //reading data and copying to the user
     printk(KERN_INFO "Result sent to user space: %d\n", result);
     return sizeof(int);
 }
+//write system call invokes when user calls write 
 static ssize_t my_device_write(struct file *filp, const char *buffer, size_t length, loff_t *offset) {
-    copy_from_user(&value1, buffer, sizeof(int));
+    copy_from_user(&value1, buffer, sizeof(int)); //copying values from the user to add
     copy_from_user(&value2, buffer+sizeof(int), sizeof(int));
     printk(KERN_INFO "Result received from user space: %d and %d \n", value1,value2);
-    result = value1 + value2; // Add the value
+    result = value1 + value2; // Adding the value
     return sizeof(int);
 }
-
+//memory mapping system call invokes when user called memmap
 static int my_device_mmap(struct file *filp, struct vm_area_struct *vma) {
     unsigned long offset = vma->vm_pgoff << PAGE_SHIFT;
     unsigned long physical_address = virt_to_phys(device_memory) + offset;
@@ -49,7 +51,7 @@ static int my_device_mmap(struct file *filp, struct vm_area_struct *vma) {
 
     return 0;
 }
-
+//declared a file structrue
 static const struct file_operations my_device_fops = {
     .read=my_device_read,
     .write=my_device_write,
@@ -58,14 +60,15 @@ static const struct file_operations my_device_fops = {
     .release = my_device_release,
     .mmap = my_device_mmap,
 };
+//init module invokes when open is called by user
 static int __init my_device_init(void) {
-    major_number = register_chrdev(0, DEVICE_NAME, &my_device_fops);
+    major_number = register_chrdev(0, DEVICE_NAME, &my_device_fops); //registering major number
     if (major_number < 0) {
         printk(KERN_ALERT "Registering char device failed with %d\n", major_number);
         return major_number;
     }
 
-    device_memory = kmalloc(DEVICE_MEMORY_SIZE, GFP_KERNEL);
+    device_memory = kmalloc(DEVICE_MEMORY_SIZE, GFP_KERNEL); //dynamically allocating the device memory
     if (!device_memory) {
         unregister_chrdev(major_number, DEVICE_NAME);
         return -ENOMEM;
@@ -75,6 +78,7 @@ static int __init my_device_init(void) {
     printk(KERN_INFO "my_device: memory allocated at %p\n", device_memory);
     return 0;
 }
+//device exit module invokes when close is called user
 static void __exit my_device_exit(void) {
     kfree(device_memory);
     unregister_chrdev(major_number, DEVICE_NAME);
