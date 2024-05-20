@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY27_MAY10/calculator_mutex/calculator.mod := printf '%s\n'   calculator.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY27_MAY10/calculator_mutex/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY27_MAY10/calculator_mutex/calculator.mod
