@@ -1,0 +1,8 @@
+cc     add.c   -o add
+add.c: In function ‘main’:
+add.c:10:39: warning: format ‘%f’ expects argument of type ‘double’, but argument 4 has type ‘int’ [-Wformat=]
+   10 |         printf("the sum of %d + %d = %f\n", num1, num2, sum);
+      |                                      ~^                 ~~~
+      |                                       |                 |
+      |                                       double            int
+      |                                      %d
