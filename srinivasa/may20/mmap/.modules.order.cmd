@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may20/mmap/modules.order := {   echo /home/rps/Documents/LDD_Batch/srinivasa/may20/mmap/kernalmmap.o; :; } > /home/rps/Documents/LDD_Batch/srinivasa/may20/mmap/modules.order

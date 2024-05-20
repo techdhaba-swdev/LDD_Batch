@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/practice/hellomodule/modules.order := {   echo /home/rps/Documents/LDD_Batch/srinivasa/practice/hellomodule/module.o; :; } > /home/rps/Documents/LDD_Batch/srinivasa/practice/hellomodule/modules.order
