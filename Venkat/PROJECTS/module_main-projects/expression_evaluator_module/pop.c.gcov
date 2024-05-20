@@ -1,0 +1,26 @@
+        -:    0:Source:pop.c
+        -:    1:// pop.c
+        -:    2:
+        -:    3:#include "pop.h"
+        -:    4:#include <stdlib.h>
+        -:    5:#include <stdio.h>
+        -:    6:
+        -:    7:// Function to pop the top data from the stack.
+function pop called 14 returned 100% blocks executed 60%
+       14:    8:int pop(Stack* stack) {
+       14:    9:    if (stack->top == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   10:        printf("Error: Stack underflow\n"); // Error handling for empty stack.
+call    0 never executed
+    #####:   11:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   12:    }
+       14:   13:    Node* temp = stack->top; // Temporary node to hold the top node.
+       14:   14:    int data = temp->data; // Retrieve data from the top node.
+       14:   15:    stack->top = temp->next; // Move the top pointer to the next node.
+       14:   16:    free(temp); // Free the memory of the popped node.
+       14:   17:    return data; // Return the popped data.
+        -:   18:}
+        -:   19:
+        -:   20:

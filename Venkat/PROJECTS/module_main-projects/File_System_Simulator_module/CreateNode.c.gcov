@@ -1,0 +1,14 @@
+        -:    0:Source:CreateNode.c
+        -:    1:#include "CreateNode.h"
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:
+        -:    5:// Creates a new file system node with the given name.
+function createNode called 8 returned 100% blocks executed 100%
+        8:    6:Node* createNode(const char* name) {
+        8:    7:    Node* newNode = (Node*)malloc(sizeof(Node)); // Allocate memory for the new node.
+        8:    8:    newNode->name = strdup(name); // Duplicate the name and assign it to the node.
+        8:    9:    newNode->firstChild = NULL; // Initialize the first child to NULL (no children yet).
+        8:   10:    newNode->nextSibling = NULL; // Initialize the next sibling to NULL (no siblings yet).
+        8:   11:    return newNode; // Return the pointer to the new node.
+        -:   12:}

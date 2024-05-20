@@ -1,0 +1,54 @@
+        -:    0:Source:main.c
+        -:    1:#include "CreateUserProfile.h"
+        -:    2:#include "AddFriend.h"
+        -:    3:#include "SearchUsersByName.h"
+        -:    4:#include "DisplayFriends.h"
+        -:    5:#include <time.h>
+        -:    6:#include <stdio.h>
+function main called 1 returned 100% blocks executed 100%
+        1:    7:int main() {
+        -:    8:    // Start the clock
+        1:    9:    clock_t start = clock();
+call    0 returned 100%
+        -:   10:    Graph graph; // Create a graph instance.
+        1:   11:    graph.numUsers = 0; // Initialize the number of users to 0.
+        -:   12:
+        -:   13:    // Create user profiles.
+        1:   14:    createUserProfile(&graph, "Venkat", "Gaming, Cricket");
+call    0 returned 100%
+        1:   15:    createUserProfile(&graph, "messi", "Football, Golf");
+call    0 returned 100%
+        1:   16:    createUserProfile(&graph, "Rohit Sharma", "Cricket, Traveling");
+call    0 returned 100%
+        1:   17:    createUserProfile(&graph, "Sidharth Malhotra", "Music, acting");
+call    0 returned 100%
+        -:   18:
+        -:   19:    // Add friends.
+        1:   20:    addFriend(&graph, 0, 1); // Venkat and messi are now friends.
+call    0 returned 100%
+        1:   21:    addFriend(&graph, 0, 2); // Venkat and Rohit Sharma are now friends.
+call    0 returned 100%
+        1:   22:    addFriend(&graph, 0, 3); // Venkat and Sidharth Malhotra are now friends.
+call    0 returned 100%
+        -:   23:
+        -:   24:    // Search for users by name.
+        1:   25:    searchUsersByName(&graph, "Venkat");
+call    0 returned 100%
+        -:   26:
+        -:   27:    // Display a user's friend list.
+        1:   28:    displayFriends(&graph, 0);
+call    0 returned 100%
+        -:   29:    // Stop the clock
+        -:   30:
+        1:   31:    clock_t end = clock();
+call    0 returned 100%
+        -:   32:
+        -:   33:    // Calculate the elapsed time
+        -:   34:
+        1:   35:    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+        -:   36:
+        1:   37:    printf("Time taken: %f seconds\n", time_taken);
+call    0 returned 100%
+        -:   38:
+        1:   39:    return 0; // End of the program.
+        -:   40:}

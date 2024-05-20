@@ -1,0 +1,12 @@
+        -:    0:Source:AddFriend.c
+        -:    1:#include "AddFriend.h"
+        -:    2:#include <stdlib.h>
+        -:    3:
+        -:    4:// Function to add a friend connection between two users.
+function addFriend called 3 returned 100% blocks executed 100%
+        3:    5:void addFriend(Graph *graph, int userID1, int userID2) {
+        3:    6:    UserNode *newNode = (UserNode *)malloc(sizeof(UserNode)); // Allocate memory for a new node.
+        3:    7:    newNode->userID = userID2; // Set the userID of the new friend.
+        3:    8:    newNode->next = graph->users[userID1].friendsList; // Link the new node to the existing list.
+        3:    9:    graph->users[userID1].friendsList = newNode; // Update the head of the friends list.
+        3:   10:}

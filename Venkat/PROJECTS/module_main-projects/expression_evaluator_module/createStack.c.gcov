@@ -1,0 +1,24 @@
+        -:    0:Source:createStack.c
+        -:    1:// createStack.c
+        -:    2:
+        -:    3:#include "createStack.h"
+        -:    4:#include <stdlib.h>
+        -:    5:#include <stdio.h>
+        -:    6:
+        -:    7:// Function to create and initialize a new stack.
+function createStack called 2 returned 100% blocks executed 60%
+        2:    8:Stack* createStack() {
+        2:    9:    Stack* stack = (Stack*)malloc(sizeof(Stack)); // Allocate memory for the stack.
+        2:   10:    if (stack == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:   11:        printf("Error: Memory not allocated for stack\n"); // Error handling for memory allocation.
+call    0 never executed
+    #####:   12:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   13:    }
+        2:   14:    stack->top = NULL; // Initialize the top of the stack to NULL.
+        2:   15:    return stack; // Return the pointer to the new stack.
+        -:   16:}
+        -:   17:
+        -:   18:

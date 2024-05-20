@@ -1,0 +1,99 @@
+        -:    0:Source:convertToPostfix.c
+        -:    1:// convertToPostfix.c
+        -:    2:
+        -:    3:#include "convertToPostfix.h"
+        -:    4:#include "createStack.h"
+        -:    5:#include "getPrecedence.h"
+        -:    6:#include <string.h>
+        -:    7:#include <ctype.h>
+        -:    8:#include <stdlib.h>
+        -:    9:#include "push.h"
+        -:   10:#include "pop.h"
+        -:   11:#include "isEmpty.h"
+        -:   12:// Function to convert infix expression to postfix notation
+function convertToPostfix called 1 returned 100% blocks executed 97%
+        1:   13:void convertToPostfix(char infix[], char postfix[]) {
+        1:   14:    Stack* stack = createStack(); // Create a stack to hold operators
+call    0 returned 100%
+        1:   15:    int j = 0; // Index for postfix array
+        1:   16:    int i = 0; // Index for infix array
+        -:   17:
+        -:   18:    // Iterate over the infix expression
+       12:   19:    while (infix[i] != '\0') {
+branch  0 taken 92%
+branch  1 taken 8% (fallthrough)
+       11:   20:        char c = infix[i];
+        -:   21:
+        -:   22:        // If the character is a digit, append it to postfix expression
+       11:   23:        if (isdigit(c)) {
+branch  0 taken 45% (fallthrough)
+branch  1 taken 55%
+        -:   24:            // Handle multi-digit numbers
+       10:   25:            while (isdigit(infix[i])) {
+branch  0 taken 50%
+branch  1 taken 50% (fallthrough)
+        5:   26:                postfix[j++] = infix[i++];
+        -:   27:            }
+        5:   28:            postfix[j++] = ' '; // Add space to separate numbers
+        6:   29:        } else if (c == '(') {
+branch  0 taken 17% (fallthrough)
+branch  1 taken 83%
+        -:   30:            // Push '(' onto stack
+        1:   31:            push(stack, c);
+call    0 returned 100%
+        1:   32:            i++;
+        5:   33:        } else if (c == ')') {
+branch  0 taken 20% (fallthrough)
+branch  1 taken 80%
+        -:   34:            // Pop operators from stack until '(' is encountered
+        2:   35:            while (!isEmpty(stack) && stack->top->data != '(') {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+branch  3 taken 50%
+branch  4 taken 50% (fallthrough)
+        1:   36:                postfix[j++] = pop(stack);
+call    0 returned 100%
+        1:   37:                postfix[j++] = ' ';
+        -:   38:            }
+        1:   39:            pop(stack); // Pop the '(' from stack
+call    0 returned 100%
+        1:   40:            i++;
+        4:   41:        } else if (getPrecedence(c) > 0) {
+call    0 returned 100%
+branch  1 taken 100% (fallthrough)
+branch  2 taken 0%
+        -:   42:            // Pop operators with higher or equal precedence
+        5:   43:            while (!isEmpty(stack) && getPrecedence(stack->top->data) >= getPrecedence(c)) {
+call    0 returned 100%
+branch  1 taken 80% (fallthrough)
+branch  2 taken 20%
+call    3 returned 100%
+call    4 returned 100%
+branch  5 taken 25%
+branch  6 taken 75% (fallthrough)
+        1:   44:                postfix[j++] = pop(stack);
+call    0 returned 100%
+        1:   45:                postfix[j++] = ' ';
+        -:   46:            }
+        4:   47:            push(stack, c); // Push current operator onto stack
+call    0 returned 100%
+        4:   48:            i++;
+        -:   49:        } else {
+    #####:   50:            i++; // Ignore any other characters
+        -:   51:        }
+        -:   52:    }
+        -:   53:
+        -:   54:    // Pop any remaining operators from stack to postfix expression
+        3:   55:    while (!isEmpty(stack)) {
+call    0 returned 100%
+branch  1 taken 67%
+branch  2 taken 33% (fallthrough)
+        2:   56:        postfix[j++] = pop(stack);
+call    0 returned 100%
+        2:   57:        postfix[j++] = ' ';
+        -:   58:    }
+        -:   59:
+        1:   60:    postfix[j] = '\0'; // Null-terminate the postfix expression
+        1:   61:    free(stack); // Free the stack memory
+        1:   62:}

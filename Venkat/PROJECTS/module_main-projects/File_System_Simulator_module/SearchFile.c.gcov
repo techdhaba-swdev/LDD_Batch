@@ -1,0 +1,67 @@
+        -:    0:Source:SearchFile.c
+        -:    1:#include "SearchFile.h"
+        -:    2:#include <stddef.h>
+        -:    3:#include <stdio.h>
+        -:    4:#include <stdlib.h>
+        -:    5:#include <string.h>
+        -:    6:// Helper function to search for a file by name and track the path.
+function searchFileHelper called 8 returned 100% blocks executed 93%
+        8:    7:static Node* searchFileHelper(Node* directory, const char* fileName, char* path, int depth) {
+        8:    8:    if (directory == NULL) {
+branch  0 taken 0% (fallthrough)
+branch  1 taken 100%
+    #####:    9:        return NULL; // If directory is NULL, file not found
+        -:   10:    }
+        -:   11:    // Append the current directory's name to the path if not root
+        8:   12:    if (depth > 0) {
+branch  0 taken 88% (fallthrough)
+branch  1 taken 12%
+        7:   13:        strcat(path, "/");
+        7:   14:        strcat(path, directory->name);
+        -:   15:    }
+        -:   16:    // Check if the current node is the file we're looking for
+        8:   17:    if (strcmp(directory->name, fileName) == 0) {
+branch  0 taken 12% (fallthrough)
+branch  1 taken 88%
+        1:   18:        return directory; // Return the file node if found
+        -:   19:    }
+        7:   20:    Node* current = directory->firstChild;
+        -:   21:    // Recursively search in each child
+       12:   22:    while (current != NULL) {
+branch  0 taken 58%
+branch  1 taken 42% (fallthrough)
+        7:   23:        char* newPath = strdup(path); // Duplicate path for recursive call
+        7:   24:        Node* found = searchFileHelper(current, fileName, newPath, depth + 1);
+call    0 returned 100%
+        7:   25:        if (found != NULL) {
+branch  0 taken 29% (fallthrough)
+branch  1 taken 71%
+        -:   26:            // If file is found, copy the path to the original path variable
+        2:   27:            strcpy(path, newPath);
+        2:   28:            free(newPath);
+        2:   29:            return found;
+        -:   30:        }
+        5:   31:        free(newPath); // Free the duplicated path if not found
+        5:   32:        current = current->nextSibling;
+        -:   33:    }
+        5:   34:    return NULL; // Return NULL if file not found in any child
+        -:   35:}
+        -:   36:
+        -:   37:// Searches for a file by name within the file system and prints the path if found.
+function searchFile called 1 returned 100% blocks executed 83%
+        1:   38:Node* searchFile(Node* directory, const char* fileName) {
+        1:   39:    char* path = strdup(""); // Initialize path as an empty string.
+        1:   40:    Node* found = searchFileHelper(directory, fileName, path, 0);
+call    0 returned 100%
+        1:   41:    if (found != NULL) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        1:   42:        printf("File '%s' found at path: %s\n", fileName, path); // Print the path to the file.
+call    0 returned 100%
+        -:   43:    } else {
+    #####:   44:        printf("File '%s' not found.\n", fileName); // Print a message if the file is not found.
+call    0 never executed
+        -:   45:    }
+        1:   46:    free(path); // Free the memory allocated for the path.
+        1:   47:    return found; // Return the found file node or NULL.
+        -:   48:}

@@ -1,0 +1,55 @@
+File 'convertToPostfix.c'
+Lines executed:96.88% of 32
+Branches executed:100.00% of 22
+Taken at least once:90.91% of 22
+Calls executed:100.00% of 13
+Creating 'convertToPostfix.c.gcov'
+
+File 'createStack.c'
+Lines executed:71.43% of 7
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:0.00% of 2
+Creating 'createStack.c.gcov'
+
+File 'evaluatePostfix.c'
+Lines executed:72.41% of 29
+Branches executed:100.00% of 13
+Taken at least once:69.23% of 13
+Calls executed:60.00% of 15
+Creating 'evaluatePostfix.c.gcov'
+
+File 'getPrecedence.c'
+Lines executed:100.00% of 8
+Branches executed:100.00% of 3
+Taken at least once:100.00% of 3
+No calls
+Creating 'getPrecedence.c.gcov'
+
+File 'isEmpty.c'
+Lines executed:100.00% of 2
+No branches
+No calls
+Creating 'isEmpty.c.gcov'
+
+File 'main.c'
+Lines executed:100.00% of 13
+No branches
+Calls executed:100.00% of 9
+Creating 'main.c.gcov'
+
+File 'pop.c'
+Lines executed:77.78% of 9
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:0.00% of 2
+Creating 'pop.c.gcov'
+
+File 'push.c'
+Lines executed:77.78% of 9
+Branches executed:100.00% of 2
+Taken at least once:50.00% of 2
+Calls executed:0.00% of 2
+Creating 'push.c.gcov'
+
+Lines executed:86.24% of 109

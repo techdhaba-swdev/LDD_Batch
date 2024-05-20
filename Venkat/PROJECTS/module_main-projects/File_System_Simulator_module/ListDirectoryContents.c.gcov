@@ -1,0 +1,19 @@
+        -:    0:Source:ListDirectoryContents.c
+        -:    1:#include "ListDirectoryContents.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+        -:    4:// Lists the contents of a directory node by printing the names of its children.
+function listDirectoryContents called 3 returned 100% blocks executed 100%
+        3:    5:void listDirectoryContents(Node* directory) {
+        3:    6:    Node* current = directory->firstChild;
+        -:    7:    // Loop through each child node and print its name.
+       10:    8:    while (current != NULL) {
+branch  0 taken 70%
+branch  1 taken 30% (fallthrough)
+        7:    9:        printf("%s\n", current->name);
+call    0 returned 100%
+        7:   10:        current = current->nextSibling;
+        -:   11:    }
+        3:   12:}
+        -:   13:
+        -:   14:

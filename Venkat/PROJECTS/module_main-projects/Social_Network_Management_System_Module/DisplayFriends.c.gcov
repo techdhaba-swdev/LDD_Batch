@@ -1,0 +1,20 @@
+        -:    0:Source:DisplayFriends.c
+        -:    1:#include "DisplayFriends.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stddef.h>
+        -:    4:// Function to display a user's friend list.
+function displayFriends called 1 returned 100% blocks executed 100%
+        1:    5:void displayFriends(Graph *graph, int userID) {
+        1:    6:    UserNode *current = graph->users[userID].friendsList; // Start at the head of the friends list.
+        1:    7:    printf("Friends of %s:\n", graph->users[userID].profile.name);
+call    0 returned 100%
+        4:    8:    while (current != NULL) { // Traverse the list until the end.
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        3:    9:        printf("%s\n", graph->users[current->userID].profile.name); // Print each friend's name.
+call    0 returned 100%
+        3:   10:        current = current->next; // Move to the next friend in the list.
+        -:   11:    }
+        1:   12:}
+        -:   13:
+        -:   14:
