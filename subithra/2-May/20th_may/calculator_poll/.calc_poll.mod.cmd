@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/20th_may/calculator_poll/calc_poll.mod := printf '%s\n'   calc_poll.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/20th_may/calculator_poll/"$$0) }' > /home/rps/subithra_s/Documents/20th_may/calculator_poll/calc_poll.mod

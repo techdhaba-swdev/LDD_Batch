@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/20th_may/memory/memory.mod := printf '%s\n'   memory.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/20th_may/memory/"$$0) }' > /home/rps/subithra_s/Documents/20th_may/memory/memory.mod
