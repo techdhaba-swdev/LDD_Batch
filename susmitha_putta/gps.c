@@ -12,19 +12,34 @@ typedef struct {
     double magnetic_variation;
 } GPSData;
 
+// Function prototypes
+int parse_nmea(const char *data, GPSData *gps_data);
+int parse_porsche(const char *data, GPSData *gps_data);
+int parse_gps_data(const char *data, GPSData *gps_data);
+void print_gps_data(const GPSData *gps_data);
+void convert_latlon(int deg, float min, char dir, double *result);
+
+// Function to convert latitude and longitude from degrees and minutes to decimal format
+void convert_latlon(int deg, float min, char dir, double *result) {
+    *result = deg + min / 60.0;
+    if (dir == 'S' || dir == 'W') {
+        *result = -(*result);
+    }
+}
+
 // Function to parse NMEA data
 int parse_nmea(const char *data, GPSData *gps_data) {
     if (data[0] != '$') {
-        printf("Data does not start with a valid NMEA sentence\n");
+        fprintf(stderr, "Data does not start with a valid NMEA sentence\n");
         return -1;
     }
-    
+
     char type[6];
     strncpy(type, data, 5);
     type[5] = '\0';
 
     if (strcmp(type, "$GPRMC") != 0) {
-        printf("Unsupported NMEA sentence type\n");
+        fprintf(stderr, "Unsupported NMEA sentence type: %s\n", type);
         return -1;
     }
 
@@ -34,25 +49,18 @@ int parse_nmea(const char *data, GPSData *gps_data) {
     float lat_min, lon_min;
 
     int parsed = sscanf(data, "$GPRMC,%10[^,],%c,%2d%5f,%c,%3d%5f,%c,%lf,%lf,%6[^,],%lf,%c",
-                        gps_data->timestamp, &status, &lat_deg, &lat_min, &ns, 
-                        &lon_deg, &lon_min, &ew, &gps_data->speed, 
-                        &gps_data->course, gps_data->date, &gps_data->magnetic_variation, 
+                        gps_data->timestamp, &status, &lat_deg, &lat_min, &ns,
+                        &lon_deg, &lon_min, &ew, &gps_data->speed,
+                        &gps_data->course, gps_data->date, &gps_data->magnetic_variation,
                         &mv_direction);
 
     if (parsed < 12 || status != 'A') {
-        printf("Error parsing NMEA data or invalid data status\n");
+        fprintf(stderr, "Error parsing NMEA data or invalid data status\n");
         return -1;
     }
 
-    gps_data->latitude = lat_deg + lat_min / 60.0;
-    if (ns == 'S') {
-        gps_data->latitude = -gps_data->latitude;
-    }
-
-    gps_data->longitude = lon_deg + lon_min / 60.0;
-    if (ew == 'W') {
-        gps_data->longitude = -gps_data->longitude;
-    }
+    convert_latlon(lat_deg, lat_min, ns, &gps_data->latitude);
+    convert_latlon(lon_deg, lon_min, ew, &gps_data->longitude);
 
     if (parsed < 13) {
         gps_data->magnetic_variation = 0.0;
@@ -65,13 +73,13 @@ int parse_nmea(const char *data, GPSData *gps_data) {
 
 // Function to parse Porsche-specific GPS data
 int parse_porsche(const char *data, GPSData *gps_data) {
-    int parsed = sscanf(data, "%10s %lf %lf %lf %lf %6s %lf", 
-                        gps_data->timestamp, &gps_data->latitude, &gps_data->longitude, 
-                        &gps_data->speed, &gps_data->course, gps_data->date, 
+    int parsed = sscanf(data, "%10s %lf %lf %lf %lf %6s %lf",
+                        gps_data->timestamp, &gps_data->latitude, &gps_data->longitude,
+                        &gps_data->speed, &gps_data->course, gps_data->date,
                         &gps_data->magnetic_variation);
 
     if (parsed < 6) {
-        printf("Error parsing Porsche-specific data\n");
+        fprintf(stderr, "Error parsing Porsche-specific data\n");
         return -1;
     }
 
@@ -92,9 +100,9 @@ int parse_gps_data(const char *data, GPSData *gps_data) {
 }
 
 void print_gps_data(const GPSData *gps_data) {
-    printf("GPSData(timestamp=%s, latitude=%lf, longitude=%lf, speed=%lf, course=%lf, date=%s, magnetic_variation=%lf)\n", 
-           gps_data->timestamp, gps_data->latitude, gps_data->longitude, 
-           gps_data->speed, gps_data->course, gps_data->date, 
+    printf("GPSData(timestamp=%s, latitude=%lf, longitude=%lf, speed=%lf, course=%lf, date=%s, magnetic_variation=%lf)\n",
+           gps_data->timestamp, gps_data->latitude, gps_data->longitude,
+           gps_data->speed, gps_data->course, gps_data->date,
            gps_data->magnetic_variation);
 }
 
@@ -118,4 +126,3 @@ int main() {
 
     return 0;
 }
-

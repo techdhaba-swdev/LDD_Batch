@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_idd/LDD_Batch/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Documents/demo_repo_idd/LDD_Batch/Module.symvers -T /home/rps/Documents/demo_repo_idd/LDD_Batch/modules.order -i Module.symvers -e 

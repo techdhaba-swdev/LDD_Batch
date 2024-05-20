@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_idd/LDD_Batch/modules.order := {   echo /home/rps/Documents/demo_repo_idd/LDD_Batch/example_char_device.o; :; } > /home/rps/Documents/demo_repo_idd/LDD_Batch/modules.order
