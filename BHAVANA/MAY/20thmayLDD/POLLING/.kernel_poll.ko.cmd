@@ -1,0 +1,1 @@
+savedcmd_/home/rps/20thmayLDD/POLLING/kernel_poll.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/20thmayLDD/POLLING/kernel_poll.ko /home/rps/20thmayLDD/POLLING/kernel_poll.o /home/rps/20thmayLDD/POLLING/kernel_poll.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/20thmayLDD/POLLING/kernel_poll.ko
