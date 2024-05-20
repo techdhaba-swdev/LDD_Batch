@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may20/my_poll_select/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/daywise/may20/my_poll_select/Module.symvers -T /home/rps/Desktop/daywise/may20/my_poll_select/modules.order -i Module.symvers -e 
