@@ -1,0 +1,3 @@
+dileep 1 Math
+charan 2 Physics
+kevin 3 Chemistry
