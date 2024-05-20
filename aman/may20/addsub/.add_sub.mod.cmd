@@ -1,0 +1,1 @@
+savedcmd_/home/rps/amanraj/LDD_Batch/aman/may20/addsub/add_sub.mod := printf '%s\n'   add_sub.o | awk '!x[$$0]++ { print("/home/rps/amanraj/LDD_Batch/aman/may20/addsub/"$$0) }' > /home/rps/amanraj/LDD_Batch/aman/may20/addsub/add_sub.mod
