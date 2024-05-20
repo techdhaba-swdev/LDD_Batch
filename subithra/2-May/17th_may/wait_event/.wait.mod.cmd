@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/17th_may/wait_event/wait.mod := printf '%s\n'   wait.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/17th_may/wait_event/"$$0) }' > /home/rps/subithra_s/Documents/17th_may/wait_event/wait.mod

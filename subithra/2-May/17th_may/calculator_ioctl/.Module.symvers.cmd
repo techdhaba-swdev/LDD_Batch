@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/17th_may/calculator_ioctl/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/subithra_s/Documents/17th_may/calculator_ioctl/Module.symvers -T /home/rps/subithra_s/Documents/17th_may/calculator_ioctl/modules.order -i Module.symvers -e 

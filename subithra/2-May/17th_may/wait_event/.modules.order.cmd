@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/17th_may/wait_event/modules.order := {   echo /home/rps/subithra_s/Documents/17th_may/wait_event/wait.o; :; } > /home/rps/subithra_s/Documents/17th_may/wait_event/modules.order

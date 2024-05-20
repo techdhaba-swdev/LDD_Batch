@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/17th_may/calculator_ioctl/calc_ioctl.mod := printf '%s\n'   calc_ioctl.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/17th_may/calculator_ioctl/"$$0) }' > /home/rps/subithra_s/Documents/17th_may/calculator_ioctl/calc_ioctl.mod
