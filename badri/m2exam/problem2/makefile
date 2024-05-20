@@ -1,5 +1,11 @@
 CC = gcc
-CFLAGS = -I.
-out : pthread.c main.c
-	$(CC) -o out pthread.c main.c -I. 
 
+CFLAGS = -I.
+
+DEPS = pthread.h
+
+%.o : %.c $(DEPS)
+	$(CC) -c -o $@ $ < $(CFLAGS)
+
+out : pthread.c main.c
+	$(CC) -o out pthread.c main.c

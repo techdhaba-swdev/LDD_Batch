@@ -1,8 +1,8 @@
 #include "gpsstru.h"
-void updateGPSDataBuffer(GPSData *buffer , GPSData *data)
+void updateGPSDataBuffer(GPSData *buffer , GPSData *data)//function to update the gps data
 {
-	*buffer = *data;
-
+	*buffer = *data;//copy the new data to buffer
+//printing the updated format
 	printf("Timestamp : %s\n", buffer->timestamp);
 	printf("Latitude : %f %c \n" ,buffer->lattitude , buffer->lat_dir);
 	printf("Longitude : %f %c \n" , buffer->longitude , buffer->lon_dir);

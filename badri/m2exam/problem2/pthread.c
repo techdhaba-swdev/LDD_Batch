@@ -1,50 +1,40 @@
-
 #include "pthread.h"
-
-// Function for writing lines to files
-void *write_lines(void *arg) {
-    ThreadData *data = (ThreadData *)arg;
-    char line[MAX_LINE_LENGTH];
-    int line_number = 0;
-
-    while (1) {
-        // Lock mutex to ensure exclusive access to input file
-        pthread_mutex_lock(data->mutex);
-        // Read a line from the input file
-        if (fgets(line, sizeof(line), data->input_file) == NULL) {
-            // Unlock mutex and break if end of file is reached
-            pthread_mutex_unlock(data->mutex);
-            break;
-        }
-        line_number++;
-        // Debug statement to check the current line number and content
-        printf("Read line %d: %s", line_number, line);
-        // Check if the line number matches the thread's responsibility (even/odd)
-        if ((line_number % 2 == 0 && data->line_type == 0) ||
-            (line_number % 2 == 1 && data->line_type == 1)) {
-            // Write the line to the appropriate output file
-            fputs(line, data->output_file);
-            // Debug statement to confirm the line was written
-            printf("Written to %s file: %s", data->line_type == 0 ? "even" : "odd", line);
-        }
-        // Unlock mutex after processing the line
-        pthread_mutex_unlock(data->mutex);
+void* write_lines(void* arg) {
+    thread_data_t *data = (thread_data_t *) arg;
+    FILE *output_file = fopen(data->filename, "w");
+    if (!output_file) {
+        perror("Failed to open output file");
+        pthread_exit(NULL);
     }
-    return NULL;
+
+    for (int i = data->start_index; i < line_count; i += data->step) {
+        pthread_mutex_lock(&file_mutex);
+        if (lines[i]) {
+            fprintf(output_file, "%s", lines[i]);
+        }
+        pthread_mutex_unlock(&file_mutex);
+    }
+
+    fclose(output_file);
+    pthread_exit(NULL);
 }
 
-
-// Function for reading lines from files and printing them
-void *read_and_print(void *arg) {
-    FILE *file = (FILE *)arg;
-    char line[MAX_LINE_LENGTH];
-
-    // Read and print each line from the file
-    while (fgets(line, sizeof(line), file) != NULL) {
-        printf("%s", line);
+void* read_lines(void* arg) {
+    char *filename = (char *) arg;
+    FILE *input_file = fopen(filename, "r");
+    if (!input_file) {
+        perror("Failed to open input file");
+        pthread_exit(NULL);
     }
-    return NULL;
+
+    char buffer[MAX_LINE_LENGTH];
+    while (fgets(buffer, sizeof(buffer), input_file)) {
+        pthread_mutex_lock(&file_mutex);
+        printf("%s", buffer);
+        pthread_mutex_unlock(&file_mutex);
+    }
+
+    fclose(input_file);
+    pthread_exit(NULL);
 }
 
-
-   

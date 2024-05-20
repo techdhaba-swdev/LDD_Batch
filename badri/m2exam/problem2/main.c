@@ -1,68 +1,60 @@
 #include "pthread.h"
-int main() {
-    // Open the input file
-    FILE *input_file = fopen("input.txt", "r");
-    if (input_file == NULL) {
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    FILE *input_file = fopen(argv[1], "r");
+    if (!input_file) {
         perror("Failed to open input file");
-        return EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
 
-    // Open the output files for even and odd lines
-    FILE *even_file = fopen("even.txt", "w");
-    FILE *odd_file = fopen("odd.txt", "w");
-    if (even_file == NULL || odd_file == NULL) {
-        perror("Failed to open output file");
-        fclose(input_file); // Close the input file before exiting
-        return EXIT_FAILURE;
+    char buffer[MAX_LINE_LENGTH];
+    while (fgets(buffer, sizeof(buffer), input_file) && line_count < MAX_LINES) {
+        lines[line_count] = strdup(buffer);
+        line_count++;
     }
-
-    // Initialize the mutex for synchronizing access to the input file
-    pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-
-    // Create thread data structures for even and odd lines
-    ThreadData odd_data = {input_file, odd_file, &mutex, 1};
-    ThreadData even_data = {input_file, even_file, &mutex, 0};
-
-    // Create writer threads for even and odd lines
-    pthread_t writer_threads[2];
-    pthread_create(&writer_threads[1], NULL, write_lines, &odd_data);
-    pthread_create(&writer_threads[0], NULL, write_lines, &even_data);
-   
-
-    // Wait for the writer threads to complete
-    pthread_join(writer_threads[0], NULL);
-    pthread_join(writer_threads[1], NULL);
-
-    // Close the input and output files after writing
     fclose(input_file);
-    fclose(even_file);
-    fclose(odd_file);
 
-    // Reopen the output files for reading
-    even_file = fopen("even.txt", "r");
-    odd_file = fopen("odd.txt", "r");
-    if (even_file == NULL || odd_file == NULL) {
-        perror("Failed to reopen output file");
-        if (even_file) fclose(even_file);
-        if (odd_file) fclose(odd_file);
-        return EXIT_FAILURE;
+    pthread_t writer_threads[2];
+    thread_data_t writer_data[2] = {
+        {"even_lines.txt", 1, 2},
+        {"odd_lines.txt", 0, 2}
+    };
+
+    for (int i = 0; i < 2; i++) {
+        if (pthread_create(&writer_threads[i], NULL, write_lines, &writer_data[i])) {
+            perror("Failed to create writer thread");
+            exit(EXIT_FAILURE);
+        }
     }
 
-    // Create reader threads for reading and printing the content of the output files
+    for (int i = 0; i < 2; i++) {
+        pthread_join(writer_threads[i], NULL);
+    }
+
     pthread_t reader_threads[2];
-    pthread_create(&reader_threads[0], NULL, read_and_print, even_file);
-    pthread_create(&reader_threads[1], NULL, read_and_print, odd_file);
+    char *output_files[2] = {"even_lines.txt", "odd_lines.txt"};
 
-    // Wait for the reader threads to complete
-    pthread_join(reader_threads[0], NULL);
-    pthread_join(reader_threads[1], NULL);
+    for (int i = 0; i < 2; i++) {
+        if (pthread_create(&reader_threads[i], NULL, read_lines, output_files[i])) {
+            perror("Failed to create reader thread");
+            exit(EXIT_FAILURE);
+        }
+    }
 
-    // Close the output files after reading
-    fclose(even_file);
-    fclose(odd_file);
+    for (int i = 0; i < 2; i++) {
+        pthread_join(reader_threads[i], NULL);
+    }
 
-    // Destroy the mutex
-    pthread_mutex_destroy(&mutex);
+    for (int i = 0; i < line_count; i++) {
+        free(lines[i]);
+    }
 
-    return EXIT_SUCCESS;
+    pthread_mutex_destroy(&file_mutex);
+
+    return 0;
 }
+
