@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_LINES 1000
+#define MAX_LINES 100
 #define MAX_LINE_LENGTH 256
 
 char *lines[MAX_LINES];
@@ -12,14 +12,14 @@ int line_count = 0;
 pthread_mutex_t file_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 typedef struct {
-    char *filename;
+    char *fd;
     int start_index;
     int step;
 } thread_data_t;
 
 void* write_lines(void* arg) {
     thread_data_t *data = (thread_data_t *) arg;
-    FILE *output_file = fopen(data->filename, "w");
+    FILE *output_file = fopen(data->fd, "w");
     if (!output_file) {
         perror("Failed to open output file");
         pthread_exit(NULL);
@@ -77,8 +77,8 @@ int main(int argc, char *argv[]) {
 
     pthread_t writer_threads[2];
     thread_data_t writer_data[2] = {
-        {"even_lines.txt", 1, 2},
-        {"odd_lines.txt", 0, 2}
+        {"evenlines.txt", 1, 2},
+        {"oddlines.txt", 0, 2}
     };
 
     for (int i = 0; i < 2; i++) {
@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
     }
 
     pthread_t reader_threads[2];
-    char *output_files[2] = {"even_lines.txt", "odd_lines.txt"};
+    char *output_files[2] = {"evenlines.txt", "oddlines.txt"};
 
     for (int i = 0; i < 2; i++) {
         if (pthread_create(&reader_threads[i], NULL, read_lines, output_files[i])) {
