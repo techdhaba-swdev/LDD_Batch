@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/16th_may/data_transfer2/modules.order := {   echo /home/rps/subithra_s/Documents/16th_may/data_transfer2/data_transfer2.o; :; } > /home/rps/subithra_s/Documents/16th_may/data_transfer2/modules.order
