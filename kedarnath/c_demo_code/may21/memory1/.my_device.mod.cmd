@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may21/memory1/my_device.mod := printf '%s\n'   my_device.o | awk '!x[$$0]++ { print("/home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may21/memory1/"$$0) }' > /home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may21/memory1/my_device.mod

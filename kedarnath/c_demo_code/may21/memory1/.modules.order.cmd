@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may21/memory1/modules.order := {   echo /home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may21/memory1/my_device.o; :; } > /home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may21/memory1/modules.order

@@ -40,15 +40,21 @@ __used __section("__versions") = {
 	{ 0x4454730e, "kmalloc_trace" },
 	{ 0x6bc3fbc0, "__unregister_chrdev" },
 	{ 0x37a0cba, "kfree" },
+	{ 0xbb4f4766, "simple_write_to_buffer" },
+	{ 0xbcab6ee6, "sscanf" },
+	{ 0x656e4a6e, "snprintf" },
+	{ 0xf0fdf6cb, "__stack_chk_fail" },
 	{ 0xbdfb6dbb, "__fentry__" },
 	{ 0x122c3a7e, "_printk" },
 	{ 0x5b8239ca, "__x86_return_thunk" },
-	{ 0x88db9f48, "__check_object_size" },
-	{ 0x6b10bee1, "_copy_to_user" },
+	{ 0x7cd8d75e, "page_offset_base" },
+	{ 0xb02ba1d5, "remap_pfn_range" },
+	{ 0x4c9d28b0, "phys_base" },
+	{ 0x619cb7dd, "simple_read_from_buffer" },
 	{ 0x2fa5cadd, "module_layout" },
 };
 
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "3C6C2EA2105C9D10F060979");
+MODULE_INFO(srcversion, "AD97498094509EA450E4444");

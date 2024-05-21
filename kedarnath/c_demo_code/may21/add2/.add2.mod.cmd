@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may21/add2/add2.mod := printf '%s\n'   add2.o | awk '!x[$$0]++ { print("/home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may21/add2/"$$0) }' > /home/rps/Desktop/KEDARNATH_PUYYAD/LDD_Batch/kedarnath/c_demo_code/may21/add2/add2.mod
