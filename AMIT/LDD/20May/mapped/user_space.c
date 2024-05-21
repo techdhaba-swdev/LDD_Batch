@@ -33,7 +33,7 @@ int main() {
         perror("open");
         return -1;
     }
-       const char *message = "Hello, kernel!"; // Example message to write
+       const char *message = "Hello, kernel! this is tony stark..!!"; // Example message to write
         ssize_t result = my_device_write(fd, message, strlen(message));
     if (result < 0) {
         close(fd);
@@ -52,6 +52,9 @@ int main() {
 
     // Example: Reading from the mapped memory
     printf("Read from device: %s\n", (char *)mapped_memory);
+
+    // Modify the mapped memory (write example)
+//    snprintf(mapped_memory, MEMORY_SIZE, "Hello, kernel! this is tony stark");
 
     if (munmap(mapped_memory, MEMORY_SIZE) == -1) {
         perror("munmap");

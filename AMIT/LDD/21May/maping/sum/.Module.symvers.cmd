@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/21May/maping/sum/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/21May/maping/sum/Module.symvers -T /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/21May/maping/sum/modules.order -i Module.symvers -e 
