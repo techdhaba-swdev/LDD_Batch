@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY34_MAY21/buffer5/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY34_MAY21/buffer5/Module.symvers -T /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY34_MAY21/buffer5/modules.order -i Module.symvers -e 

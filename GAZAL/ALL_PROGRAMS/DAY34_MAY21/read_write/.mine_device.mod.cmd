@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY34_MAY21/read_write/mine_device.mod := printf '%s\n'   mine_device.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY34_MAY21/read_write/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY34_MAY21/read_write/mine_device.mod
