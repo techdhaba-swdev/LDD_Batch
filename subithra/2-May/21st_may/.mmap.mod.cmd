@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/21st_may/mmap.mod := printf '%s\n'   mmap.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/21st_may/"$$0) }' > /home/rps/subithra_s/Documents/21st_may/mmap.mod

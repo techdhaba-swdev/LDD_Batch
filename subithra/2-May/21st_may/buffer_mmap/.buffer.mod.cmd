@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/21st_may/buffer_mmap/buffer.mod := printf '%s\n'   buffer.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/21st_may/buffer_mmap/"$$0) }' > /home/rps/subithra_s/Documents/21st_may/buffer_mmap/buffer.mod
