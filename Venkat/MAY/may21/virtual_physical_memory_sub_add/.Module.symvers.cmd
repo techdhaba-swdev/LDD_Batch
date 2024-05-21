@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may21/virtual_physical_memory_sub_add/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/Venkatasai/may21/virtual_physical_memory_sub_add/Module.symvers -T /home/rps/Desktop/Venkatasai/may21/virtual_physical_memory_sub_add/modules.order -i Module.symvers -e 

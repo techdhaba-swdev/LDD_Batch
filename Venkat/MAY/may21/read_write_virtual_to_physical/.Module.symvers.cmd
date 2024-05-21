@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may21/read_write_virtual_to_physical/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/Venkatasai/may21/read_write_virtual_to_physical/Module.symvers -T /home/rps/Desktop/Venkatasai/may21/read_write_virtual_to_physical/modules.order -i Module.symvers -e 

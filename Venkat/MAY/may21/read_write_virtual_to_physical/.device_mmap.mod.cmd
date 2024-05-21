@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may21/read_write_virtual_to_physical/device_mmap.mod := printf '%s\n'   device_mmap.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may21/read_write_virtual_to_physical/"$$0) }' > /home/rps/Desktop/Venkatasai/may21/read_write_virtual_to_physical/device_mmap.mod

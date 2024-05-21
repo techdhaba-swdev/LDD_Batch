@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may21/virtual_physical_memory_sub_add/device_mmap.mod := printf '%s\n'   device_mmap.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may21/virtual_physical_memory_sub_add/"$$0) }' > /home/rps/Desktop/Venkatasai/may21/virtual_physical_memory_sub_add/device_mmap.mod
