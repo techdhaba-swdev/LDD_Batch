@@ -1,9 +1,0 @@
-CC=gcc
-CFLAGS=-I.
-DEPS= evenodd.h
-
-%.o: %.c $(DEPS)
-	 $(CC) -c -o $@ $< $(CFLAGS)	
-
-evenodd1: 1.o f1.o
-	$(CC) -o evenodd1 1.o f1.o 

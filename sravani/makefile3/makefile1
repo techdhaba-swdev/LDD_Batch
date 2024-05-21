@@ -1,9 +1,0 @@
-CC=gcc
-CFLAGS=-I.
-DEPS=1.h
-
-%.o: %.c $(DEPS) 
-	$(CC) -c -o $@ $< $(CFLAGS)
-greet:1.o 1main.o 
-	$(CC) -o greet 1.o 1main.o
-

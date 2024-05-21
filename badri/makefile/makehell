@@ -1,8 +1,0 @@
-CC=gcc
-CFLAGS=-I.
-DEPS = hello1.h
-OBJ = hello.o hell.o
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
-hello1: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
