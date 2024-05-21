@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may21/mmap_char/mmap_device.mod := printf '%s\n'   mmap_device.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may21/mmap_char/"$$0) }' > /home/rps/Desktop/daywise/may21/mmap_char/mmap_device.mod
