@@ -1,0 +1,1 @@
+savedcmd_/home/rps/amanraj/LDD_Batch/aman/may21/mmap1/mmap1.mod := printf '%s\n'   mmap1.o | awk '!x[$$0]++ { print("/home/rps/amanraj/LDD_Batch/aman/may21/mmap1/"$$0) }' > /home/rps/amanraj/LDD_Batch/aman/may21/mmap1/mmap1.mod
