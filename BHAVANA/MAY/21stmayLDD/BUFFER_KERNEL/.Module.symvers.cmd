@@ -1,0 +1,1 @@
+savedcmd_/home/rps/21stmayLDD/BUFFER_KERNEL/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/21stmayLDD/BUFFER_KERNEL/Module.symvers -T /home/rps/21stmayLDD/BUFFER_KERNEL/modules.order -i Module.symvers -e 
