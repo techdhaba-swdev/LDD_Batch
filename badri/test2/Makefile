@@ -1,6 +1,6 @@
-obj-m += memap.o
+obj-m += driver_cal.o
 
-all : 
+all :
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 
 clean :

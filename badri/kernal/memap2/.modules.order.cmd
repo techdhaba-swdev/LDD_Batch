@@ -1,1 +1,1 @@
-savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/memap2/modules.order := {   echo /home/rps/Desktop/demo/LDD_Batch/badri/kernal/memap2/memwr.o; :; } > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/memap2/modules.order
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/memap2/modules.order := {   echo /home/rps/Desktop/demo/LDD_Batch/badri/kernal/memap2/memap.o; :; } > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/memap2/modules.order

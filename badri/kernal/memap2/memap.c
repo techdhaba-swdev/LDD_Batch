@@ -5,7 +5,7 @@
 #include <linux/uaccess.h>
 #include <linux/slab.h>
 
-#define DEVICE_NAME "my_device_wr"
+#define DEVICE_NAME "my_device_memap"
 #define DEVICE_MEMORY_SIZE 4096  // 4KB
 
 static char *device_memory;
@@ -19,36 +19,6 @@ static int my_device_open(struct inode *inode, struct file *file) {
 static int my_device_release(struct inode *inode, struct file *file) {
     printk(KERN_INFO "my_device: release\n");
     return 0;
-}
-
-static ssize_t my_device_read(struct file *file, char __user *buffer, size_t length, loff_t *offset) {
-    ssize_t bytes_to_read = min((size_t)(DEVICE_MEMORY_SIZE - *offset), length);
-    if (bytes_to_read == 0) {
-        printk(KERN_INFO "my_device: nothing to read\n");
-        return 0;
-    }
-
-    if (copy_to_user(buffer, device_memory + *offset, bytes_to_read)) {
-        return -EFAULT;
-    }
-
-    *offset += bytes_to_read;
-    return bytes_to_read;
-}
-
-static ssize_t my_device_write(struct file *file, const char __user *buffer, size_t length, loff_t *offset) {
-    ssize_t bytes_to_write = min((size_t)(DEVICE_MEMORY_SIZE - *offset), length);
-    if (bytes_to_write == 0) {
-        printk(KERN_INFO "my_device: no space left to write\n");
-        return -ENOMEM;
-    }
-
-    if (copy_from_user(device_memory + *offset, buffer, bytes_to_write)) {
-        return -EFAULT;
-    }
-
-    *offset += bytes_to_write;
-    return bytes_to_write;
 }
 
 static int my_device_mmap(struct file *filp, struct vm_area_struct *vma) {
@@ -67,13 +37,49 @@ static int my_device_mmap(struct file *filp, struct vm_area_struct *vma) {
     return 0;
 }
 
+static ssize_t my_device_read(struct file *file, char __user *buffer, size_t length, loff_t *offset) {
+    int number;
+    ssize_t ret;
+
+    // Copy data from device memory to user space
+    ret = copy_to_user(buffer, device_memory, length);
+    if (ret) {
+        printk(KERN_ALERT "Failed to read from device\n");
+        return -EFAULT;
+    }
+
+    // Convert the read data to an integer
+    sscanf(device_memory, "%d", &number);
+
+    // Multiply the number by 2
+    number *= 2;
+
+    // Copy the result back to device memory
+    sprintf(device_memory, "%d", number);
+
+    return length;
+}
+
+static ssize_t my_device_write(struct file *file, const char __user *buffer, size_t length, loff_t *offset) {
+    ssize_t ret;
+
+    // Copy data from user space to device memory
+    ret = copy_from_user(device_memory, buffer, length);
+    if (ret) {
+        printk(KERN_ALERT "Failed to write to device\n");
+        return -EFAULT;
+    }
+
+    return length;
+}
+
 static const struct file_operations my_device_fops = {
     .owner = THIS_MODULE,
     .open = my_device_open,
     .release = my_device_release,
+    .mmap = my_device_mmap,
     .read = my_device_read,
     .write = my_device_write,
-    .mmap = my_device_mmap,
 };
 
 static int __init my_device_init(void) {
@@ -105,5 +111,4 @@ module_exit(my_device_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Your Name");
-MODULE_DESCRIPTION("Example Device Driver with mmap, read, and write");
-
+MODULE_DESCRIPTION("Example Device Driver with mmap");
