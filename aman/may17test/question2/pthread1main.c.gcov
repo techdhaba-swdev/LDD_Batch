@@ -1,0 +1,95 @@
+        -:    0:Source:pthread1main.c
+        -:    1:#include "pthread1.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+function main called 1 returned 100% blocks executed 65%
+        1:    5:int main() {
+        -:    6:    pthread_t readThread, evenWriteThread, oddWriteThread;
+        -:    7:    LineBuffer evenBuffer, oddBuffer;
+        -:    8:
+        1:    9:    pthread_mutex_init(&evenBuffer.mutex, NULL);
+call    0 returned 100%
+        1:   10:    pthread_mutex_init(&oddBuffer.mutex, NULL);
+call    0 returned 100%
+        -:   11:
+        1:   12:    evenBuffer.count = 0;
+        1:   13:    oddBuffer.count = 0;
+        -:   14:
+        1:   15:    if (pthread_create(&readThread, NULL, readLines, &evenBuffer)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   16:        perror("Error creating read thread");
+call    0 never executed
+    #####:   17:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   18:    }
+        -:   19:
+        1:   20:    if (pthread_join(readThread, NULL)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   21:        perror("Error joining read thread");
+call    0 never executed
+    #####:   22:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   23:    }
+        -:   24:
+        1:   25:    if (pthread_create(&evenWriteThread, NULL, writeLines, &evenBuffer)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   26:        perror("Error creating even write thread");
+call    0 never executed
+    #####:   27:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   28:    }
+        -:   29:
+        1:   30:    if (pthread_create(&oddWriteThread, NULL, writeLines, &oddBuffer)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   31:        perror("Error creating odd write thread");
+call    0 never executed
+    #####:   32:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   33:    }
+        -:   34:
+        1:   35:    if (pthread_join(evenWriteThread, NULL)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   36:        perror("Error joining even write thread");
+call    0 never executed
+    #####:   37:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   38:    }
+        -:   39:
+        1:   40:    if (pthread_join(oddWriteThread, NULL)) {
+call    0 returned 100%
+branch  1 taken 0% (fallthrough)
+branch  2 taken 100%
+    #####:   41:        perror("Error joining odd write thread");
+call    0 never executed
+    #####:   42:        exit(EXIT_FAILURE);
+call    0 never executed
+        -:   43:    }
+        -:   44:
+        1:   45:    pthread_mutex_destroy(&evenBuffer.mutex);
+call    0 returned 100%
+        1:   46:    pthread_mutex_destroy(&oddBuffer.mutex);
+call    0 returned 100%
+        -:   47:
+        1:   48:    printf("Even lines:\n");
+call    0 returned 100%
+        1:   49:    system("cat even.txt");
+call    0 returned 100%
+        1:   50:    printf("\nOdd lines:\n");
+call    0 returned 100%
+        1:   51:    system("cat odd.txt");
+call    0 returned 100%
+        -:   52:
+        1:   53:    return 0;
+        -:   54:}
+        -:   55:

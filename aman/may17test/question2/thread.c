@@ -6,7 +6,7 @@
 #define MAX_LINES 1000 // Maximum lines in the input file
 #define MAX_LENGTH 100 // Maximum length of a line
 
-// Global variables
+
 char inputFileName[] = "test.txt";
 char evenOutputFileName[] = "even.txt";
 char oddOutputFileName[] = "odd.txt";
@@ -15,7 +15,6 @@ char oddLines[MAX_LINES][MAX_LENGTH];
 int evenCount = 0, oddCount = 0;
 pthread_mutex_t mutex;
 
-// Function to read lines from input file
 void* readLines(void* arg) {
     FILE* file = fopen(inputFileName, "r");
     char line[MAX_LENGTH];
@@ -41,7 +40,6 @@ void* readLines(void* arg) {
     pthread_exit(NULL);
 }
 
-// Function to write even and odd lines to output files
 void* writeLines(void* arg) {
     char (*lines)[MAX_LENGTH];
     int count;
@@ -73,19 +71,17 @@ int main() {
     pthread_t readThread, evenWriteThread, oddWriteThread;
     pthread_mutex_init(&mutex, NULL);
 
-    // Create thread to read lines from input file
     if (pthread_create(&readThread, NULL, readLines, NULL)) {
         perror("Error creating read thread");
         exit(EXIT_FAILURE);
     }
 
-    // Wait for read thread to finish
     if (pthread_join(readThread, NULL)) {
         perror("Error joining read thread");
         exit(EXIT_FAILURE);
     }
 
-    // Create threads to write even and odd lines to output files
+    
     if (pthread_create(&evenWriteThread, NULL, writeLines, "even")) {
         perror("Error creating even write thread");
         exit(EXIT_FAILURE);
@@ -96,7 +92,7 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    // Wait for write threads to finish
+  
     if (pthread_join(evenWriteThread, NULL)) {
         perror("Error joining even write thread");
         exit(EXIT_FAILURE);
@@ -108,8 +104,6 @@ int main() {
     }
 
     pthread_mutex_destroy(&mutex);
-
-    // Print contents of output files
     printf("Even lines:\n");
     system("cat even.txt");
     printf("\nOdd lines:\n");
