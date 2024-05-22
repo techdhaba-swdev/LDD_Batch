@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may20/poll/example.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/may20/poll/example.ko /home/rps/may20/poll/example.o /home/rps/may20/poll/example.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/may20/poll/example.ko

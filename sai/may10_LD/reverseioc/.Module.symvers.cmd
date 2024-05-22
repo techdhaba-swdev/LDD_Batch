@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may10_LD/reverseioc/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/may10_LD/reverseioc/Module.symvers -T /home/rps/may10_LD/reverseioc/modules.order -i Module.symvers -e 

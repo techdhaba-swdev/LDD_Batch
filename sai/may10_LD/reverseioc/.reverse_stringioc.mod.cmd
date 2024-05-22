@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may10_LD/reverseioc/reverse_stringioc.mod := printf '%s\n'   reverse_stringioc.o | awk '!x[$$0]++ { print("/home/rps/may10_LD/reverseioc/"$$0) }' > /home/rps/may10_LD/reverseioc/reverse_stringioc.mod

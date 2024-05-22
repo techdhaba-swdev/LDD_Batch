@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may15/sys_call/custom_syscall.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/may15/sys_call/custom_syscall.ko /home/rps/may15/sys_call/custom_syscall.o /home/rps/may15/sys_call/custom_syscall.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/may15/sys_call/custom_syscall.ko

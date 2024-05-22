@@ -1,0 +1,1 @@
+savedcmd_/home/rps/char/mychardev.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/char/mychardev.ko /home/rps/char/mychardev.o /home/rps/char/mychardev.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/char/mychardev.ko

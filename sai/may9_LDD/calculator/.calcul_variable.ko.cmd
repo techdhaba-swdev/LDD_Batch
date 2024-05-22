@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may9_LDD/calculator/calcul_variable.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/may9_LDD/calculator/calcul_variable.ko /home/rps/may9_LDD/calculator/calcul_variable.o /home/rps/may9_LDD/calculator/calcul_variable.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/may9_LDD/calculator/calcul_variable.ko
