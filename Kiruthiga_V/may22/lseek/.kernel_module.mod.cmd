@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may22/lseek/kernel_module.mod := printf '%s\n'   kernel_module.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may22/lseek/"$$0) }' > /home/rps/Desktop/daywise/may22/lseek/kernel_module.mod

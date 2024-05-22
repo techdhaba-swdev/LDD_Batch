@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may20/memmap/My_Device.mod := printf '%s\n'   My_Device.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may20/memmap/"$$0) }' > /home/rps/Desktop/daywise/may20/memmap/My_Device.mod

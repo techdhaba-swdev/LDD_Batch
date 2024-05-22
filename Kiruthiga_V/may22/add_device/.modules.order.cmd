@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may22/add_device/modules.order := {   echo /home/rps/Desktop/daywise/may22/add_device/add_10_device.o; :; } > /home/rps/Desktop/daywise/may22/add_device/modules.order

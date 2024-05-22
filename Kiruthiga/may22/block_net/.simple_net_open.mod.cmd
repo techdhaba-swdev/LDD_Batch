@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may22/simple_net/simple_net_open.mod := printf '%s\n'   simple_net_open.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may22/simple_net/"$$0) }' > /home/rps/Desktop/daywise/may22/simple_net/simple_net_open.mod

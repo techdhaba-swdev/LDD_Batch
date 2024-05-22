@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may22/add_structure/buffer_structure_add.mod := printf '%s\n'   buffer_structure_add.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may22/add_structure/"$$0) }' > /home/rps/Desktop/daywise/may22/add_structure/buffer_structure_add.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may22/simple_net/modules.order := {   echo /home/rps/Desktop/daywise/may22/simple_net/simple_net_open.o; :; } > /home/rps/Desktop/daywise/may22/simple_net/modules.order

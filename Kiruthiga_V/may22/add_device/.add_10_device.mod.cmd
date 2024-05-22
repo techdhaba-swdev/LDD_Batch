@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may22/add_device/add_10_device.mod := printf '%s\n'   add_10_device.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may22/add_device/"$$0) }' > /home/rps/Desktop/daywise/may22/add_device/add_10_device.mod
