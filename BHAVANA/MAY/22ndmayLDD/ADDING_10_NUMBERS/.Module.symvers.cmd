@@ -1,0 +1,1 @@
+savedcmd_/home/rps/22ndmayLDD/ADDING_10_NUMBERS/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/22ndmayLDD/ADDING_10_NUMBERS/Module.symvers -T /home/rps/22ndmayLDD/ADDING_10_NUMBERS/modules.order -i Module.symvers -e 
