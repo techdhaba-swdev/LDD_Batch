@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may22/lseek_l/lseek.mod := printf '%s\n'   lseek.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may22/lseek_l/"$$0) }' > /home/rps/Desktop/Venkatasai/may22/lseek_l/lseek.mod
