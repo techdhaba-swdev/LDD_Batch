@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/22nd_may/lseek/kernel_module.mod := printf '%s\n'   kernel_module.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/22nd_may/lseek/"$$0) }' > /home/rps/subithra_s/Documents/22nd_may/lseek/kernel_module.mod
