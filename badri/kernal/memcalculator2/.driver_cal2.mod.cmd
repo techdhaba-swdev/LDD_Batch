@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/memcalculator2/driver_cal2.mod := printf '%s\n'   driver_cal2.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/memcalculator2/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/memcalculator2/driver_cal2.mod
