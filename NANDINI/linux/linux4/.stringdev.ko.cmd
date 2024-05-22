@@ -1,0 +1,1 @@
+savedcmd_/home/rps/linux4/stringdev.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/linux4/stringdev.ko /home/rps/linux4/stringdev.o /home/rps/linux4/stringdev.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/linux4/stringdev.ko

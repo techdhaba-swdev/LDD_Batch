@@ -1,0 +1,1 @@
+savedcmd_/home/rps/linux13/int.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/linux13/int.ko /home/rps/linux13/int.o /home/rps/linux13/int.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/linux13/int.ko

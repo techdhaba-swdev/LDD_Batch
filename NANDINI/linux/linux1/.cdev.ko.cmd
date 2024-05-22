@@ -1,0 +1,1 @@
+savedcmd_/home/rps/linux1/cdev.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/linux1/cdev.ko /home/rps/linux1/cdev.o /home/rps/linux1/cdev.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/linux1/cdev.ko

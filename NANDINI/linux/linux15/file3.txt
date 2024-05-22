@@ -1,0 +1,7 @@
+Drivers are used to help the hardware devices interact with the operating system. In windows, all the devices and drivers are grouped together in a single console called device manager. In Linux, even the hardware devices are treated like ordinary files, which makes it easier for the software to interact with the device drivers. When a device is connected to the system, a device file is created in /dev directory. 
+
+Most Common types of devices in Linux:
+
+    Character devices – These devices transmit the data character by characters, like a mouse or a keyboard.
+    Block devices – These devices transfer unit of data storage called a block, USB drives, hard drives, and CD ROMs
+

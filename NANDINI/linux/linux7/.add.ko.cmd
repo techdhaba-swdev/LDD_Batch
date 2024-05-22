@@ -1,0 +1,1 @@
+savedcmd_/home/rps/linux7/add.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/linux7/add.ko /home/rps/linux7/add.o /home/rps/linux7/add.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/linux7/add.ko

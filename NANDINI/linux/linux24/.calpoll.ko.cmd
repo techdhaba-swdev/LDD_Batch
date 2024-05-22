@@ -1,0 +1,1 @@
+savedcmd_/home/rps/linux24/calpoll.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/linux24/calpoll.ko /home/rps/linux24/calpoll.o /home/rps/linux24/calpoll.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/linux24/calpoll.ko

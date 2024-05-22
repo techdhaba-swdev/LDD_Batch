@@ -1,0 +1,1 @@
+savedcmd_/home/rps/linux11/mutex.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/linux11/mutex.ko /home/rps/linux11/mutex.o /home/rps/linux11/mutex.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/linux11/mutex.ko

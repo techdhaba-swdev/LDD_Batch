@@ -1,0 +1,4 @@
+Device Drivers: 
+  A device driver is a loadable kernel module that manages data transfers between a device and the OS. 
+  Loadable modules are loaded at boot time or by request and are unloaded by request. 
+  A device driver is a collection of C routines and data structures that can be accessed by other kernel modules.

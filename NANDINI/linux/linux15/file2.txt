@@ -1,0 +1,5 @@
+Finding Drivers for a Device. 
+Now, we've got our major and minor numbers for the device. 
+We can now check the driver by navigating to /sys/dev/block/<major>:<minor>/device 
+checking the symlink of the driver file. 
+For non-block devices, there is the /sys/dev/char directory. 

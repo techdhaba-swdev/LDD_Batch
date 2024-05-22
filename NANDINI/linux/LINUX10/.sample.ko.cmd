@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LINUX10/sample.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/LINUX10/sample.ko /home/rps/LINUX10/sample.o /home/rps/LINUX10/sample.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/LINUX10/sample.ko
