@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may21/mmap1/mmap_dev.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/may21/mmap1/mmap_dev.ko /home/rps/may21/mmap1/mmap_dev.o /home/rps/may21/mmap1/mmap_dev.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/may21/mmap1/mmap_dev.ko
