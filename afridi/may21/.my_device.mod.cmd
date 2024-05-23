@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/afridi/may21/my_device.mod := printf '%s\n'   my_device.o | awk '!x[$$0]++ { print("/home/rps/LDD_Batch/afridi/may21/"$$0) }' > /home/rps/LDD_Batch/afridi/may21/my_device.mod
