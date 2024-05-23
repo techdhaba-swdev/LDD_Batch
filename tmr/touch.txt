@@ -1,0 +1,7 @@
+#include<stdio.h>
+int main()
+{
+printf("hellllo worllllld 123: ");
+return 0;
+}
+
