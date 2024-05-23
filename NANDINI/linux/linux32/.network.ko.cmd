@@ -1,0 +1,1 @@
+savedcmd_/home/rps/linux32/network.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/linux32/network.ko /home/rps/linux32/network.o /home/rps/linux32/network.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/linux32/network.ko

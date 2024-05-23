@@ -1,0 +1,1 @@
+savedcmd_/home/rps/linux31/uid.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/linux31/uid.ko /home/rps/linux31/uid.o /home/rps/linux31/uid.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/linux31/uid.ko
