@@ -5,12 +5,11 @@
 #include <linux/uaccess.h>
 #include <linux/slab.h>
 
-#define DEVICE_NAME "my_device"
+#define DEVICE_NAME "_my_device"
 #define DEVICE_MEMORY_SIZE 4096  // 4KB
 
 static char *device_memory;
 static int major_number;
-static int value1,value2,result;
 
 static int my_device_open(struct inode *inode, struct file *file) {
     printk(KERN_INFO "my_device: open\n");
@@ -21,18 +20,43 @@ static int my_device_release(struct inode *inode, struct file *file) {
     printk(KERN_INFO "my_device: release\n");
     return 0;
 }
-static ssize_t my_device_read(struct file *filp,char *buffer,size_t length,loff_t *offset){
-    copy_to_user(buffer, &result, sizeof(int));
-    printk(KERN_INFO "Result sent to user space: %d\n", result);
-    return sizeof(int);
+
+static ssize_t my_device_read(struct file *filp, char __user *buffer, size_t len, loff_t *offset) {
+    size_t bytes_to_read;
+
+    if (*offset >= DEVICE_MEMORY_SIZE)
+        return 0;
+
+    bytes_to_read = min(len, DEVICE_MEMORY_SIZE - *offset);
+
+    if (copy_to_user(buffer, device_memory + *offset, bytes_to_read)) {
+        return -EFAULT;
+    }
+
+    *offset += bytes_to_read;
+    printk(KERN_INFO "my_device: read %zu bytes\n", bytes_to_read);
+
+    return bytes_to_read;
 }
-static ssize_t my_device_write(struct file *filp, const char *buffer, size_t length, loff_t *offset) {
-    copy_from_user(&value1, buffer, sizeof(int));
-    copy_from_user(&value2, buffer+sizeof(int), sizeof(int));
-    printk(KERN_INFO "Result received from user space: %d and %d \n", value1,value2);
-    result = value1 + value2; // Add the value
-    return sizeof(int);
+
+static ssize_t my_device_write(struct file *filp, const char __user *buffer, size_t len, loff_t *offset) {
+    size_t bytes_to_write;
+
+    if (*offset >= DEVICE_MEMORY_SIZE)
+        return -ENOSPC;
+
+    bytes_to_write = min(len, DEVICE_MEMORY_SIZE - *offset);
+
+    if (copy_from_user(device_memory + *offset, buffer, bytes_to_write)) {
+        return -EFAULT;
+    }
+
+    *offset += bytes_to_write;
+    printk(KERN_INFO "my_device: wrote %zu bytes\n", bytes_to_write);
+
+    return bytes_to_write;
 }
+
 static int my_device_mmap(struct file *filp, struct vm_area_struct *vma) {
     unsigned long offset = vma->vm_pgoff << PAGE_SHIFT;
     unsigned long physical_address = virt_to_phys(device_memory) + offset;
@@ -50,13 +74,14 @@ static int my_device_mmap(struct file *filp, struct vm_area_struct *vma) {
 }
 
 static const struct file_operations my_device_fops = {
-    .read=my_device_read,
-    .write=my_device_write,
     .owner = THIS_MODULE,
     .open = my_device_open,
     .release = my_device_release,
+    .read = my_device_read,
+    .write = my_device_write,
     .mmap = my_device_mmap,
 };
+
 static int __init my_device_init(void) {
     major_number = register_chrdev(0, DEVICE_NAME, &my_device_fops);
     if (major_number < 0) {
@@ -64,7 +89,7 @@ static int __init my_device_init(void) {
         return major_number;
     }
 
-device_memory = kmalloc(DEVICE_MEMORY_SIZE, GFP_KERNEL);
+    device_memory = kmalloc(DEVICE_MEMORY_SIZE, GFP_KERNEL);
     if (!device_memory) {
         unregister_chrdev(major_number, DEVICE_NAME);
         return -ENOMEM;
@@ -74,6 +99,7 @@ device_memory = kmalloc(DEVICE_MEMORY_SIZE, GFP_KERNEL);
     printk(KERN_INFO "my_device: memory allocated at %p\n", device_memory);
     return 0;
 }
+
 static void __exit my_device_exit(void) {
     kfree(device_memory);
     unregister_chrdev(major_number, DEVICE_NAME);
@@ -84,5 +110,7 @@ module_init(my_device_init);
 module_exit(my_device_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("SARATH");
-MODULE_DESCRIPTION("Example Device Driver with mmap");
+MODULE_AUTHOR("Your Name");
+MODULE_DESCRIPTION("Example Device Driver with mmap, read, and write");
+
+
