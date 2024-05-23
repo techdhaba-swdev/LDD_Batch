@@ -2,18 +2,24 @@
 #include <linux/netdevice.h>
 #include <linux/etherdevice.h>
 
+//defining the pointer to  structure of the net_device
 static struct net_device *dev;
+// network device open operation 
 static int my_open(struct net_device *dev) {
+    // start transmission queue of the network device
     netif_start_queue(dev);
     return 0;
 }
-
+// network device close 
 static int my_stop(struct net_device *dev) {
+    // stops the transmision queue of the network device
     netif_stop_queue(dev);
     return 0;
 }
+// start the transmision of the data packets
 static netdev_tx_t my_start_xmit(struct sk_buff *skb, struct net_device *dev) {
     // Transmission logic here
+    // frees the socket buffer after transmision
     dev_kfree_skb(skb);
     return NETDEV_TX_OK;
 }

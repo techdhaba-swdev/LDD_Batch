@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may23/block_driver/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Documents/LDD_Batch/srinivasa/may23/block_driver/Module.symvers -T /home/rps/Documents/LDD_Batch/srinivasa/may23/block_driver/modules.order -i Module.symvers -e 
