@@ -1,0 +1,1 @@
+savedcmd_/home/rps/21MAY_LDD/MMAP_ADD/add.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/21MAY_LDD/MMAP_ADD/add.ko /home/rps/21MAY_LDD/MMAP_ADD/add.o /home/rps/21MAY_LDD/MMAP_ADD/add.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/21MAY_LDD/MMAP_ADD/add.ko
