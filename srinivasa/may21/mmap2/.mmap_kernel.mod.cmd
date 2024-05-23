@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may21/mmap2/mmap_kernel.mod := printf '%s\n'   mmap_kernel.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may21/mmap2/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may21/mmap2/mmap_kernel.mod

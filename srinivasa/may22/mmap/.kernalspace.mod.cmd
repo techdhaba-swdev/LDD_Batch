@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may22/mmap/kernalspace.mod := printf '%s\n'   kernalspace.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may22/mmap/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may22/mmap/kernalspace.mod

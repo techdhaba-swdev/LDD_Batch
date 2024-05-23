@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may22/lseek/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Documents/LDD_Batch/srinivasa/may22/lseek/Module.symvers -T /home/rps/Documents/LDD_Batch/srinivasa/may22/lseek/modules.order -i Module.symvers -e 

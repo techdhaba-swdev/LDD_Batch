@@ -1,4 +1,3 @@
-// header files
 #include <linux/module.h>
 #include <linux/fs.h>
 #include <linux/mm.h>
@@ -6,7 +5,7 @@
 #include <linux/uaccess.h>
 #include <linux/slab.h>
 
-#define DEVICE_NAME "my_device"
+#define DEVICE_NAME "add__mmap"
 #define DEVICE_MEMORY_SIZE 4096  // 4KB
 
 static char *device_memory;
@@ -20,6 +19,36 @@ static int my_device_open(struct inode *inode, struct file *file) {
 static int my_device_release(struct inode *inode, struct file *file) {
     printk(KERN_INFO "my_device: release\n");
     return 0;
+}
+
+static ssize_t my_device_write(struct file *file, const char __user *buffer, size_t len, loff_t *ppos) {
+    int num1, num2, result;
+
+    if (len < sizeof(int) * 2 ) {
+        return -EINVAL;
+    }
+
+    if (copy_from_user(device_memory, buffer, len)) {
+        return -EFAULT;
+    }
+
+    memcpy(&num1, device_memory, sizeof(int));
+    memcpy(&num2, device_memory + sizeof(int), sizeof(int));
+
+    printk(KERN_INFO "Received  num1: %d, num2: %d\n", num1, num2);
+    
+    result = num1 + num2;
+    memcpy(device_memory, &result, sizeof(int));
+    printk(KERN_INFO "Processed result: %d\n", result);
+
+    return len;
+}
+
+static ssize_t my_device_read(struct file *file, char __user *buffer, size_t len, loff_t *ppos) {
+    if (copy_to_user(buffer, device_memory, sizeof(int))) {
+        return -EFAULT;
+    }
+    return sizeof(int);
 }
 
 static int my_device_mmap(struct file *filp, struct vm_area_struct *vma) {
@@ -42,6 +71,8 @@ static const struct file_operations my_device_fops = {
     .owner = THIS_MODULE,
     .open = my_device_open,
     .release = my_device_release,
+    .write = my_device_write,
+    .read = my_device_read,
     .mmap = my_device_mmap,
 };
 
@@ -73,5 +104,5 @@ module_init(my_device_init);
 module_exit(my_device_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Your Name");
+MODULE_AUTHOR("srinu");
 MODULE_DESCRIPTION("Example Device Driver with mmap");
