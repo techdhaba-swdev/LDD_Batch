@@ -58,6 +58,7 @@ static long device_ioctl(struct file *file, unsigned int ioctl_num, unsigned lon
         default:
             return -EINVAL;
     }
+    pr_info("string length = %d",msg_len);
     return 0;
 }
 
