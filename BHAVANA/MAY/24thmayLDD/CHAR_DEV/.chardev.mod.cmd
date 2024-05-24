@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/BHAVANA_CODES/24thmayLDD/CHAR_DEV/chardev.mod := printf '%s\n'   chardev.o | awk '!x[$$0]++ { print("/home/rps/Documents/BHAVANA_CODES/24thmayLDD/CHAR_DEV/"$$0) }' > /home/rps/Documents/BHAVANA_CODES/24thmayLDD/CHAR_DEV/chardev.mod
