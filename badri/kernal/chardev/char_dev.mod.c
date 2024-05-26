@@ -36,10 +36,11 @@ MODULE_INFO(retpoline, "Y");
 static const struct modversion_info ____versions[]
 __used __section("__versions") = {
 	{ 0x6bc3fbc0, "__unregister_chrdev" },
+	{ 0x13c49cc2, "_copy_from_user" },
 	{ 0xbdfb6dbb, "__fentry__" },
 	{ 0x122c3a7e, "_printk" },
 	{ 0x5b8239ca, "__x86_return_thunk" },
-	{ 0x13c49cc2, "_copy_from_user" },
+	{ 0x88db9f48, "__check_object_size" },
 	{ 0x6b10bee1, "_copy_to_user" },
 	{ 0x6006375e, "__register_chrdev" },
 	{ 0x2fa5cadd, "module_layout" },
@@ -48,4 +49,4 @@ __used __section("__versions") = {
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "9E5DFB95A8CFC9DD304B311");
+MODULE_INFO(srcversion, "84FC51B738D80BD32A18733");

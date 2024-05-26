@@ -1,0 +1,1 @@
+hi this is example file to read the data and print 
