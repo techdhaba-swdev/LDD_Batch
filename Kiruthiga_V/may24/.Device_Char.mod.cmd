@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may24/Device_Char.mod := printf '%s\n'   Device_Char.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may24/"$$0) }' > /home/rps/Desktop/daywise/may24/Device_Char.mod

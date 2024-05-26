@@ -23,8 +23,22 @@ static void simple_block_request(struct request_queue *q) {
             continue;
         }
 
-        // Handle the request here
-        // For now, we just complete it successfully
+        // Perform actual IO operations here
+        if (blk_rq_is_passthrough(req)) {
+            printk(KERN_NOTICE "Skip passthrough request\n");
+            blk_end_request_all(req, -EIO);
+            continue;
+        }
+
+        unsigned long sector = blk_rq_pos(req) * SECTOR_SIZE;
+        unsigned long nbytes = blk_rq_cur_bytes(req);
+
+        if (rq_data_dir(req) == READ) {
+            memcpy(req->buffer, device_data + sector, nbytes);
+        } else {
+            memcpy(device_data + sector, req->buffer, nbytes);
+        }
+
         blk_end_request_all(req, 0);
     }
 }
@@ -37,9 +51,9 @@ static void simple_block_release(struct gendisk *gd, fmode_t mode) {
 }
 
 static int simple_block_getgeo(struct block_device *bdev, struct hd_geometry *geo) {
-    geo->heads = 1;
-    geo->sectors = NSECTORS;
-    geo->cylinders = 1;
+    geo->heads = 64;
+    geo->sectors = 32;
+    geo->cylinders = NSECTORS / (geo->heads * geo->sectors);
     geo->start = 0;
     return 0;
 }
@@ -101,8 +115,7 @@ static void __exit simple_block_exit(void) {
     del_gendisk(gd);
     put_disk(gd);
     blk_cleanup_queue(queue);
-    unregis
-ter_blkdev(major_num, DEVICE_NAME);
+    unregister_blkdev(major_num, DEVICE_NAME);
     vfree(device_data);
     printk(KERN_INFO "simple_block: module unloaded\n");
 }
@@ -111,7 +124,8 @@ module_init(simple_block_init);
 module_exit(simple_block_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Kiruthiga");
+MODULE_AUTHOR("techdhaba");
 MODULE_DESCRIPTION("A simple block device driver");
 MODULE_VERSION("0.1");
+
 

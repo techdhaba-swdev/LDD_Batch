@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may24/basic_char/basic_char.mod := printf '%s\n'   basic_char.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may24/basic_char/"$$0) }' > /home/rps/Desktop/daywise/may24/basic_char/basic_char.mod
