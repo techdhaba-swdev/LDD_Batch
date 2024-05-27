@@ -1,0 +1,4 @@
+hii 
+this is an example to open file
+in read only mode
+
