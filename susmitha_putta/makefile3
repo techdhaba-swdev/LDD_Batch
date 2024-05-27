@@ -1,2 +1,2 @@
-post:binarymain.c binary.c
-	gcc -o post binarymain.c binary.c -I.
+stack:main.c stack.c
+	gcc -o stack main.c stack.c
