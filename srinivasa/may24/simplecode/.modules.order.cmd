@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may24/simplecode/modules.order := {   echo /home/rps/Documents/LDD_Batch/srinivasa/may24/simplecode/simple_kernal.o; :; } > /home/rps/Documents/LDD_Batch/srinivasa/may24/simplecode/modules.order

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/LDD_Batch/srinivasa/may24/simplecode/simple_kernal.mod := printf '%s\n'   simple_kernal.o | awk '!x[$$0]++ { print("/home/rps/Documents/LDD_Batch/srinivasa/may24/simplecode/"$$0) }' > /home/rps/Documents/LDD_Batch/srinivasa/may24/simplecode/simple_kernal.mod
