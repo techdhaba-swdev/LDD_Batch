@@ -1,0 +1,1 @@
+this is how to use  stat to retrieve the information of the file in fixed blocks it hhow file system acess data
