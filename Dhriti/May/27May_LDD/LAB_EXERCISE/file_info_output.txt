@@ -1,0 +1,2 @@
+Inode number: 8392387
+Block size: 4096 bytes
