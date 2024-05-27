@@ -1,0 +1,2 @@
+hi input of c language in file descriptor
+bye 
