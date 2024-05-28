@@ -1,0 +1,4 @@
+hi litheef
+this is second problem2
+read the data line by line .
+close the file

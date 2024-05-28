@@ -1,0 +1,3 @@
+hi litheef	
+this problem4 
+in this usong lstat=this is used to retrive the information about a file or symbolic link,but it doesnot directly provide details about the i node number or block size of the file data.
