@@ -3,7 +3,7 @@
 #include <linux/blkdev.h>
 #include <linux/hdreg.h>
 #include <linux/vmalloc.h>
-//#include <linux/genhd.h>
+#include <linux/genhd.h>
 
 #define DEVICE_NAME "simple_block"
 #define SECTOR_SIZE 512
