@@ -66,7 +66,7 @@ static ssize_t device_write(struct file *filp, const char __user *buffer, size_t
 
         // Convert the result back to a string
         snprintf(kernel_buffer, BUF_SIZE, "Result: %d", result);
-	copy_to_user(buffer, kernel_buffer, strlen(kernel_buffer) + 1);
+//	copy_to_user(buffer, kernel_buffer, strlen(kernel_buffer) + 1);
 //	printk(KERN_INFO "Kernel result: %d\n", result);
     }
     return written;
