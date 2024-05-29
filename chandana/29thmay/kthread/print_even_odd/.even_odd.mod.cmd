@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_LDD/LDD_Batch/chandana/29thmay/kthread/print_even_odd/even_odd.mod := printf '%s\n'   even_odd.o | awk '!x[$$0]++ { print("/home/rps/Documents/demo_repo_LDD/LDD_Batch/chandana/29thmay/kthread/print_even_odd/"$$0) }' > /home/rps/Documents/demo_repo_LDD/LDD_Batch/chandana/29thmay/kthread/print_even_odd/even_odd.mod
