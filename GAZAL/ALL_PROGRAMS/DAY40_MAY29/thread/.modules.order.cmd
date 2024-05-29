@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/thread/modules.order := {   echo /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/thread/thread.o; :; } > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/thread/modules.order

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/SYSFS/modules.order := {   echo /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/SYSFS/sysfs.o; :; } > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/SYSFS/modules.order

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/thread/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/thread/Module.symvers -T /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/thread/modules.order -i Module.symvers -e 

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/even_odd_thread/even_odd.mod := printf '%s\n'   even_odd.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/even_odd_thread/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY40_MAY29/even_odd_thread/even_odd.mod
