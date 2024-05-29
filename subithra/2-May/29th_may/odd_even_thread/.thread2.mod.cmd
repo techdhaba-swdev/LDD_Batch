@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/29th_may/odd_even_thread/thread2.mod := printf '%s\n'   thread2.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/29th_may/odd_even_thread/"$$0) }' > /home/rps/subithra_s/Documents/29th_may/odd_even_thread/thread2.mod
