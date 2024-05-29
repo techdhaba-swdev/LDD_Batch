@@ -19,7 +19,7 @@ int main() {
   // Child process
   else {
     printf("Child process: PID = %d\n", getpid());
-    char *argv[] = {"ls", "-l", NULL}; // Arguments for ls command
+    char *argv[] = {"ls", "-ld", NULL}; // Arguments for ls command
     execv("/bin/ls", argv);  // Replace child process with ls
     perror("execv failed");  // Only if execv fails
     exit(1);

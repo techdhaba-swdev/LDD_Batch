@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/kthr.mod := printf '%s\n'   kthr.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/kthr.mod

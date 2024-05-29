@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/even/modules.order := {   echo /home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/even/even.o; :; } > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/even/modules.order

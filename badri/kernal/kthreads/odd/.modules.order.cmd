@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/odd/modules.order := {   echo /home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/odd/odd.o; :; } > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/odd/modules.order

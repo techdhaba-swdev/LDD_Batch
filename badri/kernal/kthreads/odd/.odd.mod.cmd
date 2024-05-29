@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/odd/odd.mod := printf '%s\n'   odd.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/odd/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/kthreads/odd/odd.mod

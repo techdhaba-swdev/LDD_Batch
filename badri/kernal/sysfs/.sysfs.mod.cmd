@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/sysfs/sysfs.mod := printf '%s\n'   sysfs.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/sysfs/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/sysfs/sysfs.mod
