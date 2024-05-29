@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may29/sysfs/sysfs.mod := printf '%s\n'   sysfs.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may29/sysfs/"$$0) }' > /home/rps/Desktop/daywise/may29/sysfs/sysfs.mod

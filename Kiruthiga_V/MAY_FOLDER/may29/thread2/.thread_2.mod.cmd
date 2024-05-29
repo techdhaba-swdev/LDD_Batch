@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may29/thread2/thread_2.mod := printf '%s\n'   thread_2.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may29/thread2/"$$0) }' > /home/rps/Desktop/daywise/may29/thread2/thread_2.mod
