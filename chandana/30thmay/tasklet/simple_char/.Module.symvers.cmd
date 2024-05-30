@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_LDD/LDD_Batch/chandana/30thmay/tasklet/simple_char/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Documents/demo_repo_LDD/LDD_Batch/chandana/30thmay/tasklet/simple_char/Module.symvers -T /home/rps/Documents/demo_repo_LDD/LDD_Batch/chandana/30thmay/tasklet/simple_char/modules.order -i Module.symvers -e 
