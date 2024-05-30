@@ -1,0 +1,1 @@
+savedcmd_/home/rps/29MAY_LDD/SYS_FS/sys.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/29MAY_LDD/SYS_FS/sys.ko /home/rps/29MAY_LDD/SYS_FS/sys.o /home/rps/29MAY_LDD/SYS_FS/sys.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/29MAY_LDD/SYS_FS/sys.ko

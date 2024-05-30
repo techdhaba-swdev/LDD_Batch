@@ -1,0 +1,1 @@
+savedcmd_/home/rps/linux_device_driver/LDD_Batch/Dhriti/May/29MAY_LDD/Tasklet_2/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/linux_device_driver/LDD_Batch/Dhriti/May/29MAY_LDD/Tasklet_2/Module.symvers -T /home/rps/linux_device_driver/LDD_Batch/Dhriti/May/29MAY_LDD/Tasklet_2/modules.order -i Module.symvers -e 
