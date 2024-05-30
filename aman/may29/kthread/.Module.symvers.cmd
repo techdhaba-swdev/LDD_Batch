@@ -1,0 +1,1 @@
+savedcmd_/home/rps/amanraj/LDD_Batch/aman/may29/kthread/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/amanraj/LDD_Batch/aman/may29/kthread/Module.symvers -T /home/rps/amanraj/LDD_Batch/aman/may29/kthread/modules.order -i Module.symvers -e 
