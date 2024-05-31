@@ -1,0 +1,1 @@
+savedcmd_/home/rps/amanraj/LDD_Batch/aman/may29/kthread2/kthread2.mod := printf '%s\n'   kthread2.o | awk '!x[$$0]++ { print("/home/rps/amanraj/LDD_Batch/aman/may29/kthread2/"$$0) }' > /home/rps/amanraj/LDD_Batch/aman/may29/kthread2/kthread2.mod

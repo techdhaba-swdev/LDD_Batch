@@ -13,7 +13,7 @@ void my_tasklet_handler(unsigned long data)
 }
 
 // Declare and initialize the tasklet
-DECLARE_TASKLET(my_tasklet, my_tasklet_handler, 0);
+DECLARE_TASKLET(my_tasklet_handler, 0);
 
 // Device file operations
 static int my_open(struct inode *inode, struct file *file)

@@ -7,7 +7,7 @@ void my_tasklet_handler(unsigned long data)
     printk(KERN_INFO "Tasklet handler called with data: %lu\n", data);
 }
 
-DECLARE_TASKLET(my_tasklet, my_tasklet_handler, 0);
+DECLARE_TASKLET(my_tasklet_handler, 0);
 
 void my_interrupt_handler(void)
 {
