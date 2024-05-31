@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/may29/kthreadoddeven/modules.order := {   echo /home/rps/Desktop/daily_work/linux_device_drivers/may29/kthreadoddeven/kthread.o; :; } > /home/rps/Desktop/daily_work/linux_device_drivers/may29/kthreadoddeven/modules.order

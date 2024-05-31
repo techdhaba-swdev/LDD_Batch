@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/may29/sys_proc/proc_driver.mod := printf '%s\n'   proc_driver.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daily_work/linux_device_drivers/may29/sys_proc/"$$0) }' > /home/rps/Desktop/daily_work/linux_device_drivers/may29/sys_proc/proc_driver.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/may29/basicdriver/modules.order := {   echo /home/rps/Desktop/daily_work/linux_device_drivers/may29/basicdriver/kernel.o; :; } > /home/rps/Desktop/daily_work/linux_device_drivers/may29/basicdriver/modules.order

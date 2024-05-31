@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/may29/sysfs/modules.order := {   echo /home/rps/Desktop/daily_work/linux_device_drivers/may29/sysfs/sys_driver.o; :; } > /home/rps/Desktop/daily_work/linux_device_drivers/may29/sysfs/modules.order

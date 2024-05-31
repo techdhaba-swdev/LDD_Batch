@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/may30/Timer_device/timer_module.mod := printf '%s\n'   timer_module.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daily_work/linux_device_drivers/may30/Timer_device/"$$0) }' > /home/rps/Desktop/daily_work/linux_device_drivers/may30/Timer_device/timer_module.mod

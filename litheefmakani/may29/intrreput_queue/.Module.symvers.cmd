@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/may29/intrreput_queue/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/daily_work/linux_device_drivers/may29/intrreput_queue/Module.symvers -T /home/rps/Desktop/daily_work/linux_device_drivers/may29/intrreput_queue/modules.order -i Module.symvers -e 

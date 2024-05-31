@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/may29/sys_proc/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/daily_work/linux_device_drivers/may29/sys_proc/Module.symvers -T /home/rps/Desktop/daily_work/linux_device_drivers/may29/sys_proc/modules.order -i Module.symvers -e 
