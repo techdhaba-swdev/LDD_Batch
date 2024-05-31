@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Documents/demo_repo_LDD/LDD_Batch/chandana/31stmay/USB/1st/usb_example.mod := printf '%s\n'   usb_example.o | awk '!x[$$0]++ { print("/home/rps/Documents/demo_repo_LDD/LDD_Batch/chandana/31stmay/USB/1st/"$$0) }' > /home/rps/Documents/demo_repo_LDD/LDD_Batch/chandana/31stmay/USB/1st/usb_example.mod
