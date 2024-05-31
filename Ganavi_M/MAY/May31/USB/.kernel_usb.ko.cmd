@@ -1,0 +1,1 @@
+savedcmd_/home/rps/MAY/May31/USB/kernel_usb.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/MAY/May31/USB/kernel_usb.ko /home/rps/MAY/May31/USB/kernel_usb.o /home/rps/MAY/May31/USB/kernel_usb.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/MAY/May31/USB/kernel_usb.ko
