@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/may31/USB_Driver/modules.order := {   echo /home/rps/Desktop/daily_work/linux_device_drivers/may31/USB_Driver/usb_module.o; :; } > /home/rps/Desktop/daily_work/linux_device_drivers/may31/USB_Driver/modules.order
