@@ -1,0 +1,1 @@
+savedcmd_/home/rps/amanraj/LDD_Batch/aman/may31/dma.mod := printf '%s\n'   dma.o | awk '!x[$$0]++ { print("/home/rps/amanraj/LDD_Batch/aman/may31/"$$0) }' > /home/rps/amanraj/LDD_Batch/aman/may31/dma.mod
