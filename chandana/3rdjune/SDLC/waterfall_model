@@ -1,0 +1,59 @@
+1.Requirements :
+
+->To do the documnet of all the functional and non functional requirements 
+
+*meeting with the business stakeholders or the business analyst
+*create a detailed requirements specification.
+*create doucument of requirements.
+
+2.Analysis :
+-> to analyze the requirements and translate them into a detailed system
+
+*evaluate the feasibility of the requirements.
+*identify the necessary software and hardware components.
+*develop models and diagrams to represent the system's structure and behaviour.
+
+3.Design :
+
+->to create a detailed design of the system that will help to implement.
+
+*develop detailed design specifications for all the components.
+*create design documnets.
+*create user interfaces,system interfaces,databases and algorithms.
+
+4.Implementation :
+
+->to convert the design documnets into executable code
+
+*write the actual code on design basis.
+*follow coding guidelines and standard.
+*and make sure that implementation is correct.
+
+5.Testing :
+
+->to ensure the software meets the requierements and is free of detects.
+
+*perform various levels of testing,
+*identify and fix defects and issues.
+*validate that the system performs as expected in different environments.
+
+
+**Specification
+Comprehensive Requirement Gathering: 
+Engage with all stakeholders to collect detailed and comprehensive requirements, all functional aspects are covered.
+
+Requirement Validation: Regularly validate and review the requirements with stakeholders to ensure accuracy and alignment with business goals, preventing misunderstandings and miscommunications.
+Design
+
+High-Level and Detailed Design: Develop both high-level architecture and detailed component designs to ensure a clear understanding of the system structure and interactions.
+
+Design Reviews and Iterations: Conduct regular design reviews and iterations to identify and address potential issues early, ensuring the design is robust, scalable, and meets requirements.
+Implementation
+
+Modular and Incremental Development: Implement the system in modular components and incrementally develop features, facilitating easier integration, testing, and maintenance.
+
+Adherence to Coding Standards: Follow established coding standards and best practices to ensure code quality, readability, and maintainability, promoting consistency across the development team.
+
+Testing and Maintenance
+Comprehensive Testing Strategy: Implement a thorough testing strategy that includes unit, integration, system, and user acceptance testing to ensure the software is robust, functional, and meets user expectations.
+Ongoing Maintenance and Support: Establish a proactive maintenance plan to address bugs, performance issues, and security vulnerabilities, ensuring the system remains reliable, secure, and up-to-date over time.
