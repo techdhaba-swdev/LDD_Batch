@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may31/pci/exp_pci.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/may31/pci/exp_pci.ko /home/rps/may31/pci/exp_pci.o /home/rps/may31/pci/exp_pci.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/may31/pci/exp_pci.ko

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/may29/kthread12/even_odd.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/may29/kthread12/even_odd.ko /home/rps/may29/kthread12/even_odd.o /home/rps/may29/kthread12/even_odd.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/may29/kthread12/even_odd.ko
