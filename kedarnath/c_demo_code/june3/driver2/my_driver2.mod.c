@@ -35,31 +35,23 @@ MODULE_INFO(retpoline, "Y");
 
 static const struct modversion_info ____versions[]
 __used __section("__versions") = {
-	{ 0xfab2eeaa, "class_unregister" },
-	{ 0x92ce99, "class_destroy" },
-	{ 0x6bc3fbc0, "__unregister_chrdev" },
-	{ 0x6006375e, "__register_chrdev" },
-	{ 0x1399bb1, "class_create" },
-	{ 0xd3044a78, "device_create" },
-	{ 0x90c20ca2, "usb_register_dev" },
-	{ 0x74bc459a, "usb_deregister" },
-	{ 0x3dad4972, "usb_bulk_msg" },
-	{ 0x88db9f48, "__check_object_size" },
-	{ 0x6b10bee1, "_copy_to_user" },
-	{ 0x7682ba4e, "__copy_overflow" },
-	{ 0xf0fdf6cb, "__stack_chk_fail" },
+	{ 0x6091b333, "unregister_chrdev_region" },
 	{ 0x13c49cc2, "_copy_from_user" },
+	{ 0xba8fbd64, "_raw_spin_lock" },
+	{ 0xb5b54b34, "_raw_spin_unlock" },
+	{ 0xf0fdf6cb, "__stack_chk_fail" },
+	{ 0x6b10bee1, "_copy_to_user" },
+	{ 0x8f44466e, "cdev_del" },
 	{ 0xbdfb6dbb, "__fentry__" },
 	{ 0x5b8239ca, "__x86_return_thunk" },
+	{ 0xe3ec2f2b, "alloc_chrdev_region" },
+	{ 0xa6f7a612, "cdev_init" },
+	{ 0xf4407d6b, "cdev_add" },
 	{ 0x122c3a7e, "_printk" },
-	{ 0x4523577f, "usb_register_driver" },
-	{ 0x2df40867, "usb_deregister_dev" },
-	{ 0xf7be671b, "device_destroy" },
 	{ 0x2fa5cadd, "module_layout" },
 };
 
 MODULE_INFO(depends, "");
 
-MODULE_ALIAS("usb:v1234p5678d*dc*dsc*dp*ic*isc*ip*in*");
 
-MODULE_INFO(srcversion, "351F0F5DB9D02C82A89DA9A");
+MODULE_INFO(srcversion, "8CC081781811112A78DE97E");
