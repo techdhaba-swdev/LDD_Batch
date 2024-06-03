@@ -1,0 +1,96 @@
+Google meet
+
+1.Requirements
+
+Gather user needs and objectives.
+Define core features like video calls and screen sharing.
+Determine scalability and security requirements.
+Document all needs clearly.
+
+2. Analysis
+
+Review and validate user needs.
+Pick the right technologies and platforms.
+Understand how users will use Google Meet.
+Identify risks and constraints.
+Develop use cases and stories.
+
+3. Design
+
+Design the system architecture and user interface.
+Specify how audio and video will work.
+Create wireframes and mockups.
+Consider accessibility and compatibility.
+
+4. Implementation
+
+Write the code for clients and servers.
+Choose programming languages and tools.
+Implement features like video calls and chat.
+Integrate with other Google services.
+Review and test the code.
+
+5. Testing
+
+Create and run tests based on requirements.
+Test different scenarios, like bad network conditions.
+Check performance and security.
+Fix any issues found during testing.
+
+
+
+Requirements Specification
+Gathering Requirements:
+
+Talk to people to understand what they want the software to do.
+Write down all the things the software needs to be able to do.
+Analysis and Prioritization:
+
+Make sure the requirements make sense and can be done.
+Decide which things are most important and need to be done first.
+
+
+Design
+System Architecture:
+
+Plan how the software will be built and what parts it will have.
+Make sure all the parts of the software can work together.
+Detailed Design:
+
+Write down exactly how each part of the software will work.
+Draw pictures to show how everything fits together.
+
+Implementation
+Writing Code:
+
+Write the actual computer code that makes the software work.
+Follow rules to make sure the code is easy to understand.
+Integration and Testing:
+
+Put all the parts of the software together to see if they work.
+Test each part of the software to make sure it does what it's supposed to.
+
+Testing
+Test Planning:
+
+Make a plan for how to test the software to make sure it works correctly.
+Write down all the different tests that need to be done.
+Execution and Validation:
+
+Do the tests to see if the software works the way it should.
+Check that the software does what it's supposed to do and doesn't have any problems.
+
+Maintenance
+Bug Fixing and Updates:
+
+Fix any problems in the software that users find.
+Make updates to the software to add new features or improve how it works.
+
+Enhancements and Evolution:
+
+Make the software better based on feedback from users.
+Add new features or improve existing ones to make the software more useful.
+
+
+
+
