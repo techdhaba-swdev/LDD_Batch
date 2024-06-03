@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may31/usbdriver/usbdriver.mod := printf '%s\n'   usbdriver.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may31/usbdriver/"$$0) }' > /home/rps/Desktop/daywise/may31/usbdriver/usbdriver.mod

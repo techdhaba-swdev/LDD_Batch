@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daywise/may31/dma_driver/dma_driver.mod := printf '%s\n'   dma_driver.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daywise/may31/dma_driver/"$$0) }' > /home/rps/Desktop/daywise/may31/dma_driver/dma_driver.mod
