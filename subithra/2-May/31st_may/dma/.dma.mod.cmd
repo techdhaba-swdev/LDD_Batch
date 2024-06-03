@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/31st_may/dma/dma.mod := printf '%s\n'   dma.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/31st_may/dma/"$$0) }' > /home/rps/subithra_s/Documents/31st_may/dma/dma.mod

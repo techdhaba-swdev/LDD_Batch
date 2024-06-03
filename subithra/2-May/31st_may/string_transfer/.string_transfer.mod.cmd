@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/31st_may/string_transfer/string_transfer.mod := printf '%s\n'   string_transfer.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/31st_may/string_transfer/"$$0) }' > /home/rps/subithra_s/Documents/31st_may/string_transfer/string_transfer.mod
