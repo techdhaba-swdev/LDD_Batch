@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may31/direct_memory_access/dma_driver.mod := printf '%s\n'   dma_driver.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may31/direct_memory_access/"$$0) }' > /home/rps/Desktop/Venkatasai/may31/direct_memory_access/dma_driver.mod

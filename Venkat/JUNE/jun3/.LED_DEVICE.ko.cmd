@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/jun3/LED_DEVICE.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/Desktop/Venkatasai/jun3/LED_DEVICE.ko /home/rps/Desktop/Venkatasai/jun3/LED_DEVICE.o /home/rps/Desktop/Venkatasai/jun3/LED_DEVICE.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/Desktop/Venkatasai/jun3/LED_DEVICE.ko

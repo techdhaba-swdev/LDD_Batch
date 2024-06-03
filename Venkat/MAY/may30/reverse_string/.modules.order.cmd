@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may30/reverse_string/modules.order := {   echo /home/rps/Desktop/Venkatasai/may30/reverse_string/rev_string.o; :; } > /home/rps/Desktop/Venkatasai/may30/reverse_string/modules.order

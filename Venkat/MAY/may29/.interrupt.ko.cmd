@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may29/interrupt.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/Desktop/Venkatasai/may29/interrupt.ko /home/rps/Desktop/Venkatasai/may29/interrupt.o /home/rps/Desktop/Venkatasai/may29/interrupt.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/Desktop/Venkatasai/may29/interrupt.ko

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may29/kthread/kthread.mod := printf '%s\n'   kthread.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may29/kthread/"$$0) }' > /home/rps/Desktop/Venkatasai/may29/kthread/kthread.mod

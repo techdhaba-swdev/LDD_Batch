@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/jun3/led_driver/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/Venkatasai/jun3/led_driver/Module.symvers -T /home/rps/Desktop/Venkatasai/jun3/led_driver/modules.order -i Module.symvers -e 

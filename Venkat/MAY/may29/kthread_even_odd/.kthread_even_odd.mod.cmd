@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may29/kthread_even_odd/kthread_even_odd.mod := printf '%s\n'   kthread_even_odd.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may29/kthread_even_odd/"$$0) }' > /home/rps/Desktop/Venkatasai/may29/kthread_even_odd/kthread_even_odd.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Venkatasai/may31/USB_driver/usb_driver.mod := printf '%s\n'   usb_driver.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Venkatasai/may31/USB_driver/"$$0) }' > /home/rps/Desktop/Venkatasai/may31/USB_driver/usb_driver.mod
