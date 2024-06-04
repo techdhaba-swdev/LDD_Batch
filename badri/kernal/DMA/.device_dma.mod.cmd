@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/DMA/device_dma.mod := printf '%s\n'   device_dma.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/DMA/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/DMA/device_dma.mod

@@ -16,7 +16,7 @@ int main() {
     }
 
     ioctl(fd, IOCTL_SET_MSG, message);
-
+printf("%s\n",message);
     close(fd);
     return 0;
 }

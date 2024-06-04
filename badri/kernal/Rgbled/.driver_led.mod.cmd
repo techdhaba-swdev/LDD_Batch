@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/Rgbled/driver_led.mod := printf '%s\n'   driver_led.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/Rgbled/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/Rgbled/driver_led.mod

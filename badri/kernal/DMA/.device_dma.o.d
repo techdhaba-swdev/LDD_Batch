@@ -1,5 +1,5 @@
-tasklet2.o: \
- /home/rps/Desktop/demo/LDD_Batch/badri/kernal/tasklet2/tasklet2.c \
+device_dma.o: \
+ /home/rps/Desktop/demo/LDD_Batch/badri/kernal/DMA/device_dma.c \
  include/linux/compiler-version.h include/linux/kconfig.h \
  include/generated/autoconf.h include/linux/compiler_types.h \
  include/linux/compiler_attributes.h include/linux/compiler-gcc.h \
@@ -214,54 +214,74 @@ tasklet2.o: \
  include/linux/moduleparam.h include/linux/rbtree_latch.h \
  include/linux/error-injection.h include/asm-generic/error-injection.h \
  arch/x86/include/asm/module.h include/asm-generic/module.h \
- arch/x86/include/asm/orc_types.h include/linux/interrupt.h \
- include/linux/irqreturn.h include/linux/hardirq.h \
- include/linux/context_tracking_state.h include/linux/ftrace_irq.h \
- include/linux/vtime.h arch/x86/include/asm/hardirq.h \
- arch/x86/include/asm/irq.h arch/x86/include/asm/irq_vectors.h \
- arch/x86/include/asm/sections.h include/asm-generic/sections.h \
- arch/x86/include/asm/extable.h include/linux/fs.h \
- include/linux/wait_bit.h include/linux/kdev_t.h \
+ arch/x86/include/asm/orc_types.h include/linux/pci.h \
+ include/linux/mod_devicetable.h include/uapi/linux/mei.h \
+ include/uapi/linux/mei_uuid.h include/linux/uuid.h \
+ include/linux/ioport.h include/linux/device.h include/linux/dev_printk.h \
+ include/linux/ratelimit.h include/linux/energy_model.h \
+ include/linux/sched/cpufreq.h include/linux/sched/topology.h \
+ include/linux/sched/idle.h include/linux/sched/sd_flags.h \
+ include/linux/klist.h include/linux/pm.h include/linux/device/bus.h \
+ include/linux/device/class.h include/linux/device/driver.h \
+ arch/x86/include/asm/device.h include/linux/pm_wakeup.h \
+ include/linux/interrupt.h include/linux/irqreturn.h \
+ include/linux/hardirq.h include/linux/context_tracking_state.h \
+ include/linux/ftrace_irq.h include/linux/vtime.h \
+ arch/x86/include/asm/hardirq.h arch/x86/include/asm/irq.h \
+ arch/x86/include/asm/irq_vectors.h arch/x86/include/asm/sections.h \
+ include/asm-generic/sections.h arch/x86/include/asm/extable.h \
+ include/linux/io.h arch/x86/include/asm/io.h \
+ arch/x86/include/generated/asm/early_ioremap.h \
+ include/asm-generic/early_ioremap.h arch/x86/include/asm/shared/io.h \
+ include/asm-generic/iomap.h include/asm-generic/pci_iomap.h \
+ include/asm-generic/io.h include/linux/logic_pio.h \
+ include/linux/fwnode.h include/linux/vmalloc.h \
+ arch/x86/include/asm/vmalloc.h arch/x86/include/asm/pgtable_areas.h \
+ include/linux/resource_ext.h include/linux/slab.h \
+ include/linux/percpu-refcount.h include/linux/kasan.h \
+ include/linux/kasan-enabled.h include/linux/msi_api.h \
+ include/uapi/linux/pci.h include/uapi/linux/pci_regs.h \
+ include/linux/pci_ids.h include/linux/dmapool.h \
+ include/linux/scatterlist.h include/linux/mm.h include/linux/mmap_lock.h \
+ include/linux/bit_spinlock.h include/linux/shrinker.h \
+ include/linux/page_ext.h include/linux/stacktrace.h \
+ include/linux/stackdepot.h include/linux/page_ref.h \
+ include/linux/sizes.h include/linux/pgtable.h \
+ arch/x86/include/asm/pgtable.h arch/x86/include/asm/pkru.h \
+ arch/x86/include/asm/fpu/api.h arch/x86/include/asm/coco.h \
+ include/asm-generic/pgtable_uffd.h include/linux/page_table_check.h \
+ arch/x86/include/asm/pgtable_64.h arch/x86/include/asm/fixmap.h \
+ arch/x86/include/uapi/asm/vsyscall.h include/asm-generic/fixmap.h \
+ arch/x86/include/asm/pgtable-invert.h include/linux/memremap.h \
+ include/linux/huge_mm.h include/linux/sched/coredump.h \
+ include/linux/fs.h include/linux/wait_bit.h include/linux/kdev_t.h \
  include/uapi/linux/kdev_t.h include/linux/dcache.h \
  include/linux/rculist_bl.h include/linux/list_bl.h \
- include/linux/bit_spinlock.h include/linux/lockref.h \
- include/linux/stringhash.h include/linux/hash.h include/linux/path.h \
- include/linux/list_lru.h include/linux/shrinker.h \
- include/linux/capability.h include/uapi/linux/capability.h \
- include/linux/semaphore.h include/linux/fcntl.h \
- include/uapi/linux/fcntl.h arch/x86/include/generated/uapi/asm/fcntl.h \
+ include/linux/lockref.h include/linux/stringhash.h include/linux/hash.h \
+ include/linux/path.h include/linux/list_lru.h include/linux/capability.h \
+ include/uapi/linux/capability.h include/linux/semaphore.h \
+ include/linux/fcntl.h include/uapi/linux/fcntl.h \
+ arch/x86/include/generated/uapi/asm/fcntl.h \
  include/uapi/asm-generic/fcntl.h include/uapi/linux/openat2.h \
  include/linux/migrate_mode.h include/linux/percpu-rwsem.h \
  include/linux/rcuwait.h include/linux/sched/signal.h \
  include/linux/signal.h include/linux/sched/jobctl.h \
  include/linux/sched/task.h include/linux/uaccess.h \
  include/linux/fault-inject-usercopy.h arch/x86/include/asm/uaccess.h \
- include/linux/mmap_lock.h arch/x86/include/asm/smap.h \
- arch/x86/include/asm/tlbflush.h arch/x86/include/asm/invpcid.h \
- arch/x86/include/asm/pti.h arch/x86/include/asm/pgtable.h \
- arch/x86/include/asm/pkru.h arch/x86/include/asm/fpu/api.h \
- arch/x86/include/asm/coco.h include/asm-generic/pgtable_uffd.h \
- include/linux/page_table_check.h arch/x86/include/asm/pgtable_64.h \
- arch/x86/include/asm/fixmap.h arch/x86/include/uapi/asm/vsyscall.h \
- include/asm-generic/fixmap.h arch/x86/include/asm/pgtable-invert.h \
+ arch/x86/include/asm/smap.h arch/x86/include/asm/tlbflush.h \
+ arch/x86/include/asm/invpcid.h arch/x86/include/asm/pti.h \
  arch/x86/include/asm/uaccess_64.h include/asm-generic/access_ok.h \
  include/linux/cred.h include/linux/key.h include/linux/assoc_array.h \
- include/linux/sched/user.h include/linux/ratelimit.h \
- include/linux/rcu_sync.h include/linux/delayed_call.h \
- include/linux/uuid.h include/linux/errseq.h include/linux/ioprio.h \
- include/linux/sched/rt.h include/linux/iocontext.h \
- include/uapi/linux/ioprio.h include/linux/fs_types.h \
- include/linux/mount.h include/linux/mnt_idmapping.h include/linux/slab.h \
- include/linux/percpu-refcount.h include/linux/kasan.h \
- include/linux/kasan-enabled.h include/uapi/linux/fs.h \
+ include/linux/sched/user.h include/linux/rcu_sync.h \
+ include/linux/delayed_call.h include/linux/errseq.h \
+ include/linux/ioprio.h include/linux/sched/rt.h \
+ include/linux/iocontext.h include/uapi/linux/ioprio.h \
+ include/linux/fs_types.h include/linux/mount.h \
+ include/linux/mnt_idmapping.h include/uapi/linux/fs.h \
  include/linux/quota.h include/uapi/linux/dqblk_xfs.h \
  include/linux/dqblk_v1.h include/linux/dqblk_v2.h \
  include/linux/dqblk_qtree.h include/linux/projid.h \
- include/uapi/linux/quota.h include/linux/cdev.h include/linux/device.h \
- include/linux/dev_printk.h include/linux/energy_model.h \
- include/linux/sched/cpufreq.h include/linux/sched/topology.h \
- include/linux/sched/idle.h include/linux/sched/sd_flags.h \
- include/linux/ioport.h include/linux/klist.h include/linux/pm.h \
- include/linux/device/bus.h include/linux/device/class.h \
- include/linux/device/driver.h arch/x86/include/asm/device.h \
- include/linux/pm_wakeup.h
+ include/uapi/linux/quota.h include/linux/vmstat.h \
+ include/linux/vm_event_item.h arch/x86/include/asm/pci.h \
+ arch/x86/include/asm/memtype.h include/linux/dma-mapping.h \
+ include/linux/dma-direction.h

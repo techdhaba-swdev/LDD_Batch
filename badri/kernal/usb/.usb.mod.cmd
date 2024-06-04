@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/usb/usb.mod := printf '%s\n'   usb.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/usb/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/usb/usb.mod

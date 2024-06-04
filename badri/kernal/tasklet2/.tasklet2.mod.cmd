@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/tasklet2/tasklet2.mod := printf '%s\n'   tasklet2.o | awk '!x[$$0]++ { print("/home/rps/Desktop/demo/LDD_Batch/badri/kernal/tasklet2/"$$0) }' > /home/rps/Desktop/demo/LDD_Batch/badri/kernal/tasklet2/tasklet2.mod

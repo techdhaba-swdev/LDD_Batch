@@ -13,7 +13,7 @@ void my_tasklet_handler(unsigned long data)
 }
 
 // Declare and initialize the tasklet
-DECLARE_TASKLET(my_tasklet, my_tasklet_handler, 0);
+DECLARE_TASKLET(my_tasklet,  0);
 
 // Device file operations
 static int my_open(struct inode *inode, struct file *file)
@@ -69,7 +69,7 @@ static int __init my_module_init(void)
     }
 
     // Create class and device
-    my_class = class_create(THIS_MODULE, "my_tasklet_class");
+    my_class = class_create( "my_tasklet_class");
     if (IS_ERR(my_class)) {
         printk(KERN_ERR "Failed to create class\n");
         cdev_del(&my_cdev);

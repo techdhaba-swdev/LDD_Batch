@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/demo/LDD_Batch/badri/kernal/DMA/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/demo/LDD_Batch/badri/kernal/DMA/Module.symvers -T /home/rps/Desktop/demo/LDD_Batch/badri/kernal/DMA/modules.order -i Module.symvers -e 
