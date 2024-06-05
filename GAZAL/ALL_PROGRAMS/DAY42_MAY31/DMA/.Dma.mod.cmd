@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY42_MAY31/DMA/Dma.mod := printf '%s\n'   Dma.o | awk '!x[$$0]++ { print("/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY42_MAY31/DMA/"$$0) }' > /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY42_MAY31/DMA/Dma.mod
