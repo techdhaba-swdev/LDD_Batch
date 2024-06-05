@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY43_JUNE3/rgb_led_modify/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY43_JUNE3/rgb_led_modify/Module.symvers -T /home/rps/Desktop/GAZAL/ALL_PROGRAMS/DAY43_JUNE3/rgb_led_modify/modules.order -i Module.symvers -e 
