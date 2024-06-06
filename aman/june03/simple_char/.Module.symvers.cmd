@@ -1,0 +1,1 @@
+savedcmd_/home/rps/amanraj/LDD_Batch/aman/june03/simple_char/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/amanraj/LDD_Batch/aman/june03/simple_char/Module.symvers -T /home/rps/amanraj/LDD_Batch/aman/june03/simple_char/modules.order -i Module.symvers -e 

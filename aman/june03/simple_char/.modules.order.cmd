@@ -1,0 +1,1 @@
+savedcmd_/home/rps/amanraj/LDD_Batch/aman/june03/simple_char/modules.order := {   echo /home/rps/amanraj/LDD_Batch/aman/june03/simple_char/simple_char.o; :; } > /home/rps/amanraj/LDD_Batch/aman/june03/simple_char/modules.order
