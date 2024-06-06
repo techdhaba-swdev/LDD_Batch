@@ -1,0 +1,1 @@
+savedcmd_/home/rps/linux37/pgm.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/linux37/pgm.ko /home/rps/linux37/pgm.o /home/rps/linux37/pgm.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/linux37/pgm.ko
