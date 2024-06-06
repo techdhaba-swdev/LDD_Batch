@@ -1,0 +1,1 @@
+savedcmd_/home/rps/subithra_s/Documents/5th_june/solid1/calculator.mod := printf '%s\n'   calculator.o | awk '!x[$$0]++ { print("/home/rps/subithra_s/Documents/5th_june/solid1/"$$0) }' > /home/rps/subithra_s/Documents/5th_june/solid1/calculator.mod
