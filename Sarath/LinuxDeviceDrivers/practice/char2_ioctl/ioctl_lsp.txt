@@ -1,0 +1,3 @@
+LISKNOV PRINCIPLE:-
+
+--There are no inheritance hierarchies involved in this code. LSP primarily applies to classes and their subclasses.

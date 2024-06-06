@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/Makefile/Thread/thread_add_kernel/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/LDD_Batch/Sarath/Makefile/Thread/thread_add_kernel/Module.symvers -T /home/rps/LDD_Batch/Sarath/Makefile/Thread/thread_add_kernel/modules.order -i Module.symvers -e 

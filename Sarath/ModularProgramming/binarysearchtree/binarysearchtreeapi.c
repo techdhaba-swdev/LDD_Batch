@@ -1,5 +1,10 @@
 #include<stdio.h>
 #include"binarysearchtree.h"
+struct node{
+	int data;
+	struct node *left;
+	struct node *right;
+};
 //create node API
 struct node* createnode(int data) {
     struct node* temp = (struct node*)malloc(sizeof(struct node)); //creating space everytime to store
@@ -65,6 +70,14 @@ void inordertraversal(struct node* root) //Inordertraversal API that takes paren
         inordertraversal(root->right);
     }
 }
+int calculatesum(struct node *root)
+{
+	if(root==NULL)
+	{
+		return 0;
+	}
+	return root->data+calculatesum(root->left)+calculatesum(root->right);
+}
 
 // Delete API (handles one child, two children, and leaf node cases)
 struct node* delete(struct node* node, int data)
@@ -109,5 +122,4 @@ struct node* delete(struct node* node, int data)
     }
     return node;
 }
-
 

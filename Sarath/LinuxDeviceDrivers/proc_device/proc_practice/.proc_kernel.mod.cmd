@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/proc_device/proc_practice/proc_kernel.mod := printf '%s\n'   proc_kernel.o | awk '!x[$$0]++ { print("/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/proc_device/proc_practice/"$$0) }' > /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/proc_device/proc_practice/proc_kernel.mod

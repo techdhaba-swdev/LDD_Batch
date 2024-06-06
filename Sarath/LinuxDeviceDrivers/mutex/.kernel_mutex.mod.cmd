@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/mutex/kernel_mutex.mod := printf '%s\n'   kernel_mutex.o | awk '!x[$$0]++ { print("/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/mutex/"$$0) }' > /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/mutex/kernel_mutex.mod

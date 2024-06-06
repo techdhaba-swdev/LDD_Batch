@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/mutex/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/mutex/Module.symvers -T /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/mutex/modules.order -i Module.symvers -e 

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/proc_device/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/proc_device/Module.symvers -T /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/proc_device/modules.order -i Module.symvers -e 

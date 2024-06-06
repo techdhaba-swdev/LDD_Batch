@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/char1/ch_kernel.mod := printf '%s\n'   ch_kernel.o | awk '!x[$$0]++ { print("/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/char1/"$$0) }' > /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/char1/ch_kernel.mod

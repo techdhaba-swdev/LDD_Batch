@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/major/char.mod := printf '%s\n'   char.o | awk '!x[$$0]++ { print("/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/major/"$$0) }' > /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/major/char.mod

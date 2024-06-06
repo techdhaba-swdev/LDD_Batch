@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/sysfs/sysfs_driver.mod := printf '%s\n'   sysfs_driver.o | awk '!x[$$0]++ { print("/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/sysfs/"$$0) }' > /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/sysfs/sysfs_driver.mod

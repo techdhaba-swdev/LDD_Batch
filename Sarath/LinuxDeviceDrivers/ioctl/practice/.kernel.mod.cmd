@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/ioctl/practice/kernel.mod := printf '%s\n'   kernel.o | awk '!x[$$0]++ { print("/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/ioctl/practice/"$$0) }' > /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/ioctl/practice/kernel.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/char1/modules.order := {   echo /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/char1/ch_kernel.o; :; } > /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/char1/modules.order

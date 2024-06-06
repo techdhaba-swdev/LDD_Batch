@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/char2_ioctl/modules.order := {   echo /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/char2_ioctl/ioctl_kernel.o; :; } > /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/char2_ioctl/modules.order

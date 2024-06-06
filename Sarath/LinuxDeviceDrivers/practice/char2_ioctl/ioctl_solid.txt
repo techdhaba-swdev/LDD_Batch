@@ -1,0 +1,39 @@
+************S.O.L.I.D Principle************
+
+SINGLE RESPONSIBILITY(S):-
+
+--Our ioctl character driver code follows SINGLE RESPONSIBILITY principle.
+
+--In our character ioctl Code we created multiple functionalities like opening the device,closing the device,reading from and writing to the device.So all these are done by " SINGLE REPONSIBILITY " principle.
+
+--Which means that each function performs and focus on single functionality or responsibility.
+
+--For instance "device_open" function focuses on opening the device and "device_release" focuses on releasing the device.
+
+--They also handle memory allocation and deallocation.They mainly focuses on managing the device lifecycle.
+
+--The ioctl function "char_ioctl" focuses on writing to and reading from device.Its responsibility is mainly related to handling ioctl commands.
+
+--The init() and exit() functions handle initialization and cleanup of the driver respectively.They register the device and unregister the device and setup necessary structrues like cdev...
+
+--Their responsibility is managing device lifecycle at module level.
+
+--By this Single responsibility principle we can have code modularity and each function within your driver has clear and specific responsibility to do.This not only makes you easier to understand but also reduces complexity while bug fixing.
+
+
+
+--For example: 
+   static int device_open(struct inode *inode,struct file *file){
+        if((kernel_memory=kmalloc(MEM_SIZE,GFP_KERNEL))==0){
+                printk(KERN_INFO"Memory cannot be allocated");
+                return -1;
+        }
+        printk(KERN_INFO"Device file opened and Memory allocation successfull");
+        return 0;
+}
+static int device_release(struct inode *inode,struct file *file){
+        kfree(kernel_memory);
+        printk(KERN_INFO"Device is released and Memory is free");
+        return 0;
+}
+

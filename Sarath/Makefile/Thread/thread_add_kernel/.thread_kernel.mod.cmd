@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/Makefile/Thread/thread_add_kernel/thread_kernel.mod := printf '%s\n'   thread_kernel.o | awk '!x[$$0]++ { print("/home/rps/LDD_Batch/Sarath/Makefile/Thread/thread_add_kernel/"$$0) }' > /home/rps/LDD_Batch/Sarath/Makefile/Thread/thread_add_kernel/thread_kernel.mod

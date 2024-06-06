@@ -1,7 +1,14 @@
 #include<stdio.h>
+#include<time.h>
 #include"binarysearchtree.h"
+struct node {
+	int data;
+	struct node *left;
+	struct node *right;
+};
 int main()
 {
+	clock_t start=clock();
     	struct node* root = NULL; //Initializing the root node
 
     	// Inserting nodes into the binary search tree
@@ -32,7 +39,11 @@ int main()
    	printf("Minimum element in Tree : %d\n",min);
     	int max=*(int *)find_max(root); //typecasted the find max function as it returns integer
     	printf("Maximum element in Tree: %d\n",max);
+	int sum=calculatesum(root);
+	printf("Sum of elements is %d\n",sum);
 	free(root); //Freeing up the root
-
+	clock_t end=clock();
+	double time_taken=((double)(end-start));
+	printf("Time taken is %f\n",time_taken);
     return 0;
 }

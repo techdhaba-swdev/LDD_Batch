@@ -1,0 +1,15 @@
+OPEN / CLOSE PRINCIPLE:
+
+--The code defines functionalities through functions (device_open, device_release, char_ioctl) that can be extended without modifying the core structure.
+
+--The use of a character device (cdev) and file operations (fops) provides a standard interface for interacting with the device driver, making it adaptable to different user-space applications.
+
+--For instance: 
+
+:
+static struct file_operations fops={
+        .open=device_open,
+        .release=device_release,
+        .unlocked_ioctl=char_ioctl,
+};
+

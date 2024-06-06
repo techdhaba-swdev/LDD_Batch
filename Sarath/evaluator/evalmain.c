@@ -4,12 +4,12 @@
 #include<ctype.h>
 #include<string.h>
 #include "eval.h"
-
+#define MAX 100
 int main() {
     clock_t start, end;
     double cpu_time_used;
-    char infix[100], postfix[100];
-
+    char infix[MAX], postfix[MAX];
+    start=clock();
     // Input infix expression
     printf("Enter an infix expression: ");
     fgets(infix, sizeof(infix), stdin);
@@ -26,7 +26,6 @@ int main() {
     printf("Result: %d\n", result);
 
     // Measure time taken
-    start = clock();
     // Perform operations here...
     end = clock();
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;

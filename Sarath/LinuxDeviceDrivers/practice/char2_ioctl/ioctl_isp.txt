@@ -1,0 +1,3 @@
+INTERFACE SEGREGATION PRINCIPLE:-
+
+--ISP focuses on separating interfaces to provide specific functionalities to specific types.

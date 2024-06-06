@@ -28,10 +28,10 @@ int main() {
     read(fd,&result,sizeof(int)); //calling read system call
     printf("After addition received from kernel: %d\n",result);
     // Example: Writing to the mapped memory
-    strcpy((char *)mapped_memory, "Hello from user space!"); //storing the string into mapped memory variable by typecasting the variable
-    
+    strcpy((char *)mapped_memory, "Hello from user spacce!"); //storing the string into mapped memory variable by typecasting the variable
+    //int x=(int *)mapped_memory;
     // Reading from the mapped memory and printing onto screen
-    printf("Read from device: %s\n", (char *)mapped_memory);
+    printf("Reading addition from device: %d\n", (int *)mapped_memory);
 
     if (munmap(mapped_memory, MEMORY_SIZE) == -1) {
         perror("munmap");

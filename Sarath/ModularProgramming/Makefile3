@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=stack2.h
+OBJ=stack_main2.o push.o pop.o print.o
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+stackprint:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+

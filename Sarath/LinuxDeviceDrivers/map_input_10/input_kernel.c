@@ -80,7 +80,7 @@ static ssize_t device_write(struct file *filp, const char __user *buffer, size_t
             snprintf(temp, sizeof(temp), "%d", results[j]);//printf prints to screen but snprintf prints to required destination
             strcat(result_string, temp); //concatinating two strings 1st is dest and 2nd is src
             if (j != NUM - 1) {
-                strcat(result_string, ";"); // Delimiter between results
+                strcat(result_string, "\n"); // Delimiter between results
             }
         }
 
