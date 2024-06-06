@@ -1,1 +1,0 @@
-savedcmd_/home/rps/subithra_s/Documents/5th_june/solid1/modules.order := {   echo /home/rps/subithra_s/Documents/5th_june/solid1/calculator.o; :; } > /home/rps/subithra_s/Documents/5th_june/solid1/modules.order
