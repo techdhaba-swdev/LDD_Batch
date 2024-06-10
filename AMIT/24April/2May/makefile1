@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=graph.h
+OBJ=graph_main.o graphfn.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+graph_list:$(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)

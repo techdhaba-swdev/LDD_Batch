@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/Exam/char_driver/modules.order := {   echo /home/rps/Desktop/Demo/LDD_Batch/AMIT/Exam/char_driver/temperature_dev.o; :; } > /home/rps/Desktop/Demo/LDD_Batch/AMIT/Exam/char_driver/modules.order

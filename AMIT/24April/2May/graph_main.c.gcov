@@ -1,0 +1,45 @@
+        -:    0:Source:graph_main.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include"graph.h"
+        -:    4:#include<time.h>
+function main called 1 returned 100% blocks executed 100%
+        1:    5:int main() {
+        -:    6:
+        1:    7:       clock_t start = clock();
+call    0 returned 100%
+        -:    8:
+        1:    9:  int numVertices = 4;
+        -:   10:
+        1:   11:  struct Graph* graph = createGraph(numVertices);
+call    0 returned 100%
+        -:   12:
+        1:   13:  addEdge(graph, 0, 1);
+call    0 returned 100%
+        -:   14:
+        1:   15:  addEdge(graph, 1, 2);
+call    0 returned 100%
+        -:   16:
+        1:   17:  addEdge(graph, 2, 3);
+call    0 returned 100%
+        -:   18:
+        1:   19:  printGraph(graph);
+call    0 returned 100%
+        -:   20:
+        -:   21:
+        -:   22:
+        -:   23:
+        -:   24:
+        1:   25:   clock_t end = clock();
+call    0 returned 100%
+        -:   26:
+        -:   27:    // Calculate the elapsed time
+        -:   28:
+        1:   29:    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+        1:   30:      printf("Time taken: %f seconds\n", time_taken);
+call    0 returned 100%
+        -:   31:
+        -:   32:
+        1:   33:  return 0;
+        -:   34:
+        -:   35:}

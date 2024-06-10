@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/Exam/char_driver/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/Demo/LDD_Batch/AMIT/Exam/char_driver/Module.symvers -T /home/rps/Desktop/Demo/LDD_Batch/AMIT/Exam/char_driver/modules.order -i Module.symvers -e 

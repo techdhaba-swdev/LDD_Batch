@@ -1,0 +1,59 @@
+DESIGNING AN E-COMMERCE PLATFORM: 
+APPLYING MICROSERVICES AND EVENT-DRIVEN ARCHITECTURE
+
+Scenario Overview:
+ we’re building an e-commerce platform called “ShopifyX.” Our goal is to create a scalable,
+ resilient, and efficient system that handles millions of users, products, and transactions.
+
+MICROSERVICES ARCHITECTURE:
+
+1.Service Decomposition:
+    Break down the monolithic application into smaller, independent services
+   like product catalog, order management, payment gateway, user authentication.
+
+2.Service Communication:
+  Use lightweight protocols (e.g., HTTP/REST, gRPC) for inter-service communication.
+
+3.Scalability and Resilience:
+  Deploy services in containers (e.g., Docker) and manage them with Kubernetes.
+  Autoscale services based on demand to handle traffic spikes.
+
+EVENT-DRIVEN ARCHITECTURE:
+1.Event Sourcing
+2.Event-Driven Microservices
+->Each microservice subscribes to relevant events.
+The order service listens for “order placed” events to update inventory.
+The payment service listens for “payment received” events to process payments.
+3.Asynchronous Communication
+->Decouple services by using asynchronous messaging.
+->Avoid tight coupling between services, allowing them to evolve independently.
+
+SOLID Principles:
+
+1.Single Responsibility Principle (SRP):
+ Each microservice has a single responsibility (e.g., product catalog service manages products only).
+ Avoid mixing unrelated functionalities within a service.
+2.Open/Closed Principle (OCP):
+ Design services to be open for extension.
+ Use interfaces and abstract classes to define contracts.
+3.Liskov Substitution Principle (LSP):
+  Ensure that derived microservices (subclasses) can be substituted for their 
+  base services (superclasses) without altering the correctness of the system.
+4.Interface Segregation Principle (ISP):
+ Define fine-grained interfaces tailored to each service’s needs.
+ Avoid imposing unnecessary methods on services.
+5.Dependency Inversion Principle (DIP):
+ Depend on abstractions (interfaces) rather than concrete implementations.
+ Use dependency injection to wire up services.
+
+
+DRY:
+ ->Avoid duplicating code across services.
+ ->Share common functionality (e.g., authentication, logging)
+   through shared libraries or base classes.
+
+KISS:
+Keep service logic simple and focused.
+Avoid overengineering—choose straightforward solutions over complex ones.
+
+

@@ -1,0 +1,72 @@
+        -:    0:Source:binaryfn.c
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include"tree.h"
+        -:    4:
+        -:    5:// Function to create a new node
+function createNode called 7 returned 100% blocks executed 100%
+        7:    6:struct Node* createNode(int data) {
+        7:    7:    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));   //allowcating memory for new node
+        7:    8:    newNode->data = data;                                             //set the data of the new node to provided value
+        7:    9:    newNode->left = NULL;                                            //initialize left pointer to NULL indicate left node not exist yet
+        7:   10:    newNode->right = NULL;                                           // similarly initialize right pointer to NULL
+        7:   11:    return newNode;
+        -:   12:}
+        -:   13:
+        -:   14:// Function to insert a node into the binary tree
+function insert called 17 returned 100% blocks executed 100%
+       17:   15:struct Node* insert(struct Node* root, int data) {
+       17:   16:    if (root == NULL) {  // Base case: Empty tree, create a new root node
+branch  0 taken 41% (fallthrough)
+branch  1 taken 59%
+        7:   17:        return createNode(data);
+call    0 returned 100%
+        -:   18:    }
+        -:   19:
+       10:   20:    if (data < root->data) {
+branch  0 taken 50% (fallthrough)
+branch  1 taken 50%
+        5:   21:        root->left = insert(root->left, data);  // Insert in left subtree for smaller values
+call    0 returned 100%
+        5:   22:    } else if (data > root->data) {
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        5:   23:        root->right = insert(root->right, data);  // Insert in right subtree for larger values
+call    0 returned 100%
+        -:   24:    } else { // Handle duplicates (optional: can modify to overwrite or reject)
+        -:   25:        // printf("Duplicate value: %d\n", data);
+        -:   26:    }
+        -:   27:
+       10:   28:    return root;  // Return the (potentially modified) root node
+        -:   29:}
+        -:   30:
+        -:   31:// Function to perform in-order traversal of the binary tree
+function inOrder called 15 returned 100% blocks executed 100%
+       15:   32:void inOrder(struct Node* root) {
+       15:   33:    if (root != NULL) {
+branch  0 taken 47% (fallthrough)
+branch  1 taken 53%
+        7:   34:        inOrder(root->left);  // Visit left subtree
+call    0 returned 100%
+        7:   35:        printf("%d ", root->data);  // Visit current node
+call    0 returned 100%
+        7:   36:        inOrder(root->right); // Visit right subtree
+call    0 returned 100%
+        -:   37:    }
+       15:   38:}
+        -:   39:
+        -:   40:// Function to calculate the sum of all nodes in the binary tree
+function sumOfNodes called 15 returned 100% blocks executed 100%
+       15:   41:int sumOfNodes(struct Node* root) {
+       15:   42:    if (root == NULL)                          //checking if tree is empty if empty then return sum zero
+branch  0 taken 53% (fallthrough)
+branch  1 taken 47%
+        8:   43:        return 0;
+        7:   44:    return (root->data + sumOfNodes(root->left) + sumOfNodes(root->right));     //here we recursivly calling sum function and returnig sum
+call    0 returned 100%
+call    1 returned 100%
+        -:   45:}
+        -:   46:
+        -:   47:
+        -:   48:
+        -:   49:

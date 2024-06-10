@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/Exam/char_driver/temperature_dev.mod := printf '%s\n'   temperature_dev.o | awk '!x[$$0]++ { print("/home/rps/Desktop/Demo/LDD_Batch/AMIT/Exam/char_driver/"$$0) }' > /home/rps/Desktop/Demo/LDD_Batch/AMIT/Exam/char_driver/temperature_dev.mod

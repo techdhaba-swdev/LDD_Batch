@@ -1,0 +1,42 @@
+MVC (Model-View-Controller) Design:
+Pattern and Its Variants:
+
+Components of MVC:
+1.Model:
+Manages data and business logic.
+Represents the application’s core functionality.
+Responsible for data retrieval, storage, and manipulation.
+Independent of the user interface (UI).
+
+2.View:
+Handles layout and display.
+Presents data from the Model to the user.
+Receives user input (e.g., clicks, form submissions).
+Passive component (does not directly interact with the Model).
+
+3.Controller:
+Acts as an intermediary between the Model and the View.
+Receives user input from the View.
+Updates the Model based on user actions.
+Updates the View to reflect changes in the Model.
+Contains application logic (e.g., input validation).
+
+Communication flow in MVC:
+1.user interact with the view (click button)
+2.view forwards user input to the controller.
+3.controller interprets input , updates the Model, and decide how to respond.
+4.if the modle changes it notify the view.
+5.View requests data from the modle to update its display.
+
+Variants of MVC:
+a)Hierarchical Model-View-Controller (HMVC):
+Use Cases:
+Complex applications with multiple interconnected modules.
+Web applications with reusable widgets (e.g., widgets on a web page).
+
+b)Model-View-Presenter (MVP):
+Use Cases:
+GUI applications (e.g., desktop applications, Android apps).
+When UI logic needs to be testable in isolation.
+
+
