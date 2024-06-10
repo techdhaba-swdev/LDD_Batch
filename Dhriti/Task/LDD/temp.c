@@ -60,4 +60,4 @@ module_exit(device_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Dhriti");
-MODULE_DESCRIPTION("A simple Linux character device driver for a virtual temperature sensor");
+MODULE_DESCRIPTION("A simple Linux character device driver for temperature sensor");
