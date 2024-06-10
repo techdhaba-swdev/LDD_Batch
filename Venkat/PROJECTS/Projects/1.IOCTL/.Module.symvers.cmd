@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/PROJECT/project/1.IOCTL/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/PROJECT/project/1.IOCTL/Module.symvers -T /home/rps/Desktop/PROJECT/project/1.IOCTL/modules.order -i Module.symvers -e 

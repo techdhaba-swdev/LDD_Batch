@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/PROJECT/project/1.IOCTL/ioctl_kernel.mod := printf '%s\n'   ioctl_kernel.o | awk '!x[$$0]++ { print("/home/rps/Desktop/PROJECT/project/1.IOCTL/"$$0) }' > /home/rps/Desktop/PROJECT/project/1.IOCTL/ioctl_kernel.mod
