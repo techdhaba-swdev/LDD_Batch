@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/may20/mmap/modules.order := {   echo /home/rps/Desktop/daily_work/linux_device_drivers/may20/mmap/kernal.o; :; } > /home/rps/Desktop/daily_work/linux_device_drivers/may20/mmap/modules.order

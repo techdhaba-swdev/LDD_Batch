@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/may20/pollselect_task/modules.order := {   echo /home/rps/Desktop/daily_work/may20/pollselect_task/kernal.o; :; } > /home/rps/Desktop/daily_work/may20/pollselect_task/modules.order

@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/may20/poll_select/poll_select.mod := printf '%s\n'   poll_select.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daily_work/may20/poll_select/"$$0) }' > /home/rps/Desktop/daily_work/may20/poll_select/poll_select.mod

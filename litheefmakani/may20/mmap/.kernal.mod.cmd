@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/may20/mmap/kernal.mod := printf '%s\n'   kernal.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daily_work/linux_device_drivers/may20/mmap/"$$0) }' > /home/rps/Desktop/daily_work/linux_device_drivers/may20/mmap/kernal.mod
