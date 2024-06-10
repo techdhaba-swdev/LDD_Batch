@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/june03/controlRGBLED/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/daily_work/linux_device_drivers/june03/controlRGBLED/Module.symvers -T /home/rps/Desktop/daily_work/linux_device_drivers/june03/controlRGBLED/modules.order -i Module.symvers -e 

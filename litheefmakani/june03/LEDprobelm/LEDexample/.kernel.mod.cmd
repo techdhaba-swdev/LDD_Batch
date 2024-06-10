@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/june03/LEDprobelm/LEDexample/kernel.mod := printf '%s\n'   kernel.o | awk '!x[$$0]++ { print("/home/rps/Desktop/daily_work/linux_device_drivers/june03/LEDprobelm/LEDexample/"$$0) }' > /home/rps/Desktop/daily_work/linux_device_drivers/june03/LEDprobelm/LEDexample/kernel.mod

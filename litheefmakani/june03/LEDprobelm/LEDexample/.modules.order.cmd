@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/linux_device_drivers/june03/LEDprobelm/LEDexample/modules.order := {   echo /home/rps/Desktop/daily_work/linux_device_drivers/june03/LEDprobelm/LEDexample/kernel.o; :; } > /home/rps/Desktop/daily_work/linux_device_drivers/june03/LEDprobelm/LEDexample/modules.order
