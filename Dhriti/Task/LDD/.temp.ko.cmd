@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Task/LDD/temp.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/Task/LDD/temp.ko /home/rps/Task/LDD/temp.o /home/rps/Task/LDD/temp.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/Task/LDD/temp.ko
