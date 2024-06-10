@@ -1,0 +1,1 @@
+savedcmd_/home/rps/june10/linux/ldd.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/june10/linux/ldd.ko /home/rps/june10/linux/ldd.o /home/rps/june10/linux/ldd.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/june10/linux/ldd.ko
