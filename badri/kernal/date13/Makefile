@@ -1,4 +1,4 @@
-obj-m += my_driver.o
+obj-m += char_dri.o
 
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules

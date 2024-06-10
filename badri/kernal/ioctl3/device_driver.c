@@ -6,7 +6,12 @@
 
 #define DEVICE_NAME "my_ioctl_device"
 #define IOCTL_MAGIC 'k'
-#define IOCTL_CMD _IOWR(IOCTL_MAGIC, 1, int)
+#define IOCTL_CMD _IOWR(IOCTL_MAGIC, 1, struct ioctl *)
+
+struct ioctl {
+	int num1;
+	int num2;
+}data;
 
 static int device_open(struct inode *inode, struct file *file) {
     printk(KERN_INFO "Device opened\n");
@@ -19,21 +24,35 @@ static int device_release(struct inode *inode, struct file *file) {
 }
 
 static long device_ioctl(struct file *file, unsigned int cmd, unsigned long arg) {
-    int value;
-
+    struct ioctl data;
+	int sum , sub;
     switch (cmd) {
         case IOCTL_CMD:
-            if (copy_from_user(&value, (int __user *)arg, sizeof(value))) {
+            if (copy_from_user(&data, (int __user *)arg, sizeof(struct ioctl))) {
                 return -EFAULT;
             }
-            printk(KERN_INFO "IOCTL received: %d\n", value);
-            value *= 10;
-            if (copy_to_user((int __user *)arg, &value, sizeof(value))) {
+            printk(KERN_INFO "IOCTL received: %d %d\n", data.num1 , data.num2);
+            sum =data.num1 + data.num2;
+            if (copy_to_user((int __user *)arg, &sum, sizeof(value))) {
                 return -EFAULT;
             }
-            printk(KERN_INFO "Modified value sent back: %d\n", value);
+            printk(KERN_INFO "Modified value sent back: %d\n", sum);
             break;
-        default:
+        switch (cmd) {
+        case IOCTL_CMD:
+            if (copy_from_user(&data, (int __user *)arg, sizeof(struct ioctl))) {
+                return -EFAULT;
+            }
+            printk(KERN_INFO "IOCTL received: %d %d\n", data.num1 , data.num2);
+            sub = data.num1 - data.num2;
+            if (copy_to_user((int __user *)arg, &value, sizeof(struct ioctl))) {
+                return -EFAULT;
+            }
+            printk(KERN_INFO "Modified value sent back: %d\n", sub);
+            break;
+
+	default:
+
             return -ENOTTY;
     }
     return 0;

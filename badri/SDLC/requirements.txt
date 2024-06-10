@@ -1,0 +1,14 @@
+ Requirements Specification
+Requirements specification involves gathering and documenting the functional and non-functional needs of the stakeholders. This stage ensures that all parties have a clear understanding of what the software should accomplish.
+
+ Architectural, Component, & Detailed Designs
+This phase focuses on creating high-level and detailed blueprints of the software system, including its components and their interactions. It sets the foundation for implementation by ensuring a robust and scalable design.
+
+ Implementation
+Implementation involves translating the design documents into actual code. This phase includes coding, debugging, and integrating various software components to build a functional system.
+
+ Unit, Integration, and Acceptance Testing
+Testing ensures that the software functions correctly at different levels. Unit testing checks individual components, integration testing verifies combined parts, and acceptance testing confirms the system meets user requirements.
+
+ Installation and Maintenance
+Installation involves deploying the software to the user's environment, while maintenance addresses any issues and updates required post-deployment. This phase ensures the software remains functional and up-to-date over its lifecycle.

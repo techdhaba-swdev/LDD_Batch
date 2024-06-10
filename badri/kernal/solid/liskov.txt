@@ -1,0 +1,32 @@
+3. Liskov Substitution Principle (LSP) : The LSP states that in an object-oriented program, if we substitute a superclass object reference with an object of any of its subclasses, the program should not break.
+
+example : 
+
+In this driver, LSP can be applied by ensuring that the struct file_operations remains consistent and can handle different devices without modification.
+
+// Abstract device interface
+typedef struct {
+    int (*open)(struct inode *inode, struct file *file);
+    int (*release)(struct inode *inode, struct file *file);
+    long (*ioctl)(struct file *file, unsigned int cmd, unsigned long arg);
+} DeviceOperations;
+
+// Concrete device implementation
+static int device_open(struct inode *inode, struct file *file) {
+    
+}
+
+static int device_release(struct inode *inode, struct file *file) {
+   
+}
+
+static long device_ioctl(struct file *file, unsigned int cmd, unsigned long arg) {
+   
+}
+
+static struct file_operations fops = {
+    .owner = THIS_MODULE,
+    .open = device_open,
+    .release = device_release,
+    .unlocked_ioctl = device_ioctl,
+};

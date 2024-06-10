@@ -1,0 +1,24 @@
+SCHOOL MANAGEMENT SYSTEM
+
+1. REQUIREMENTS :
+  
+ we need to interact with school administration , teachers and staff to gather detailed requirements for the system.
+identify features such as student enrollment , attendance tracking , grade calculating , timetable scheduling .
+
+2. system design :
+
+ in system design the architecture of all the features . we need to develop detailed specifications foe each feature including database design for storing student records and user interface designs for various modules.
+
+3. implementation :
+
+now the developers start coding based on the design documents. they build each module for enrollment , attendance , grading , scheduling , and communication by following the planned structure and functionality.
+
+4. testing :
+
+now we need to test each module by giving inputs to ensure that the entire system is giving desired output with out any errors or miss lead of data.
+
+5.installing environment:
+
+once the testing is complete and the system is verified to be functioning correctly deploy the software in the school environment . and we need to train staff and teachers on how to use the system effectively
+
+
