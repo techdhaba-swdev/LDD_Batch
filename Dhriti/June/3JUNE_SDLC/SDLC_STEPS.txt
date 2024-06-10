@@ -1,0 +1,29 @@
+:Software Development Life Cycle:
+
+'Requirements Specification'
+
+-Gathering business requirements from clients.
+-Evaluating the feasibility of creating the product.
+-Determining cost of production and needs of users.
+
+'Architectural, Components & detailed Design'
+
+-Creating important documents such as a software requirement 
+-Creating the information gathered during planning and analysis into clear requirements documentation for the development team.
+-Planning system design, programming languages & frameworks, performance &security measures.
+
+'Implementation'
+
+-Follow the design and protocols set by the organization.
+-Start building the software using programming code
+
+'Unit Integration & acceptence testing'
+
+-Integrate components and test the system as a whole.
+-Testing
+
+'Installation and Maintenance'
+
+-Build the software to the requirements.
+-Bug fixing.
+

@@ -1,0 +1,40 @@
+Software Design: Application of Grocery Shopping
+
+>>Stage 1: Planning
+
+In this stage, the project manager takes center stage to discuss the project with the client and preferences. The project manager then translates this into an estimate, which includes:
+-Timelines for task execution
+-Budget breakdown
+-The team of specialists dedicated to the project (e.g., project manager, designer, developers, and quality assurance specialist)
+
+>>Stage 2: Requirements 
+
+This stage involves thorough documentation of the project, including:
+-Project logic
+-Technical requirements
+-Business processes
+-Establishing software or product requirements equips teams with the insight and context required for the development and delivery of their software solutions.
+
+>>Stage 3: Design
+In this stage, the design documents are cmade, coding guidelines and discussions are held about tools, practices, runtimes, or frameworks. -These choices are aimed at aligning with the software requirement specifications and goals outlined during the earlier requirements-gathering phase.
+
+>>Stage 4: Implementation 
+
+This stage is where the design starts to materialize. The aim is to ensuring top-notch code quality. Typically, this stage involves more people and individuals working under the guidance of the project manager and their team leader.
+
+>>stage 5: Testing 
+In this stage, developers make bug-free code.Testing can be conducted manually or automatically.
+
+>>Stage 6: Deployment After successful testing, the software is deployed.
+
+>>Stage 7: Maintenance 
+In this final stage, the software is continuously monitored for bugs, and updates are made to ensure the software remains secure and user friendly.
+
+Diagram:
+
+1[Planning] --> 2[Requirements]
+    2 --> 3[Design]
+    3 --> 4[Implementation]
+    4 --> 5[Testing]
+    5 --> 6[Deployment]
+    6 --> 7[Maintenance]

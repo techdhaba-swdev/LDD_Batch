@@ -1,0 +1,33 @@
+SOFTWARE DEVELOPMENT LIFE CYCLE:
+:NETFLIX:
+
+'REQUIREMENTS'
+
+-Research: Conduct social talks to understand user preferences and points while using Netflix.
+-Functional features: Content variety, multiple user profile creation, recommendation, searching and opting for your preference.
+-Perforamnce, streaming quality, data security, offline viewing as contents are downloadable.
+-Technical: Operating system support, network requirements and building the framework how it would look.
+
+'ANALYSIS'
+
+-User Analysis: New user registration, content selection, data storage, user authentication.
+-Analyzing Data: Viewing history, user sign in data, content showing.
+
+'DESIGN'
+
+-Organize and structure the content and app features 
+-Visual elements of the app such as graphics
+-System design such as data storage, content and user authentication
+
+'IMPLEMENTATION'
+
+-Security measures to prrotect user data and prevent third party access.
+-Design database to store the user data, offline content and viewing history.
+-Backened development using your selected programming languages.
+-Fornt side is developed using HTML,CSS and JAva script.
+
+'Testing'
+
+-Ensuring individual components of the app are functioning correctly.
+-Testing the entire app and ensuring it meets the functional and performance requirements.
+-Ensuring it handles a large number of users and accessing the content concurrently.
