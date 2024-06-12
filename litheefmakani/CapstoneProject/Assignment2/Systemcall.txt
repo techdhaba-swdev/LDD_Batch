@@ -1,0 +1,207 @@
+A System call is an interface between a program running in user space and the operating system (OS). Application programs use system calls to request services and functionalities from the OS’s kernel.
+System call uses Application Program Interfaces (API) to provide OS services to user-level programs to request services from the OS’s kernel. System calls can typically be found as assembly language instructions. 
+System call process is normally run in user mode until another system call interrupts them. The system call is then carried out in the kernel mode according to priority levels. The control goes back to user mode after the process has been completed user processes to continue running as usual.
+Examples of System Calls:
+1)Open: Here, the open system call is used to open or create files and specifies file access mode and permissions.
+2)Read and Write: These system calls are used for reading data from and writing data to files.
+3)Fork: The fork system call creates the ‘child process’, that is a copy of the parent process, which is a basic mechanism for process creation in Linux.
+4)Exec: After forking, a new program is loaded into the current processes’ address space.
+5)Exit: After a program is finished, the exit system call terminates and returns status to the parent process.
+
+How to add a system call to the Linux kernel:
+It is like a Hello World program for System calls:
+
+1)Download the kernel source:
+In your terminal type the following command:
+wget http://www.kernel.org/pub/linux/kernel/v4.0/linux-4.17.4.tar.xz
+
+wget: GNU Wget is a free utility for non-interactive download of files from the web.
+
+2)Extract the kernel source code:
+
+sudo tar -xvf linux-4.17.4.tar.xz -C ~/linux-4.17.4/
+
+tar- Tar stores and extracts files from a tape or disk archive.
+
+-x   ->extract files from an archive
+
+-v ->requested using the -verbose option, when extracting archives
+
+-f ->file archive; use archive file or device archive
+
+-C ->extract to the directory specified after it. (in this case/usr/src/)
+
+Now, change the directory to where the files are extracted:
+
+Cd /usr/src/linux-4.17.4/
+
+3)Define a new system call sys_helloworld():
+
+Create a directory named helloworld:
+
+$usr/src/linux-4.17.4/ mkdir helloworld
+
+Change the directory to helloworld/:
+
+$usr/src/linux-4.17.4 cd helloworld/
+
+Create a file helloworld.c using your text editor:
+
+gedit  helloworld.c
+
+write the following code in editor:
+
+#include<linux/kernel.h>
+
+asmlinkage long sys_helloworld(void){
+                                                                                printk(“Hello Litheef\n”);
+                                                                                printk(“This is litheef’’s system call\n”);
+                                                                                return 0;
+}
+
+Create a Makefile for hello world directory:
+
+obj-y  : helloworld.o
+
+There is no space between “obj-y” make sure that 
+
+4)Adding helloworld/ to the kernel’s Makefile:
+
+Go back to the parent directory cd ../ and open the “Makefile”
+
+gedit Makefile 
+
+in that Makefile search for core-y  use “alt+f” you will find this line as the second instance of your search:
+
+core-y  += kernel/ mm/ fs/ ipc/ security/ crypto/ block/ 
+
+Add the ‘helloworld/’ to the end of this line:
+
+Core-y  += kernel/ mm/ fs/ ipc/ security/ crypto/ block/ helloworld/
+
+Note: There is a space between “block/” and “helloworld/”.(Doing such a mistake many cause errors in further steps)
+ 
+This is to tell the compiler that the source files of our new system call (sys_helloworld () )  are in present in the helloworld directory.
+
+5) Add the new system call to the system call table:
+
+If you are on 32-bit system you need to change the ‘syscall_32.tbl’. For 64-bit system change ‘syscall_64.tbl’.
+
+Run the following commands in your terminal from linux-3.X/ directory:
+
+cd arch/x86/entry/syscalls/
+gedit syscall_64.tbl
+
+Go the last of the document and add a new line like so:
+Ex
+532     64        helloworld         sys_helloworld
+
+Save and exit 
+
+6)Add new system call to the system call header file:
+
+Go to the linux-4.17.4/ directory and type following commands.
+
+cd  include/linux/
+
+gedit syscalls.h
+
+add the following line to the end of the document before the #endif statement
+
+asmlinkage long sys_helloworld(void);
+
+After this your file will look like so:
+
+
+asmlinkage long sys_helloworld(void);
+#endif
+
+7)compile the kernel:
+
+Before starting to compile you need to install a few packages. Type the following commands in your terminal:
+
+sudo apt -get install gcc
+
+sudo apt-get install libncurses5-dev
+
+sudo apt-get install bison 
+
+sudo apt-get install flex
+
+sudo apt-get install libssl-dev
+
+sudo apt-get install libelf-dev 
+
+sudo apt-get update
+
+sudo apt-get upgrade
+
+
+write the below commands in your linux-3.X/ directory:
+
+sudo make menuconfig 
+Now to compile the kernel you can use the make command:
+sudo make 
+
+make command can take a lot of time in complining, to spped up the process you can take advantage of the multiple core that our systems have these days. 
+
+8)Install/Update Kernel:
+
+Run the following commands in your terminal:
+
+sudo make modules_install install 
+
+Now update the kernel in yout system reboot the system. You can use he following command:
+
+Shutdown -r now
+
+After rebboting you can verify the kernel version using the following command:
+
+uname -r
+
+It will displays the kernel version like 
+
+linux_4.17.4
+
+9)Test System call:
+
+Go to you home directory”~”using the following commands
+
+Cd ~
+
+Create a userspace program 
+gedit user.c
+
+write the following code:
+
+#include<stdio.h>
+#include<linux/kernel.h>
+#include<sys/syscall.h>
+#include<unistd.h>
+
+
+int  main (){
+                        long int litheef = syscall(532); //it is the index of your system call =532
+                         
+                        printf(“system call sys_helloworld returned %ld\n”,litheef);
+               
+                         return 0;
+}
+
+Now, compile and run the program 
+
+gcc -o  user user.c
+
+./user 
+
+If all the steps are done correctly you will get an output like below:
+System call sys_helloworld returned 0
+
+Now, to check the message of your kernel 
+
+dmesg
+
+This will displays “Hello Litheef” at the end of the kernel’s message.
+
+
+This ends the process of Adding a Hello Litheef system call to your linux kernel
