@@ -1,1 +1,1 @@
-savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/8May/string/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/8May/string/Module.symvers -T /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/8May/string/modules.order -i Module.symvers -e 
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/8May/string/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/8May/string/Module.symvers -T /home/rps/Desktop/Demo/LDD_Batch/AMIT/LDD/8May/string/modules.order -i Module.symvers -e 
