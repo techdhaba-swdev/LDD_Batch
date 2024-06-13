@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/LDD_Batch/litheefmakani/M4_Exam/Question1/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/LDD_Batch/litheefmakani/M4_Exam/Question1/Module.symvers -T /home/rps/Desktop/LDD_Batch/litheefmakani/M4_Exam/Question1/modules.order -i Module.symvers -e 

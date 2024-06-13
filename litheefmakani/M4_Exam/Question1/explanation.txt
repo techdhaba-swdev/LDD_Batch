@@ -1,0 +1,61 @@
+character device driver for reverse the string
+
+first we have understand the requirement and what type of logic is implement.
+
+in this program i have impleneted the revrse the string by using the third variable.
+int i,j;
+char temp;
+temp=i;
+i=j;
+j=temp;
+
+so we have to implement the logic in kernel code and call thekernel in the user space and print in the kernel logs.
+
+kernel-space code:
+
+Kernel-Space Code (Character Device Driver):*
+
+1. *Header Includes:* The kernel code starts with necessary header file inclusions required for kernel module development in Linux.
+
+2. *Definitions:* Constants like DEVICE_NAME and BUFFER_SIZE are defined.
+
+3. *Global Variables:* major_number is declared to store the major number of the device, and message is an array to store the string passed from user space.
+
+4. *Device Open Function (device_open):* This function is called when a process opens the device file. It just prints a message to the kernel log.
+
+5. *Device Release Function (device_release):* This function is called when a process closes the device file. It also prints a message to the kernel log.
+
+6. *Device Read Function (device_read):* This function is called when a process reads from the device file. It copies the reversed string stored in message to the user space buffer.
+
+7. *Device Write Function (device_write):* This function is called when a process writes to the device file. It first copies the string from user space to kernel space, reverses the string, and then prints the reversed string to the kernel log. Finally, it returns the number of bytes written.
+
+8. *File Operations Structure (fops):* This structure defines function pointers to the device open, read, write, and release functions.
+
+9. *Module Initialization and Exit Functions (chardev_init, chardev_exit):* These functions are called when the module is loaded and unloaded, respectively. They register and unregister the device with the kernel.
+
+10. *Module Information (MODULE_LICENSE, MODULE_AUTHOR, etc.):* This provides information about the module, such as its license, author, description, and version.
+
+*User-Space Code:*
+
+1. *Header Includes:* The user-space code starts with necessary header file inclusions.
+
+2. *Definitions:* Constant DEVICE is defined, representing the path to the device file.
+
+3. *Main Function:* The main function performs the following tasks:
+   - Opens the device file using open.
+   - Prompts the user to enter a string.
+   - Reads the entered string from the standard input using fgets.
+   - Writes the string to the device file using write.
+   - Reads the reversed string from the device file using read.
+   - Prints the reversed string to the standard output.
+
+4. *Module Information (MODULE_LICENSE, MODULE_AUTHOR, etc.):* This provides information about the module, such as its license, author, description, and version.
+
+Both pieces of code work together to provide the functionality of reversing a string. The user-space program interacts with the kernel-space driver by writing a string to the device file and reading the reversed string from it. The kernel-space driver handles these read and write operations and performs the necessary string reversal.
+
+
+                                           
+
+
+
+
