@@ -1,0 +1,223 @@
+If we add the system call to the linux kernel:
+
+It is like a system call to concatanate a string
+
+1)Download the kernel source:
+
+In your terminal type the following command:
+  wget https:///www.kernel.org/pub/linux/kernel/v5.o/linux-5.X.tar.bz2
+  wget is free utility for non-interactive download of files from the web.
+  
+2)Extract the kernel source code:
+ sudo tar -xcf linux5.X.tar.bz2-C~/linux-5.X/
+   tar- Tar stores and extract files from a tapo or disk archieve.
+   
+  -x ->extract files from an archieve
+  -v ->requested using the -verbose option, when extracting archives
+  -f ->file archive; use archieve file or devie archieve
+  -C ->extract to te directory specified after it.(in this case /usr/src/)
+ 
+ 
+ cd /usr/src/linux5.X/
+ 
+3)Define the new system call SYS_CONCATSTR();
+
+  create a directory namedn concatstr;
+    $usr/src/linux5.X/ mkdir concatstr
+    change the directory to concatstr
+     $usr/src/linux-5.X/ cd concatstr/
+       create a file sys_call.h using the text editor
+       gedit sys_call.h
+        
+        write the code:
+        
+#include <linux/kernel.h>
+#include <linux/module.h>
+#include <linux/syscalls.h>
+#include <linux/uaccess.h>
+
+#define MAX_LENGTH 256 // Maximum length of input strings
+
+SYSCALL_CONCATSTR(concat_strings, const char __user *, str1, const char __user *, str2, char __user *, result)//This is the syste call 
+{
+    char string1[MAX_LENGTH], string2[MAX_LENGTH], concat[MAX_LENGTH * 2];
+    int len1, len2;
+
+    // Copy string1 from user space to kernel space
+    if (copy_from_user(string1, str1, MAX_LENGTH))
+        return -EFAULT;
+
+    // Copy string2 from user space to kernel space
+    if (copy_from_user(string2, str2, MAX_LENGTH))
+        return -EFAULT;
+
+    // Find the lengths of the input strings
+    len1 = strnlen_user(string1, MAX_LENGTH);
+    len2 = strnlen_user(string2, MAX_LENGTH);
+
+    // Concatenate the strings
+    if (len1 + len2 > MAX_LENGTH)
+        return -EINVAL; // Result would exceed maximum length
+    snprintf(concat, sizeof(concat), "%s%s", string1, string2);
+
+    // Copy the concatenated string from kernel space to user space
+    if (copy_to_user(result, concat, len1 + len2 + 1))
+        return -EFAULT;
+
+    return 0; // Success
+}
+
+static int __init concat_strings_init(void)
+{
+    printk(KERN_INFO "Concatenate Strings System Call Loaded\n");
+    return 0;
+}
+
+static void __exit concat_strings_exit(void)
+{
+    printk(KERN_INFO "Concatenate Strings System Call Unloaded\n");
+}
+
+module_init(concat_strings_init);
+module_exit(concat_strings_exit);
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Your Name");
+MODULE_DESCRIPTION("System call to concatenate two strings"); 
+  create a make for that 
+  gedit Makefile
+  obj-y :=sys_call.o
+  ##There is no space between "obj-y" make sure that##
+  
+4)Adding sys_call.c to kernel's Makefile 
+
+ Go back to the home directory cd ../ an open the kernels makefile
+ 
+ gedit Makefile 
+ in that makefile search core-y  use "alt+f" you will find the second instance of your  search 
+ 
+ core-y +=kernel/ mm/ fs/ ipc/ security/ crypto/ block/
+ add the sys_call to the end of this
+ core-y +=kernel/ mm/ fs/ ipc/ security/ crypto/ block/ sys_call/
+ 
+ note: THere is space bewtween "block/" and "sys_call" (dont do the mistakes manyyyyy cause error in the further steps
+ 
+ This is to tell the compiler that the source files of our new system call are in the concatstr
+ 
+5)Add the new system call to theeeeeeee system call table:
+
+if you are on 32-bit system you need to change the syscall_32.tbl for 64-bit system change syscall_64.tbl
+
+Run the following commands in your terminal from linux-5.X / directoory
+
+  cd arch/x86/entry/syscalls/
+  gedit syscall_64.tbl
+  
+  go the last of the document and add a new line like so:
+    533    64    concatstr   sys_CONCATSTR
+    
+    save and exit;
+    
+6)Add new system call to the system call header file:
+  Go to the linux-5.X/ directory and tyep following commands
+  cd include/linux/
+  gedit syscalls.h
+  add the following end of the document before the #endif statement
+  SYSCALL_CONCATSTR(concat_strings, const char __user *, str1, const char __user *, str2, char __user *, result);
+  
+  after this your file will look like so:
+  SYSCALL_CONCATSTR(concat_strings, const char __user *, str1, const char __user *, str2, char __user *, result);
+  #enf if
+  
+7)compile the kernel:
+   Before starting to compile youuuuuuuuuuu need to install a few packages . Type the following commands in your terminal 
+   sudo apt-get gcc
+   sudo apt-get install libncurses5-dev
+   sudo apt-get install bison
+   sudo apt-get install flex
+   sudo apt-get install libssl-dev
+   sudo apt-get install libelf-dev 
+   sudo apt-get install update
+   sudo apt-get install upgrade
+   
+   write the below commands in your linux-5.X/ directory
+   
+   sudo make menuconfig 
+   
+   Now to compile the kernel you can use the make command
+   
+   sudo make 
+   
+   make command can take a lot of time    in compiling to speeed up the process can take advantageof the multiple core that our systms have these days.
+   
+8)Install/update kernel:
+
+run the following commands in your terminal
+
+  sudo make modules_install install 
+Now update the kernel in your system reboot the system . you can use the command
+  shutdown -r 
+  after rebboting you can verify the kernel version usng the following commands:
+    uname -r 
+   it will shows the kernel veriosn like 
+   linux-5.X
+   
+9)Test system call:
+ 
+ 
+ Go tot the home directory "~" using this commands
+ cd ~
+ create a userspace program
+ 
+ gedit user.c
+ 
+ write the following code:
+ 
+ #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <errno.h>
+
+#define MAX_LENGTH 256 // Maximum length of input strings
+
+int main()
+{
+    char string1[MAX_LENGTH], string2[MAX_LENGTH], result[MAX_LENGTH * 2];
+    int ret;
+
+    // Prompt the user to enter the first string
+    printf("Enter the first string: ");
+    fgets(string1, MAX_LENGTH, stdin);
+    string1[strcspn(string1, "\n")] = '\0'; // Remove trailing newline character
+
+    // Prompt the user to enter the second string
+    printf("Enter the second string: ");
+    fgets(string2, MAX_LENGTH, stdin);
+    string2[strcspn(string2, "\n")] = '\0'; // Remove trailing newline character
+
+    // Call the system call to concatenate the strings
+    ret = syscall(533, string1, string2, result); // 533 is the syscall number for our custom system call(we are declaring the kernel space)
+
+    if (ret == -1)
+    {
+        perror("Error");
+        return 1;
+    }
+
+    printf("Concatenated string: %s\n", result);
+
+    return 0;
+}
+    
+##533 is the index of our system call . when we need call that that opertion will be performed.##
+
+Now compile and run the program 
+
+ gcc -o output user_space.c
+ 
+ sudo ./output 
+ 
+ finally we can check the output to youtr kernel.
+ sudo dmesg|tail 
+ 
+ This is end process process of system call to your linux kernel.
