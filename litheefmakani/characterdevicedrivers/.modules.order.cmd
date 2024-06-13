@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/characterdevicedrivers/modules.order := {   echo /home/rps/Desktop/daily_work/characterdevicedrivers/kernel.o; :; } > /home/rps/Desktop/daily_work/characterdevicedrivers/modules.order

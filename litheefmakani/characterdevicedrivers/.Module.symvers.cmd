@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/characterdevicedrivers/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/daily_work/characterdevicedrivers/Module.symvers -T /home/rps/Desktop/daily_work/characterdevicedrivers/modules.order -i Module.symvers -e 
