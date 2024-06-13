@@ -1,36 +1,48 @@
 #include <stdio.h>
 #include <fcntl.h>
-#include <sys/mman.h>
 #include <unistd.h>
 #include <string.h>
 
-#define DEVICE_PATH "/dev/my_device"
-#define MEMORY_SIZE 4096  // 4KB
+#define DEVICE_NAME "/dev/reverse_string"
 
 int main() {
-    int fd = open(DEVICE_PATH, O_RDWR);
-    if (fd < 0) {
-        perror("open");
-        return -1;
-    }
+  int fd;
+  char message[200] = "Hi friend,Myself susmitha!";
+  char reversed_message[100];
+  int message_len;
 
-    void *mapped_memory = mmap(NULL, MEMORY_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-    if (mapped_memory == MAP_FAILED) {
-        perror("mmap");
-        close(fd);
-        return -1;
-    }
+  // Open the device file
+  fd = open(DEVICE_NAME, O_RDWR);
+  if (fd < 0) {
+    perror("Failed to open device");
+    return 1;
+  }
 
-    // Example: Writing to the mapped memory
-    strcpy((char *)mapped_memory, "Hello from user space!");
-
-    // Example: Reading from the mapped memory
-    printf("Read from device: %s\n", (char *)mapped_memory);
-
-    if (munmap(mapped_memory, MEMORY_SIZE) == -1) {
-        perror("munmap");
-    }
-
+  // Send the string to the device
+  message_len = strlen(message);
+  if (write(fd, message, message_len) != message_len) {
+    perror("Failed to write to device");
     close(fd);
-    return 0;
+    return 1;
+  }
+
+  // Read the reversed string
+  message_len = read(fd, reversed_message, sizeof(reversed_message));
+  if (message_len < 0) {
+    perror("Failed to read from device");
+    close(fd);
+    return 1;
+  }
+
+  // Add null terminator to the reversed message
+  reversed_message[message_len] = '\0';
+
+  // Print the original and reversed strings
+  printf("Original string: %s\n", message);
+  printf("Reversed string: %s\n", reversed_message);
+
+  // Close the device file
+  close(fd);
+
+  return 0;
 }
