@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/reverse_string/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/reverse_string/Module.symvers -T /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/reverse_string/modules.order -i Module.symvers -e 
