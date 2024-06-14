@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/daily_work/june11/basicdriver/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Desktop/daily_work/june11/basicdriver/Module.symvers -T /home/rps/Desktop/daily_work/june11/basicdriver/modules.order -i Module.symvers -e 
