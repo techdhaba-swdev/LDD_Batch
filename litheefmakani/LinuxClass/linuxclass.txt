@@ -1,0 +1,9 @@
+#include<stdio.h>
+
+main()
+
+{
+
+  printf("Welcome to RPS cloud labs");
+  
+}
