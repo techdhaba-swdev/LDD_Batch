@@ -1,1 +1,0 @@
-savedcmd_/home/rps/8thmayLDD/arithmatic/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/8thmayLDD/arithmatic/Module.symvers -T /home/rps/8thmayLDD/arithmatic/modules.order -i Module.symvers -e 

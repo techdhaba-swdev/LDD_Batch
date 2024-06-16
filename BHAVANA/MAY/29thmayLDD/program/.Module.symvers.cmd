@@ -1,1 +1,0 @@
-savedcmd_/home/rps/Documents/BHAVANA_CODES/29thmayLDD/program/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Documents/BHAVANA_CODES/29thmayLDD/program/Module.symvers -T /home/rps/Documents/BHAVANA_CODES/29thmayLDD/program/modules.order -i Module.symvers -e 

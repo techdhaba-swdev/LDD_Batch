@@ -1,1 +1,0 @@
-savedcmd_/home/rps/13thmayLDD/pthread_double_integer/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/13thmayLDD/pthread_double_integer/Module.symvers -T /home/rps/13thmayLDD/pthread_double_integer/modules.order -i Module.symvers -e 

@@ -1,1 +1,0 @@
-savedcmd_/home/rps/Documents/BHAVANA_CODES/24thmayLDD/CHAR_DEVICE/devicechar.mod := printf '%s\n'   devicechar.o | awk '!x[$$0]++ { print("/home/rps/Documents/BHAVANA_CODES/24thmayLDD/CHAR_DEVICE/"$$0) }' > /home/rps/Documents/BHAVANA_CODES/24thmayLDD/CHAR_DEVICE/devicechar.mod

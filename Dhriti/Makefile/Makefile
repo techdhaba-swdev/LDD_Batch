@@ -1,4 +1,0 @@
-CC=gcc
-CFLAGS=-I
-hellomake: hellomake.o hellofunction.o
-	$(CC) -o hellomake hellomake.o hellofunction.o $(CFLAGS)

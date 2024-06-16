@@ -1,1 +1,0 @@
-savedcmd_/home/rps/7thmayLDD/lddprogram5/randomnumber.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/7thmayLDD/lddprogram5/randomnumber.ko /home/rps/7thmayLDD/lddprogram5/randomnumber.o /home/rps/7thmayLDD/lddprogram5/randomnumber.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/7thmayLDD/lddprogram5/randomnumber.ko

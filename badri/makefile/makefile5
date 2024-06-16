@@ -1,9 +1,0 @@
-CC =gcc
-CFLAGS=-I.
-DEPS = su.h
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-su : sub.o main.o
-	$(CC) -o su sub.o main.o $(CFLAGS)
-       	

@@ -1,1 +1,0 @@
-savedcmd_/home/rps/17thmayLDD/CALCULATOR_MODIFIED/calci.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/rps/17thmayLDD/CALCULATOR_MODIFIED/calci.ko /home/rps/17thmayLDD/CALCULATOR_MODIFIED/calci.o /home/rps/17thmayLDD/CALCULATOR_MODIFIED/calci.mod.o;  make -f ./arch/x86/Makefile.postlink /home/rps/17thmayLDD/CALCULATOR_MODIFIED/calci.ko

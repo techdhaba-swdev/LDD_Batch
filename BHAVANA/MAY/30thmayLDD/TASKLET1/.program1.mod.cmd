@@ -1,1 +1,0 @@
-savedcmd_/home/rps/Documents/BHAVANA_CODES/30thmayLDD/TASKLET1/program1.mod := printf '%s\n'   program1.o | awk '!x[$$0]++ { print("/home/rps/Documents/BHAVANA_CODES/30thmayLDD/TASKLET1/"$$0) }' > /home/rps/Documents/BHAVANA_CODES/30thmayLDD/TASKLET1/program1.mod

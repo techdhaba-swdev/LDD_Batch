@@ -1,1 +1,0 @@
-savedcmd_/home/rps/10thmayLDD/cal_mutex/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/10thmayLDD/cal_mutex/Module.symvers -T /home/rps/10thmayLDD/cal_mutex/modules.order -i Module.symvers -e 

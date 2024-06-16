@@ -1,1 +1,0 @@
-savedcmd_/home/rps/8thmayLDD/double/double_integer.mod := printf '%s\n'   double_integer.o | awk '!x[$$0]++ { print("/home/rps/8thmayLDD/double/"$$0) }' > /home/rps/8thmayLDD/double/double_integer.mod

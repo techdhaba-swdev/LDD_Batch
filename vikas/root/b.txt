@@ -1,2 +1,0 @@
-linux is a unix like os that is open source and free to use
-it was originally create by linus Torvalds in 1991

@@ -1,1 +1,0 @@
-savedcmd_/home/rps/20thmayLDD/POLLING/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/20thmayLDD/POLLING/Module.symvers -T /home/rps/20thmayLDD/POLLING/modules.order -i Module.symvers -e 

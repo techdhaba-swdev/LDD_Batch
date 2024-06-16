@@ -1,1 +1,0 @@
-savedcmd_/home/rps/22ndmayLDD/ADD_USING_STRUCT/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/22ndmayLDD/ADD_USING_STRUCT/Module.symvers -T /home/rps/22ndmayLDD/ADD_USING_STRUCT/modules.order -i Module.symvers -e 

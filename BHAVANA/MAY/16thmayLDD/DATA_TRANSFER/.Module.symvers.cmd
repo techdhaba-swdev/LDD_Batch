@@ -1,1 +1,0 @@
-savedcmd_/home/rps/16thmayLDD/DATA_TRANSFER/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/16thmayLDD/DATA_TRANSFER/Module.symvers -T /home/rps/16thmayLDD/DATA_TRANSFER/modules.order -i Module.symvers -e 

@@ -1,1 +1,0 @@
-savedcmd_/home/rps/Documents/BHAVANA_CODES/29thmayLDD/thread_even_odd/threads.mod := printf '%s\n'   threads.o | awk '!x[$$0]++ { print("/home/rps/Documents/BHAVANA_CODES/29thmayLDD/thread_even_odd/"$$0) }' > /home/rps/Documents/BHAVANA_CODES/29thmayLDD/thread_even_odd/threads.mod

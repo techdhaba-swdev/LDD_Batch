@@ -1,1 +1,0 @@
-savedcmd_/home/rps/10thmayLDD/IOCTL_REVERSE_STRING/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/10thmayLDD/IOCTL_REVERSE_STRING/Module.symvers -T /home/rps/10thmayLDD/IOCTL_REVERSE_STRING/modules.order -i Module.symvers -e 

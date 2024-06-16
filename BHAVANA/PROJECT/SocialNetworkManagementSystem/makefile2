@@ -1,2 +1,0 @@
-manage : main.c graph.c
-	gcc -o manage main.c graph.c -I.

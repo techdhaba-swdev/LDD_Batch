@@ -1,2 +1,0 @@
-graph : main.c graph.c 
-	gcc -o graph main.c graph.c -I.

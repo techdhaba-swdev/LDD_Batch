@@ -1,1 +1,0 @@
-savedcmd_/home/rps/8thmayLDD/lddprogram6/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/8thmayLDD/lddprogram6/Module.symvers -T /home/rps/8thmayLDD/lddprogram6/modules.order -i Module.symvers -e 

@@ -1,1 +1,0 @@
-savedcmd_/home/rps/21stmayLDD/MMAP_FIRSTONE/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/21stmayLDD/MMAP_FIRSTONE/Module.symvers -T /home/rps/21stmayLDD/MMAP_FIRSTONE/modules.order -i Module.symvers -e 

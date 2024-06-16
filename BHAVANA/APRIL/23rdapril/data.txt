@@ -1,3 +1,0 @@
-This is some sample text written to the file.
-
-This is additional text written to the file.

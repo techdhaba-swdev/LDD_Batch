@@ -1,1 +1,0 @@
-savedcmd_/home/rps/Documents/BHAVANA_CODES/4thjuneLDD/CHAR_DRIVER/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/rps/Documents/BHAVANA_CODES/4thjuneLDD/CHAR_DRIVER/Module.symvers -T /home/rps/Documents/BHAVANA_CODES/4thjuneLDD/CHAR_DRIVER/modules.order -i Module.symvers -e 
