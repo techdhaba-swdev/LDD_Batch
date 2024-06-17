@@ -1,0 +1,7 @@
+CC=gcc
+CFLAGS=-I.
+DEPS=add.h
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+run2: add.o 1.o
+	$(CC) -o run2 add.o 1.o 

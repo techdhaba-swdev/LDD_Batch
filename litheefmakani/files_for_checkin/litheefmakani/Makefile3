@@ -1,0 +1,9 @@
+CC = gcc
+CFLAGS =-I.
+DEPS= sub.h
+OBJ= sub.o subfun.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+sub: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
