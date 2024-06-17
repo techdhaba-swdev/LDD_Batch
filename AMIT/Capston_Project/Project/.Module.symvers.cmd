@@ -1,0 +1,1 @@
+savedcmd_/home/rps/Desktop/Demo/LDD_Batch/AMIT/Capston_Project/Project/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/rps/Desktop/Demo/LDD_Batch/AMIT/Capston_Project/Project/Module.symvers -T /home/rps/Desktop/Demo/LDD_Batch/AMIT/Capston_Project/Project/modules.order -i Module.symvers -e 

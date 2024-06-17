@@ -27,7 +27,7 @@ __section(".gnu.linkonce.this_module") = {
 	.arch = MODULE_ARCH_INIT,
 };
 
-#ifdef CONFIG_RETPOLINE
+#ifdef CONFIG_MITIGATION_RETPOLINE
 MODULE_INFO(retpoline, "Y");
 #endif
 
@@ -35,20 +35,20 @@ MODULE_INFO(retpoline, "Y");
 
 static const struct modversion_info ____versions[]
 __used __section("__versions") = {
+	{ 0xc1b6f100, "cdev_add" },
 	{ 0x6bc3fbc0, "__unregister_chrdev" },
-	{ 0xa916b694, "strnlen" },
-	{ 0xcbd4898c, "fortify_panic" },
+	{ 0xd9e09b98, "cdev_del" },
+	{ 0x6b10bee1, "_copy_to_user" },
+	{ 0x13c49cc2, "_copy_from_user" },
 	{ 0xbdfb6dbb, "__fentry__" },
 	{ 0x122c3a7e, "_printk" },
 	{ 0x5b8239ca, "__x86_return_thunk" },
-	{ 0x13c49cc2, "_copy_from_user" },
-	{ 0x88db9f48, "__check_object_size" },
-	{ 0x6b10bee1, "_copy_to_user" },
-	{ 0x6006375e, "__register_chrdev" },
-	{ 0x2fa5cadd, "module_layout" },
+	{ 0x293dfda7, "__register_chrdev" },
+	{ 0x10429b84, "cdev_init" },
+	{ 0xe68fa39a, "module_layout" },
 };
 
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "9B7C6FC6F7C12E09C45FBEF");
+MODULE_INFO(srcversion, "3632A5DAA8900F9D09FCAB7");
