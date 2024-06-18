@@ -1,0 +1,4 @@
+Lines executed:72.22% of 18
+Creating 'user.c.gcov'
+
+Lines executed:72.22% of 18
