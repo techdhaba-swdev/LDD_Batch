@@ -1,0 +1,1 @@
+savedcmd_/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/ioctl/ioctl_driver.mod := printf '%s\n'   ioctl_driver.o | awk '!x[$$0]++ { print("/home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/ioctl/"$$0) }' > /home/rps/LDD_Batch/Sarath/LinuxDeviceDrivers/practice/ioctl/ioctl_driver.mod

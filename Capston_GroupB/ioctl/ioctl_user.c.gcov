@@ -1,0 +1,50 @@
+        -:    0:Source:ioctl_user.c
+        -:    0:Graph:exe-ioctl_user.gcno
+        -:    0:Data:exe-ioctl_user.gcda
+        -:    0:Runs:2
+        -:    1://Header files for the api,structures...which we use
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:#include <fcntl.h>
+        -:    5:#include <unistd.h>
+        -:    6:#include <sys/ioctl.h>
+        -:    7:
+        -:    8:#define DEVICE_PATH "/dev/my_ioctl_device"
+        -:    9:#define IOCTL_MAGIC 'k' //Declared magic number(A Unique number that used to differentiate Between IOCTL calls)
+        -:   10://IOCTL Macros which takes magic number,command number,type of data
+        -:   11:#define IOCTL_SET_STRING _IOW(IOCTL_MAGIC, 2, char *) 
+        -:   12:#define IOCTL_GET_STRING _IOR(IOCTL_MAGIC, 3, char *)
+        -:   13:
+        2:   14:int main() {
+        -:   15:    int fd; //declared a file descriptor
+        -:   16:    char user_string[100]; // Buffer to send string to kernel space
+        -:   17:    char kernel_response[100]; // Buffer to store string from kernel space
+        -:   18:
+        -:   19:    // Open the device
+        2:   20:    fd = open(DEVICE_PATH, O_RDWR);
+        2:   21:    if (fd < 0) {
+    #####:   22:        perror("Failed to open the device");
+    #####:   23:        return EXIT_FAILURE;
+        -:   24:    }
+        -:   25:
+        -:   26:    // Set the string to the kernel
+        2:   27:    snprintf(user_string, sizeof(user_string), "Hello, Kernel!");
+        2:   28:    if (ioctl(fd, IOCTL_SET_STRING, user_string) < 0) {
+    #####:   29:        perror("Failed to send string to the kernel");
+    #####:   30:        close(fd);
+    #####:   31:        return EXIT_FAILURE;
+        -:   32:    }
+        -:   33:
+        -:   34:    // Get the string from the kernel
+        2:   35:    if (ioctl(fd, IOCTL_GET_STRING, kernel_response) < 0) {
+    #####:   36:        perror("Failed to get string from the kernel");
+    #####:   37:        close(fd);
+    #####:   38:        return EXIT_FAILURE;
+        -:   39:    }
+        -:   40:
+        2:   41:    printf("String received from the kernel: %s\n", kernel_response);
+        -:   42:
+        -:   43:    // Close the device
+        2:   44:    close(fd);
+        2:   45:    return EXIT_SUCCESS;
+        -:   46:}

@@ -1,0 +1,5 @@
+File 'ioctl_user.c'
+Lines executed:52.94% of 17
+Creating 'ioctl_user.c.gcov'
+
+Lines executed:52.94% of 17
