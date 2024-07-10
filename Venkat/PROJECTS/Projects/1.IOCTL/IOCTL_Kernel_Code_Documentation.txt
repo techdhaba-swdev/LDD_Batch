@@ -1,0 +1,89 @@
+ Documentation of Kernel Module Code 
+
+ 1. Header Files 
+
+●  <linux/init.h>: Provides macros and functions for kernel module initialization and cleanup. 
+●  <linux/module.h>: Provides annotations and functions for kernel modules. 
+●  <linux/fs.h>: Provides structures and functions related to the file system. 
+●  <linux/uaccess.h>: Provides functions for safe access to user-space memory from the kernel. 
+●  <linux/cdev.h>: Provides structures and functions for character device creation. 
+
+ 2. Macros 
+
+●  DEVICE_NAME: Defines the name of the character device ("my_ioctl_device"). 
+●  IOCTL_SET_STRING: Defines the IOCTL command for setting a string from user space 
+   (_IOW('k', 1, char *)). 
+●  IOCTL_GET_STRING: Defines the IOCTL command for getting a string from the kernel 
+   (_IOR('k', 2, char *)). 
+
+ 3. Global Variables 
+
+●  major_number: Stores the dynamically allocated major number for the character device. 
+●  my_cdev: Structure representing the character device. 
+●  kernel_string: Character array (buffer) to store the string received from user space (size 100 
+   bytes, initialized to zeros). 
+
+ 4. Function Prototypes 
+
+●  my_ioctl_set_string(char __user *user_string): Function to handle the IOCTL_SET_STRING 
+   command. 
+●  my_ioctl_get_string(char __user *user_string): Function to handle the IOCTL_GET_STRING 
+   command. 
+●  device_open(struct inode *inode, struct file *file): Function called when the device is opened. 
+●  device_release(struct inode *inode, struct file *file): Function called when the device is 
+   closed. 
+●  device_ioctl(struct file *file, unsigned int cmd, unsigned long arg): Function to handle IOCTL 
+   calls. 
+
+ 5. Structure: ioctl_ops 
+
+●  Defines an interface for IOCTL operations. 
+  ○   set_string: Pointer to a function that handles setting a string from user space. 
+  ○   get_string: Pointer to a function that handles getting a string from the kernel. 
+
+ 6. Concrete Implementation of ioctl_ops 
+
+●  my_ioctl_ops: An instance of the ioctl_ops structure. 
+  ○   set_string: Points to the my_ioctl_set_string function. 
+  ○   get_string: Points to the my_ioctl_get_string function. 
+ 7. Function Implementations 
+
+●  my_ioctl_set_string: 
+  ○   Copies the string from user space to the kernel buffer using copy_from_user with error 
+      checking. 
+  ○   Ensures null termination of the string in the kernel buffer. 
+  ○   Prints a kernel message with the received string. 
+  ○   Returns 0 on success, -EFAULT on error. 
+●  my_ioctl_get_string: 
+  ○   Copies the string from the kernel buffer to user space using copy_to_user with error 
+      checking. 
+  ○   Prints a kernel message with the sent string. 
+  ○   Returns 0 on success, -EFAULT on error. 
+
+ 8. File Operations Structure: fops 
+
+●  Defines operations associated with the character device. 
+  ○   .owner: Points to the current module (THIS_MODULE). 
+  ○   .open: Points to the device_open function (called when the device is opened). 
+  ○   .release: Points to the device_release function (called when the device is closed). 
+  ○   .unlocked_ioctl: Points to the device_ioctl function (handles IOCTL calls). 
+
+ 9. Function Implementations 
+
+●  device_open: 
+  ○   Sets the private data for the file to point to the my_ioctl_ops structure. 
+  ○   Prints a kernel message indicating the device is opened. 
+  ○   Returns 0. 
+●  device_release: 
+  ○   Clears the private data for the file. 
+  ○   Prints a kernel message indicating the device is closed. 
+  ○   Returns 0. 
+
+ 10. Function Implementation: device_ioctl 
+
+●  Retrieves the pointer to the ioctl_ops structure from the file's private data. 
+●  Performs error checking for the pointer. 
+●  Based on the IOCTL command (cmd): 
+  ○   IOCTL_SET_STRING: Calls the set_string function from the ioctl_ops structure and 
+      returns the result. 
+  ○   IOCTL_GET_STRING: Calls the `get 

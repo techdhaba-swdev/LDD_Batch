@@ -1,0 +1,52 @@
+ User-Space Application - SOLID Principles Documentation 
+
+ This document outlines the application of SOLID principles to the provided user-space code 
+ interacting with a character device driver. 
+
+ 1. Single Responsibility Principle (SRP) 
+
+●  Focus:  A function or module should have one and only  one reason to change. 
+
+ The current code interacts with the device driver for a single purpose: exchanging strings. 
+ However, error handling logic is currently intertwined with the core functionality. Consider 
+ separating these concerns: 
+
+●  Create dedicated functions for setting a string to the kernel (set_string_to_kernel) and getting 
+   a string from the kernel (get_string_from_kernel). 
+●  Implement a separate function (handle_io_error) to manage potential errors from system 
+   calls (open, ioctl, close). 
+
+ 2. Open/Closed Principle (OCP) 
+
+●  Focus:  Software entities should be open for extension  but closed for modification. 
+
+ The code is currently closed for extension. Adding new functionalities like manipulating data 
+ differently before sending it to the driver would require modifying the existing logic. Here are 
+ some approaches for improvement: 
+
+●  Use function pointers or strategies to define the behavior for sending/receiving data. This 
+   allows customization without altering the core interaction with the driver. 
+●  Consider defining a struct or class to encapsulate the data and functionalities related to string 
+   manipulation. 
+
+ 3. Liskov Substitution Principle (LSP) 
+
+●  Focus:  Subtypes should be substitutable for their  base types without altering program 
+   correctness. 
+
+ This principle is less applicable in this context. The code primarily deals with primitive data types 
+ and function calls. 
+
+ 4. Interface Segregation Principle (ISP) 
+
+●  Focus:  Clients shouldn't be forced to depend on methods  they don't use. 
+
+ Not directly applicable here. The code interacts with the device driver through standard system 
+ calls (open, ioctl, close). 
+
+ 5. Dependency Inversion Principle (DIP) 
+●  Focus:  High-level modules shouldn't depend on low-level modules. Both should depend on 
+   abstractions. 
+
+ The current code directly uses system calls. While these are standard interfaces, consider using 
+ a wrapper function or a small class to encapsulate this interaction: 
